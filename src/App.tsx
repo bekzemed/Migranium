@@ -1,9 +1,16 @@
 import "./App.css";
-import NavBar from "./components/NavBar";
+import { useState } from "react";
+import NavBar from "./pages/NavBar";
+import TopMenu from "./pages/TopMenu";
+
 function App() {
+  const [show, setShow] = useState(false);
+
   return (
-    <NavBar />
-    // <h1 className="text-3xl font-bold underline text-red-500">Hello world!</h1>
+    <>
+      <NavBar show={show} onDone={() => setShow(!show)} />
+      {!show && <TopMenu />}
+    </>
   );
 }
 

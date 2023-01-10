@@ -27,16 +27,6 @@ a {
   font-weight: 500;
   text-decoration: inherit;
 }
-/* a:hover {
-  color: #F1F5FB;
-} */
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-height: 100vh;
-}
 
 h1 {
   font-size: 3.2em;
