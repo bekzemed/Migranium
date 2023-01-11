@@ -2,7 +2,8 @@ import "./App.css";
 import { useState } from "react";
 import NavBar from "./pages/NavBar";
 import TopMenu from "./pages/TopMenu";
-import Process from "./pages/Process";
+import Processes from "./pages/processes";
+import Definitions from "./pages/Definitions";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -13,7 +14,8 @@ function App() {
       {!show && (
         <>
           <TopMenu />
-          <Process />
+          <Processes />
+          <Definitions />
         </>
       )}
     </>
