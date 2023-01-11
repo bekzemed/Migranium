@@ -1,4 +1,4 @@
-import TopMenuImage from "../assets/top-menu.png";
+import TopMenuImage from "../assets/top-menu.svg";
 
 const TopMenu = () => {
   return (
@@ -37,7 +37,11 @@ const TopMenu = () => {
           </div>
         </div>
       </div>
-      <img src={TopMenuImage} alt="Migranium Top Menu Image" />
+      <img
+        src={TopMenuImage}
+        alt="Migranium Top Menu Image"
+        className="lg:h-80 2xl:h-[500px] m-auto"
+      />
     </div>
   );
 };
