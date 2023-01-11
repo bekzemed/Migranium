@@ -24,7 +24,7 @@ const TopMenu = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-4 h-4 mr-2"
+              className="w-4 h-4 mr-2 fill-black"
             >
               <path
                 strokeLinecap="round"

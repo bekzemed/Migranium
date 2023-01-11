@@ -7,14 +7,17 @@ import SingleProcess from "../components/SingleProcess";
 const Process = () => {
   const items = [
     {
+      id: 0,
       text: "Create your business account and get unique URL & bar code",
       img: process1,
     },
     {
+      id: 1,
       text: "Share URL with your customers to join the queue from their mobile devices",
       img: process2,
     },
     {
+      id: 2,
       text: "Manage the waitlist virtually to provide the best customer experience",
       img: process3,
     },
@@ -36,30 +39,30 @@ const Process = () => {
         }}
       >
         {items.map((item, index) => (
-          <SingleProcess key={index} item={item} />
+          <SingleProcess key={index} item={item} index={index} />
         ))}
       </Carousel>
 
-      <div className="hidden md:flex">
+      <div className="hidden md:flex ">
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
-          <span className="opacity-80 pb-5">
+          <span className="flex-1 text-center">
             Create your business account and get unique URL & bar code
           </span>
-          <img src={process1} className="" alt="Process 3" />
+          <img src={process1} className="" alt="Process image 1" />
         </div>
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
-          <span className="opacity-80 pb-5">
+          <span className="flex-1 text-center">
             Share URL with your customers to join the queue from their mobile
             devices
           </span>
-          <img src={process2} className="" alt="Process 3" />
+          <img src={process2} className="" alt="Process image 2" />
         </div>
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
-          <span className="opacity-80 pb-5">
+          <span className="flex-1 text-center">
             Manage the waitlist virtually to provide the best customer
             experience
           </span>
-          <img src={process3} className="" alt="Process 3" />
+          <img src={process3} className="" alt="Process image 3" />
         </div>
       </div>
     </div>
