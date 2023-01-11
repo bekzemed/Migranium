@@ -26,7 +26,8 @@ const Process = () => {
     <div className="px-4 py-20 lg:px-20 xl:px-28 flex flex-col justify-center items-center">
       <span className="text-5xl font-bold pb-5">How it works</span>
       <Carousel
-        className="md:hidden"
+        className="md:hidden h-full"
+        height="100%"
         activeIndicatorIconButtonProps={{
           style: {
             color: "#0070BA",
@@ -45,20 +46,20 @@ const Process = () => {
 
       <div className="hidden md:flex ">
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
-          <span className="flex-1 text-center">
+          <span className="flex-1">
             Create your business account and get unique URL & bar code
           </span>
           <img src={process1} className="" alt="Process image 1" />
         </div>
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
-          <span className="flex-1 text-center">
+          <span className="flex-1">
             Share URL with your customers to join the queue from their mobile
             devices
           </span>
           <img src={process2} className="" alt="Process image 2" />
         </div>
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
-          <span className="flex-1 text-center">
+          <span className="flex-1">
             Manage the waitlist virtually to provide the best customer
             experience
           </span>

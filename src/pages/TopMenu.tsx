@@ -4,15 +4,15 @@ const TopMenu = () => {
   return (
     <div className="lg:flex bg-primary px-4 py-20 md:px-28">
       <div>
-        <span className="font-black text-5xl text-center pb-10 block md:text-left lg:leading-snug">
+        <span className="font-black text-5xl pb-10 block lg:leading-snug">
           Virtual queue management
         </span>
-        <span className="font-light opacity-60 leading-relaxed pb-10 block text-center md:text-left">
+        <span className="font-light opacity-60 leading-relaxed pb-10 block">
           Don't let long wait times make you lose customers! With Migranium you
           can effectively manage your queues virtually and keep your customers
           happy.
         </span>
-        <div className="flex items-center justify-around pb-10 md:justify-start">
+        <div className="flex items-center justify-between pb-10 md:justify-start">
           <button className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none md:mr-10">
             Try it free
           </button>

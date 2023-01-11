@@ -23,9 +23,9 @@
   width: 100%;
 }
 
-.css-1f8sh1y{
+/* .css-1f8sh1y{
   height: 428px !important;
-}
+} */
 
 .migranium-font {
   font-family: 'Montserrat Alternates', sans-serif;
@@ -62,17 +62,21 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media only screen and (max-width: 414px){
-  .process-image-0 {
-    padding-bottom: 24px;
-  }
+.css-1f8sh1y {
+  height: 310px !important;
+}
+.process-image-0 {
+  height: 180px;
 }
 
-@media only screen and (min-width: 414px){
-  .process-image-0 {
-    padding-bottom: 0;
-  }
+.process-image-1 {
+  height: 180px;
 }
+
+.process-image-2 {
+  height: 180px;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
