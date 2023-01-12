@@ -6,6 +6,7 @@ import Processes from "./pages/processes";
 import Definitions from "./pages/Definitions";
 import Operations from "./pages/Operations";
 import CreateWaitList from "./pages/CreateWaitList";
+import Clients from "./pages/Clients";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -20,6 +21,7 @@ function App() {
           <Definitions />
           <Operations />
           <CreateWaitList />
+          <Clients />
         </>
       )}
     </>

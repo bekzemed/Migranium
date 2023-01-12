@@ -23,9 +23,9 @@
   width: 100%;
 }
 
-/* .css-1f8sh1y{
-  height: 428px !important;
-} */
+.scrollbar::-webkit-scrollbar{
+  display: none;
+}
 
 .migranium-font {
   font-family: 'Montserrat Alternates', sans-serif;
