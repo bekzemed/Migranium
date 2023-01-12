@@ -7,6 +7,7 @@ import Definitions from "./pages/Definitions";
 import Operations from "./pages/Operations";
 import CreateWaitList from "./pages/CreateWaitList";
 import Clients from "./pages/Clients";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -22,6 +23,7 @@ function App() {
           <Operations />
           <CreateWaitList />
           <Clients />
+          <ContactUs />
         </>
       )}
     </>
