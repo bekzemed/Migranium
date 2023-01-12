@@ -4,6 +4,8 @@ import NavBar from "./pages/NavBar";
 import TopMenu from "./pages/TopMenu";
 import Processes from "./pages/processes";
 import Definitions from "./pages/Definitions";
+import Operations from "./pages/Operations";
+import CreateWaitList from "./pages/CreateWaitList";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -16,6 +18,8 @@ function App() {
           <TopMenu />
           <Processes />
           <Definitions />
+          <Operations />
+          <CreateWaitList />
         </>
       )}
     </>

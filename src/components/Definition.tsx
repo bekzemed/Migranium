@@ -12,7 +12,7 @@ const Definition = ({ image, text1, text2, reverse, enlarge }: any) => {
         } `}
         alt="Definition"
       />
-      <div className="flex flex-col lg:justify-center md:w-[400px] xl:w-[500px] ">
+      <div className="flex flex-col lg:justify-center md:w-[400px] xl:w-[500px]">
         <span className="text-xl mb-6 md:text-2xl">{text1}</span>
         <span className="opacity-75 text-sm">{text2}</span>
       </div>
