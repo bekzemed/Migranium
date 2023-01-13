@@ -34,7 +34,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li>
                 <a
                   href="#"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                   aria-current="page"
                 >
                   How it works
@@ -43,7 +43,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li>
                 <a
                   href="#"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black  dark:text-white"
                 >
                   Features
                 </a>
@@ -51,7 +51,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li>
                 <a
                   href="#"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black "
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                 >
                   Clients
                 </a>
@@ -59,7 +59,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li>
                 <a
                   href="#"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black "
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                 >
                   Contact Us
                 </a>
@@ -67,7 +67,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li>
                 <a
                   href="#"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black "
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                 >
                   Statistics
                 </a>
@@ -76,20 +76,20 @@ const NavBar = ({ show, onDone }: any) => {
           </div>
           <ul className="flex flex-col items-center justify-center ">
             <li className="w-full">
-              <button className="bg-secondary text-white font-bold py-2 px-8 rounded-full w-full focus-visible:outline-none focus:outline-none">
+              <button className="bg-secondary text-white font-bold py-2 px-8 mb-5 lg:mb-0 rounded-full w-full focus-visible:outline-none focus:outline-none">
                 Sign up
               </button>
             </li>
             <li>
-              <button className="bg-white text-gray-700  py-2 px-4 border-none focus-visible:outline-none focus:outline-none">
+              <a className="text-gray-700  py-2 px-4 dark:text-white" href="#">
                 Log in
-              </button>
+              </a>
             </li>
           </ul>
         </div>
       ) : (
         <>
-          <nav className="bg-primary lg:bg-white border-gray-200 px-4 py-2.5 rounded dark:bg-gray-900">
+          <nav className="bg-primary lg:bg-white px-4 py-2.5">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
               <a
                 href="/"
@@ -101,7 +101,7 @@ const NavBar = ({ show, onDone }: any) => {
                   className="h-6 mr-1 sm:h-9"
                   alt="Migranium Logo"
                 />
-                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white migranium-font">
+                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">
                   migranium
                 </span>
               </a>
@@ -132,7 +132,7 @@ const NavBar = ({ show, onDone }: any) => {
                 className="hidden w-full lg:flex md:items-center md:w-auto"
                 id="navbar-default"
               >
-                <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+                <ul className="flex flex-col p-4 mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
                   <li>
                     <a
                       href="#"
@@ -178,11 +178,11 @@ const NavBar = ({ show, onDone }: any) => {
               </div>
 
               <div className="hidden w-full lg:flex md:items-center md:w-auto">
-                <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+                <ul className="flex flex-col p-4 mt-4 items-center bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
                   <li>
-                    <button className="bg-white text-gray-700  py-2 px-4 border-none focus-visible:outline-none focus:outline-none">
+                    <a className="text-gray-700  py-2 px-4" href="#">
                       Log in
-                    </button>
+                    </a>
                   </li>
                   <li>
                     <button className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none">

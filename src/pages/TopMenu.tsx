@@ -4,10 +4,10 @@ const TopMenu = () => {
   return (
     <div className="lg:flex bg-primary px-4 py-20 md:px-28">
       <div>
-        <span className="font-black text-5xl pb-10 block lg:leading-snug">
+        <span className="font-black text-5xl pb-10 block lg:leading-snug dark:text-black">
           Virtual queue management
         </span>
-        <span className="font-light opacity-60 leading-relaxed pb-10 block">
+        <span className="font-light opacity-60 leading-relaxed pb-10 block dark:text-black">
           Don't let long wait times make you lose customers! With Migranium you
           can effectively manage your queues virtually and keep your customers
           happy.
@@ -33,7 +33,7 @@ const TopMenu = () => {
               />
             </svg>
 
-            <span className="font-bold">See how it works</span>
+            <span className="font-bold dark:text-black">See how it works</span>
           </div>
         </div>
       </div>

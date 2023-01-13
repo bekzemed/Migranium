@@ -37,9 +37,8 @@ const Definitions = () => {
       <Definition
         image={definition4}
         text1="Display your waitlist anywhere"
-        text2="    With Migranium you can display the wait-list on the big screen or
-        embed it directly into your website for customers to see.Facebook
-        page for customers to see."
+        text2="With Migranium you can display the wait-list on the big screen or
+        embed it directly into your website for customers to see."
         reverse={true}
       />
     </div>
