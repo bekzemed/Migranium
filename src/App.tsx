@@ -8,6 +8,7 @@ import Operations from "./pages/Operations";
 import CreateWaitList from "./pages/CreateWaitList";
 import Clients from "./pages/Clients";
 import ContactUs from "./pages/ContactUs";
+import Footer from "./pages/Footer";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -24,6 +25,7 @@ function App() {
           <CreateWaitList />
           <Clients />
           <ContactUs />
+          <Footer />
         </>
       )}
     </>

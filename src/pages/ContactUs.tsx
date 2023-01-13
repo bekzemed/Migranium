@@ -73,7 +73,7 @@ const ContactUs = () => {
         </div>
       </form>
 
-      <div className="text-center">
+      <div className="text-center 2xl:pb-20">
         <button className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none w-[250px]">
           Send
         </button>
