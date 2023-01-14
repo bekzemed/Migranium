@@ -51,6 +51,14 @@ const NavBar = ({ show, onDone }: any) => {
               </li>
               <li onClick={() => onDone()}>
                 <a
+                  href="#Pricing"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-primary  dark:text-white"
+                >
+                  Pricing
+                </a>
+              </li>
+              <li onClick={() => onDone()}>
+                <a
                   href="#Clients"
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                 >
@@ -77,20 +85,18 @@ const NavBar = ({ show, onDone }: any) => {
           </div>
           <ul className="flex flex-col items-center justify-center ">
             <li className="w-full">
-              <button className="bg-secondary text-white font-bold py-2 px-8 mb-5 lg:mb-0 rounded-full w-full focus-visible:outline-none focus:outline-none">
+              <button
+                type="button"
+                className="bg-secondary text-white font-bold py-2 px-8 mb-5 lg:mb-0 rounded-full w-full focus-visible:outline-none focus:outline-none"
+              >
                 Sign up
               </button>
-            </li>
-            <li>
-              <a className="text-gray-700  py-2 px-4 dark:text-white" href="#">
-                Log in
-              </a>
             </li>
           </ul>
         </div>
       ) : (
         <>
-          <nav className="bg-primary lg:bg-white px-4 py-2.5">
+          <nav className="bg-primary lg:bg-white px-2 py-2.5">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
               <Link to="/">
                 <span className="flex items-center text-bright">
@@ -104,29 +110,44 @@ const NavBar = ({ show, onDone }: any) => {
                   </span>
                 </span>
               </Link>
-              <button
-                data-collapse-toggle="navbar-default"
-                type="button"
-                className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-default"
-                aria-expanded="false"
-                onClick={() => onDone()}
-              >
-                <span className="sr-only">Open main menu</span>
-                <svg
-                  className="w-8 h-6"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+
+              <div className="flex items-center md:w-[300px] md:justify-between lg:hidden">
+                <a
+                  className="text-gray-700 dark:text-white text-[12px]"
+                  href="#"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </button>
+                  Log in
+                </a>
+                <button
+                  type="button"
+                  className="bg-secondary text-white font-bold rounded-full w-fit text-[10px] focus-visible:outline-none focus:outline-none ml-2"
+                >
+                  Try for free
+                </button>
+                <button
+                  data-collapse-toggle="navbar-default"
+                  type="button"
+                  className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                  aria-controls="navbar-default"
+                  aria-expanded="false"
+                  onClick={() => onDone()}
+                >
+                  <span className="sr-only">Open main menu</span>
+                  <svg
+                    className="w-8 h-6"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
               <div
                 className="hidden w-full lg:flex md:items-center md:w-auto"
                 id="navbar-default"
@@ -184,7 +205,10 @@ const NavBar = ({ show, onDone }: any) => {
                     </a>
                   </li>
                   <li>
-                    <button className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none">
+                    <button
+                      type="button"
+                      className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none"
+                    >
                       Sign up
                     </button>
                   </li>

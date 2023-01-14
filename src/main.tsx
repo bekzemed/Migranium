@@ -6,6 +6,8 @@ import "./index.css";
 import Error from "./pages/Error";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
+import { Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +16,12 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/privacy-policy",
+    path: "privacy-policy",
     element: <PrivacyPolicy />,
     errorElement: <Error />,
   },
   {
-    path: "/terms",
+    path: "terms",
     element: <Terms />,
     errorElement: <Error />,
   },
@@ -27,6 +29,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

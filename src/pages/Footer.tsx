@@ -3,7 +3,7 @@ import facebook from "../assets/facebook.svg";
 import twitter from "../assets/twitter.svg";
 import youtube from "../assets/youtube.svg";
 import instagram from "../assets/instagram.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const date = new Date();
@@ -50,10 +50,10 @@ const Footer = () => {
 
         <div className="text-xs opacity-80 flex justify-between pb-3">
           <div>
-            <Link to="terms">
+            <Link to="/terms">
               <span className="mr-2">Terms</span>
             </Link>
-            <Link to="privacy-policy">
+            <Link to="/privacy-policy">
               <span className="cursor-pointer">Privacy Policy</span>
             </Link>
           </div>

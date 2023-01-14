@@ -1,34 +1,16 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { useState } from "react";
-import NavBar from "./pages/NavBar";
-import TopMenu from "./pages/TopMenu";
-import Processes from "./pages/processes";
-import Definitions from "./pages/Definitions";
-import Operations from "./pages/Operations";
-import CreateWaitList from "./pages/CreateWaitList";
-import Clients from "./pages/Clients";
-import ContactUs from "./pages/ContactUs";
-import Footer from "./pages/Footer";
+import Home from "./pages/Home";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
 function App() {
-  const [show, setShow] = useState(false);
-
   return (
-    <>
-      <NavBar show={show} onDone={() => setShow(!show)} />
-      {!show && (
-        <>
-          <TopMenu />
-          <Processes />
-          <Definitions />
-          <Operations />
-          <CreateWaitList />
-          <Clients />
-          <ContactUs />
-          <Footer />
-        </>
-      )}
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms" element={<Terms />} />
+    </Routes>
   );
 }
 
