@@ -12,8 +12,7 @@ const Footer = () => {
         <div>
           <a
             href="/"
-            className="flex items-center justify-center py-10 border-y"
-            style={{ color: "#005893" }}
+            className="flex items-center justify-center py-10 border-y text-bright"
           >
             <img src={logo} className="h-6 mr-1 sm:h-9" alt="Migranium Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">

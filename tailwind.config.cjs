@@ -13,6 +13,7 @@ module.exports = {
       },
       colors: {
         primary: "#0070BA",
+        bright: "#005893",
       },
       borderColor: {
         primary: "#F1F5FB",
