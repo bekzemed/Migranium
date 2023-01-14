@@ -19,6 +19,11 @@
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 .css-ohwg9z {
   width: 100%;
 }

@@ -34,7 +34,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li onClick={() => onDone()}>
                 <a
                   href="#HowItWorks"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                   aria-current="page"
                 >
                   How it works
@@ -43,7 +43,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li onClick={() => onDone()}>
                 <a
                   href="#Features"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black  dark:text-white"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-primary  dark:text-white"
                 >
                   Features
                 </a>
@@ -51,7 +51,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li onClick={() => onDone()}>
                 <a
                   href="#Clients"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                 >
                   Clients
                 </a>
@@ -59,7 +59,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li onClick={() => onDone()}>
                 <a
                   href="#ContactUs"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                 >
                   Contact Us
                 </a>
@@ -67,7 +67,7 @@ const NavBar = ({ show, onDone }: any) => {
               <li onClick={() => onDone()}>
                 <a
                   href="#Statistics"
-                  className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
+                  className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                 >
                   Statistics
                 </a>

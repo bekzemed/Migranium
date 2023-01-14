@@ -50,7 +50,9 @@ const Footer = () => {
         <div className="text-xs opacity-80 flex justify-between pb-3">
           <div>
             <span className="mr-2">Terms</span>
-            <span>Privacy Policy</span>
+            <a href="/privacy-policy" className="cursor-pointer">
+              Privacy Policy
+            </a>
           </div>
           <div>
             <span className="mr-2">&copy;{date.getFullYear()}</span>
@@ -113,7 +115,10 @@ const Footer = () => {
             <a href="" className="cursor-pointer mr-2 hover:text-primary">
               Terms
             </a>
-            <a href="" className="cursor-pointer hover:text-primary">
+            <a
+              href="/privacy-policy"
+              className="cursor-pointer hover:text-primary"
+            >
               Privacy Policy
             </a>
           </div>
