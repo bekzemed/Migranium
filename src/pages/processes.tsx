@@ -8,7 +8,7 @@ const Processes = () => {
   const items = [
     {
       id: 0,
-      text: "Create your business account and get unique URL & bar code",
+      text: "Create your business account and get unique URL & QR code",
       img: process1,
     },
     {
@@ -23,7 +23,10 @@ const Processes = () => {
     },
   ];
   return (
-    <div className="px-4 py-14 lg:px-20 xl:px-28 flex flex-col justify-center items-center">
+    <div
+      id="HowItWorks"
+      className="px-4 py-14 lg:px-20 xl:px-28 flex flex-col justify-center items-center"
+    >
       <span className="text-3xl font-bold pb-5 md:text-5xl">How it works</span>
       <Carousel
         className="md:hidden h-full"
@@ -47,7 +50,7 @@ const Processes = () => {
       <div className="hidden md:flex">
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
           <span className="flex-1 md:pb-5 dark:text-black">
-            Create your business account and get unique URL & bar code
+            Create your business account and get unique URL & QR code
           </span>
           <img src={process1} alt="Process image 1" />
         </div>

@@ -1,9 +1,16 @@
-const Definition = ({ image, text1, text2, reverse, enlarge }: any) => {
+const Definition = ({
+  image,
+  text1,
+  text2,
+  reverse,
+  enlarge,
+  noPadding,
+}: any) => {
   return (
     <div
-      className={`flex justify-center items-center flex-col lg:flex-row pb-5 lg:pb-0 ${
-        reverse && "lg:flex-row-reverse"
-      }`}
+      className={`flex justify-center items-center flex-col lg:flex-row ${
+        noPadding ? "pb-0" : "pb-5"
+      } lg:pb-0 ${reverse && "lg:flex-row-reverse"}`}
     >
       <img
         src={image}

@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <div className="w-full  py-14 px-4 lg:px-20">
+    <div id="ContactUs" className="w-full  py-14 px-4 lg:px-20">
       <span className="block text-3xl font-bold pb-8 text-center lg:text-4xl">
         Get in touch with us
       </span>

@@ -6,7 +6,7 @@ import Definition from "../components/Definition";
 
 const Definitions = () => {
   return (
-    <div className="px-4 py-14 lg:px-20 2xl:px-80">
+    <div id="Features" className="px-4 py-14 lg:px-20 2xl:px-80">
       <span className="text-3xl font-bold pb-5 flex justify-center md:text-5xl">
         What is migranium?
       </span>
@@ -32,6 +32,7 @@ const Definitions = () => {
         text2="Leverage insights from your operations trends and customer daily
         interactions to make informed decisions that would impact your
         business."
+        noPadding={true}
       />
 
       <Definition

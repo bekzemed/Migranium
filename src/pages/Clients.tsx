@@ -25,7 +25,10 @@ const Clients = () => {
     },
   ];
   return (
-    <div className="py-14 px-4 text-center lg:px-20 2xl:px-80 bg-primary">
+    <div
+      id="Clients"
+      className="py-14 px-4 text-center lg:px-20 2xl:px-80 bg-primary"
+    >
       <div className="lg:w-[800px] m-auto">
         <span className="block pb-10 lg:pb-20 text-lg md:text-2xl lg:text-3xl dark:text-black">
           Our Clients have saved 1 million customers more than 300 years of

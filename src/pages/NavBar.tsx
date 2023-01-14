@@ -31,42 +31,42 @@ const NavBar = ({ show, onDone }: any) => {
           </button>
           <div className="mb-auto h-full flex flex-col items-center justify-center ">
             <ul className="flex flex-col items-center">
-              <li>
+              <li onClick={() => onDone()}>
                 <a
-                  href="#"
+                  href="#HowItWorks"
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                   aria-current="page"
                 >
                   How it works
                 </a>
               </li>
-              <li>
+              <li onClick={() => onDone()}>
                 <a
-                  href="#"
+                  href="#Features"
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-black  dark:text-white"
                 >
                   Features
                 </a>
               </li>
-              <li>
+              <li onClick={() => onDone()}>
                 <a
-                  href="#"
+                  href="#Clients"
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                 >
                   Clients
                 </a>
               </li>
-              <li>
+              <li onClick={() => onDone()}>
                 <a
-                  href="#"
+                  href="#ContactUs"
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                 >
                   Contact Us
                 </a>
               </li>
-              <li>
+              <li onClick={() => onDone()}>
                 <a
-                  href="#"
+                  href="#Statistics"
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-black dark:text-white"
                 >
                   Statistics
@@ -135,8 +135,8 @@ const NavBar = ({ show, onDone }: any) => {
                 <ul className="flex flex-col p-4 mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
                   <li>
                     <a
-                      href="#"
-                      className="block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent md:p-0 dark:text-white"
+                      href="#HowItWorks"
+                      className="block py-2 pl-3 pr-4 text-gray-700 hover:text-primary rounded md:bg-transparent md:p-0 dark:text-white"
                       aria-current="page"
                     >
                       How it works
@@ -144,32 +144,32 @@ const NavBar = ({ show, onDone }: any) => {
                   </li>
                   <li>
                     <a
-                      href="#"
-                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0"
+                      href="#Features"
+                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Features
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
-                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0"
+                      href="#Clients"
+                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Clients
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
-                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0"
+                      href="#ContactUs"
+                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Contact Us
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
-                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0"
+                      href="#Statistics"
+                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Statistics
                     </a>
