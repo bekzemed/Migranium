@@ -120,7 +120,7 @@ const Footer = () => {
                 Terms
               </span>
             </Link>
-            <Link to="/privacy-policy" replace={true}>
+            <Link to="/privacy-policy">
               <span className="cursor-pointer hover:text-primary">
                 Privacy Policy
               </span>
