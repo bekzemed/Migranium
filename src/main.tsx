@@ -5,6 +5,7 @@ import App from "./App";
 import "./index.css";
 import Error from "./pages/Error";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,11 @@ const router = createBrowserRouter([
   {
     path: "/privacy-policy",
     element: <PrivacyPolicy />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/terms",
+    element: <Terms />,
     errorElement: <Error />,
   },
 ]);

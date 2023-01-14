@@ -50,7 +50,9 @@ const Footer = () => {
 
         <div className="text-xs opacity-80 flex justify-between pb-3">
           <div>
-            <span className="mr-2">Terms</span>
+            <Link to="terms">
+              <span className="mr-2">Terms</span>
+            </Link>
             <Link to="privacy-policy">
               <span className="cursor-pointer">Privacy Policy</span>
             </Link>
@@ -113,10 +115,12 @@ const Footer = () => {
         </div>
         <div className="text-xs opacity-80 flex justify-evenly py-10">
           <div>
-            <a href="" className="cursor-pointer mr-2 hover:text-primary">
-              Terms
-            </a>
-            <Link to="privacy-policy">
+            <Link to="/terms">
+              <span className="cursor-pointer mr-2 hover:text-primary">
+                Terms
+              </span>
+            </Link>
+            <Link to="/privacy-policy" replace={true}>
               <span className="cursor-pointer hover:text-primary">
                 Privacy Policy
               </span>

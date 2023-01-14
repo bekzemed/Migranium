@@ -38,10 +38,9 @@ const PrivacyPolicy = () => {
             </span>
 
             <div className="mb-16">
-              <span className="flex items-center mb-2">
-                <span className="text-6xl mr-1">&#183;</span>
-                <span>Information you provide to us:</span>
-              </span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>Information you provide to us:</li>
+              </ul>
 
               <span className="mb-16 block">
                 We may collect information about you when you create an account,
@@ -50,10 +49,9 @@ const PrivacyPolicy = () => {
                 personal or contact information.
               </span>
 
-              <span className="flex items-center mb-2">
-                <span className="text-6xl mr-1">&#183;</span>
-                <span>Information we collect automatically:</span>
-              </span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>Information we collect automatically:</li>
+              </ul>
 
               <span className="mb-16 block">
                 When you use Migranium, we may collect certain information
@@ -62,10 +60,9 @@ const PrivacyPolicy = () => {
                 about your device, such as the device's model and manufacturer.
               </span>
 
-              <span className="flex items-center mb-2">
-                <span className="text-6xl mr-1">&#183;</span>
-                <span> Information from third parties:</span>
-              </span>
+              <ul className="flex items-center mb-2">
+                <li>Information from third parties:</li>
+              </ul>
 
               <span>
                 We may receive information about you from third parties, such as
@@ -84,38 +81,33 @@ const PrivacyPolicy = () => {
               This may include:
             </span>
             <div className="mb-16">
-              <span className="flex items-center mb-2">
-                <span className="text-4xl 2xl:text-6xl mr-1">&#183;</span>
-                <span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>
                   Providing customer support and responding to your requests and
                   inquiries.
-                </span>
-              </span>
+                </li>
+              </ul>
 
-              <span className="flex items-center mb-2">
-                <span className="text-4xl 2xl:text-6xl mr-1">&#183;</span>
-                <span>
-                  {" "}
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>
                   Analyzing usage and trends to improve Migranium and
                   personalize your experience.
-                </span>
-              </span>
+                </li>
+              </ul>
 
-              <span className="flex items-center mb-2">
-                <span className="text-4xl 2xl:text-6xl mr-1">&#183;</span>
-                <span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>
                   Communicating with you about Migranium, including updates and
                   promotions.
-                </span>
-              </span>
+                </li>
+              </ul>
 
-              <span className="flex items-center mb-2">
-                <span className="text-4xl 2xl:text-6xl mr-1">&#183;</span>
-                <span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>
                   Enforcing our terms of service and preventing misuse of
                   Migranium.
-                </span>
-              </span>
+                </li>
+              </ul>
             </div>
 
             {/* Sharing */}
@@ -128,10 +120,9 @@ const PrivacyPolicy = () => {
             </span>
 
             <div className="mb-16">
-              <span className="flex items-center mb-2">
-                <span className="text-6xl mr-1">&#183;</span>
-                <span>With service providers:</span>
-              </span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>With service providers:</li>
+              </ul>
 
               <span className="mb-16 block">
                 We may share your information with third-party service providers
@@ -139,29 +130,25 @@ const PrivacyPolicy = () => {
                 analysis, payment processing, and customer support.
               </span>
 
-              <span className="flex items-center mb-2">
-                <span className="text-6xl mr-1">&#183;</span>
-                <span>In response to legal requests:</span>
-              </span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>In response to legal requests:</li>
+              </ul>
 
               <span className="mb-16 block">
                 We may disclose your information in response to a subpoena,
                 court order, or other legal request.
               </span>
 
-              <span className="flex items-center mb-2">
-                <span className="text-6xl mr-1">&#183;</span>
-                <span>
-                  {" "}
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>
                   To protect the rights, property, or safety of Migranium, our
                   users, or the public.
-                </span>
-              </span>
+                </li>
+              </ul>
 
-              <span className="flex items-center mb-2">
-                <span className="text-6xl mr-1">&#183;</span>
-                <span> With your consent:</span>
-              </span>
+              <ul className="flex items-center mb-2 list-disc list-inside">
+                <li>With your consent:</li>
+              </ul>
 
               <span className="block mb-10">
                 We may share your information with third parties when you have
@@ -174,10 +161,9 @@ const PrivacyPolicy = () => {
               </span>
 
               <div className="mb-16">
-                <span className="flex items-center mb-2">
-                  <span className="text-6xl mr-1">&#183;</span>
-                  <span>Opting Out of Communications:</span>
-                </span>
+                <ul className="flex items-center mb-2 list-disc list-inside">
+                  <li>Opting Out of Communications:</li>
+                </ul>
 
                 <span className="mb-16 block">
                   Users can opt out of receiving marketing communications from
@@ -185,20 +171,18 @@ const PrivacyPolicy = () => {
                   communications or by contacting us directly.
                 </span>
 
-                <span className="flex items-center mb-2">
-                  <span className="text-6xl mr-1">&#183;</span>
-                  <span>Accessing and Updating Personal Information:</span>
-                </span>
+                <ul className="flex items-center mb-2 list-disc list-inside">
+                  <li>Accessing and Updating Personal Information:</li>
+                </ul>
 
                 <span className="mb-16 block">
                   Users can access and update their personal information by
                   logging into their account and updating their profile.
                 </span>
 
-                <span className="flex items-center mb-2">
-                  <span className="text-6xl mr-1">&#183;</span>
-                  <span> Deactivating or Deleting an Account:</span>
-                </span>
+                <ul className="flex items-center mb-2 list-disc list-inside">
+                  <li>Deactivating or Deleting an Account:</li>
+                </ul>
 
                 <span>
                   Users can deactivate their account by contacting us directly.
