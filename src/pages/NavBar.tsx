@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const NavBar = ({ show, onDone }: any) => {
@@ -91,16 +92,18 @@ const NavBar = ({ show, onDone }: any) => {
         <>
           <nav className="bg-primary lg:bg-white px-4 py-2.5">
             <div className="container flex flex-wrap items-center justify-between mx-auto">
-              <a href="/" className="flex items-center text-bright">
-                <img
-                  src={logo}
-                  className="h-6 mr-1 sm:h-9"
-                  alt="Migranium Logo"
-                />
-                <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">
-                  migranium
+              <Link to="/">
+                <span className="flex items-center text-bright">
+                  <img
+                    src={logo}
+                    className="h-6 mr-1 sm:h-9"
+                    alt="Migranium Logo"
+                  />
+                  <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">
+                    migranium
+                  </span>
                 </span>
-              </a>
+              </Link>
               <button
                 data-collapse-toggle="navbar-default"
                 type="button"

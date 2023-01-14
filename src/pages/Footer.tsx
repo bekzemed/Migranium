@@ -3,6 +3,7 @@ import facebook from "../assets/facebook.svg";
 import twitter from "../assets/twitter.svg";
 import youtube from "../assets/youtube.svg";
 import instagram from "../assets/instagram.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const date = new Date();
@@ -50,9 +51,9 @@ const Footer = () => {
         <div className="text-xs opacity-80 flex justify-between pb-3">
           <div>
             <span className="mr-2">Terms</span>
-            <a href="/privacy-policy" className="cursor-pointer">
-              Privacy Policy
-            </a>
+            <Link to="privacy-policy">
+              <span className="cursor-pointer">Privacy Policy</span>
+            </Link>
           </div>
           <div>
             <span className="mr-2">&copy;{date.getFullYear()}</span>
@@ -115,12 +116,11 @@ const Footer = () => {
             <a href="" className="cursor-pointer mr-2 hover:text-primary">
               Terms
             </a>
-            <a
-              href="/privacy-policy"
-              className="cursor-pointer hover:text-primary"
-            >
-              Privacy Policy
-            </a>
+            <Link to="privacy-policy">
+              <span className="cursor-pointer hover:text-primary">
+                Privacy Policy
+              </span>
+            </Link>
           </div>
           <div>
             <span className="mr-2">&copy;{date.getFullYear()}</span>
