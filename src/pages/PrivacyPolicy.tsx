@@ -22,14 +22,14 @@ const PrivacyPolicy = () => {
               products, including Migranium.
             </span>
 
-            <span className="mb-10 opacity-80">
+            <span className="opacity-80">
               By using Migranium, you agree to the collection, use, and sharing
               of your information as described in this Privacy Policy. If you do
               not agree with our policies and practices, do not use Migranium.
             </span>
           </div>
           {/* Information */}
-          <div className="flex flex-col px-4 py-14 md:px-28 lg:px-0 lg:w-[670px] m-auto">
+          <div className="flex flex-col px-4 pb-14 md:px-28 lg:px-0 lg:w-[670px] m-auto">
             <span className="text-2xl font-bold mb-10">
               Information We Collect
             </span>
@@ -37,12 +37,12 @@ const PrivacyPolicy = () => {
               We collect information about you in the following ways:
             </span>
 
-            <div className="mb-16">
+            <div className="mb-10">
               <ul className="flex items-center mb-2 list-disc list-inside">
                 <li>Information you provide to us:</li>
               </ul>
 
-              <span className="mb-16 block">
+              <span className="mb-10 block">
                 We may collect information about you when you create an account,
                 update your profile, or use the features of Migranium. This may
                 include your name, email address, phone number, and other
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
                 <li>Information we collect automatically:</li>
               </ul>
 
-              <span className="mb-16 block">
+              <span className="mb-10 block">
                 When you use Migranium, we may collect certain information
                 automatically, such as your IP address, browser type, operating
                 system, and the pages you visit. We may also collect information
@@ -80,7 +80,7 @@ const PrivacyPolicy = () => {
               and improve Migranium, and to develop new products and services.
               This may include:
             </span>
-            <div className="mb-16">
+            <div className="mb-10">
               <ul className="flex items-center mb-2 list-disc list-inside">
                 <li>
                   Providing customer support and responding to your requests and
@@ -119,12 +119,12 @@ const PrivacyPolicy = () => {
               situations:
             </span>
 
-            <div className="mb-16">
+            <div className="mb-10">
               <ul className="flex items-center mb-2 list-disc list-inside">
                 <li>With service providers:</li>
               </ul>
 
-              <span className="mb-16 block">
+              <span className="mb-10 block">
                 We may share your information with third-party service providers
                 who perform services on our behalf, such as hosting, data
                 analysis, payment processing, and customer support.
@@ -134,7 +134,7 @@ const PrivacyPolicy = () => {
                 <li>In response to legal requests:</li>
               </ul>
 
-              <span className="mb-16 block">
+              <span className="mb-10 block">
                 We may disclose your information in response to a subpoena,
                 court order, or other legal request.
               </span>
@@ -155,17 +155,17 @@ const PrivacyPolicy = () => {
                 given us your consent to do so.
               </span>
 
-              <span className="mb-10 text-lg font-bold">
+              <span className="block mb-10 text-lg font-bold">
                 Users have the following options with respect to their
                 information:
               </span>
 
-              <div className="mb-16">
+              <div className="mb-10">
                 <ul className="flex items-center mb-2 list-disc list-inside">
                   <li>Opting Out of Communications:</li>
                 </ul>
 
-                <span className="mb-16 block">
+                <span className="mb-10 block">
                   Users can opt out of receiving marketing communications from
                   us by following the unsubscribe instructions included in such
                   communications or by contacting us directly.
@@ -175,7 +175,7 @@ const PrivacyPolicy = () => {
                   <li>Accessing and Updating Personal Information:</li>
                 </ul>
 
-                <span className="mb-16 block">
+                <span className="mb-10 block">
                   Users can access and update their personal information by
                   logging into their account and updating their profile.
                 </span>
