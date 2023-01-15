@@ -103,7 +103,7 @@ const NavBar = ({ show, onDone }: any) => {
           <nav
             className={`fixed ${
               scrollDirection === "down" ? "-top-24" : "top-0"
-            }  bg-primary lg:bg-white px-2 py-2.5 transition-all duration-500 w-full z-10`}
+            }  bg-primary lg:bg-white px-2 py-2.5 lg:py-4 transition-all duration-500 w-full z-10`}
           >
             <div className="container flex flex-wrap items-center justify-between mx-auto">
               <Link to="/">
@@ -160,7 +160,7 @@ const NavBar = ({ show, onDone }: any) => {
                 className="hidden w-full lg:flex md:items-center md:w-auto"
                 id="navbar-default"
               >
-                <ul className="flex flex-col p-4 mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+                <ul className="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
                   <li>
                     <a
                       href="#HowItWorks"
@@ -214,7 +214,7 @@ const NavBar = ({ show, onDone }: any) => {
               </div>
 
               <div className="hidden w-full lg:flex md:items-center md:w-auto">
-                <ul className="flex flex-col p-4 mt-4 items-center bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+                <ul className="flex flex-col mt-4 items-center bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
                   <li>
                     <a className="text-gray-700  py-2 px-4" href="#">
                       Log in
