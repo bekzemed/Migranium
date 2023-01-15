@@ -2,7 +2,7 @@ import TopMenuImage from "../assets/top-menu.svg";
 
 const TopMenu = () => {
   return (
-    <div className="lg:flex bg-primary px-4 py-20 md:px-28 2xl:px-0">
+    <div className="lg:flex bg-primary px-4 py-36 md:px-44 2xl:px-0">
       <div className="lg:flex 2xl:w-[1200px] m-auto">
         <div>
           <span className="font-black text-5xl pb-10 block lg:leading-snug dark:text-black">

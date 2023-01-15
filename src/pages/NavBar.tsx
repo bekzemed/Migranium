@@ -1,7 +1,11 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useScrollDirection } from "../hook/useScrollDirection";
 
 const NavBar = ({ show, onDone }: any) => {
+  const scrollDirection = useScrollDirection();
+
   return (
     <>
       {show ? (
@@ -96,7 +100,11 @@ const NavBar = ({ show, onDone }: any) => {
         </div>
       ) : (
         <>
-          <nav className="bg-primary lg:bg-white px-2 py-2.5">
+          <nav
+            className={`fixed ${
+              scrollDirection === "down" ? "-top-24" : "top-0"
+            }  bg-primary lg:bg-white px-2 py-2.5 transition-all duration-500 w-full z-10`}
+          >
             <div className="container flex flex-wrap items-center justify-between mx-auto">
               <Link to="/">
                 <span className="flex items-center text-bright">
@@ -122,7 +130,7 @@ const NavBar = ({ show, onDone }: any) => {
                   type="button"
                   className="bg-secondary text-white font-bold rounded-full w-fit text-[10px] focus-visible:outline-none focus:outline-none ml-2"
                 >
-                  Try for free
+                  Try it free
                 </button>
                 <button
                   data-collapse-toggle="navbar-default"
@@ -168,6 +176,14 @@ const NavBar = ({ show, onDone }: any) => {
                       className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Features
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#Pricing"
+                      className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
+                    >
+                      Pricing
                     </a>
                   </li>
                   <li>
