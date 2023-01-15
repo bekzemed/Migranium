@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 
 const NavBar = ({ show, onDone }: any) => {
   return (
@@ -102,7 +102,7 @@ const NavBar = ({ show, onDone }: any) => {
                 <span className="flex items-center text-bright">
                   <img
                     src={logo}
-                    className="h-6 mr-1 sm:h-9"
+                    className="mr-1 sm:h-9"
                     alt="Migranium Logo"
                   />
                   <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">

@@ -48,20 +48,20 @@ const Processes = () => {
       </Carousel>
 
       <div className="hidden md:flex">
-        <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
+        <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5 md:w-[300px] 2xl:w-[400px]">
           <span className="flex-1 md:pb-5 dark:text-black">
             Create your business account and get unique URL & QR code
           </span>
           <img src={process1} alt="Process image 1" />
         </div>
-        <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
+        <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5 md:w-[300px] 2xl:w-[400px]">
           <span className="flex-1 md:pb-5 dark:text-black">
             Share URL with your customers to join the queue from their mobile
             devices
           </span>
           <img src={process2} alt="Process image 2" />
         </div>
-        <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5">
+        <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5 md:w-[300px] 2xl:w-[400px]">
           <span className="flex-1 md:pb-5 dark:text-black">
             Manage the waitlist virtually to provide the best customer
             experience

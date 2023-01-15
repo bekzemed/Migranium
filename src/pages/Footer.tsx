@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import facebook from "../assets/facebook.svg";
 import twitter from "../assets/twitter.svg";
 import youtube from "../assets/youtube.svg";
@@ -15,8 +15,8 @@ const Footer = () => {
             href="/"
             className="flex items-center justify-center py-10 border-y text-bright"
           >
-            <img src={logo} className="h-6 mr-1 sm:h-9" alt="Migranium Logo" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">
+            <img src={logo} className="mr-1 sm:h-9" alt="Migranium Logo" />
+            <span className="self-center text-xl font-semibold whitespace-nowrap text-bright dark:text-primary migranium-font">
               migranium
             </span>
           </a>
@@ -69,8 +69,8 @@ const Footer = () => {
       <div className="hidden md:flex flex-col justify-center px-10">
         <div className="py-10 border-y flex justify-between items-center mb-10">
           <div className="flex">
-            <img src={logo} className="h-6 mr-1 sm:h-9" alt="Migranium Logo" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">
+            <img src={logo} className="mr-1 sm:h-9" alt="Migranium Logo" />
+            <span className="self-center text-xl font-semibold whitespace-nowrap text-bright dark:text-primary migranium-font">
               migranium
             </span>
           </div>
@@ -93,25 +93,22 @@ const Footer = () => {
             </li>
           </ul>
 
-          <div className="flex flex-col">
-            <span className="pb-2 font-extrabold text-center">Join us!</span>
-            <ul className="flex gap-5">
-              <li>
-                <img src={twitter} alt="Twitter" />
-              </li>
+          <ul className="flex gap-5">
+            <li>
+              <img src={twitter} alt="Twitter" />
+            </li>
 
-              <li>
-                <img src={facebook} alt="Facebook" />
-              </li>
+            <li>
+              <img src={facebook} alt="Facebook" />
+            </li>
 
-              <li>
-                <img src={instagram} alt="Instagram" />
-              </li>
-              <li>
-                <img src={youtube} alt="Youtube" />
-              </li>
-            </ul>
-          </div>
+            <li>
+              <img src={instagram} alt="Instagram" />
+            </li>
+            <li>
+              <img src={youtube} alt="Youtube" />
+            </li>
+          </ul>
         </div>
         <div className="text-xs opacity-80 flex justify-evenly py-10">
           <div>
