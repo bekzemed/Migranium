@@ -1,15 +1,15 @@
-import logo from "../assets/logo.svg";
+import { Link } from "react-router-dom";
 import facebook from "../assets/facebook.svg";
+import instagram from "../assets/instagram.svg";
+import logo from "../assets/logo.svg";
 import twitter from "../assets/twitter.svg";
 import youtube from "../assets/youtube.svg";
-import instagram from "../assets/instagram.svg";
-import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const date = new Date();
   return (
     <>
-      <div className="py-14 pb-0 px-4 lg:px-20 md:hidden">
+      <div className="py-14 pb-0 px-2 lg:px-20 md:hidden">
         <div>
           <a
             href="/"
@@ -67,7 +67,7 @@ const Footer = () => {
       {/* desktop */}
 
       <div className="hidden md:flex flex-col justify-center px-10">
-        <div className="py-10 border-y flex justify-between items-center mb-10">
+        <div className="py-10 border-y flex justify-between items-center mb-10 container m-auto">
           <div className="flex">
             <img src={logo} className="mr-1 sm:h-9" alt="Migranium Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap text-bright dark:text-primary migranium-font">
@@ -110,7 +110,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="text-xs opacity-80 flex justify-evenly py-10">
+        <div className="text-xs container m-auto opacity-80 flex justify-between py-10">
           <div>
             <Link to="/terms">
               <span className="cursor-pointer mr-2 hover:text-primary">

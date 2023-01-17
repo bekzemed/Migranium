@@ -15,7 +15,7 @@ const Terms = () => {
               Terms Of Use
             </span>
           </div>
-          <div className="flex flex-col px-4 py-14 md:px-28 lg:px-0 lg:w-[670px] m-auto">
+          <div className="flex flex-col px-4 py-5 md:px-28 lg:px-0 lg:w-[670px] m-auto">
             <span className="opacity-80">
               Welcome to Migranium! By accessing or using our software product,
               you agree to be bound by the following terms and conditions
@@ -25,7 +25,7 @@ const Terms = () => {
             </span>
           </div>
 
-          <div className="flex flex-col px-4 py-14 md:px-28 lg:px-0 lg:w-[670px] m-auto">
+          <div className="flex flex-col px-4 py-5 md:px-28 lg:px-0 lg:w-[670px] m-auto">
             <Term
               text="License to Use: Subject to these Terms of Use, Company grants
                   User a limited, non-exclusive, non-transferable license to

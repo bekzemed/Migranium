@@ -14,8 +14,8 @@ const PrivacyPolicy = () => {
               Privacy Policy for Migranium
             </span>
           </div>
-          <div className="flex flex-col px-4 py-14 md:px-28 lg:px-0 lg:w-[670px] m-auto">
-            <span className="mb-10 opacity-80">
+          <div className="flex flex-col px-4 py-8 md:px-28 lg:px-0 lg:w-[670px] m-auto">
+            <span className="mb-8 opacity-80">
               At Migranium, we are committed to protecting the privacy of our
               users. This Privacy Policy explains how we collect, use, and share
               information about you when you use our website and software
@@ -30,19 +30,19 @@ const PrivacyPolicy = () => {
           </div>
           {/* Information */}
           <div className="flex flex-col px-4 pb-14 md:px-28 lg:px-0 lg:w-[670px] m-auto">
-            <span className="text-2xl font-bold mb-10">
+            <span className="text-2xl font-bold mb-8">
               Information We Collect
             </span>
-            <span className="mb-10 text-lg font-bold">
+            <span className="mb-8 text-lg font-bold">
               We collect information about you in the following ways:
             </span>
 
-            <div className="mb-10">
+            <div className="mb-8">
               <ul className="flex items-center mb-2 list-disc list-inside">
                 <li>Information you provide to us:</li>
               </ul>
 
-              <span className="mb-10 block">
+              <span className="mb-8 block">
                 We may collect information about you when you create an account,
                 update your profile, or use the features of Migranium. This may
                 include your name, email address, phone number, and other
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
                 <li>Information we collect automatically:</li>
               </ul>
 
-              <span className="mb-10 block">
+              <span className="mb-8 block">
                 When you use Migranium, we may collect certain information
                 automatically, such as your IP address, browser type, operating
                 system, and the pages you visit. We may also collect information
@@ -72,15 +72,15 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* How we use */}
-            <span className="text-2xl font-bold mb-10">
+            <span className="text-2xl font-bold mb-8">
               How We Use Your Information
             </span>
-            <span className="mb-10 text-lg font-bold">
+            <span className="mb-8 text-lg font-bold">
               We use the information we collect about you to provide, maintain,
               and improve Migranium, and to develop new products and services.
               This may include:
             </span>
-            <div className="mb-10">
+            <div className="mb-8">
               <ul className="flex items-center mb-2 list-disc list-inside">
                 <li>
                   Providing customer support and responding to your requests and
@@ -111,20 +111,20 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* Sharing */}
-            <span className="text-2xl font-bold mb-10">
+            <span className="text-2xl font-bold mb-8">
               Sharing Your Information
             </span>
-            <span className="mb-10 text-lg font-bold">
+            <span className="mb-8 text-lg font-bold">
               We may share your information with third parties in the following
               situations:
             </span>
 
-            <div className="mb-10">
+            <div className="mb-8">
               <ul className="flex items-center mb-2 list-disc list-inside">
                 <li>With service providers:</li>
               </ul>
 
-              <span className="mb-10 block">
+              <span className="mb-8 block">
                 We may share your information with third-party service providers
                 who perform services on our behalf, such as hosting, data
                 analysis, payment processing, and customer support.
@@ -134,7 +134,7 @@ const PrivacyPolicy = () => {
                 <li>In response to legal requests:</li>
               </ul>
 
-              <span className="mb-10 block">
+              <span className="mb-8 block">
                 We may disclose your information in response to a subpoena,
                 court order, or other legal request.
               </span>
@@ -150,22 +150,22 @@ const PrivacyPolicy = () => {
                 <li>With your consent:</li>
               </ul>
 
-              <span className="block mb-10">
+              <span className="block mb-8">
                 We may share your information with third parties when you have
                 given us your consent to do so.
               </span>
 
-              <span className="block mb-10 text-lg font-bold">
+              <span className="block mb-8 text-lg font-bold">
                 Users have the following options with respect to their
                 information:
               </span>
 
-              <div className="mb-10">
+              <div className="mb-8">
                 <ul className="flex items-center mb-2 list-disc list-inside">
                   <li>Opting Out of Communications:</li>
                 </ul>
 
-                <span className="mb-10 block">
+                <span className="mb-8 block">
                   Users can opt out of receiving marketing communications from
                   us by following the unsubscribe instructions included in such
                   communications or by contacting us directly.
@@ -175,7 +175,7 @@ const PrivacyPolicy = () => {
                   <li>Accessing and Updating Personal Information:</li>
                 </ul>
 
-                <span className="mb-10 block">
+                <span className="mb-8 block">
                   Users can access and update their personal information by
                   logging into their account and updating their profile.
                 </span>
@@ -195,8 +195,8 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* Retention */}
-            <div className="mb-10">
-              <span className="text-2xl font-bold mb-10 block">
+            <div className="mb-8">
+              <span className="text-2xl font-bold mb-8 block">
                 Data Retention
               </span>
               <span>
@@ -208,8 +208,8 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* Security */}
-            <div className="mb-10">
-              <span className="text-2xl font-bold mb-10 block">Security</span>
+            <div className="mb-8">
+              <span className="text-2xl font-bold mb-8 block">Security</span>
               <span>
                 We take reasonable measures to protect your information from
                 unauthorized access, use, or disclosure. However, no website or
@@ -219,8 +219,8 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* Childrens Privacy */}
-            <div className="mb-10">
-              <span className="text-2xl font-bold mb-10 block">
+            <div className="mb-8">
+              <span className="text-2xl font-bold mb-8 block">
                 Children's Privacy
               </span>
               <span>
@@ -233,8 +233,8 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* changes to this privacy policy */}
-            <div className="mb-10">
-              <span className="text-2xl font-bold mb-10 block">
+            <div className="mb-8">
+              <span className="text-2xl font-bold mb-8 block">
                 Changes to this Privacy Policy
               </span>
               <span>
@@ -246,8 +246,8 @@ const PrivacyPolicy = () => {
             </div>
 
             {/* contact us */}
-            <div className="mb-10">
-              <span className="text-2xl font-bold mb-10 block">Contact Us</span>
+            <div className="mb-8">
+              <span className="text-2xl font-bold mb-8 block">Contact Us</span>
               <span>
                 If you have any questions or concerns about this Privacy Policy,
                 please contact us at [hello@migranium.com].

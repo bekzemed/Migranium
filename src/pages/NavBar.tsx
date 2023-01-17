@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { useScrollDirection } from "../hook/useScrollDirection";
@@ -38,7 +37,7 @@ const NavBar = ({ show, onDone }: any) => {
             <ul className="flex flex-col items-center">
               <li onClick={() => onDone()}>
                 <a
-                  href="#HowItWorks"
+                  href={`${location.pathname === "/" ? "#HowItWorks" : "/"}`}
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                   aria-current="page"
                 >
@@ -47,7 +46,7 @@ const NavBar = ({ show, onDone }: any) => {
               </li>
               <li onClick={() => onDone()}>
                 <a
-                  href="#Features"
+                  href={`${location.pathname === "/" ? "#Features" : "/"}`}
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-primary  dark:text-white"
                 >
                   Features
@@ -55,7 +54,7 @@ const NavBar = ({ show, onDone }: any) => {
               </li>
               <li onClick={() => onDone()}>
                 <a
-                  href="#Pricing"
+                  href={`${location.pathname === "/" ? "#Pricing" : "/"}`}
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-primary  dark:text-white"
                 >
                   Pricing
@@ -63,7 +62,7 @@ const NavBar = ({ show, onDone }: any) => {
               </li>
               <li onClick={() => onDone()}>
                 <a
-                  href="#Clients"
+                  href={`${location.pathname === "/" ? "#Clients" : "/"}`}
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                 >
                   Clients
@@ -71,7 +70,7 @@ const NavBar = ({ show, onDone }: any) => {
               </li>
               <li onClick={() => onDone()}>
                 <a
-                  href="#ContactUs"
+                  href={`${location.pathname === "/" ? "#ContactUs" : "/"}`}
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                 >
                   Contact Us
@@ -79,7 +78,7 @@ const NavBar = ({ show, onDone }: any) => {
               </li>
               <li onClick={() => onDone()}>
                 <a
-                  href="#Statistics"
+                  href={`${location.pathname === "/" ? "#Statistics" : "/"}`}
                   className="block py-5 text-2xl text-gray-700 rounded hover:text-primary dark:text-white"
                 >
                   Statistics
@@ -214,7 +213,7 @@ const NavBar = ({ show, onDone }: any) => {
               </div>
 
               <div className="hidden w-full lg:flex md:items-center md:w-auto">
-                <ul className="flex flex-col mt-4 items-center bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+                <ul className="flex flex-col mt-4 items-center bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
                   <li>
                     <a className="text-gray-700  py-2 px-4" href="#">
                       Log in
