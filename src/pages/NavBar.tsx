@@ -163,7 +163,7 @@ const NavBar = ({ show, onDone }: any) => {
                   <li>
                     <a
                       href="#HowItWorks"
-                      className="block py-2 pl-3 pr-4 text-gray-700 hover:text-primary rounded md:bg-transparent md:p-0 dark:text-white"
+                      className="block py-2 pl-3 pr-4 text-gray-700 hover:text-primary rounded md:bg-transparent md:p-0"
                       aria-current="page"
                     >
                       How it works
