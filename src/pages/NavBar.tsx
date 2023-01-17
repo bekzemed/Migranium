@@ -113,7 +113,7 @@ const NavBar = ({ show, onDone }: any) => {
                     className="mr-1 sm:h-9"
                     alt="Migranium Logo"
                   />
-                  <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-primary migranium-font">
+                  <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-bright migranium-font">
                     migranium
                   </span>
                 </span>
@@ -121,7 +121,7 @@ const NavBar = ({ show, onDone }: any) => {
 
               <div className="flex items-center md:w-[300px] md:justify-between lg:hidden">
                 <a
-                  className="text-gray-700 dark:text-white text-[12px]"
+                  className="text-gray-700 dark:text-black text-[12px]"
                   href="#"
                 >
                   Log in
