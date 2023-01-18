@@ -162,7 +162,9 @@ const NavBar = ({ show, onDone }: any) => {
                 <ul className="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
                   <li>
                     <a
-                      href="#HowItWorks"
+                      href={`${
+                        location.pathname === "/" ? "#HowItWorks" : "/"
+                      }`}
                       className="block py-2 pl-3 pr-4 text-gray-700 hover:text-primary rounded md:bg-transparent md:p-0"
                       aria-current="page"
                     >
@@ -171,7 +173,7 @@ const NavBar = ({ show, onDone }: any) => {
                   </li>
                   <li>
                     <a
-                      href="#Features"
+                      href={`${location.pathname === "/" ? "#Features" : "/"}`}
                       className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Features
@@ -179,7 +181,7 @@ const NavBar = ({ show, onDone }: any) => {
                   </li>
                   <li>
                     <a
-                      href="#Pricing"
+                      href={`${location.pathname === "/" ? "#Pricing" : "/"}`}
                       className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Pricing
@@ -187,7 +189,7 @@ const NavBar = ({ show, onDone }: any) => {
                   </li>
                   <li>
                     <a
-                      href="#Clients"
+                      href={`${location.pathname === "/" ? "#Clients" : "/"}`}
                       className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Clients
@@ -195,7 +197,7 @@ const NavBar = ({ show, onDone }: any) => {
                   </li>
                   <li>
                     <a
-                      href="#ContactUs"
+                      href={`${location.pathname === "/" ? "#ContactUs" : "/"}`}
                       className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Contact Us
@@ -203,7 +205,9 @@ const NavBar = ({ show, onDone }: any) => {
                   </li>
                   <li>
                     <a
-                      href="#Statistics"
+                      href={`${
+                        location.pathname === "/" ? "#Statistics" : "/"
+                      }`}
                       className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-primary md:hover:bg-transparent md:border-0  md:p-0"
                     >
                       Statistics

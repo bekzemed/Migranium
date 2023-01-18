@@ -31,8 +31,8 @@ const Clients = () => {
     >
       <div className="lg:w-[800px] m-auto">
         <span className="block pb-10 lg:pb-20 text-lg md:text-2xl lg:text-3xl dark:text-black">
-          Our Clients have saved 1 million customers more than 300 years of
-          waiting with Migranium
+          Our Clients have reduced wait times by over 300 years for 1 million
+          customers using Migranium
         </span>
 
         <Carousel className="md:hidden h-[100px]" indicators={false}>

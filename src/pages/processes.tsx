@@ -8,7 +8,7 @@ const Processes = () => {
   const items = [
     {
       id: 0,
-      text: "Create your business account and get unique URL and QR code",
+      text: "Create your business account to get a personalized URL and unique QR code",
       img: process1,
     },
     {
@@ -50,7 +50,8 @@ const Processes = () => {
       <div className="hidden md:flex">
         <div className="bg-primary flex flex-col items-center p-7 rounded-2xl md:mr-5 md:w-[300px] 2xl:w-[400px]">
           <span className="flex-1 md:pb-5 dark:text-black">
-            Create your business account and get unique URL and QR code
+            Create your business account to get a personalized URL and unique QR
+            code
           </span>
           <img src={process1} alt="Process image 1" />
         </div>
