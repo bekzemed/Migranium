@@ -10,7 +10,8 @@
       {
         "ignore": [
           "-webkit-text-size-adjust",
-          "scroll-behavior"
+          "scroll-behavior",
+          "font-synthesis"
         ]
       }
     ]

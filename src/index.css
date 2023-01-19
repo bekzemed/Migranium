@@ -75,6 +75,10 @@ button:focus-visible {
   width: 180px;
 }
 
+.slick-slide{
+  margin-right: 35px;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

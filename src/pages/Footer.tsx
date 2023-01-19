@@ -7,6 +7,9 @@ import youtube from "../assets/youtube.svg";
 
 const Footer = () => {
   const date = new Date();
+  const scrollToTop = () => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  };
   return (
     <>
       <div className="py-14 pb-0 px-2 lg:px-20 md:hidden">
@@ -22,7 +25,9 @@ const Footer = () => {
           </a>
         </div>
         <div className="text-sm text-gray-700 dark:text-white py-12 flex justify-between opacity-80">
-          <span>Features</span>
+          <a href={`${location.pathname === "/" ? "#Features" : "/"}`}>
+            Features
+          </a>
           <span>Clients</span>
           <span>Login</span>
           <span>Create account</span>
@@ -66,9 +71,9 @@ const Footer = () => {
 
       {/* desktop */}
 
-      <div className="hidden md:flex flex-col justify-center px-10">
+      <div className="hidden md:flex flex-col justify-center px-2 md:px-5">
         <div className="py-10 border-y flex justify-between items-center mb-10 container m-auto">
-          <div className="flex">
+          <div className="flex cursor-pointer" onClick={scrollToTop}>
             <img src={logo} className="mr-1 sm:h-9" alt="Migranium Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap text-bright dark:text-primary migranium-font">
               migranium
@@ -76,20 +81,26 @@ const Footer = () => {
           </div>
 
           <ul className="text-sm text-gray-700 dark:text-white opacity-80 gap-5 flex">
-            <li>
-              <span>Features</span>
+            <li className="hover:text-primary">
+              <a href={`${location.pathname === "/" ? "#Features" : "/"} `}>
+                Features
+              </a>
             </li>
 
-            <li>
-              <span>Clients</span>
+            <li className="hover:text-primary">
+              <a href={`${location.pathname === "/" ? "#Clients" : "/"} `}>
+                Clients
+              </a>
             </li>
 
-            <li>
-              <span>Login</span>
+            <li className="hover:text-primary">
+              <a href={`${location.pathname === "/" ? "#" : "/"} `}>Login</a>
             </li>
 
-            <li>
-              <span>Create account</span>
+            <li className="hover:text-primary">
+              <a href={`${location.pathname === "/" ? "#" : "/"} `}>
+                Create account
+              </a>
             </li>
           </ul>
 

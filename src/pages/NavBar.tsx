@@ -102,7 +102,7 @@ const NavBar = ({ show, onDone }: any) => {
           <nav
             className={`fixed ${
               scrollDirection === "down" ? "-top-24" : "top-0"
-            }  bg-primary lg:bg-white px-2 py-2.5 lg:py-4 transition-all duration-500 w-full z-10`}
+            }  bg-primary lg:bg-white px-2 py-2.5 lg:py-4 transition-all duration-500 w-full z-10 md:px-5`}
           >
             <div className="container flex flex-wrap items-center justify-between mx-auto">
               <Link to="/">
