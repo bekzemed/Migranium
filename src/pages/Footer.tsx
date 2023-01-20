@@ -39,7 +39,7 @@ const Footer = () => {
 
         <div className="flex flex-col items-center pb-10">
           <span className="pb-8 font-extrabold">Join us!</span>
-          <ul className="flex gap-10 ">
+          <ul className="flex gap-10 cursor-pointer">
             <li>
               <img src={twitter} alt="Twitter" />
             </li>
@@ -108,7 +108,7 @@ const Footer = () => {
             </Link>
           </ul>
 
-          <ul className="flex gap-5">
+          <ul className="flex gap-5 cursor-pointer">
             <li>
               <img src={twitter} alt="Twitter" />
             </li>
