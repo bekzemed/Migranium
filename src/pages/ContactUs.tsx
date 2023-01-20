@@ -74,7 +74,10 @@ const ContactUs = () => {
       </form>
 
       <div className="text-center 2xl:pb-20">
-        <button className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none w-[250px]">
+        <button
+          type="submit"
+          className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none w-[250px]"
+        >
           Send
         </button>
       </div>

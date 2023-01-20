@@ -29,8 +29,12 @@ const Footer = () => {
             Features
           </a>
           <span>Clients</span>
-          <span>Login</span>
-          <span>Create account</span>
+          <Link to="/sign-in">
+            <span>Login</span>
+          </Link>
+          <Link to="/sign-up">
+            <span>Create account</span>
+          </Link>
         </div>
 
         <div className="flex flex-col items-center pb-10">
@@ -92,16 +96,16 @@ const Footer = () => {
                 Clients
               </a>
             </li>
-
-            <li className="hover:text-primary">
-              <a href={`${location.pathname === "/" ? "#" : "/"} `}>Login</a>
-            </li>
-
-            <li className="hover:text-primary">
-              <a href={`${location.pathname === "/" ? "#" : "/"} `}>
-                Create account
-              </a>
-            </li>
+            <Link to="/sign-in">
+              <li className="hover:text-primary">
+                <span>Login</span>
+              </li>
+            </Link>
+            <Link to="/sign-up">
+              <li className="hover:text-primary">
+                <span>Create account</span>
+              </li>
+            </Link>
           </ul>
 
           <ul className="flex gap-5">

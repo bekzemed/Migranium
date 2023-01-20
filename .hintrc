@@ -14,6 +14,12 @@
           "font-synthesis"
         ]
       }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "input-button-name": "off"
+      }
     ]
   }
 }

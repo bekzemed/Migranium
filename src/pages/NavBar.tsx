@@ -87,14 +87,16 @@ const NavBar = ({ show, onDone }: any) => {
             </ul>
           </div>
           <ul className="flex flex-col items-center justify-center ">
-            <li className="w-full">
-              <button
-                type="button"
-                className="bg-secondary text-white font-bold py-2 px-8 mb-5 lg:mb-0 rounded-full w-full focus-visible:outline-none focus:outline-none"
-              >
-                Sign up
-              </button>
-            </li>
+            <Link to="/sign-up">
+              <li className="w-full">
+                <button
+                  type="button"
+                  className="bg-secondary text-white font-bold py-2 px-8 mb-5 lg:mb-0 rounded-full w-full focus-visible:outline-none focus:outline-none"
+                >
+                  Sign up
+                </button>
+              </li>
+            </Link>
           </ul>
         </div>
       ) : (
@@ -119,12 +121,11 @@ const NavBar = ({ show, onDone }: any) => {
               </Link>
 
               <div className="flex items-center md:w-[300px] md:justify-between lg:hidden">
-                <a
-                  className="text-gray-700 dark:text-black text-[12px]"
-                  href="#"
-                >
-                  Log in
-                </a>
+                <Link to="/sign-in">
+                  <span className="text-gray-700 dark:text-black text-[12px]">
+                    Log in
+                  </span>
+                </Link>
                 <button
                   type="button"
                   className="bg-secondary text-white font-bold rounded-full w-fit text-[10px] focus-visible:outline-none focus:outline-none ml-2"
@@ -218,19 +219,21 @@ const NavBar = ({ show, onDone }: any) => {
 
               <div className="hidden w-full lg:flex md:items-center md:w-auto">
                 <ul className="flex flex-col mt-4 items-center bg-gray-50 md:flex-row md:space-x-4 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
-                  <li>
-                    <a className="text-gray-700  py-2 px-4" href="#">
-                      Log in
-                    </a>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none"
-                    >
-                      Sign up
-                    </button>
-                  </li>
+                  <Link to="/sign-in">
+                    <li>
+                      <span className="text-gray-700  py-2 px-4">Log in</span>
+                    </li>
+                  </Link>
+                  <Link to="/sign-up">
+                    <li>
+                      <button
+                        type="button"
+                        className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none"
+                      >
+                        Sign up
+                      </button>
+                    </li>
+                  </Link>
                 </ul>
               </div>
             </div>
