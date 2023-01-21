@@ -14,11 +14,11 @@ export const SignUp = () => {
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />
       <div className="bg-primary px-4 pb-20 pt-32 md:px-28 2xl:px-0 text-center h-screen lg:flex lg:justify-center">
-        <div className="flex flex-col h-full justify-center lg:w-[500px]">
-          <span className="font-black text-3xl pb-5 block lg:leading-snug dark:text-black">
+        <div className="flex flex-col h-full justify-center lg:w-[500px] lg:mr-10">
+          <span className="font-black text-2xl pb-5 block lg:pb-3 dark:text-black">
             Just a few steps!
           </span>
-          <span className="pb-5 dark:text-black">
+          <span className="pb-5 dark:text-black lg:pb-3 text-xs">
             By signing up, I agree to Migranium{" "}
             <Link to="/terms">
               <span className="text-primary">Terms</span> and{" "}
@@ -29,7 +29,7 @@ export const SignUp = () => {
           </span>
           <button
             type="button"
-            className="text-black border-slate-300 justify-center  hover:bg-primary hover:border-bright  focus:outline-none  font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center mb-5"
+            className="text-black border-slate-300 justify-center  hover:bg-primary hover:border-bright  focus:outline-none text-xs font-medium rounded-full px-5 py-2 text-center inline-flex items-center mb-5 lg:mb-3"
           >
             <svg
               className="w-4 h-4 mr-2 -ml-1"
@@ -48,7 +48,7 @@ export const SignUp = () => {
             </svg>
             Sign in with Google
           </button>
-          <span className="flex items-center justify-center pb-5">
+          <span className="flex items-center justify-center pb-5 lg:pb-3">
             <hr className="w-full" />
             <span className="mx-3.5 dark:text-black">OR</span>
             <hr className="w-full" />
@@ -57,28 +57,28 @@ export const SignUp = () => {
             <input
               type="email"
               id="email"
-              className="bg-primary border border-gray-300 text-gray-900 text-sm rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
+              className="bg-primary border border-gray-300 text-xs text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
               placeholder="Email..."
               required
             />
             <input
               type="text"
               id="userName"
-              className="bg-primary border border-gray-300 text-gray-900 text-sm rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
+              className="bg-primary border border-gray-300 text-xs text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
               placeholder="User name..."
               required
             />
             <input
               type="password"
               id="password"
-              className="bg-primary border border-gray-300 text-gray-900 text-sm rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
+              className="bg-primary border border-gray-300 text-xs text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
               placeholder="Password..."
               required
             />
             <input
               type="password"
               id="confirm_password"
-              className="bg-primary border border-gray-300 text-gray-900 text-sm rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
+              className="bg-primary border border-gray-300 text-xs text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
               placeholder="Confirm password..."
               required
             />
@@ -97,7 +97,7 @@ export const SignUp = () => {
             </Link>
           </span>
         </div>
-        <img className="hidden lg:block w-[560px]" src={signup} alt="Sign up" />
+        <img className="hidden lg:block w-[500px]" src={signup} alt="Sign up" />
       </div>
     </div>
   );

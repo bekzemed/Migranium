@@ -10,6 +10,7 @@ module.exports = {
       backgroundColor: {
         primary: "#F1F5FB",
         secondary: "#0070BA",
+        list: "#84a5ba33",
       },
       colors: {
         primary: "#0070BA",

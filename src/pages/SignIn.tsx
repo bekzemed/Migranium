@@ -1,22 +1,25 @@
 import { useState } from "react";
 import NavBar from "./NavBar";
 import signin from "../assets/signin.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const onSubmit = () => navigate("/dashboard");
   return (
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />
       <div className="bg-primary px-4 pb-20 pt-32 md:px-28 2xl:px-0 text-center h-screen lg:flex lg:justify-center">
-        <div className="flex flex-col h-full justify-center lg:w-[500px]">
-          <span className="font-black text-3xl pb-5 block lg:leading-snug dark:text-black">
+        <div className="flex flex-col h-full justify-center lg:w-[500px] lg:mr-10">
+          <span className="font-black text-2xl pb-5 block lg:pb-3 dark:text-black">
             Sign in to Migranium
           </span>
 
           <button
             type="button"
-            className="text-black border-slate-300 justify-center  hover:bg-primary hover:border-bright  focus:outline-none  font-medium rounded-full text-sm px-5 py-2.5 text-center inline-flex items-center mb-5"
+            className="text-black border-slate-300 justify-center  hover:bg-primary hover:border-bright  focus:outline-none  font-medium rounded-full text-xs px-5 py-2 text-center inline-flex items-center mb-5 lg:mb-3"
           >
             <svg
               className="w-4 h-4 mr-2 -ml-1"
@@ -35,16 +38,16 @@ export const SignIn = () => {
             </svg>
             Sign in with Google
           </button>
-          <span className="flex items-center justify-center pb-5">
+          <span className="flex items-center justify-center pb-5 lg:pb-3">
             <hr className="w-full" />
             <span className="mx-3.5 dark:text-black">OR</span>
             <hr className="w-full" />
           </span>
-          <form action="">
+          <form action="" onSubmit={onSubmit}>
             <input
               type="email"
               id="email"
-              className="bg-primary border border-gray-300 text-gray-900 text-sm rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none dark:text-black dark:bg-primary mb-2"
+              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none dark:text-black dark:bg-primary mb-2"
               placeholder="Your email"
               required
             />
@@ -52,12 +55,12 @@ export const SignIn = () => {
             <input
               type="password"
               id="password"
-              className="bg-primary border border-gray-300 text-gray-900 text-sm rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
+              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
               placeholder="Password"
               required
             />
             <Link to="/forgot-password">
-              <span className="mb-5 block hover:text-primary cursor-pointer text-black text-sm">
+              <span className="mb-5 block hover:text-primary cursor-pointer text-black text-xs">
                 Forgot Password?
               </span>
             </Link>
@@ -76,7 +79,11 @@ export const SignIn = () => {
             </Link>
           </span>
         </div>
-        <img className="hidden lg:block w-[560px]" src={signin} alt="Sign in" />
+        <img
+          className="hidden lg:block lg:w-[400px] 2xl:w-[500px]"
+          src={signin}
+          alt="Sign in"
+        />
       </div>
     </div>
   );

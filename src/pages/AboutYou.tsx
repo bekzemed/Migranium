@@ -1,21 +1,24 @@
 import { useState } from "react";
 import NavBar from "./NavBar";
 import steps from "../assets/steps.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const AboutYou = () => {
   const [show, setShow] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const onSubmit = () => navigate("/dashboard");
   return (
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />
       <div className="bg-primary px-4 pb-20 pt-32 md:px-28 2xl:px-0 text-center h-screen lg:flex lg:justify-center">
-        <div className="flex flex-col h-full justify-center lg:w-[500px]">
+        <div className="flex flex-col h-full justify-center lg:w-[500px] lg:mr-10">
           <span className="font-black text-3xl pb-5 block lg:leading-snug dark:text-black">
             Tell us about you
           </span>
 
-          <form action="">
+          <form action="" onSubmit={onSubmit}>
             <div className="lg:flex">
               <input
                 type="text"
@@ -110,7 +113,7 @@ export const AboutYou = () => {
           </span>
         </div>
         <img
-          className="hidden lg:block w-[560px]"
+          className="hidden lg:block w-[500px]"
           src={steps}
           alt="Registration steps"
         />

@@ -4,7 +4,10 @@ const CreateWaitList = () => {
       <span className="block text-3xl pb-8">
         Sign up now and create your waitlist
       </span>
-      <button className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none">
+      <button
+        type="button"
+        className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none"
+      >
         Try it free
       </button>
     </div>

@@ -8,7 +8,7 @@ export const ForgotPassword = () => {
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />
       <div className="bg-primary px-4 pb-20 pt-32 md:px-28 2xl:px-0 text-center h-screen lg:flex lg:justify-center">
-        <div className="flex flex-col h-full justify-center lg:w-[500px]">
+        <div className="flex flex-col h-full justify-center lg:w-[500px] lg:mr-10">
           <span className="font-black text-3xl pb-5 block lg:leading-snug dark:text-black">
             Reset your password
           </span>
@@ -31,7 +31,7 @@ export const ForgotPassword = () => {
           </form>
         </div>
         <img
-          className="hidden lg:block w-[560px]"
+          className="hidden lg:block w-[500px]"
           src={forgot}
           alt="Forgot Password"
         />

@@ -14,7 +14,7 @@ export const AboutBusiness = () => {
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />
       <div className="bg-primary px-4 pb-20 pt-32 md:px-28 2xl:px-0 text-center h-screen lg:flex lg:justify-center">
-        <div className="flex flex-col h-full justify-center lg:w-[500px]">
+        <div className="flex flex-col h-full justify-center lg:w-[500px] lg:mr-10">
           <span className="font-black text-3xl pb-5 block lg:leading-snug dark:text-black">
             Tell us about your business
           </span>
@@ -61,9 +61,9 @@ export const AboutBusiness = () => {
                   className="w-6 h-6"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                 </svg>
               </div>
@@ -99,9 +99,9 @@ export const AboutBusiness = () => {
                     className="w-6 h-6"
                   >
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     />
                   </svg>
                 </div>
@@ -142,7 +142,7 @@ export const AboutBusiness = () => {
           </form>
         </div>
         <img
-          className="hidden lg:block w-[560px]"
+          className="hidden lg:block w-[500px]"
           src={steps}
           alt="Registration steps"
         />
