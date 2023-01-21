@@ -165,11 +165,11 @@ const Customers = () => {
             </div>
 
             <div className="dark:text-black text-sm flex">
-              <div className="px-6 py-1 rounded-full border border-gray-300 bg-white flex items-center mr-3">
+              <div className="px-6 py-1 text-xs cursor-pointer rounded-full border border-gray-300 bg-white flex items-center mr-3">
                 <span className="mr-2">Today</span>
                 <img src={downArrow} alt="Down arrow" />
               </div>
-              <div className="px-6 py-1 rounded-full border border-gray-300 bg-white flex items-center">
+              <div className="px-6 py-1 text-xs cursor-pointer rounded-full border border-gray-300 bg-white flex items-center">
                 <img src={exportIcon} alt="Export" className="mr-2" />
                 <span>Export</span>
               </div>

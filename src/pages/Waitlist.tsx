@@ -58,23 +58,23 @@ const WaitList = () => {
 
           <div className="mb-10 flex items-center justify-between dark:text-black">
             <div className="flex text-xs justify-between">
-              <div className="px-8 py-1 rounded-full border border-gray-300 bg-white flex items-center mr-5">
+              <div className="px-8 py-1 rounded-full border border-gray-300 bg-white flex items-center mr-5 cursor-pointer">
                 <img src={user} alt="User" className="mr-2" />
                 <span>0</span>
               </div>
 
-              <div className="px-8 py-1 rounded-full border border-gray-300 bg-white flex items-center mr-5">
+              <div className="px-8 py-1 rounded-full border border-gray-300 bg-white flex items-center mr-5 cursor-pointer">
                 <img src={time} alt="Time" className="mr-2" />
                 <span>0 hours</span>
               </div>
 
-              <div className="px-8 py-1 rounded-full border border-gray-300 bg-white flex items-center">
+              <div className="px-8 py-1 rounded-full border border-gray-300 bg-white flex items-center cursor-pointer">
                 <span className="mr-2">open</span>
                 <img src={downArrow} alt="Down arrow" />
               </div>
             </div>
 
-            <div className="px-8 py-1 text-xs rounded-full border border-gray-300 bg-white flex items-center">
+            <div className="px-8 py-1 text-xs rounded-full border border-gray-300 bg-white flex items-center cursor-pointer">
               <img src={filter} alt="Down arrow" className="mr-2" />
               <span>Filters</span>
             </div>
