@@ -60,6 +60,18 @@ export const DashboardMobile = () => {
 
         <span>Custom Fields</span>
       </li>
+      <Link to="/dashboard/settings">
+        <li>
+          <img src={settings} alt="Settings" className="m-auto mb-1" />
+
+          <span>Settings</span>
+        </li>
+      </Link>
+      <li>
+        <img src={logout} alt="Log out" className="m-auto mb-1" />
+
+        <span>Log out</span>
+      </li>
     </ul>
   );
 };
@@ -128,11 +140,13 @@ export const DashboardDesktop = () => {
         </ul>
 
         <ul className="gap-2 text-white">
-          <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
-            <img className="mr-2 w-[20px]" src={settings} alt="Settings" />
+          <Link to="/dashboard/settings">
+            <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
+              <img className="mr-2 w-[20px]" src={settings} alt="Settings" />
 
-            <span>Settings</span>
-          </li>
+              <span>Settings</span>
+            </li>
+          </Link>
           <li className="flex p-2 items-center hover:bg-list rounded-lg cursor-pointer">
             <img className="mr-2 w-[20px]" src={logout} alt="logout" />
 

@@ -10,6 +10,10 @@
   background: linear-gradient(180deg, rgba(19, 19, 19, 0.05) 11.26%, rgba(0, 0, 0, 0.2) 100.6%);
 }
 
+.date-picker {
+  transform: translate(-50%,-50%);
+}
+
 .arrow {
   width: 0;
   height: 0;

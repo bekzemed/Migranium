@@ -8,6 +8,7 @@ import { ForgotPassword } from "./pages/ForgotPassword";
 import Home from "./pages/Home";
 import Messages from "./pages/Messages";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Settings from "./pages/Settings";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import Terms from "./pages/Terms";
@@ -32,6 +33,7 @@ function App() {
           <Route path="waitlist" element={<WaitList />} />
           <Route path="messages" element={<Messages />} />
           <Route path="customers" element={<Customers />} />
+          <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
     </>
