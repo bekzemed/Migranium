@@ -63,7 +63,7 @@ const LocationInput = ({ showLocation, setShowLocation, location }: any) => {
           <div className="lg:mr-3">
             <label
               htmlFor="businessCountry"
-              className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
             >
               Business country
             </label>
@@ -79,7 +79,7 @@ const LocationInput = ({ showLocation, setShowLocation, location }: any) => {
           <div className="lg:mr-3">
             <label
               htmlFor="city"
-              className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
             >
               City
             </label>
@@ -96,7 +96,7 @@ const LocationInput = ({ showLocation, setShowLocation, location }: any) => {
             <div className="lg:flex-1">
               <label
                 htmlFor="streetAddress"
-                className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
               >
                 Street address
               </label>

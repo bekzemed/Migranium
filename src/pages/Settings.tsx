@@ -119,7 +119,7 @@ const Settings = () => {
           <div className="mb-4 px-2">
             <label
               htmlFor="businessName"
-              className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
             >
               Business name
             </label>
@@ -133,7 +133,7 @@ const Settings = () => {
 
             <label
               htmlFor="businessType"
-              className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
             >
               Business type
             </label>
@@ -147,7 +147,7 @@ const Settings = () => {
 
             <label
               htmlFor="businessEmail"
-              className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
             >
               Business email
             </label>
@@ -161,7 +161,7 @@ const Settings = () => {
 
             <label
               htmlFor="businessPhone"
-              className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
             >
               Business phone
             </label>
@@ -443,7 +443,7 @@ const Settings = () => {
               <div className="mb-4 px-2">
                 <label
                   htmlFor="businessCountry"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
                   Business country
                 </label>
@@ -457,7 +457,7 @@ const Settings = () => {
 
                 <label
                   htmlFor="city"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
                   City
                 </label>
@@ -471,7 +471,7 @@ const Settings = () => {
 
                 <label
                   htmlFor="streetAddress"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
                   Street address
                 </label>
@@ -506,7 +506,7 @@ const Settings = () => {
               <div className="flex-1 mr-3">
                 <label
                   htmlFor="creditOrDebit"
-                  className="block mb-2 font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 font-medium text-gray-900 dark:text-black"
                 >
                   Postal code
                 </label>
@@ -528,7 +528,7 @@ const Settings = () => {
               <div className="flex-1 mr-3">
                 <label
                   htmlFor="phoneNumber"
-                  className="block mb-2 font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 font-medium text-gray-900 dark:text-black"
                 >
                   Phone number
                 </label>
@@ -548,7 +548,7 @@ const Settings = () => {
 
             <label
               htmlFor="customField"
-              className="block mb-2 font-medium text-gray-900 dark:text-white"
+              className="block mb-2 font-medium text-gray-900 dark:text-black"
             >
               Create custom field
             </label>
@@ -580,7 +580,7 @@ const Settings = () => {
             <div className="">
               <label
                 htmlFor="creditOrDebit"
-                className="block mb-2 font-medium text-gray-900 dark:text-white"
+                className="block mb-2 font-medium text-gray-900 dark:text-black"
               >
                 Credit or debit card
               </label>
@@ -612,7 +612,7 @@ const Settings = () => {
 
               <label
                 htmlFor="country"
-                className="block mb-2 font-medium text-gray-900 dark:text-white"
+                className="block mb-2 font-medium text-gray-900 dark:text-black"
               >
                 country
               </label>
@@ -626,7 +626,7 @@ const Settings = () => {
 
               <label
                 htmlFor="state"
-                className="block mb-2 font-medium text-gray-900 dark:text-white"
+                className="block mb-2 font-medium text-gray-900 dark:text-black"
               >
                 State
               </label>
@@ -639,7 +639,7 @@ const Settings = () => {
               />
               <label
                 htmlFor="zip"
-                className="block mb-2 font-medium text-gray-900 dark:text-white"
+                className="block mb-2 font-medium text-gray-900 dark:text-black"
               >
                 Zip code
               </label>
@@ -652,7 +652,7 @@ const Settings = () => {
               />
               <label
                 htmlFor="billingEmail"
-                className="block mb-2 font-medium text-gray-900 dark:text-white"
+                className="block mb-2 font-medium text-gray-900 dark:text-black"
               >
                 Billing email
               </label>
@@ -695,7 +695,7 @@ const Settings = () => {
               <div className="mr-4 w-[200px]">
                 <label
                   htmlFor="businessName"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
                   Business name
                 </label>
@@ -711,7 +711,7 @@ const Settings = () => {
               <div className="mr-4 w-[200px]">
                 <label
                   htmlFor="businessType"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
                   Business type
                 </label>
@@ -727,7 +727,7 @@ const Settings = () => {
               <div className="mr-4 w-[200px]">
                 <label
                   htmlFor="businessEmail"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
                   Business email
                 </label>
@@ -743,7 +743,7 @@ const Settings = () => {
               <div className="w-[200px]">
                 <label
                   htmlFor="businessPhone"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
                   Business phone
                 </label>
@@ -908,7 +908,7 @@ const Settings = () => {
                 <div className="w-[200px] mr-3">
                   <label
                     htmlFor="businessCountry"
-                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                   >
                     Business country
                   </label>
@@ -924,7 +924,7 @@ const Settings = () => {
                 <div className="w-[200px] mr-3">
                   <label
                     htmlFor="city"
-                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                   >
                     City
                   </label>
@@ -940,7 +940,7 @@ const Settings = () => {
                 <div className="w-[200px] mr-3">
                   <label
                     htmlFor="streetAddress"
-                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                   >
                     Street address
                   </label>
@@ -978,7 +978,7 @@ const Settings = () => {
                 <div className="flex-1 mr-3">
                   <label
                     htmlFor="creditOrDebit"
-                    className="block mb-2 font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 font-medium text-gray-900 dark:text-black"
                   >
                     Postal code
                   </label>
@@ -1000,7 +1000,7 @@ const Settings = () => {
                 <div className="flex-1 mr-3">
                   <label
                     htmlFor="phoneNumber"
-                    className="block mb-2 font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 font-medium text-gray-900 dark:text-black"
                   >
                     Phone number
                   </label>
@@ -1020,7 +1020,7 @@ const Settings = () => {
               <div>
                 <label
                   htmlFor="customField"
-                  className="block mb-2 font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 font-medium text-gray-900 dark:text-black"
                 >
                   Create custom field
                 </label>
@@ -1053,7 +1053,7 @@ const Settings = () => {
               <div>
                 <label
                   htmlFor="creditOrDebit"
-                  className="block mb-2 font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 font-medium text-gray-900 dark:text-black"
                 >
                   Credit or debit card
                 </label>
@@ -1087,7 +1087,7 @@ const Settings = () => {
                   <div className="w-[250px] mr-3">
                     <label
                       htmlFor="country"
-                      className="block mb-2 font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 font-medium text-gray-900 dark:text-black"
                     >
                       country
                     </label>
@@ -1103,7 +1103,7 @@ const Settings = () => {
                   <div className="w-[250px]">
                     <label
                       htmlFor="state"
-                      className="block mb-2 font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 font-medium text-gray-900 dark:text-black"
                     >
                       State
                     </label>
@@ -1121,7 +1121,7 @@ const Settings = () => {
                   <div className="w-[250px] mr-3">
                     <label
                       htmlFor="zip"
-                      className="block mb-2 font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 font-medium text-gray-900 dark:text-black"
                     >
                       Zip code
                     </label>
@@ -1137,7 +1137,7 @@ const Settings = () => {
                   <div className="w-[250px]">
                     <label
                       htmlFor="billingEmail"
-                      className="block mb-2 font-medium text-gray-900 dark:text-white"
+                      className="block mb-2 font-medium text-gray-900 dark:text-black"
                     >
                       Billing email
                     </label>

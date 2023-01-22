@@ -4,7 +4,7 @@ import locationLogo from "../assets/location-upload.svg";
 const LocationLogo = () => {
   return (
     <>
-      <span className="block mb-2 text-xs font-medium text-gray-900 dark:text-white">
+      <span className="block mb-2 text-xs font-medium text-gray-900 dark:text-black">
         Location logo
       </span>
       <div className="flex items-center">

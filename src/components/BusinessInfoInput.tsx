@@ -6,7 +6,7 @@ const BusinessInfoInput = () => {
       <div className="lg:mr-3">
         <label
           htmlFor="businessCountry"
-          className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
         >
           Business country
         </label>
@@ -22,7 +22,7 @@ const BusinessInfoInput = () => {
       <div className="lg:mr-3">
         <label
           htmlFor="businessState"
-          className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
         >
           Business state / province
         </label>
@@ -38,7 +38,7 @@ const BusinessInfoInput = () => {
       <div>
         <label
           htmlFor="city"
-          className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
         >
           City
         </label>
@@ -54,7 +54,7 @@ const BusinessInfoInput = () => {
       <div className="lg:mr-3">
         <label
           htmlFor="streetAddress"
-          className="block mb-2 text-xs lg:mr-2 font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-xs lg:mr-2 font-medium text-gray-900 dark:text-black"
         >
           Street address
         </label>
@@ -79,7 +79,7 @@ const BusinessInfoInput = () => {
       <div>
         <label
           htmlFor="zip"
-          className="block mb-2 text-xs font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
         >
           Zip / Postal code
         </label>
