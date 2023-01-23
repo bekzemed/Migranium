@@ -1,25 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Datepicker from "tailwind-datepicker-react";
+import add from "../assets/add.svg";
+import deleteIcon from "../assets/delete.svg";
+import edit from "../assets/edit.svg";
+import BusinessInfoInput from "../components/BusinessInfoInput";
 import {
   DashboardDesktop,
   DashboardMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
-import user from "../assets/user.svg";
-import time from "../assets/time.svg";
-import downArrow from "../assets/down.svg";
-import filter from "../assets/filter.svg";
-import edit from "../assets/edit.svg";
-import remove from "../assets/remove.svg";
-import deleteIcon from "../assets/delete.svg";
-import add from "../assets/add.svg";
 import Header from "../components/Header";
-import Datepicker from "tailwind-datepicker-react";
-import TimePicker from "../components/TimePicker";
 import LocationInput from "../components/LocationInput";
 import LocationLogo from "../components/LocationLogo";
-import BusinessInfoInput from "../components/BusinessInfoInput";
-import Stations from "../components/Stations";
 import OperatingHours from "../components/OperatingHours";
+import Stations from "../components/Stations";
+import TimePicker from "../components/TimePicker";
 
 const options = {
   title: "Operating Days",
