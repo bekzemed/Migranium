@@ -52,7 +52,10 @@ const Dashboard = () => {
         </div>
         {cashex.length ? (
           cashex.map((_, index) => (
-            <div className="bg-white rounded-lg px-2 py-4 mb-10" key={index}>
+            <div
+              className="bg-white rounded-lg px-2 py-4 mb-10 dark:text-black"
+              key={index}
+            >
               <div className="mb-6">
                 <div className="flex justify-between mb-2">
                   <span>Cashex</span>
@@ -285,7 +288,10 @@ const Dashboard = () => {
 
           {cashex.length ? (
             cashex.map((_, index) => (
-              <div className="bg-white rounded-lg px-4 py-4 mb-10" key={index}>
+              <div
+                className="bg-white rounded-lg px-4 py-4 mb-10 dark:text-black"
+                key={index}
+              >
                 <div className="mb-6">
                   <div className="flex justify-between mb-6">
                     <div className="flex items-center">
