@@ -12,16 +12,29 @@ import editOutline from "../assets/edit-outline.svg";
 import deleteOutline from "../assets/delete-outline.svg";
 import copy from "../assets/copy.svg";
 import Pagination from "../components/Pagination";
+import LocationInfo from "../components/LocationInfo";
 
 const Dashboard = () => {
   const [show, onShow] = useState(false);
   const [locationStation, setLocationStation] = useState(false);
+  const [showLocationInfo, setShowLocationInfo] = useState(false);
   const cashex = [1, 2];
   return (
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
+      {showLocationInfo && (
+        <LocationInfo
+          showLocationInfo={showLocationInfo}
+          setShowLocationInfo={setShowLocationInfo}
+        />
+      )}
+
+      <div
+        className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
+          showLocationInfo && "filter blur-sm"
+        }`}
+      >
         <span className="opacity-80 block mb-1 text-xs">Cashex</span>
         <span className="text-2xl block mb-4">Locations</span>
 
@@ -59,7 +72,11 @@ const Dashboard = () => {
               <div className="mb-6">
                 <div className="flex justify-between mb-2">
                   <span>Cashex</span>
-                  <img src={info} alt="Info" />
+                  <img
+                    src={info}
+                    alt="Info"
+                    onClick={() => setShowLocationInfo(true)}
+                  />
                 </div>
                 <div className="mb-3">
                   <div className="text-xs opacity-40 mb-2">
@@ -236,7 +253,18 @@ const Dashboard = () => {
       <div className="w-full h-screen hidden lg:flex">
         <DashboardDesktop />
 
-        <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block">
+        {showLocationInfo && (
+          <LocationInfo
+            showLocationInfo={showLocationInfo}
+            setShowLocationInfo={setShowLocationInfo}
+          />
+        )}
+
+        <div
+          className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden ${
+            showLocationInfo && "filter blur-sm"
+          } lg:block`}
+        >
           <Header text="Locations" />
 
           <div className="mb-10 flex items-center justify-between">
@@ -296,7 +324,12 @@ const Dashboard = () => {
                   <div className="flex justify-between mb-6">
                     <div className="flex items-center">
                       <span className="mr-3">Cashex</span>
-                      <img src={info} alt="Info" />
+                      <img
+                        src={info}
+                        alt="Info"
+                        className="cursor-pointer"
+                        onClick={() => setShowLocationInfo(true)}
+                      />
                     </div>
                     <div className="flex justify-between text-sm">
                       <div className="flex items-center mr-3">

@@ -5,7 +5,7 @@ import right from "../assets/right.svg";
 
 const WaitListDetail = ({ showWaitUser, setShowWaitUser, data }: any) => {
   return (
-    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[350px] p-4 z-30 shadow-">
+    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[350px] p-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4">
         <span>{data.name}</span>
         <svg
