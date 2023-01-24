@@ -16,6 +16,7 @@ import TeamMember from "./pages/TeamMember";
 import TeamMembers from "./pages/TeamMembers";
 import Terms from "./pages/Terms";
 import WaitList from "./pages/Waitlist";
+import WaitListMember from "./pages/WaitListMember";
 import ScrollToTop from "./util/scrollToTop";
 
 function App() {
@@ -33,7 +34,10 @@ function App() {
         <Route path="/about-you" element={<AboutYou />} />
         <Route path="/dashboard">
           <Route index element={<Dashboard />} />
-          <Route path="waitlist" element={<WaitList />} />
+          <Route path="waitlist">
+            <Route index element={<WaitList />} />
+            <Route path=":id" element={<WaitListMember />} />
+          </Route>
           <Route path="messages" element={<Messages />} />
           <Route path="customers" element={<Customers />} />
           <Route path="settings" element={<Settings />} />

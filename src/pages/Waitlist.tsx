@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import chat from "../assets/chat.svg";
 import downArrow from "../assets/down.svg";
 import filter from "../assets/filter.svg";
@@ -20,18 +21,21 @@ import WaitListDetail from "../components/WaitListDetail";
 const waitlist = [1];
 const waitUsers = [
   {
+    id: 1,
     name: "Marakinyo",
     station: "Station 1",
     status: "Serving",
     background: "bg-yellow-300",
   },
   {
+    id: 2,
     name: "Jacko",
     station: "Station 2",
     status: "Done",
     background: "bg-green-500",
   },
   {
+    id: 3,
     name: "Usaeyno",
     station: "Station 1",
     status: "Cancelled",
@@ -40,9 +44,9 @@ const waitUsers = [
 ];
 
 const WaitList = () => {
+  const navigate = useNavigate();
   const [show, onShow] = useState(false);
   const [showWaitUser, setShowWaitUser] = useState(false);
-  const [waitUserIndex, setWaitUserIndex] = useState(0);
 
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -76,7 +80,6 @@ const WaitList = () => {
           <WaitListDetail
             showWaitUser={showWaitUser}
             setShowWaitUser={setShowWaitUser}
-            data={waitUsers[waitUserIndex]}
           />
         )}
 
@@ -94,7 +97,14 @@ const WaitList = () => {
                     alt="Right"
                     className="pr-3 cursor-pointer"
                   />
-                  <img src={info} alt="Info" className="cursor-pointer" />
+                  <img
+                    src={info}
+                    alt="Info"
+                    className="cursor-pointer"
+                    onClick={() => {
+                      setShowWaitUser(true);
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -119,10 +129,13 @@ const WaitList = () => {
                         index + 1 !== waitUsers.length && "border-b"
                       } border-gray-300 py-4`}
                       key={index}
-                      onClick={() => {
-                        setShowWaitUser(true);
-                        setWaitUserIndex(index);
-                      }}
+                      onClick={() =>
+                        navigate(`${user.id}`, {
+                          state: waitUsers.find(
+                            (users) => users.id === user.id
+                          ),
+                        })
+                      }
                     >
                       <th className="opacity-40 py-4">{index + 1}</th>
                       <td className="py-4">{user.name}</td>
@@ -158,6 +171,13 @@ const WaitList = () => {
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block">
           <Header text="Waitlist" />
+
+          {showWaitUser && (
+            <WaitListDetail
+              showWaitUser={showWaitUser}
+              setShowWaitUser={setShowWaitUser}
+            />
+          )}
 
           <div className="mb-10 flex items-center justify-between dark:text-black">
             <div className="flex text-xs justify-between">
@@ -200,7 +220,14 @@ const WaitList = () => {
                   <span className="opacity-40">2.2 days</span>
                   <div className="cursor-pointer flex items-center justify-center">
                     <img src={right} alt="Right" className="mr-3" />
-                    <img src={info} alt="Info" className="mr-3" />
+                    <img
+                      src={info}
+                      alt="Info"
+                      className="mr-3"
+                      onClick={() => {
+                        setShowWaitUser(true);
+                      }}
+                    />
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -265,8 +292,15 @@ const WaitList = () => {
                       <tr
                         className={`text-center ${
                           index + 1 !== waitUsers.length && "border-b"
-                        } border-gray-300 py-4`}
+                        } border-gray-300 py-4 cursor-pointer`}
                         key={index}
+                        onClick={() =>
+                          navigate(`${user.id}`, {
+                            state: waitUsers.find(
+                              (users) => users.id === user.id
+                            ),
+                          })
+                        }
                       >
                         <th className="opacity-40 py-4">{index + 1}</th>
                         <td className="py-4 w-[170px]">

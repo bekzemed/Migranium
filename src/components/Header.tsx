@@ -1,14 +1,21 @@
 import { useLocation } from "react-router-dom";
 import bell from "../assets/bell-outline.svg";
 
-const Header = ({ text, showNotification, setShowNotification }: any) => {
+const Header = ({
+  text,
+  showNotification,
+  setShowNotification,
+  header,
+}: any) => {
   const onNotification = () => setShowNotification(!showNotification);
   const location = useLocation();
 
   return (
     <div className="mb-10 flex justify-between items-center dark:text-black">
       <div>
-        <span className="opacity-70 block mb-1 text-xs">Cashex</span>
+        <span className="opacity-70 block mb-1 text-xs">
+          {header || "Cashex"}
+        </span>
         <span className="text-2xl block mb-4">{text}</span>
       </div>
 

@@ -3,16 +3,16 @@ import message from "../assets/message.svg";
 import phone from "../assets/phone.svg";
 import right from "../assets/right.svg";
 
-const WaitListDetail = ({ showWaitUser, setShowWaitUser, data }: any) => {
+const WaitListDetail = ({ showWaitUser, setShowWaitUser }: any) => {
   return (
     <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[350px] p-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4">
-        <span>{data.name}</span>
+        <span>Marakinyo</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-6 h-6"
+          className="w-6 h-6 cursor-pointer"
           onClick={() => setShowWaitUser(!showWaitUser)}
         >
           <path
