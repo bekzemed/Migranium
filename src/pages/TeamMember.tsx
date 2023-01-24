@@ -34,7 +34,8 @@ const TeamMember = () => {
                 type="text"
                 id="name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                value={state.name}
+                defaultValue={state.name}
+                disabled
                 required
               />
 
@@ -48,7 +49,8 @@ const TeamMember = () => {
                 type="text"
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                value={state.email}
+                defaultValue={state.email}
+                disabled
                 required
               />
 
@@ -62,7 +64,8 @@ const TeamMember = () => {
                 type="text"
                 id="phone"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none"
-                value={state.phone}
+                defaultValue={state.phone}
+                disabled
                 required
               />
             </div>
@@ -244,7 +247,8 @@ const TeamMember = () => {
                     type="text"
                     id="name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full py-2 px-3 focus-visible:outline-none focus:outline-none"
-                    value={state.name}
+                    defaultValue={state.name}
+                    disabled
                     required
                   />
                 </div>
@@ -260,7 +264,8 @@ const TeamMember = () => {
                     type="text"
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full py-2 px-3 focus-visible:outline-none focus:outline-none"
-                    value={state.email}
+                    defaultValue={state.email}
+                    disabled
                     required
                   />
                 </div>
@@ -276,7 +281,8 @@ const TeamMember = () => {
                     type="text"
                     id="phone"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full py-2 px-3 focus-visible:outline-none focus:outline-none"
-                    value={state.phone}
+                    defaultValue={state.phone}
+                    disabled
                     required
                   />
                 </div>
