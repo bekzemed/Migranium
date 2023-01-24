@@ -1,25 +1,11 @@
-import { useState } from "react";
-import Datepicker from "tailwind-datepicker-react";
-import add from "../assets/add.svg";
-import { options } from "../util/operatingHours";
-import TimePicker from "./TimePicker";
-import QR from "../assets/QR-code.svg";
 import copy from "../assets/copy.svg";
+import QR from "../assets/QR-code.svg";
 
 const GenerateQRCode = ({ showQRCode, setShowQRCode }: any) => {
-  const [fromDate, setFromDate] = useState(false);
-  const [toDate, setToDate] = useState(false);
-
-  const handleFromChange = (selectedDate: Date) => console.log(selectedDate);
-  const handleFromClose = (state: boolean) => setFromDate(state);
-
-  const handleToChange = (selectedDate: Date) => console.log(selectedDate);
-  const handleToClose = (state: boolean) => setToDate(state);
-
   return (
-    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[380px] xl:w-[500px] p-4 z-30 shadow-lg">
+    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[360px] xl:w-[500px] p-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
-        <span>Generate QR code</span>
+        <span className="lg:flex justify-center w-full">Generate QR code</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
