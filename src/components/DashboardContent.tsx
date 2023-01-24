@@ -49,11 +49,13 @@ export const DashboardMobile = () => {
         </li>
       </Link>
 
-      <li>
-        <img src={members} alt="Team members" className="m-auto mb-1" />
+      <Link to="/dashboard/team-members">
+        <li>
+          <img src={members} alt="Team members" className="m-auto mb-1" />
 
-        <span>Team members</span>
-      </li>
+          <span>Team members</span>
+        </li>
+      </Link>
 
       <li>
         <img src={fields} alt="Team members" className="m-auto mb-1" />
@@ -126,11 +128,13 @@ export const DashboardDesktop = () => {
             </li>
           </Link>
 
-          <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
-            <img className="mr-2 w-[20px]" src={members} alt="Team members" />
+          <Link to="/dashboard/team-members">
+            <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
+              <img className="mr-2 w-[20px]" src={members} alt="Team members" />
 
-            <span>Team members</span>
-          </li>
+              <span>Team members</span>
+            </li>
+          </Link>
 
           <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
             <img className="mr-2 w-[20px]" src={fields} alt="Team members" />
