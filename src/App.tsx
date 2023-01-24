@@ -11,6 +11,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Settings from "./pages/Settings";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
+import TeamMember from "./pages/TeamMember";
 import TeamMembers from "./pages/TeamMembers";
 import Terms from "./pages/Terms";
 import WaitList from "./pages/Waitlist";
@@ -35,7 +36,10 @@ function App() {
           <Route path="messages" element={<Messages />} />
           <Route path="customers" element={<Customers />} />
           <Route path="settings" element={<Settings />} />
-          <Route path="team-members" element={<TeamMembers />} />
+          <Route path="team-members">
+            <Route index element={<TeamMembers />} />
+            <Route path=":id" element={<TeamMember />} />
+          </Route>
         </Route>
       </Routes>
     </>

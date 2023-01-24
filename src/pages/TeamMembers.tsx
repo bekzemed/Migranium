@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import chat from "../assets/chat.svg";
 import {
   DashboardDesktop,
@@ -14,6 +15,9 @@ const teamMembers = [
     job: "Obstetrician",
     id: 0,
     role: "Admin",
+    email: "marakinyo@gmail.com",
+    phone: "4 978 77 88 99",
+    location: "2464 Royal Ln. Mesa, New Jersey 45463",
   },
   {
     name: "Jacko",
@@ -21,6 +25,9 @@ const teamMembers = [
     job: "Obstetrician",
     id: 1,
     role: "User",
+    email: "jacko@gmail.com",
+    phone: "4 978 77 88 99",
+    location: "2464 Royal Ln. Mesa, New Jersey 45463",
   },
   {
     name: "Usaeyno",
@@ -28,6 +35,9 @@ const teamMembers = [
     job: "Obstetrician",
     id: 2,
     role: "Admin",
+    email: "usaeyno@gmail.com",
+    phone: "4 978 77 88 99",
+    location: "2464 Royal Ln. Mesa, New Jersey 45463",
   },
 ];
 
@@ -35,6 +45,7 @@ const TeamMembers = () => {
   const [show, onShow] = useState(false);
   const [teamMemberIndex, setShowTeamMemberIndex] = useState(-1);
   const [showTeamMembers, setShowTeamMembers] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -61,7 +72,18 @@ const TeamMembers = () => {
                   <div className="">
                     <span>{index + 1}</span>
 
-                    <span className="ml-8">{member.name}</span>
+                    <span
+                      className="ml-8"
+                      onClick={() =>
+                        navigate(`${member.id}`, {
+                          state: teamMembers.find(
+                            (members) => members.id === member.id
+                          ),
+                        })
+                      }
+                    >
+                      {member.name}
+                    </span>
                   </div>
                   <div className="flex items-center justify-end">
                     {showTeamMembers && teamMemberIndex === member.id ? (
@@ -160,6 +182,10 @@ const TeamMembers = () => {
                         <span className="block opacity-40 mb-2">Job title</span>
                         <span className="block">{member.job}</span>
                       </div>
+                      <div className="mb-2">
+                        <span className="block opacity-40 mb-2">Location</span>
+                        <span className="block">{member.location}</span>
+                      </div>
 
                       <div className="mb-2">
                         <span className="block opacity-40 mb-2">Id</span>
@@ -211,7 +237,7 @@ const TeamMembers = () => {
         <DashboardDesktop />
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block">
-          <Header text="Waitlist" />
+          <Header text="Team Members" />
 
           {teamMembers.length ? (
             <div>
@@ -243,7 +269,16 @@ const TeamMembers = () => {
                         <th className="opacity-40 py-4 mr-3">{index + 1}</th>
                         <td className="py-4">
                           <div className="flex">
-                            <span className="w-[80px] text-start">
+                            <span
+                              className="w-[80px] text-start cursor-pointer"
+                              onClick={() =>
+                                navigate(`${member.id}`, {
+                                  state: teamMembers.find(
+                                    (members) => members.id === member.id
+                                  ),
+                                })
+                              }
+                            >
                               {member.name}
                             </span>
                             <img src={chat} alt="Chat" />
