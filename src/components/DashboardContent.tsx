@@ -57,11 +57,14 @@ export const DashboardMobile = () => {
         </li>
       </Link>
 
-      <li>
-        <img src={fields} alt="Team members" className="m-auto mb-1" />
+      <Link to="/dashboard/custom-fields">
+        <li>
+          <img src={fields} alt="Team members" className="m-auto mb-1" />
 
-        <span>Custom Fields</span>
-      </li>
+          <span>Custom Fields</span>
+        </li>
+      </Link>
+
       <Link to="/dashboard/settings">
         <li>
           <img src={settings} alt="Settings" className="m-auto mb-1" />
@@ -136,11 +139,13 @@ export const DashboardDesktop = () => {
             </li>
           </Link>
 
-          <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
-            <img className="mr-2 w-[20px]" src={fields} alt="Team members" />
+          <Link to="/dashboard/custom-fields">
+            <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
+              <img className="mr-2 w-[20px]" src={fields} alt="Team members" />
 
-            <span>Custom Fields</span>
-          </li>
+              <span>Custom Fields</span>
+            </li>
+          </Link>
         </ul>
 
         <ul className="gap-2 text-white">
