@@ -11,6 +11,7 @@ import {
   DashboardMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
+import GenerateQRCode from "../components/GenerateQRCode";
 import Header from "../components/Header";
 import LocationInfo from "../components/LocationInfo";
 import Pagination from "../components/Pagination";
@@ -20,6 +21,7 @@ const Dashboard = () => {
   const [locationStation, setLocationStation] = useState(false);
   const [showLocationInfo, setShowLocationInfo] = useState(false);
   const [addStation, setAddStation] = useState(false);
+  const [showQRCode, setShowQRCode] = useState(false);
   const cashex = [1, 2];
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -32,13 +34,17 @@ const Dashboard = () => {
         />
       )}
 
+      {showQRCode && (
+        <GenerateQRCode showQRCode={showQRCode} setShowQRCode={setShowQRCode} />
+      )}
+
       {addStation && (
         <AddStation addStation={addStation} setAddStation={setAddStation} />
       )}
 
       <div
         className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
-          (showLocationInfo || addStation) && "filter blur-sm"
+          (showLocationInfo || addStation || showQRCode) && "filter blur-sm"
         }`}
       >
         <span className="opacity-80 block mb-1 text-xs">Cashex</span>
@@ -95,7 +101,10 @@ const Dashboard = () => {
                   </div>
                 </div>
                 <div className="flex justify-between text-sm mb-4">
-                  <div className="flex items-center">
+                  <div
+                    className="flex items-center"
+                    onClick={() => setShowQRCode(true)}
+                  >
                     <img src={QR} alt="QR code" className="mr-1 bg-secondary" />
                     <span className="text-primary">Generate QR</span>
                   </div>
@@ -271,6 +280,13 @@ const Dashboard = () => {
           />
         )}
 
+        {showQRCode && (
+          <GenerateQRCode
+            showQRCode={showQRCode}
+            setShowQRCode={setShowQRCode}
+          />
+        )}
+
         {showLocationInfo && (
           <LocationInfo
             showLocationInfo={showLocationInfo}
@@ -280,7 +296,7 @@ const Dashboard = () => {
 
         <div
           className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden ${
-            (showLocationInfo || addStation) && "filter blur-sm"
+            (showLocationInfo || addStation || showQRCode) && "filter blur-sm"
           } lg:block`}
         >
           <Header text="Locations" />
@@ -350,7 +366,10 @@ const Dashboard = () => {
                       />
                     </div>
                     <div className="flex justify-between text-sm">
-                      <div className="flex items-center mr-3 cursor-pointer">
+                      <div
+                        className="flex items-center mr-3 cursor-pointer"
+                        onClick={() => setShowQRCode(true)}
+                      >
                         <img
                           src={QR}
                           alt="QR code"
