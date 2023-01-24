@@ -1,23 +1,25 @@
 import { useState } from "react";
+import add from "../assets/add.svg";
+import copy from "../assets/copy.svg";
+import deleteOutline from "../assets/delete-outline.svg";
+import editOutline from "../assets/edit-outline.svg";
+import info from "../assets/info.svg";
+import QR from "../assets/qr-disabled.svg";
+import AddStation from "../components/AddStation";
 import {
   DashboardDesktop,
   DashboardMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
-import info from "../assets/info.svg";
-import QR from "../assets/qr-disabled.svg";
-import add from "../assets/add.svg";
-import editOutline from "../assets/edit-outline.svg";
-import deleteOutline from "../assets/delete-outline.svg";
-import copy from "../assets/copy.svg";
-import Pagination from "../components/Pagination";
 import LocationInfo from "../components/LocationInfo";
+import Pagination from "../components/Pagination";
 
 const Dashboard = () => {
   const [show, onShow] = useState(false);
   const [locationStation, setLocationStation] = useState(false);
   const [showLocationInfo, setShowLocationInfo] = useState(false);
+  const [addStation, setAddStation] = useState(false);
   const cashex = [1, 2];
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -30,9 +32,13 @@ const Dashboard = () => {
         />
       )}
 
+      {addStation && (
+        <AddStation addStation={addStation} setAddStation={setAddStation} />
+      )}
+
       <div
         className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
-          showLocationInfo && "filter blur-sm"
+          (showLocationInfo || addStation) && "filter blur-sm"
         }`}
       >
         <span className="opacity-80 block mb-1 text-xs">Cashex</span>
@@ -93,7 +99,10 @@ const Dashboard = () => {
                     <img src={QR} alt="QR code" className="mr-1 bg-secondary" />
                     <span className="text-primary">Generate QR</span>
                   </div>
-                  <div className="flex items-center">
+                  <div
+                    className="flex items-center"
+                    onClick={() => setAddStation(true)}
+                  >
                     <img src={add} alt="Add" className="mr-1" />
                     <span className="text-primary">Add station</span>
                   </div>
@@ -239,7 +248,9 @@ const Dashboard = () => {
               clipRule="evenodd"
             />
           </svg>
-          <span className="text-primary text-xs">Add location</span>
+          <span className="text-primary text-xs cursor-pointer">
+            Add location
+          </span>
         </div>
 
         <Pagination />
@@ -260,9 +271,16 @@ const Dashboard = () => {
           />
         )}
 
+        {showLocationInfo && (
+          <LocationInfo
+            showLocationInfo={showLocationInfo}
+            setShowLocationInfo={setShowLocationInfo}
+          />
+        )}
+
         <div
           className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden ${
-            showLocationInfo && "filter blur-sm"
+            (showLocationInfo || addStation) && "filter blur-sm"
           } lg:block`}
         >
           <Header text="Locations" />
@@ -332,7 +350,7 @@ const Dashboard = () => {
                       />
                     </div>
                     <div className="flex justify-between text-sm">
-                      <div className="flex items-center mr-3">
+                      <div className="flex items-center mr-3 cursor-pointer">
                         <img
                           src={QR}
                           alt="QR code"
@@ -340,7 +358,10 @@ const Dashboard = () => {
                         />
                         <span className="text-primary">Generate QR</span>
                       </div>
-                      <div className="flex items-center">
+                      <div
+                        className="flex items-center cursor-pointer"
+                        onClick={() => setAddStation(true)}
+                      >
                         <img src={add} alt="Add" className="mr-1" />
                         <span className="text-primary">Add station</span>
                       </div>
