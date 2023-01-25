@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import bell from "../assets/bell-outline.svg";
 
 const Header = ({
@@ -13,10 +13,18 @@ const Header = ({
   return (
     <div className="mb-10 flex justify-between items-center dark:text-black">
       <div>
-        <span className="opacity-70 block mb-1 text-xs">
-          {header || "Cashex"}
+        {location.pathname !== "/dashboard/upgrade-profile" && (
+          <span className="opacity-70 block mb-1 text-xs">
+            {header || "Cashex"}
+          </span>
+        )}
+        <span
+          className={`text-2xl block ${
+            location.pathname !== "/dashboard/upgrade-profile" && "mb-4"
+          }`}
+        >
+          {text}
         </span>
-        <span className="text-2xl block mb-4">{text}</span>
       </div>
 
       <div className="text-xs flex items-center relative">
@@ -122,24 +130,26 @@ const Header = ({
         )}
 
         {/*  */}
-        <button
-          type="button"
-          className="text-white border-slate-300 justify-center  bg-secondary focus:outline-none  font-medium rounded-full text-sm px-5 py-2 text-center inline-flex items-center mr-3"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="w-5 h-5 mr-2"
+        <Link to="/dashboard/upgrade-profile">
+          <button
+            type="button"
+            className="text-white border-slate-300 justify-center  bg-secondary focus:outline-none  font-medium rounded-full text-sm px-5 py-2 text-center inline-flex items-center mr-3"
           >
-            <path
-              fillRule="evenodd"
-              d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-              clipRule="evenodd"
-            />
-          </svg>
-          Upgrade profile
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="w-5 h-5 mr-2"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Upgrade profile
+          </button>
+        </Link>
         <span className="mr-3 cursor-pointer">Alexander Loremip</span>
         <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-secondary rounded-full dark:bg-gray-600 cursor-pointer">
           <span className="font-medium text-white dark:text-gray-300">AL</span>

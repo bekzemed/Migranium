@@ -16,6 +16,7 @@ import { SignUp } from "./pages/SignUp";
 import TeamMember from "./pages/TeamMember";
 import TeamMembers from "./pages/TeamMembers";
 import Terms from "./pages/Terms";
+import UpgradeProfile from "./pages/UpgradeProfile";
 import WaitList from "./pages/Waitlist";
 import WaitListMember from "./pages/WaitListMember";
 import ScrollToTop from "./util/scrollToTop";
@@ -44,6 +45,7 @@ function App() {
           <Route path="settings" element={<Settings />} />
           <Route path="custom-fields" element={<CustomFields />} />
           <Route path="add-location" element={<AddLocation />} />
+          <Route path="upgrade-profile" element={<UpgradeProfile />} />
           <Route path="team-members">
             <Route index element={<TeamMembers />} />
             <Route path=":id" element={<TeamMember />} />
