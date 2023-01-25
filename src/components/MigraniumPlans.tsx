@@ -15,12 +15,18 @@ const MigraniumPlans = ({ migraniumPlans, setShowPlan, setPlanType }: any) => {
             {plans.description}
           </span>
 
-          {migraniumPlans.length !== index + 1 && (
-            <span className="block text-xs mb-3">Starts at</span>
-          )}
-          <span className="block text-3xl text-primary mb-6 whitespace-nowrap">
-            {plans.payment}
-          </span>
+          <div
+            className={`${
+              migraniumPlans.length !== index + 1 ? "my-10" : "my-12"
+            }`}
+          >
+            <span className="block text-xs mb-3">
+              {migraniumPlans.length !== index + 1 && "Starts at"}
+            </span>
+            <span className="block text-3xl text-primary whitespace-nowrap">
+              {plans.payment}
+            </span>
+          </div>
           <button
             type="button"
             className={`${
