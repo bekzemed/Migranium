@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { AboutBusiness } from "./pages/AboutBusiness";
 import { AboutYou } from "./pages/AboutYou";
+import AddLocation from "./pages/AddLocation";
 import Customers from "./pages/Customers";
 import CustomFields from "./pages/CustomFields";
 import Dashboard from "./pages/Dashboard";
@@ -42,6 +43,7 @@ function App() {
           <Route path="customers" element={<Customers />} />
           <Route path="settings" element={<Settings />} />
           <Route path="custom-fields" element={<CustomFields />} />
+          <Route path="add-location" element={<AddLocation />} />
           <Route path="team-members">
             <Route index element={<TeamMembers />} />
             <Route path=":id" element={<TeamMember />} />

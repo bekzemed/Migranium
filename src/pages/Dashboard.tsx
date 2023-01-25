@@ -15,6 +15,7 @@ import GenerateQRCode from "../components/GenerateQRCode";
 import Header from "../components/Header";
 import LocationInfo from "../components/LocationInfo";
 import Pagination from "../components/Pagination";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [show, onShow] = useState(false);
@@ -257,9 +258,11 @@ const Dashboard = () => {
               clipRule="evenodd"
             />
           </svg>
-          <span className="text-primary text-xs cursor-pointer">
-            Add location
-          </span>
+          <Link to="add-location">
+            <span className="text-primary text-xs cursor-pointer">
+              Add location
+            </span>
+          </Link>
         </div>
 
         <Pagination />
@@ -328,24 +331,26 @@ const Dashboard = () => {
               />
             </div>
 
-            <button
-              type="button"
-              className="text-white border-slate-300 flex items-center justify-center text-xs  bg-secondary focus:outline-none  font-medium rounded-full px-5 py-2 text-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-5 h-5 mr-1"
+            <Link to="add-location">
+              <button
+                type="button"
+                className="text-white border-slate-300 flex items-center justify-center text-xs  bg-secondary focus:outline-none  font-medium rounded-full px-5 py-2 text-center"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Add location
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-5 h-5 mr-1"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Add location
+              </button>
+            </Link>
           </div>
 
           {cashex.length ? (
