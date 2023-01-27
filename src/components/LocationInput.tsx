@@ -56,7 +56,7 @@ const LocationInput = ({ showLocation, setShowLocation, location }: any) => {
               </>
             ) : (
               <>
-                <span className="text-xs mr-1">Show all information</span>
+                <span className="text-xs mr-1">Show all</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

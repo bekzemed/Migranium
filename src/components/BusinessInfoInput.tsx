@@ -14,7 +14,7 @@ const BusinessInfoInput = () => {
   const [businessCity, setBusinessCity] = useState("");
 
   return (
-    <div className="mb-6 px-2 grid grid-cols-1 lg:grid-cols-3">
+    <div className="mb-6 grid grid-cols-1 lg:grid-cols-3">
       <div className="lg:mr-3">
         <label
           htmlFor="businessCountry"

@@ -19,7 +19,11 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [show, onShow] = useState(false);
-  const [locationStation, setLocationStation] = useState(false);
+  const [locationStation, setLocationStation] = useState({
+    location1: false,
+    location2: false,
+  });
+
   const [showLocationInfo, setShowLocationInfo] = useState(false);
   const [addStation, setAddStation] = useState(false);
   const [showQRCode, setShowQRCode] = useState(false);
@@ -48,8 +52,31 @@ const Dashboard = () => {
           (showLocationInfo || addStation || showQRCode) && "filter blur-sm"
         }`}
       >
-        <span className="opacity-80 block mb-1 text-xs">Cashex</span>
-        <span className="text-2xl block mb-4">Locations</span>
+        <div className="flex justify-between items-center">
+          <div>
+            <span className="opacity-80 block mb-1 text-xs">Cashex</span>
+            <span className="text-2xl block mb-4">Locations</span>
+          </div>
+          <div className="flex justify-center items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="#0070BA"
+              className="w-6 h-6 mr-1"
+            >
+              <path
+                fillRule="evenodd"
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <Link to="add-location">
+              <span className="text-primary text-xs cursor-pointer">
+                Add location
+              </span>
+            </Link>
+          </div>
+        </div>
 
         <div className="relative mb-6">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -124,9 +151,57 @@ const Dashboard = () => {
                     <span>Location stations</span>
                     <span
                       className="flex items-center cursor-pointer"
-                      onClick={() => setLocationStation(!locationStation)}
+                      onClick={() =>
+                        index === 0
+                          ? setLocationStation({
+                              ...locationStation,
+                              location1: !locationStation.location1,
+                            })
+                          : setLocationStation({
+                              ...locationStation,
+                              location2: !locationStation.location2,
+                            })
+                      }
                     >
-                      {locationStation ? (
+                      {index === 0 ? (
+                        locationStation.location1 ? (
+                          <>
+                            <span className="text-xs mr-1">Hide</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                              />
+                            </svg>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-xs mr-1">Show all</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </>
+                        )
+                      ) : locationStation.location2 ? (
                         <>
                           <span className="text-xs mr-1">Hide</span>
                           <svg
@@ -146,9 +221,7 @@ const Dashboard = () => {
                         </>
                       ) : (
                         <>
-                          <span className="text-xs mr-1">
-                            Show all information
-                          </span>
+                          <span className="text-xs mr-1">Show all</span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -168,70 +241,147 @@ const Dashboard = () => {
                     </span>
                   </div>
 
-                  {locationStation && (
-                    <div>
-                      <div className="flex justify-between text-sm mb-4">
-                        <span>Station 1</span>
-                        <div className="flex items-center">
-                          <img src={editOutline} alt="Edit" className="mr-2" />
-                          <img src={deleteOutline} alt="Delete" />
-                        </div>
-                      </div>
+                  {index === 0
+                    ? locationStation.location1 && (
+                        <div>
+                          <div className="flex justify-between text-sm mb-4">
+                            <span>Station 1</span>
+                            <div className="flex items-center">
+                              <img
+                                src={editOutline}
+                                alt="Edit"
+                                className="mr-2"
+                              />
+                              <img src={deleteOutline} alt="Delete" />
+                            </div>
+                          </div>
 
-                      <div className="flex flex-col mb-5">
-                        <div className="flex flex-col mb-3">
-                          <span className="text-xs opacity-40 mb-2">
-                            Name of waitlist
-                          </span>
-                          <span className="text-sm">Cashex waitlist</span>
-                        </div>
-                        <div className="flex flex-col mb-3">
-                          <span className="text-xs opacity-40 mb-2">
-                            Waiting list
-                          </span>
-                          <span className="text-sm">7 people waiting</span>
-                        </div>
-                        <div className="flex flex-col mb-3">
-                          <span className="text-xs opacity-40 mb-2">
-                            Total waiting time
-                          </span>
-                          <span className="text-sm">6.9 hours waiting</span>
-                        </div>
-                        <div className="flex flex-col mb-3">
-                          <span className="text-xs opacity-40 mb-2">
-                            Last active:
-                          </span>
-                          <span className="text-sm">
-                            October 21, 2022, 08:21pm
-                          </span>
-                        </div>
-                        <div className="flex flex-col">
-                          <span className="text-xs opacity-40 mb-2">
-                            Team members:
-                          </span>
-                          <span className="text-sm">
-                            Savannah Niguyen, Jane Cooper, Guy Hawkins, Darrell
-                            Steward, Dianne Russell, Albert Flores
-                          </span>
-                        </div>
-                      </div>
+                          <div className="flex flex-col mb-5">
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Name of waitlist
+                              </span>
+                              <span className="text-sm">Cashex waitlist</span>
+                            </div>
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Waiting list
+                              </span>
+                              <span className="text-sm">7 people waiting</span>
+                            </div>
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Total waiting time
+                              </span>
+                              <span className="text-sm">6.9 hours waiting</span>
+                            </div>
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Last active:
+                              </span>
+                              <span className="text-sm">
+                                October 21, 2022, 08:21pm
+                              </span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-xs opacity-40 mb-2">
+                                Team members:
+                              </span>
+                              <span className="text-sm">
+                                Savannah Niguyen, Jane Cooper, Guy Hawkins,
+                                Darrell Steward, Dianne Russell, Albert Flores
+                              </span>
+                            </div>
+                          </div>
 
-                      <div className="flex text-sm mb-4">
-                        <div className="flex items-center mr-4">
-                          <img
-                            src={QR}
-                            alt="QR code"
-                            className="mr-1 bg-secondary"
-                          />
-                          <span className="text-primary">Generate QR</span>
+                          <div className="flex text-sm mb-4">
+                            <div className="flex items-center mr-4">
+                              <img
+                                src={QR}
+                                alt="QR code"
+                                className="mr-1 bg-secondary"
+                              />
+                              <span className="text-primary">Generate QR</span>
+                            </div>
+                            <div className="flex items-center">
+                              <img src={copy} alt="Copy" className="mr-1" />
+                              <span className="text-primary">
+                                Copy the link
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex items-center">
-                          <img src={copy} alt="Copy" className="mr-1" />
-                          <span className="text-primary">Copy the link</span>
+                      )
+                    : locationStation.location2 && (
+                        <div>
+                          <div className="flex justify-between text-sm mb-4">
+                            <span>Station 1</span>
+                            <div className="flex items-center">
+                              <img
+                                src={editOutline}
+                                alt="Edit"
+                                className="mr-2"
+                              />
+                              <img src={deleteOutline} alt="Delete" />
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col mb-5">
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Name of waitlist
+                              </span>
+                              <span className="text-sm">Cashex waitlist</span>
+                            </div>
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Waiting list
+                              </span>
+                              <span className="text-sm">7 people waiting</span>
+                            </div>
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Total waiting time
+                              </span>
+                              <span className="text-sm">6.9 hours waiting</span>
+                            </div>
+                            <div className="flex flex-col mb-3">
+                              <span className="text-xs opacity-40 mb-2">
+                                Last active:
+                              </span>
+                              <span className="text-sm">
+                                October 21, 2022, 08:21pm
+                              </span>
+                            </div>
+                            <div className="flex flex-col">
+                              <span className="text-xs opacity-40 mb-2">
+                                Team members:
+                              </span>
+                              <span className="text-sm">
+                                Savannah Niguyen, Jane Cooper, Guy Hawkins,
+                                Darrell Steward, Dianne Russell, Albert Flores
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="flex text-sm mb-4">
+                            <div className="flex items-center mr-4">
+                              <img
+                                src={QR}
+                                alt="QR code"
+                                className="mr-1 bg-secondary"
+                              />
+                              <span className="text-primary">Generate QR</span>
+                            </div>
+                            <div className="flex items-center">
+                              <img src={copy} alt="Copy" className="mr-1" />
+                              <span className="text-primary">
+                                Copy the link
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  )}
+                      )}
                 </div>
               </div>
             </div>
@@ -244,26 +394,6 @@ const Dashboard = () => {
             <hr className="pb-4" />
           </div>
         )}
-
-        <div className="flex justify-center items-center mb-10">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="#0070BA"
-            className="w-6 h-6 mr-1"
-          >
-            <path
-              fillRule="evenodd"
-              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <Link to="add-location">
-            <span className="text-primary text-xs cursor-pointer">
-              Add location
-            </span>
-          </Link>
-        </div>
 
         <Pagination />
       </div>
@@ -415,9 +545,57 @@ const Dashboard = () => {
                       <span>Location stations</span>
                       <span
                         className="flex items-center cursor-pointer"
-                        onClick={() => setLocationStation(!locationStation)}
+                        onClick={() =>
+                          index === 0
+                            ? setLocationStation({
+                                ...locationStation,
+                                location1: !locationStation.location1,
+                              })
+                            : setLocationStation({
+                                ...locationStation,
+                                location2: !locationStation.location2,
+                              })
+                        }
                       >
-                        {locationStation ? (
+                        {index === 0 ? (
+                          locationStation.location1 ? (
+                            <>
+                              <span className="text-xs mr-1">Hide</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-6 h-6"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                                />
+                              </svg>
+                            </>
+                          ) : (
+                            <>
+                              <span className="text-xs mr-1">Show all</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-6 h-6"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                />
+                              </svg>
+                            </>
+                          )
+                        ) : locationStation.location2 ? (
                           <>
                             <span className="text-xs mr-1">Hide</span>
                             <svg
@@ -437,9 +615,7 @@ const Dashboard = () => {
                           </>
                         ) : (
                           <>
-                            <span className="text-xs mr-1">
-                              Show all information
-                            </span>
+                            <span className="text-xs mr-1">Show all</span>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
@@ -459,89 +635,185 @@ const Dashboard = () => {
                       </span>
                     </div>
 
-                    {locationStation && (
-                      <div>
-                        <div className="flex justify-between text-sm mb-4">
-                          <span>Station 1</span>
-                          <div className="flex items-center">
-                            <img
-                              src={editOutline}
-                              alt="Edit"
-                              className="mr-2"
-                            />
-                            <img src={deleteOutline} alt="Delete" />
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col mb-5">
-                          <div className="flex flex-col mb-3">
-                            <span className="text-xs opacity-40 mb-2">
-                              Name of waitlist
-                            </span>
-                            <span className="text-sm">Cashex waitlist</span>
-                          </div>
-                          <div className="flex flex-col mb-3">
-                            <span className="text-xs opacity-40 mb-2">
-                              Waiting list
-                            </span>
-                            <span className="text-sm">7 people waiting</span>
-                          </div>
-                          <div className="flex flex-col mb-3">
-                            <span className="text-xs opacity-40 mb-2">
-                              Total waiting time
-                            </span>
-                            <span className="text-sm">6.9 hours waiting</span>
-                          </div>
-                          <div className="flex flex-col mb-3">
-                            <span className="text-xs opacity-40 mb-2">
-                              Last active:
-                            </span>
-                            <span className="text-sm">
-                              October 21, 2022, 08:21pm
-                            </span>
-                          </div>
-                          <div className="flex flex-col">
-                            <span className="text-xs opacity-40 mb-2">
-                              Team members:
-                            </span>
-                            <span className="text-sm">
-                              Savannah Niguyen, Jane Cooper, Guy Hawkins,
-                              Darrell Steward, Dianne Russell, Albert Flores
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="mb-4">
-                          <div className="flex items-center justify-center mb-4">
-                            <img
-                              src={QR}
-                              alt="QR code"
-                              className="mr-1 bg-secondary"
-                            />
-                            <span className="text-primary">Generate QR</span>
-                          </div>
-                          <div className="flex justify-center mb-4">
-                            <span className="opacity-40 text-xs">
-                              or copy the link
-                            </span>
-                          </div>
-
-                          <div className="relative mb-5">
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                              <img src={copy} alt="Copy" />
+                    {index === 0
+                      ? locationStation.location1 && (
+                          <div>
+                            <div className="flex justify-between text-sm mb-4">
+                              <span>Station 1</span>
+                              <div className="flex items-center">
+                                <img
+                                  src={editOutline}
+                                  alt="Edit"
+                                  className="mr-2"
+                                />
+                                <img src={deleteOutline} alt="Delete" />
+                              </div>
                             </div>
-                            <input
-                              type="text"
-                              id="copy"
-                              className="bg-gray-100 border border-gray-300 placeholder:text-bright text-xs rounded-full cursor-pointer block w-full p-2 focus-visible:outline-none focus:outline-none"
-                              placeholder="migranium.com/welcome/cashex/que-to-get-services"
-                              required
-                              disabled
-                            />
+
+                            <div className="flex flex-col mb-5">
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Name of waitlist
+                                </span>
+                                <span className="text-sm">Cashex waitlist</span>
+                              </div>
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Waiting list
+                                </span>
+                                <span className="text-sm">
+                                  7 people waiting
+                                </span>
+                              </div>
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Total waiting time
+                                </span>
+                                <span className="text-sm">
+                                  6.9 hours waiting
+                                </span>
+                              </div>
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Last active:
+                                </span>
+                                <span className="text-sm">
+                                  October 21, 2022, 08:21pm
+                                </span>
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Team members:
+                                </span>
+                                <span className="text-sm">
+                                  Savannah Niguyen, Jane Cooper, Guy Hawkins,
+                                  Darrell Steward, Dianne Russell, Albert Flores
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="mb-4">
+                              <div className="flex items-center justify-center mb-4">
+                                <img
+                                  src={QR}
+                                  alt="QR code"
+                                  className="mr-1 bg-secondary"
+                                />
+                                <span className="text-primary">
+                                  Generate QR
+                                </span>
+                              </div>
+                              <div className="flex justify-center mb-4">
+                                <span className="opacity-40 text-xs">
+                                  or copy the link
+                                </span>
+                              </div>
+
+                              <div className="relative mb-5">
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                  <img src={copy} alt="Copy" />
+                                </div>
+                                <input
+                                  type="text"
+                                  id="copy"
+                                  className="bg-gray-100 border border-gray-300 placeholder:text-bright text-xs rounded-full cursor-pointer block w-full p-2 focus-visible:outline-none focus:outline-none"
+                                  placeholder="migranium.com/welcome/cashex/que-to-get-services"
+                                  required
+                                  disabled
+                                />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    )}
+                        )
+                      : locationStation.location2 && (
+                          <div>
+                            <div className="flex justify-between text-sm mb-4">
+                              <span>Station 1</span>
+                              <div className="flex items-center">
+                                <img
+                                  src={editOutline}
+                                  alt="Edit"
+                                  className="mr-2"
+                                />
+                                <img src={deleteOutline} alt="Delete" />
+                              </div>
+                            </div>
+
+                            <div className="flex flex-col mb-5">
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Name of waitlist
+                                </span>
+                                <span className="text-sm">Cashex waitlist</span>
+                              </div>
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Waiting list
+                                </span>
+                                <span className="text-sm">
+                                  7 people waiting
+                                </span>
+                              </div>
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Total waiting time
+                                </span>
+                                <span className="text-sm">
+                                  6.9 hours waiting
+                                </span>
+                              </div>
+                              <div className="flex flex-col mb-3">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Last active:
+                                </span>
+                                <span className="text-sm">
+                                  October 21, 2022, 08:21pm
+                                </span>
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-xs opacity-40 mb-2">
+                                  Team members:
+                                </span>
+                                <span className="text-sm">
+                                  Savannah Niguyen, Jane Cooper, Guy Hawkins,
+                                  Darrell Steward, Dianne Russell, Albert Flores
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="mb-4">
+                              <div className="flex items-center justify-center mb-4">
+                                <img
+                                  src={QR}
+                                  alt="QR code"
+                                  className="mr-1 bg-secondary"
+                                />
+                                <span className="text-primary">
+                                  Generate QR
+                                </span>
+                              </div>
+                              <div className="flex justify-center mb-4">
+                                <span className="opacity-40 text-xs">
+                                  or copy the link
+                                </span>
+                              </div>
+
+                              <div className="relative mb-5">
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                  <img src={copy} alt="Copy" />
+                                </div>
+                                <input
+                                  type="text"
+                                  id="copy"
+                                  className="bg-gray-100 border border-gray-300 placeholder:text-bright text-xs rounded-full cursor-pointer block w-full p-2 focus-visible:outline-none focus:outline-none"
+                                  placeholder="migranium.com/welcome/cashex/que-to-get-services"
+                                  required
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        )}
                   </div>
                 </div>
               </div>
