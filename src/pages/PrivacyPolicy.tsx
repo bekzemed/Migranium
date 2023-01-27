@@ -9,9 +9,9 @@ const PrivacyPolicy = () => {
       <NavBar show={show} onDone={() => setShow(!show)} />
       {!show && (
         <>
-          <div className="bg-primary px-4 py-28 md:px-28">
-            <span className="font-black text-5xl text-center block lg:leading-snug dark:text-black 2xl:w-[1350px] m-auto">
-              Privacy Policy for Migranium
+          <div className="bg-primary px-4 py-20 mt-[62px] lg:mt-[70px] md:px-28">
+            <span className="font-black text-5xl lg:text-6xl text-center block lg:leading-snug dark:text-black 2xl:w-[1350px] m-auto">
+              Privacy Policy
             </span>
           </div>
           <div className="flex flex-col px-4 py-8 md:px-28 lg:px-0 lg:w-[670px] m-auto">

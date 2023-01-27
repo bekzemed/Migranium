@@ -5,7 +5,7 @@ const LocationLogo = () => {
   return (
     <>
       <span className="block mb-2 text-xs font-medium text-gray-900 dark:text-black">
-        Location logo
+        Logo
       </span>
       <div className="flex items-center">
         <img src={locationLogo} alt="Location logo" className="mr-4" />

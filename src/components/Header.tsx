@@ -34,7 +34,7 @@ const Header = ({
             className="relative inline-flex items-center p-2 text-sm font-medium text-center text-white  rounded-lg focus-visible:outline-none focus:outline-none"
             onClick={onNotification}
           >
-            <img src={bell} alt="Notification" />
+            <img src={bell} alt="Notification" className="w-[35px]" />
 
             <span className="sr-only">Notifications</span>
             <div className="absolute inline-flex items-center border-none justify-center w-6 h-6 text-xs font-bold  border-2 text-red-500 rounded-full -top-1 -right-1">
@@ -42,7 +42,7 @@ const Header = ({
             </div>
           </button>
         ) : (
-          <img src={bell} alt="Notification" className="mr-2" />
+          <img src={bell} alt="Notification" className="mr-2 w-[35px]" />
         )}
         {/*  */}
         {showNotification && (
@@ -133,7 +133,7 @@ const Header = ({
         <Link to="/dashboard/upgrade-profile">
           <button
             type="button"
-            className="text-white border-slate-300 justify-center  bg-secondary focus:outline-none  font-medium rounded-full text-sm px-5 py-2 text-center inline-flex items-center mr-3"
+            className="text-white border-slate-300 justify-center  bg-secondary focus:outline-none  font-medium rounded-full text-xs px-5 py-1.5 text-center inline-flex items-center mr-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

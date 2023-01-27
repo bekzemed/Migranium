@@ -85,13 +85,16 @@ export const DashboardDesktop = () => {
   return (
     <div className="text-xs hidden lg:block w-[250px]">
       <div className="flex flex-col h-screen p-8 bg-secondary">
-        <div className="flex items-center cursor-pointer px-2 lg:mb-[30px] 2xl:mb-[70px]">
-          <img src={logo} className="mr-1 sm:h-9" alt="Migranium Logo" />
+        <Link to="/">
+          <div className="flex items-center cursor-pointer px-2 lg:mb-[30px] 2xl:mb-[70px]">
+            {/* <img src={logo} className="mr-2 h-9" alt="Migranium Logo" /> */}
+            <img src={logo} className="mr-2 w-[31px]" alt="Migranium Logo" />
 
-          <span className="text-lg font-semibold text-white migranium-font">
-            migranium
-          </span>
-        </div>
+            <span className="text-lg font-semibold text-white migranium-font">
+              migranium
+            </span>
+          </div>
+        </Link>
 
         <ul className="gap-2 text-white flex-1">
           <Link to="/dashboard">
