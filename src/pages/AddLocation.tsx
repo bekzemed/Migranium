@@ -17,10 +17,7 @@ const AddLocation = () => {
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="pt-10 px-2 flex-1 overflow-y-scroll lg:hidden dark:text-black">
-        <div
-          className="flex justify-between items-center"
-          onClick={() => navigate(-1)}
-        >
+        <div className="flex justify-between items-center">
           <div>
             <span className="opacity-80 block mb-1 text-xs">Cashex</span>
             <span className="text-2xl block mb-4">Location settings</span>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   DashboardDesktop,
   DashboardMobile,
@@ -10,6 +10,7 @@ import trash from "../assets/trash.svg";
 
 const TeamMember = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
 
   const [show, onShow] = useState(false);
 
@@ -18,8 +19,28 @@ const TeamMember = () => {
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black mb-6">
-        <span className="opacity-80 block mb-1 text-xs">Cashex</span>
-        <span className="text-2xl block mb-4">Team Members - {state.name}</span>
+        <div className="flex justify-between items-end mb-4">
+          <div>
+            <span className="opacity-80 block mb-1 text-xs">Cashex</span>
+            <span className="text-2xl block">Team Members - {state.name}</span>
+          </div>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-6 h-6 cursor-pointer"
+            onClick={() =>
+              navigate("/dashboard/team-members", { replace: true })
+            }
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
 
         <div className="bg-white rounded-lg px-2 py-4 mb-10 text-xs">
           <div className="pb-8 border-b">
@@ -218,12 +239,28 @@ const TeamMember = () => {
                 <span className="block text-sm font-extrabold">
                   Personal info
                 </span>
-                <button
-                  type="button"
-                  className=" p-2 text-xs font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
-                >
-                  Save changes
-                </button>
+
+                <div className="hidden lg:flex items-center">
+                  <button
+                    type="button"
+                    className="bg-secondary text-xs text-white rounded-full focus-visible:outline-none focus:outline-none mr-3"
+                  >
+                    Save changes
+                  </button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-6 h-6 cursor-pointer"
+                    onClick={() => navigate(-1)}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
               </div>
               <div className="flex items-center">
                 <div className="mr-5 w-[200px]">
