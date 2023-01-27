@@ -1,17 +1,36 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import LocationLogo from "./LocationLogo";
 
 const AddLocationComponent = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white rounded-lg py-4 mb-4 px-2 dark:text-black">
       <div className="lg:flex justify-between items-center">
         <span className="block text-sm pb-5 px-2">Location</span>
-        <button
-          type="button"
-          className="bg-secondary hidden lg:block text-white rounded-full focus-visible:outline-none focus:outline-none text-xs"
-        >
-          Save changes
-        </button>
+
+        <div className="hidden lg:flex items-center">
+          <button
+            type="button"
+            className="bg-secondary text-xs text-white rounded-full focus-visible:outline-none focus:outline-none mr-3"
+          >
+            Save changes
+          </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-6 h-6 cursor-pointer"
+            onClick={() => navigate(-1)}
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
       </div>
       <div className="mb-4 px-2 lg:flex">
         <div className="lg:w-[250px] lg:mr-3">
