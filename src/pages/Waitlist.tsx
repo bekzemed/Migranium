@@ -20,6 +20,8 @@ import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import WaitlistButtons from "../components/WaitlistButtons";
 import WaitListDetail from "../components/WaitListDetail";
+import WaitListMember from "./WaitListMember";
+import WaitListInfo from "../components/WaitListInfo";
 
 const waitlist = [1];
 const waitUsers = [
@@ -50,6 +52,8 @@ const WaitList = () => {
   const navigate = useNavigate();
   const [show, onShow] = useState(false);
   const [showWaitUser, setShowWaitUser] = useState(false);
+  const [showWaitUserInfo, setShowWaitUserInfo] = useState(false);
+  const [waitUserInfo, setWaitUserInfo] = useState({});
 
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -86,8 +90,20 @@ const WaitList = () => {
           />
         )}
 
+        {showWaitUserInfo && (
+          <WaitListInfo
+            showWaitUserInfo={showWaitUserInfo}
+            setShowWaitUserInfo={setShowWaitUserInfo}
+            data={waitUserInfo}
+          />
+        )}
+
         {waitlist.length ? (
-          <div className={`${showWaitUser ? "filter blur-sm" : ""}`}>
+          <div
+            className={`${
+              showWaitUser || showWaitUserInfo ? "filter blur-sm" : ""
+            }`}
+          >
             <div className="bg-white rounded-lg px-2 py-4 mb-6">
               <span className="block mb-4">Next visitor is</span>
               <div className="text-xs flex justify-between">
@@ -132,13 +148,6 @@ const WaitList = () => {
                         index + 1 !== waitUsers.length && "border-b"
                       } border-gray-300 py-4`}
                       key={index}
-                      onClick={() =>
-                        navigate(`${user.id}`, {
-                          state: waitUsers.find(
-                            (users) => users.id === user.id
-                          ),
-                        })
-                      }
                     >
                       <th className="opacity-40 py-4">{index + 1}</th>
                       <td className="py-4">{user.name}</td>
@@ -146,7 +155,14 @@ const WaitList = () => {
                       <td className="py-4 opacity-40">2.2 days</td>
                       <td className="py-4 flex justify-end">
                         <img src={right} alt="Right" className="mr-3" />
-                        <img src={info} alt="Info" />
+                        <img
+                          src={info}
+                          alt="Info"
+                          onClick={() => {
+                            setShowWaitUserInfo(true);
+                            setWaitUserInfo(user);
+                          }}
+                        />
                       </td>
                     </tr>
                   ))}
@@ -266,13 +282,6 @@ const WaitList = () => {
                           index + 1 !== waitUsers.length && "border-b"
                         } border-gray-300 py-4 cursor-pointer`}
                         key={index}
-                        onClick={() =>
-                          navigate(`${user.id}`, {
-                            state: waitUsers.find(
-                              (users) => users.id === user.id
-                            ),
-                          })
-                        }
                       >
                         <th className="opacity-40 py-4">{index + 1}</th>
                         <td className="py-4 w-[170px]">
@@ -295,7 +304,18 @@ const WaitList = () => {
                         </td>
                         <td className="py-4 flex justify-end">
                           <img src={right} alt="" className="mr-3" />
-                          <img src={info} alt="" className="mr-3" />
+                          <img
+                            src={info}
+                            alt=""
+                            className="mr-3"
+                            onClick={() =>
+                              navigate(`${user.id}`, {
+                                state: waitUsers.find(
+                                  (users) => users.id === user.id
+                                ),
+                              })
+                            }
+                          />
                           <img src={edit} alt="Edit" className="mr-3" />
 
                           <img
