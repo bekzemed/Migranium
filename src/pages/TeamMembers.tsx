@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import chat from "../assets/chat.svg";
+import { useNavigate } from "react-router-dom";
+import trash from "../assets/trash.svg";
 import {
   DashboardDesktop,
   DashboardMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
-import trash from "../assets/trash.svg";
 
 const teamMembers = [
   {
-    name: "Marakinyo",
+    firstName: "Marakinyo",
+    lastName: "Fisher",
     station: "Station 1",
     job: "Obstetrician",
     id: 0,
@@ -21,7 +21,8 @@ const teamMembers = [
     location: "2464 Royal Ln. Mesa, New Jersey 45463",
   },
   {
-    name: "Jacko",
+    firstName: "Jacko",
+    lastName: "McCoy",
     station: "Station 2",
     job: "Obstetrician",
     id: 1,
@@ -31,7 +32,8 @@ const teamMembers = [
     location: "2464 Royal Ln. Mesa, New Jersey 45463",
   },
   {
-    name: "Usaeyno",
+    firstName: "Usaeyno",
+    lastName: "Flores",
     station: "Station 1",
     job: "Obstetrician",
     id: 2,
@@ -83,7 +85,7 @@ const TeamMembers = () => {
                         })
                       }
                     >
-                      {member.name}
+                      {`${member.firstName} ${member.lastName}`}
                     </span>
                   </div>
                   <div className="flex items-center justify-end">
@@ -168,21 +170,31 @@ const TeamMembers = () => {
                       <span>{member.station}</span>
                     </div>
                     <div className="flex flex-col">
-                      <div className="mb-2">
+                      <div className="mb-2=4">
                         <span className="block opacity-40 mb-2">Job title</span>
                         <span className="block">{member.job}</span>
                       </div>
-                      <div className="mb-2">
+                      <div className="mb-4">
+                        <span className="block opacity-40 mb-2">Email</span>
+                        <span className="block">{member.email}</span>
+                      </div>
+                      <div className="mb-4">
+                        <span className="block opacity-40 mb-2">
+                          Phone Number
+                        </span>
+                        <span className="block">{member.phone}</span>
+                      </div>
+                      <div className="mb-4">
                         <span className="block opacity-40 mb-2">Location</span>
                         <span className="block">{member.location}</span>
                       </div>
 
-                      <div className="mb-2">
+                      <div className="mb-4">
                         <span className="block opacity-40 mb-2">Id</span>
                         <span className="block">{member.id}</span>
                       </div>
 
-                      <div className="mb-2">
+                      <div className="mb-4">
                         <span className="block opacity-40 mb-2">Role</span>
                         <span className="block">{member.role}</span>
                       </div>
@@ -237,12 +249,14 @@ const TeamMembers = () => {
                     <tr className="dark:text-black text-xs border-b border-gray-300">
                       <th></th>
                       <th className="pb-5 flex opacity-40">Name</th>
+                      <th className="pb-5 opacity-40">Email</th>
+                      <th className="pb-5 opacity-40">Phone number</th>
                       <th className="pb-5 opacity-40">Station</th>
                       <th className="pb-5 opacity-40">Job title</th>
                       <th className="pb-5 opacity-40">Id</th>
                       <th className="pb-5 opacity-40">Role</th>
                       <th className="pb-5">
-                        <span className="rounded-full px-4 py-1 border-gray-300 border cursor-pointer">
+                        <span className="rounded-full px-4 py-1 border cursor-pointer bg-secondary text-white">
                           Add new command
                         </span>
                       </th>
@@ -260,7 +274,7 @@ const TeamMembers = () => {
                         <td className="py-4">
                           <div className="flex">
                             <span
-                              className="w-[80px] text-start cursor-pointer"
+                              className="text-start cursor-pointer"
                               onClick={() =>
                                 navigate(`${member.id}`, {
                                   state: teamMembers.find(
@@ -269,11 +283,12 @@ const TeamMembers = () => {
                                 })
                               }
                             >
-                              {member.name}
+                              {`${member.firstName} ${member.lastName}`}
                             </span>
-                            <img src={chat} alt="Chat" />
                           </div>
                         </td>
+                        <td className="py-4 opacity-40">{member.email}</td>
+                        <td className="py-4 opacity-40">{member.phone}</td>
                         <td className="py-4 opacity-40">{member.station}</td>
                         <td className="py-4 opacity-40">{member.job}</td>
                         <td className="py-4 opacity-40">{member.id}</td>

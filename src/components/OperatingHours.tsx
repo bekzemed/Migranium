@@ -4,33 +4,33 @@ import add from "../assets/add.svg";
 const OperatingHours = () => {
   return (
     <>
-      <div className="flex text-xs flex-wrap mb-4">
-        <div className="w-[150px] mb-4">
-          <span className="block opacity-40 mb-2">Monday</span>
+      <div className="flex flex-col text-xs flex-wrap mb-4">
+        <div className="mb-4 flex">
+          <span className="block opacity-40 w-[50px]">Mon</span>
           <span>09:00 am - 06:00pm</span>
         </div>
-        <div className="w-[150px] mb-4">
-          <span className="block opacity-40 mb-2">Tuesday</span>
+        <div className="mb-4 flex">
+          <span className="block opacity-40 w-[50px]">Tue</span>
           <span>09:00 am - 06:00pm</span>
         </div>
-        <div className="w-[150px] mb-4">
-          <span className="block opacity-40 mb-2">Wednesday</span>
+        <div className="mb-4 flex">
+          <span className="block opacity-40 w-[50px]">Wed</span>
           <span>09:00 am - 06:00pm</span>
         </div>
-        <div className="w-[150px] mb-4">
-          <span className="block opacity-40 mb-2">Thursday</span>
+        <div className="mb-4 flex">
+          <span className="block opacity-40 w-[50px]">Thu</span>
           <span>09:00 am - 06:00pm</span>
         </div>
-        <div className="w-[150px] mb-4">
-          <span className="block opacity-40 mb-2">Friday</span>
+        <div className="mb-4 flex">
+          <span className="block opacity-40 w-[50px]">Fri</span>
           <span>09:00 am - 06:00pm</span>
         </div>
-        <div className="w-[150px] mb-4">
-          <span className="block opacity-40 mb-2">Saturday</span>
+        <div className="mb-4 flex">
+          <span className="block opacity-40 w-[50px]">Sat</span>
           <span>09:00 am - 06:00pm</span>
         </div>
-        <div className="w-[70px] mb-4">
-          <span className="block opacity-40 mb-2">Sunday</span>
+        <div className="mb-4 flex">
+          <span className="block opacity-40 w-[50px]">Sun</span>
           <span>Weekend</span>
         </div>
       </div>

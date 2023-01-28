@@ -46,6 +46,14 @@
   display: block;
 }
 
+/* .CircularProgressbar-text{
+  fill: "#0070BA";
+} */
+.CircularProgressbar .CircularProgressbar-text {
+  fill: "#0070BA" !important;
+
+}
+
 .react-datepicker-wrapper {
   border: 1px solid gray;
   border-radius: 20px;

@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import chat from "../assets/chat.svg";
 import downArrow from "../assets/down.svg";
-import trash from "../assets/trash.svg";
-import upAndDown from "../assets/upAndDown.svg";
 import edit from "../assets/edit-small.svg";
 import filter from "../assets/filter.svg";
 import info from "../assets/info-outline.svg";
@@ -11,6 +9,9 @@ import message from "../assets/message.svg";
 import phone from "../assets/phone.svg";
 import right from "../assets/right.svg";
 import time from "../assets/time.svg";
+import trash from "../assets/trash.svg";
+import bell from "../assets/bell.svg";
+import upAndDown from "../assets/upAndDown.svg";
 import user from "../assets/user.svg";
 import {
   DashboardDesktop,
@@ -20,7 +21,6 @@ import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import WaitlistButtons from "../components/WaitlistButtons";
 import WaitListDetail from "../components/WaitListDetail";
-import WaitListMember from "./WaitListMember";
 import WaitListInfo from "../components/WaitListInfo";
 
 const waitlist = [1];
@@ -53,6 +53,8 @@ const WaitList = () => {
   const [show, onShow] = useState(false);
   const [showWaitUser, setShowWaitUser] = useState(false);
   const [showWaitUserInfo, setShowWaitUserInfo] = useState(false);
+  const [showOptions, setOptions] = useState(false);
+  const [showOptionsIndex, setOptionsIndex] = useState(-1);
   const [waitUserInfo, setWaitUserInfo] = useState({});
 
   return (
@@ -269,7 +271,7 @@ const WaitList = () => {
                       <th className="pb-5 opacity-40">Station</th>
                       <th className="pb-5 opacity-40">Status</th>
                       <th className="pb-5 flex justify-end opacity-1">
-                        <span className="rounded-full px-4 py-1 border-gray-300 border">
+                        <span className="rounded-full px-4 py-1 bg-secondary text-white">
                           Clear queue
                         </span>
                       </th>
@@ -280,29 +282,27 @@ const WaitList = () => {
                       <tr
                         className={`text-center ${
                           index + 1 !== waitUsers.length && "border-b"
-                        } border-gray-300 py-4 cursor-pointer`}
+                        } border-gray-300 py-4 cursor-pointer relative`}
                         key={index}
                       >
                         <th className="opacity-40 py-4">{index + 1}</th>
                         <td className="py-4 w-[170px]">
                           <div className="flex">
                             <span className="mr-3">{user.name}</span>
-                            <img src={chat} alt="Chat" className="mr-3" />
-                            <img src={message} alt="Message" className="mr-3" />
-                            <img src={phone} alt="Phone" />
                           </div>
                         </td>
                         <td className="py-4 opacity-40">Clinic</td>
                         <td className="py-4 opacity-40">2.2 days</td>
                         <td className="py-4 opacity-40">{user.station}</td>
-                        <td className="py-4">
+                        <td className="py-4 ">
                           <span
                             className={`py-1 px-4 rounded-full ${user.background}`}
                           >
                             {user.status}
                           </span>
                         </td>
-                        <td className="py-4 flex justify-end">
+                        <td className="py-4 flex justify-end ">
+                          <img src={bell} alt="Bell" className="mr-3" />
                           <img src={right} alt="" className="mr-3" />
                           <img
                             src={info}
@@ -316,15 +316,131 @@ const WaitList = () => {
                               })
                             }
                           />
-                          <img src={edit} alt="Edit" className="mr-3" />
-
-                          <img
-                            src={upAndDown}
-                            alt="UpAndDown"
-                            className="mr-3"
-                          />
-                          <img src={trash} alt="Trash" />
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="#0070BA"
+                            className="w-6 h-6 "
+                            onClick={() => {
+                              setOptions(!showOptions);
+                              setOptionsIndex(user.id);
+                            }}
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm0 8.625a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM15.375 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zM7.5 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
                         </td>
+                        {showOptions && showOptionsIndex === user.id && (
+                          <div className="absolute bg-white rounded-lg w-[140px] z-30 right-0 shadow-lg p-4 border border-gray-300">
+                            <div className="flex flex-col">
+                              <div className="flex text-xs items-center mb-3">
+                                {/* <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#0070BA"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                                    clip-rule="evenodd"
+                                  />
+                                </svg> */}
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#0070BA"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                                </svg>
+                                No-show
+                              </div>
+                              <div className="flex text-xs items-center mb-3">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#0070BA"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 3c-4.31 0-8 3.033-8 7 0 2.024.978 3.825 2.499 5.085a3.478 3.478 0 01-.522 1.756.75.75 0 00.584 1.143 5.976 5.976 0 003.936-1.108c.487.082.99.124 1.503.124 4.31 0 8-3.033 8-7s-3.69-7-8-7zm0 8a1 1 0 100-2 1 1 0 000 2zm-2-1a1 1 0 11-2 0 1 1 0 012 0zm5 1a1 1 0 100-2 1 1 0 000 2z"
+                                    clip-rule="evenodd"
+                                  />
+                                </svg>
+                                {/* <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#0070BA"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 3c-4.31 0-8 3.033-8 7 0 2.024.978 3.825 2.499 5.085a3.478 3.478 0 01-.522 1.756.75.75 0 00.584 1.143 5.976 5.976 0 003.936-1.108c.487.082.99.124 1.503.124 4.31 0 8-3.033 8-7s-3.69-7-8-7zm0 8a1 1 0 100-2 1 1 0 000 2zm-2-1a1 1 0 11-2 0 1 1 0 012 0zm5 1a1 1 0 100-2 1 1 0 000 2z"
+                                    clip-rule="evenodd"
+                                  />
+                                </svg> */}
+                                Chat
+                              </div>
+                              <div className="flex text-xs items-center mb-3">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#0070BA"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 17a.75.75 0 01-.75-.75V5.612L5.29 9.77a.75.75 0 01-1.08-1.04l5.25-5.5a.75.75 0 011.08 0l5.25 5.5a.75.75 0 11-1.08 1.04l-3.96-4.158V16.25A.75.75 0 0110 17z"
+                                    clip-rule="evenodd"
+                                  />
+                                </svg>
+                                Move
+                              </div>
+                              <div className="flex text-xs items-center mb-3">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#0070BA"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                                  <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                                </svg>
+                                {/* <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#0070BA"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                                  <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                                </svg> */}
+                                Edit
+                              </div>
+                              <div className="flex text-xs items-center">
+                                <img src={trash} alt="" className="mr-3.5" />
+                                {/* <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="#EF2C49"
+                                  className="w-5 h-5 mr-3"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
+                                    clip-rule="evenodd"
+                                  />
+                                </svg> */}
+                                <span className="text-[#EF2C49]">Remove</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </tr>
                     ))}
                   </tbody>

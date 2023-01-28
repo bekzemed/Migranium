@@ -8,6 +8,7 @@ import CustomFields from "./pages/CustomFields";
 import Dashboard from "./pages/Dashboard";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import Messages from "./pages/Messages";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Settings from "./pages/Settings";
@@ -35,7 +36,10 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/about-business" element={<AboutBusiness />} />
         <Route path="/about-you" element={<AboutYou />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/user">
+          <Route index element={<User />} />
+          <Route path="home-page" element={<HomePage />} />
+        </Route>
         <Route path="/dashboard">
           <Route index element={<Dashboard />} />
           <Route path="waitlist">

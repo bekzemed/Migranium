@@ -9,6 +9,7 @@ import {
   DashboardMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
+import EditTeamMember from "../components/EditTeamMember";
 import Header from "../components/Header";
 import LocationLogo from "../components/LocationLogo";
 import OperatingHours from "../components/OperatingHours";
@@ -28,6 +29,8 @@ const Settings = () => {
   const [settingToDate, setSettingToDate] = useState(false);
   const [dateMultipleHours, setDateMultipleHours] = useState(false);
   const [showBusinessType, setShowBusinessType] = useState(false);
+  const [showApproximateWaitTime, setShowApproximateWaitTime] = useState(false);
+
   const [businessType, setBusinessType] = useState("");
 
   const [showBusinessInfo, setShowBusinessInfo] = useState(false);
@@ -38,6 +41,12 @@ const Settings = () => {
   const [showOperatingHours, setShowOperatingHours] = useState(false);
   const [showCustomFields, setShowCustomFields] = useState(false);
   const [showPaymentDetails, setShowPaymentDetails] = useState(false);
+
+  const [showPhoneNumber, setShowPhoneNumber] = useState(false);
+  const [showPostalCode, setShowPostalCode] = useState(false);
+
+  const [onEditTeamMember, setOnEditTeamMember] = useState(false);
+  const [editTeamMember, setEditTeamMember] = useState("");
 
   const handleSettingFromChange = (selectedDate: Date) => {
     console.log(selectedDate);
@@ -64,7 +73,19 @@ const Settings = () => {
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
+      {onEditTeamMember && (
+        <EditTeamMember
+          value={editTeamMember}
+          setOnEditTeamMember={setOnEditTeamMember}
+          onEditTeamMember={onEditTeamMember}
+        />
+      )}
+
+      <div
+        className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
+          onEditTeamMember && "filter blur-sm"
+        }`}
+      >
         <span className="opacity-80 block mb-1 text-xs">Cashex</span>
         <span className="text-2xl block mb-4">General settings</span>
 
@@ -229,7 +250,7 @@ const Settings = () => {
             <div className="mb-2">
               <div className="flex items-center px-2 justify-between mb-6">
                 <span className="flex items-center">
-                  <span className="mr-5">Location</span>
+                  <span className="mr-5">Locations</span>
                   <img src={edit} alt="Edit" className="mr-2 lg:hidden" />
                   <img src={deleteIcon} alt="Delete" className="lg:hidden" />
                 </span>
@@ -566,6 +587,10 @@ const Settings = () => {
                             src={edit}
                             alt="Edit"
                             className="mr-1 cursor-pointer"
+                            onClick={() => {
+                              setOnEditTeamMember(true);
+                              setEditTeamMember(teamMembers[0]);
+                            }}
                           />
                           <img
                             src={deleteIcon}
@@ -585,17 +610,12 @@ const Settings = () => {
                     <div className="flex text-xs justify-between">
                       <span className="flex items-center">
                         <span className="mr-1"> Station 1</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
                       </span>
                       <span className="flex items-center">
                         <span className="mr-1">Obstetrician</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
                       </span>
                       <span className="flex items-center">
                         <span className="mr-1">Admin</span>
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
                       </span>
                     </div>
                   </div>
@@ -610,6 +630,10 @@ const Settings = () => {
                             src={edit}
                             alt="Edit"
                             className="mr-1 cursor-pointer"
+                            onClick={() => {
+                              setOnEditTeamMember(true);
+                              setEditTeamMember(teamMembers[1]);
+                            }}
                           />
                           <img
                             src={deleteIcon}
@@ -631,105 +655,12 @@ const Settings = () => {
                     <div className="flex text-xs justify-between px-2 mb-8">
                       <span className="flex items-center">
                         <span className="mr-1"> Station 1</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
                       </span>
                       <span className="flex items-center">
                         <span className="mr-1">Obstetrician</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
                       </span>
                       <span className="flex items-center">
                         <span className="mr-1">Admin</span>
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
-                      </span>
-                    </div>
-                    <hr />
-                  </div>
-
-                  <div className="mb-10 px-2">
-                    <div className="mb-8">
-                      <div className="flex justify-between mb-2 text-xs">
-                        <span className="block opacity-40">member name</span>
-                        <div className="flex">
-                          <img
-                            src={edit}
-                            alt="Edit"
-                            className="mr-1 cursor-pointer"
-                          />
-                          <img
-                            src={deleteIcon}
-                            alt="Delete"
-                            className="cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                      <span className="text-sm block">Cody Fisher</span>
-                    </div>
-
-                    <div className="flex opacity-40 text-xs justify-between mb-2">
-                      <span>Member station</span>
-                      <span>Member position</span>
-                      <span>Member role</span>
-                    </div>
-                    <div className="flex text-xs justify-between">
-                      <span className="flex items-center">
-                        <span className="mr-1"> Station 1</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Obstetrician</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Admin</span>
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#F8F8F8]">
-                    <hr className="mb-8 mx-2" />
-                    <div className="mb-8">
-                      <div className="flex justify-between mb-2 text-xs px-2">
-                        <span className="block opacity-40">member name</span>
-                        <div className="flex">
-                          <img
-                            src={edit}
-                            alt="Edit"
-                            className="mr-1 cursor-pointer"
-                          />
-                          <img
-                            src={deleteIcon}
-                            alt="Delete"
-                            className="cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                      <span className="text-sm block px-2">Albert Flores</span>
-                    </div>
-
-                    <div className="flex opacity-40 text-xs justify-between mb-2 px-2">
-                      <span>Member station</span>
-                      <span>Member position</span>
-                      <span>Member role</span>
-                    </div>
-                    <div className="flex text-xs justify-between px-2 mb-8">
-                      <span className="flex items-center">
-                        <span className="mr-1"> Station 1</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Obstetrician</span>
-
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Admin</span>
-                        <img src={edit} alt="Edit" className="cursor-pointer" />
                       </span>
                     </div>
                     <hr />
@@ -886,67 +817,79 @@ const Settings = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="px-2 bg-white rounded-lg py-4 mb-4">
-            <div className="mb-4">
-              <span className="block mb-4">Add new location</span>
-              <div className="mb-4">
-                <label
-                  htmlFor="businessCountry"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+              {/* approximate wait time */}
+              <div
+                className={`mb-6 px-2 ${
+                  (!showLocation1 || !showLocation) && "hidden"
+                }`}
+              >
+                <div className={`flex items-center justify-between mb-4 `}>
+                  <span className="flex items-center">
+                    <span className="text-sm mr-5 whitespace-nowrap">
+                      Approximate wait time
+                    </span>
+                  </span>
+                  <span
+                    className="flex items-center cursor-pointer"
+                    onClick={() =>
+                      setShowApproximateWaitTime(!showApproximateWaitTime)
+                    }
+                  >
+                    {showApproximateWaitTime ? (
+                      <>
+                        <span className="text-xs mr-1">Hide</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                          />
+                        </svg>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-xs mr-1 whitespace-nowrap">
+                          Show all
+                        </span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
+                        </svg>
+                      </>
+                    )}
+                  </span>
+                </div>
+                <div
+                  className={`${
+                    (!showApproximateWaitTime || !showLocation) && "hidden"
+                  }`}
                 >
-                  Business country
-                </label>
-                <input
-                  type="text"
-                  id="businessCountry"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Select country"
-                  required
-                />
-
-                <label
-                  htmlFor="city"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  City
-                </label>
-                <input
-                  type="text"
-                  id="city"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter business city..."
-                  required
-                />
-
-                <label
-                  htmlFor="streetAddress"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  Street address
-                </label>
-                <input
-                  type="text"
-                  id="streetAddress"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Street address..."
-                  required
-                />
+                  <div className="mb-6 text-xs">
+                    <TimePicker
+                      text="Set approximate wait time in hours"
+                      hideAm={true}
+                    />
+                  </div>
+                </div>
               </div>
-              <span className="text-xs flex items-center my-4">
-                <img src={add} alt="Add" className="mr-2" />
-                <span className="text-primary">Add new location</span>
-              </span>
             </div>
-          </div>
-
-          <div className="px-2 text-xs bg-white rounded-lg py-4 mb-4">
-            <span className="block text-base mb-4">
-              Set approximate wait time
-            </span>
-            <TimePicker text="Set approximate wait time in minutes" />
           </div>
 
           <div className="px-2 text-xs bg-white rounded-lg py-4 mb-4">
@@ -1007,7 +950,7 @@ const Settings = () => {
                     Postal code
                   </label>
                   <input
-                    type="text"
+                    type={showPostalCode ? "text" : "password"}
                     id="creditOrDebit"
                     className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
                     placeholder="Enter postal code..."
@@ -1016,7 +959,35 @@ const Settings = () => {
                 </div>
                 <div className="flex items-center">
                   <img src={edit} alt="" className="mr-1" />
-                  <img src={deleteIcon} alt="" />
+                  <img src={deleteIcon} alt="" className="mr-1" />
+                  {showPostalCode ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="#0070BA"
+                      className="w-6 h-6"
+                      onClick={() => setShowPostalCode(false)}
+                    >
+                      <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                      <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                      <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="#0070BA"
+                      className="w-6 h-6"
+                      onClick={() => setShowPostalCode(true)}
+                    >
+                      <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  )}
                 </div>
               </div>
 
@@ -1029,7 +1000,7 @@ const Settings = () => {
                     Phone number
                   </label>
                   <input
-                    type="text"
+                    type={showPhoneNumber ? "text" : "password"}
                     id="phoneNumber"
                     className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
                     placeholder="Enter phone number..."
@@ -1038,7 +1009,35 @@ const Settings = () => {
                 </div>
                 <div className="flex items-center">
                   <img src={edit} alt="" className="mr-1" />
-                  <img src={deleteIcon} alt="" />
+                  <img src={deleteIcon} alt="" className="mr-1" />
+                  {showPhoneNumber ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="#0070BA"
+                      className="w-6 h-6"
+                      onClick={() => setShowPhoneNumber(false)}
+                    >
+                      <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                      <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                      <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="#0070BA"
+                      className="w-6 h-6"
+                      onClick={() => setShowPhoneNumber(true)}
+                    >
+                      <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  )}
                 </div>
               </div>
 
@@ -1216,7 +1215,19 @@ const Settings = () => {
       <div className="w-full h-screen hidden lg:flex">
         <DashboardDesktop />
 
-        <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block">
+        {onEditTeamMember && (
+          <EditTeamMember
+            value={editTeamMember}
+            setOnEditTeamMember={setOnEditTeamMember}
+            onEditTeamMember={onEditTeamMember}
+          />
+        )}
+
+        <div
+          className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block ${
+            onEditTeamMember && "filter blur-sm"
+          }`}
+        >
           <Header text="General settings" />
 
           <div className="dark:text-black">
@@ -1393,7 +1404,7 @@ const Settings = () => {
             <div className="p-4 bg-white rounded-lg mb-6">
               <div className="mb-6 flex items-center justify-between">
                 <span className="flex items-center">
-                  <span className="mr-5">Location</span>
+                  <span className="mr-5">Locations</span>
                   <img src={edit} alt="Edit" className="mr-2 lg:hidden" />
                   <img src={deleteIcon} alt="Delete" className="lg:hidden" />
                 </span>
@@ -1701,18 +1712,23 @@ const Settings = () => {
                           <span className="opacity-40 mr-1">
                             Station {index + 1}
                           </span>
-                          <img src={edit} alt="Edit" />
                         </span>
                         <span className="text-xs flex items-center">
                           <span className="opacity-40 mr-1">Obstetrician</span>
-                          <img src={edit} alt="Edit" />
                         </span>
                         <span className="text-xs flex items-center">
                           <span className="opacity-40 mr-1">Admin</span>
-                          <img src={edit} alt="Edit" />
                         </span>
                         <span className="flex items-center">
-                          <img src={edit} alt="Edit" className="mr-1" />
+                          <img
+                            src={edit}
+                            alt="Edit"
+                            className="mr-1 cursor-pointer"
+                            onClick={() => {
+                              setOnEditTeamMember(true);
+                              setEditTeamMember(teamMembers[index]);
+                            }}
+                          />
                           <img src={deleteIcon} alt="Delete" />
                         </span>
                       </div>
@@ -1872,74 +1888,79 @@ const Settings = () => {
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/*  */}
-            <div className="p-4 bg-white rounded-lg mb-6">
-              <span className="block mb-6 white">Add new location</span>
-              <div className="flex items-center">
-                <div className="w-[200px] mr-3">
-                  <label
-                    htmlFor="businessCountry"
-                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                  >
-                    Business country
-                  </label>
-                  <input
-                    type="text"
-                    id="businessCountry"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                    placeholder="Select country"
-                    required
-                  />
-                </div>
-
-                <div className="w-[200px] mr-3">
-                  <label
-                    htmlFor="city"
-                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                  >
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                    placeholder="Enter business city..."
-                    required
-                  />
-                </div>
-
-                <div className="w-[200px] mr-3">
-                  <label
-                    htmlFor="streetAddress"
-                    className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                  >
-                    Street address
-                  </label>
-                  <input
-                    type="text"
-                    id="streetAddress"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                    placeholder="Street address..."
-                    required
-                  />
-                </div>
-                <span className="text-xs flex items-center">
-                  <img src={add} alt="Add" className="mr-2" />
-                  <span className="text-primary whitespace-nowrap">
-                    Add new location
+              {/* approximate wait time */}
+              <div
+                className={`mb-6 ${
+                  (!showLocation1 || !showLocation) && "hidden"
+                }`}
+              >
+                <div className={`flex items-center justify-between mb-4 `}>
+                  <span className="flex items-center">
+                    <span className="text-sm mr-5 whitespace-nowrap">
+                      Approximate wait time
+                    </span>
                   </span>
-                </span>
+                  <span
+                    className="flex items-center cursor-pointer"
+                    onClick={() =>
+                      setShowApproximateWaitTime(!showApproximateWaitTime)
+                    }
+                  >
+                    {showApproximateWaitTime ? (
+                      <>
+                        <span className="text-xs mr-1">Hide</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                          />
+                        </svg>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-xs mr-1 whitespace-nowrap">
+                          Show all
+                        </span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
+                        </svg>
+                      </>
+                    )}
+                  </span>
+                </div>
+                <div
+                  className={`${
+                    (!showApproximateWaitTime || !showLocation) && "hidden"
+                  }`}
+                >
+                  <div className="mb-6 text-xs">
+                    <TimePicker
+                      text="Set approximate wait time in hours"
+                      hideAm={true}
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-
-            {/*  */}
-            <div className="p-4 bg-white rounded-lg mb-6 text-xs">
-              <span className="block text-base mb-4">
-                Set approximate wait time
-              </span>
-              <TimePicker text="Set approximate wait time in minutes" />
             </div>
 
             {/*  */}
@@ -2001,7 +2022,7 @@ const Settings = () => {
                       Postal code
                     </label>
                     <input
-                      type="text"
+                      type={showPostalCode ? "text" : "password"}
                       id="creditOrDebit"
                       className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
                       placeholder="Enter postal code..."
@@ -2010,7 +2031,35 @@ const Settings = () => {
                   </div>
                   <div className="flex items-center">
                     <img src={edit} alt="" className="mr-1" />
-                    <img src={deleteIcon} alt="" />
+                    <img src={deleteIcon} alt="" className="mr-1" />
+                    {showPostalCode ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#0070BA"
+                        className="w-6 h-6 cursor-pointer"
+                        onClick={() => setShowPostalCode(false)}
+                      >
+                        <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                        <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                        <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#0070BA"
+                        className="w-6 h-6 cursor-pointer"
+                        onClick={() => setShowPostalCode(true)}
+                      >
+                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                        <path
+                          fill-rule="evenodd"
+                          d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    )}
                   </div>
                 </div>
 
@@ -2023,7 +2072,7 @@ const Settings = () => {
                       Phone number
                     </label>
                     <input
-                      type="text"
+                      type={showPhoneNumber ? "text" : "password"}
                       id="phoneNumber"
                       className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
                       placeholder="Enter phone number..."
@@ -2032,7 +2081,35 @@ const Settings = () => {
                   </div>
                   <div className="flex items-center">
                     <img src={edit} alt="" className="mr-1" />
-                    <img src={deleteIcon} alt="" />
+                    <img src={deleteIcon} alt="" className="mr-1" />
+                    {showPhoneNumber ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#0070BA"
+                        className="w-6 h-6 cursor-pointer"
+                        onClick={() => setShowPhoneNumber(false)}
+                      >
+                        <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                        <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                        <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#0070BA"
+                        className="w-6 h-6 cursor-pointer"
+                        onClick={() => setShowPhoneNumber(true)}
+                      >
+                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                        <path
+                          fill-rule="evenodd"
+                          d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    )}
                   </div>
                 </div>
                 <div>

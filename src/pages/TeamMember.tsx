@@ -10,6 +10,8 @@ import trash from "../assets/trash.svg";
 
 const TeamMember = () => {
   const { state } = useLocation();
+  console.log(state);
+
   const navigate = useNavigate();
 
   const [show, onShow] = useState(false);
@@ -22,7 +24,9 @@ const TeamMember = () => {
         <div className="flex justify-between items-end mb-4">
           <div>
             <span className="opacity-80 block mb-1 text-xs">Cashex</span>
-            <span className="text-2xl block">Team Members - {state.name}</span>
+            <span className="text-xl block">
+              Team Members - {state.firstName}
+            </span>
           </div>
 
           <svg
@@ -42,9 +46,9 @@ const TeamMember = () => {
           </svg>
         </div>
 
-        <div className="bg-white rounded-lg px-2 py-4 mb-10 text-xs">
+        <div className="bg-white rounded-lg px-2 py-4 mb-10 text-xs dark:text-black">
           <div className="pb-8 border-b">
-            <span className="block mb-3">Personal info</span>
+            <span className="block mb-3 dark:text-black">Personal info</span>
             <div>
               <label
                 htmlFor="name"
@@ -56,7 +60,7 @@ const TeamMember = () => {
                 type="text"
                 id="name"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                defaultValue={state.name}
+                defaultValue={`${state.firstName} ${state.lastName}`}
                 disabled
                 required
               />
@@ -93,7 +97,7 @@ const TeamMember = () => {
             </div>
           </div>
 
-          <div className="text-xs py-8 border-b border-b-gray-300">
+          <div className="text-xs py-8 border-b border-b-gray-300 dark:text-black">
             <span className="block mb-3 text-sm">Current position</span>
             <div className="mb-4">
               <div className="flex justify-between mb-1 items-center">
@@ -231,11 +235,11 @@ const TeamMember = () => {
         <DashboardDesktop />
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block">
-          <Header text={`Team Members - ${state.name}`} />
+          <Header text={`Team Members - ${state.firstName}`} />
 
           <div className="bg-white rounded-lg px-4 py-4 mb-10 text-xs">
             <div className="pb-8 border-b">
-              <div className="flex justify-between items-center mb-4">
+              <div className="flex justify-between items-center mb-4 dark:text-black">
                 <span className="block text-sm font-extrabold">
                   Personal info
                 </span>
@@ -274,7 +278,7 @@ const TeamMember = () => {
                     type="text"
                     id="name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full py-2 px-3 focus-visible:outline-none focus:outline-none"
-                    defaultValue={state.name}
+                    defaultValue={`${state.firstName} ${state.lastName}`}
                     disabled
                     required
                   />
@@ -316,7 +320,7 @@ const TeamMember = () => {
               </div>
             </div>
 
-            <div className="py-6 border-b border-b-gray-300">
+            <div className="py-6 border-b border-b-gray-300 dark:text-black">
               <span className="block text-sm mb-6">Current Position</span>
 
               <table className="w-full mb-4">
@@ -365,7 +369,7 @@ const TeamMember = () => {
               </table>
             </div>
 
-            <div className="py-10 border-b border-b-gray-300">
+            <div className="py-10 border-b border-b-gray-300 dark:text-black">
               <span className="block text-sm mb-6">Work history</span>
 
               <table className="w-full mb-4">
@@ -397,7 +401,7 @@ const TeamMember = () => {
               </table>
             </div>
 
-            <div className="py-10">
+            <div className="py-10 dark:text-black">
               <span className="block text-sm mb-6">Other info</span>
               <div className="mb-4">
                 <label

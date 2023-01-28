@@ -133,6 +133,7 @@ const Customers = () => {
             showNotification={showNotification}
             setShowNotification={setShowNotification}
             text="Customers"
+            onNotificationShow={true}
           />
 
           <div className="mb-10 flex items-center justify-between">

@@ -35,6 +35,7 @@ export const User = () => {
           <button
             type="button"
             className="text-white bg-secondary hover:bg-bright focus-visible:outline-none focus:outline-none font-medium rounded-full text-sm w-full px-5 py-2.5 text-center"
+            onClick={() => navigate("home-page")}
           >
             Join waitlist
           </button>
