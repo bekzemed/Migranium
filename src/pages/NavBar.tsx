@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { useScrollDirection } from "../hook/useScrollDirection";
 
-const NavBar = ({ show, onDone }: any) => {
+const NavBar = ({ show, onDone, hide }: any) => {
   const scrollDirection = useScrollDirection();
 
   return (
@@ -121,17 +121,19 @@ const NavBar = ({ show, onDone }: any) => {
               </Link>
 
               <div className="flex items-center md:w-[300px] md:justify-between lg:hidden">
-                <Link to="/sign-in">
-                  <span className="text-gray-700 dark:text-black text-[12px]">
-                    Log in
-                  </span>
-                </Link>
-                <button
-                  type="button"
-                  className="bg-secondary text-white font-bold rounded-full w-fit text-[10px] focus-visible:outline-none focus:outline-none ml-2"
-                >
-                  Try it free
-                </button>
+                <div className={`${hide ? "hidden" : "block"}`}>
+                  <Link to="/sign-in">
+                    <span className="text-gray-700 dark:text-black text-[12px]">
+                      Log in
+                    </span>
+                  </Link>
+                  <button
+                    type="button"
+                    className="bg-secondary text-white font-bold rounded-full w-fit text-[10px] focus-visible:outline-none focus:outline-none ml-2"
+                  >
+                    Try it free
+                  </button>
+                </div>
                 <button
                   data-collapse-toggle="navbar-default"
                   type="button"

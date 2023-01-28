@@ -17,6 +17,7 @@ import TeamMember from "./pages/TeamMember";
 import TeamMembers from "./pages/TeamMembers";
 import Terms from "./pages/Terms";
 import UpgradeProfile from "./pages/UpgradeProfile";
+import { User } from "./pages/User";
 import WaitList from "./pages/Waitlist";
 import WaitListMember from "./pages/WaitListMember";
 import ScrollToTop from "./util/scrollToTop";
@@ -34,6 +35,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/about-business" element={<AboutBusiness />} />
         <Route path="/about-you" element={<AboutYou />} />
+        <Route path="/user" element={<User />} />
         <Route path="/dashboard">
           <Route index element={<Dashboard />} />
           <Route path="waitlist">

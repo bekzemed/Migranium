@@ -1,5 +1,6 @@
 import copy from "../assets/copy.svg";
 import QR from "../assets/QR-code.svg";
+import { Link } from "react-router-dom";
 
 const GenerateQRCode = ({ showQRCode, setShowQRCode }: any) => {
   return (
@@ -25,7 +26,9 @@ const GenerateQRCode = ({ showQRCode, setShowQRCode }: any) => {
         <span className="block mb-3">
           Use this QR code to share Cashex services
         </span>
-        <img src={QR} alt="QR" className="m-auto mb-3" />
+        <Link to="/user">
+          <img src={QR} alt="QR" className="m-auto mb-3 cursor-pointer" />
+        </Link>
         <span className="block mb-3 opacity-40">
           Or use link to share Cashex service
         </span>
