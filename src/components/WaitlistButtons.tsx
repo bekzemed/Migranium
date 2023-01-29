@@ -7,19 +7,19 @@ const WaitlistButtons = () => {
         type="button"
         className="text-white bg-secondary mr-2 hover:bg-secondary focus-visible:outline-none focus:outline-none font-medium rounded-full w-full lg:w-[150px] px-5 py-2.5 text-center mb-2"
       >
-        All stations
+        All Locations
       </button>
       <button
         type="button"
         className="text-black bg-white mr-2 border-secondary hover:bg-secondary hover:text-white focus-visible:outline-none focus:outline-none font-medium rounded-full w-full lg:w-[150px] px-5 py-2.5 text-center mb-2"
       >
-        Station 1
+        Location 1
       </button>
       <button
         type="button"
         className="text-black bg-white border-secondary hover:bg-secondary hover:text-white focus-visible:outline-none focus:outline-none font-medium rounded-full w-full lg:w-[150px] px-5 py-2.5 text-center mb-2"
       >
-        Station 2
+        Location 2
       </button>
     </div>
   );
