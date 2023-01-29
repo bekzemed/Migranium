@@ -8,7 +8,7 @@ const AddLocationComponent = () => {
   return (
     <div className="bg-white rounded-lg py-4 mb-4 px-2 dark:text-black">
       <div className="lg:flex justify-between items-center">
-        <span className="block text-sm pb-5 px-2">Location</span>
+        <span className="block text-base pb-5 px-2">Location</span>
 
         <div className="hidden lg:flex items-center">
           <button
@@ -71,7 +71,7 @@ const AddLocationComponent = () => {
       </div>
 
       <div className="py-4 lg:py-6 px-2 border-b border-b-gray-300">
-        <span className="block text-sm pb-5">Business Info</span>
+        <span className="block text-base pb-5">Business Info</span>
 
         <div>
           <div className="lg:flex">
@@ -175,8 +175,8 @@ const AddLocationComponent = () => {
         </div>
       </div>
 
-      <div className="py-4 lg:py-6 px-2">
-        <span className="block text-sm pb-5">Business Address</span>
+      <div className="py-4 lg:py-6 px-2 border-b border-b-gray-300">
+        <span className="block text-base pb-5">Business Address</span>
 
         <div>
           <div className="lg:flex">
@@ -268,6 +268,80 @@ const AddLocationComponent = () => {
                 id="numberOfRooms"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
                 placeholder="Zip / Postal code"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="py-4 lg:py-6 px-2">
+        <span className="block text-base pb-5">Custom Fields</span>
+
+        <div>
+          <div className="lg:flex">
+            <div className="lg:w-[250px] lg:mr-3">
+              <label
+                htmlFor="postalCode"
+                className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+              >
+                Postal code
+              </label>
+              <input
+                type="text"
+                id="postalCode"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                placeholder="Enter postal code"
+                required
+              />
+            </div>
+
+            <div className="lg:w-[250px] lg:mr-3">
+              <label
+                htmlFor="phone number"
+                className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+              >
+                Phone number
+              </label>
+              <input
+                type="text"
+                id="phone number"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                placeholder="Enter phone number"
+                required
+              />
+            </div>
+
+            <div className="lg:w-[250px]">
+              <label
+                htmlFor="city"
+                className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+              >
+                City
+              </label>
+              <input
+                type="text"
+                id="city"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                placeholder="Enter city"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="lg:flex">
+            <div className="lg:w-[250px]">
+              <label
+                htmlFor="country"
+                className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+              >
+                Country
+              </label>
+              <input
+                type="text"
+                id="country"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                placeholder="Enter country"
                 required
               />
             </div>

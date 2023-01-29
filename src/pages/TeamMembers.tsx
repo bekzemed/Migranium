@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import trash from "../assets/trash.svg";
+import AddTeamMember from "../components/AddTeamMember";
 import {
   DashboardDesktop,
   DashboardMobile,
@@ -18,7 +19,7 @@ const teamMembers = [
     role: "Admin",
     email: "marakinyo@gmail.com",
     phone: "4 978 77 88 99",
-    location: "2464 Royal Ln. Mesa, New Jersey 45463",
+    location: "Canada",
   },
   {
     firstName: "Jacko",
@@ -29,7 +30,7 @@ const teamMembers = [
     role: "User",
     email: "jacko@gmail.com",
     phone: "4 978 77 88 99",
-    location: "2464 Royal Ln. Mesa, New Jersey 45463",
+    location: "Ethiopia",
   },
   {
     firstName: "Usaeyno",
@@ -40,7 +41,7 @@ const teamMembers = [
     role: "Admin",
     email: "usaeyno@gmail.com",
     phone: "4 978 77 88 99",
-    location: "2464 Royal Ln. Mesa, New Jersey 45463",
+    location: "Ethiopia",
   },
 ];
 
@@ -48,13 +49,25 @@ const TeamMembers = () => {
   const [show, onShow] = useState(false);
   const [teamMemberIndex, setShowTeamMemberIndex] = useState(-1);
   const [showTeamMembers, setShowTeamMembers] = useState(false);
+  const [addTeamMember, setAddTeamMember] = useState(false);
+
   const navigate = useNavigate();
 
   return (
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
+      {addTeamMember && (
+        <AddTeamMember
+          addTeamMember={addTeamMember}
+          setAddTeamMember={setAddTeamMember}
+        />
+      )}
+      <div
+        className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
+          addTeamMember && "filter blur-sm"
+        }`}
+      >
         <span className="opacity-80 block mb-1 text-xs">Cashex</span>
         <span className="text-2xl block mb-4">Team Members</span>
 
@@ -136,25 +149,10 @@ const TeamMembers = () => {
                       "border-b border-b-gray-300"
                     }`}
                   >
-                    <div className="mb-2">
+                    <div className="mb-4">
                       <div className="flex justify-between mb-1 items-center">
                         <span className="opacity-40">Station</span>
                         <div className="flex items-center">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="#005893"
-                            className="w-6 h-6 mr-2"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
@@ -170,7 +168,7 @@ const TeamMembers = () => {
                       <span>{member.station}</span>
                     </div>
                     <div className="flex flex-col">
-                      <div className="mb-2=4">
+                      <div className="mb-4">
                         <span className="block opacity-40 mb-2">Job title</span>
                         <span className="block">{member.job}</span>
                       </div>
@@ -226,7 +224,12 @@ const TeamMembers = () => {
               clipRule="evenodd"
             />
           </svg>
-          <span className="text-primary text-xs">Add new command</span>
+          <span
+            className="text-primary text-xs"
+            onClick={() => setAddTeamMember(!addTeamMember)}
+          >
+            Add team member
+          </span>
         </div>
       </div>
 
@@ -238,7 +241,18 @@ const TeamMembers = () => {
       <div className="w-full h-screen hidden lg:flex">
         <DashboardDesktop />
 
-        <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block">
+        {addTeamMember && (
+          <AddTeamMember
+            addTeamMember={addTeamMember}
+            setAddTeamMember={setAddTeamMember}
+          />
+        )}
+
+        <div
+          className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block ${
+            addTeamMember && "filter blur-sm"
+          }`}
+        >
           <Header text="Team Members" />
 
           {teamMembers.length ? (
@@ -251,13 +265,16 @@ const TeamMembers = () => {
                       <th className="pb-5 flex opacity-40">Name</th>
                       <th className="pb-5 opacity-40">Email</th>
                       <th className="pb-5 opacity-40">Phone number</th>
+                      <th className="pb-5 opacity-40">Location</th>
                       <th className="pb-5 opacity-40">Station</th>
                       <th className="pb-5 opacity-40">Job title</th>
-                      <th className="pb-5 opacity-40">Id</th>
                       <th className="pb-5 opacity-40">Role</th>
                       <th className="pb-5">
-                        <span className="rounded-full px-4 py-1 border cursor-pointer bg-secondary text-white">
-                          Add new command
+                        <span
+                          className="rounded-full px-4 py-1 border cursor-pointer bg-secondary text-white"
+                          onClick={() => setAddTeamMember(!addTeamMember)}
+                        >
+                          Add team member
                         </span>
                       </th>
                     </tr>
@@ -289,27 +306,12 @@ const TeamMembers = () => {
                         </td>
                         <td className="py-4 opacity-40">{member.email}</td>
                         <td className="py-4 opacity-40">{member.phone}</td>
+                        <td className="py-4 opacity-40">{member.location}</td>
                         <td className="py-4 opacity-40">{member.station}</td>
                         <td className="py-4 opacity-40">{member.job}</td>
-                        <td className="py-4 opacity-40">{member.id}</td>
                         <td className="py-4 opacity-40">{member.role}</td>
 
                         <td className="py-4 flex justify-center items-center">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="#005893"
-                            className="w-6 h-6 mr-2"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
@@ -319,7 +321,16 @@ const TeamMembers = () => {
                             <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
                             <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
                           </svg>
-                          <img src={trash} alt="Trash" />
+                          <img
+                            src={trash}
+                            className="cursor-pointer"
+                            alt="Trash"
+                            onClick={() =>
+                              teamMembers.filter(
+                                (team) => team.id !== member.id
+                              )
+                            }
+                          />
                         </td>
                       </tr>
                     ))}

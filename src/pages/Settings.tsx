@@ -13,7 +13,6 @@ import EditTeamMember from "../components/EditTeamMember";
 import Header from "../components/Header";
 import LocationLogo from "../components/LocationLogo";
 import OperatingHours from "../components/OperatingHours";
-import Stations from "../components/Stations";
 import TimePicker from "../components/TimePicker";
 import { options } from "../util/operatingHours";
 // import DatePicker from "react-datepicker";
@@ -68,6 +67,9 @@ const Settings = () => {
     "Cody Fisher",
     "Albert Flores",
   ];
+
+  const station1TeamMember = ["Ronald Richards", "Savannah Niguyen"];
+  const station2TeamMember = ["Cody Fisher", "Albert Flores"];
 
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -413,9 +415,9 @@ const Settings = () => {
               </div>
               {/* location station */}
 
-              <div className="mb-6 px-2">
+              <div className="mb-6">
                 <div
-                  className={`flex items-center justify-between mb-4 ${
+                  className={`flex items-center justify-between mb-4 px-2 ${
                     (!showLocation1 || !showLocation) && "hidden"
                   }`}
                 >
@@ -470,200 +472,152 @@ const Settings = () => {
                     (!showStation || !showLocation) && "hidden"
                   }`}
                 >
-                  <div className="text-xs opacity-80 flex justify-between mb-4">
-                    <span>Station 1</span>
-                    <div className="flex">
-                      <img
-                        src={edit}
-                        alt="Edit"
-                        className="mr-1 cursor-pointer"
-                      />
-                      <img
-                        src={add}
-                        alt="Add"
-                        className="mr-1 cursor-pointer"
-                      />
-                      <img
-                        src={deleteIcon}
-                        alt="Delete"
-                        className="cursor-pointer"
-                      />
+                  <div>
+                    <div className="text-xs flex justify-between mb-4 px-2">
+                      <span className="text-sm">Station 1</span>
+                      <div className="flex">
+                        <img
+                          src={edit}
+                          alt="Edit"
+                          className="mr-1 cursor-pointer"
+                        />
+                        <img
+                          src={add}
+                          alt="Add"
+                          className="mr-1 cursor-pointer"
+                        />
+                        <img
+                          src={deleteIcon}
+                          alt="Delete"
+                          className="cursor-pointer"
+                        />
+                      </div>
                     </div>
+                    {station1TeamMember.map((member, index) => (
+                      <div
+                        className={`pt-4 pb-6 ${
+                          index % 2 !== 0 ? "bg-[#F8F8F8]" : "px-2 "
+                        }`}
+                      >
+                        <div className={`mb-8 ${index % 2 !== 0 && "px-2"}`}>
+                          <div className="flex justify-between mb-2 text-xs">
+                            <span className="block opacity-40">
+                              member name
+                            </span>
+                            <div className="flex">
+                              <img
+                                src={edit}
+                                alt="Edit"
+                                className="mr-1 cursor-pointer"
+                                onClick={() => {
+                                  setOnEditTeamMember(true);
+                                  setEditTeamMember(station1TeamMember[index]);
+                                }}
+                              />
+                              <img
+                                src={deleteIcon}
+                                alt="Delete"
+                                className="cursor-pointer"
+                              />
+                            </div>
+                          </div>
+                          <span className="text-sm block">{member}</span>
+                        </div>
+
+                        <div className={`${index % 2 !== 0 && "px-2"}`}>
+                          <div className="flex opacity-40 text-xs justify-between mb-2">
+                            <span>Member station</span>
+                            <span>Member position</span>
+                            <span>Member role</span>
+                          </div>
+                          <div className="flex text-xs justify-between">
+                            <span className="flex items-center">
+                              <span className="mr-1"> Station 1</span>
+                            </span>
+                            <span className="flex items-center">
+                              <span className="mr-1">Obstetrician</span>
+                            </span>
+                            <span className="flex items-center">
+                              <span className="mr-1">Admin</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                   <hr className="mb-4" />
-                  <div className="text-xs opacity-80 flex justify-between mb-4">
-                    <span>Station 2</span>
-                    <div className="flex">
-                      <img
-                        src={edit}
-                        alt="Edit"
-                        className="mr-1 cursor-pointer"
-                      />
-                      <img
-                        src={add}
-                        alt="Add"
-                        className="mr-1 cursor-pointer"
-                      />
-                      <img
-                        src={deleteIcon}
-                        alt="Delete"
-                        className="cursor-pointer"
-                      />
+                  <div>
+                    <div className="text-xs  flex justify-between mb-4 px-2">
+                      <span className="text-sm">Station 2</span>
+                      <div className="flex">
+                        <img
+                          src={edit}
+                          alt="Edit"
+                          className="mr-1 cursor-pointer"
+                        />
+                        <img
+                          src={add}
+                          alt="Add"
+                          className="mr-1 cursor-pointer"
+                        />
+                        <img
+                          src={deleteIcon}
+                          alt="Delete"
+                          className="cursor-pointer"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
+                    {station2TeamMember.map((member, index) => (
+                      <div
+                        className={`pt-4 pb-6 ${
+                          index % 2 !== 0 ? "bg-[#F8F8F8]" : "px-2 "
+                        }`}
+                      >
+                        <div className={`mb-8 ${index % 2 !== 0 && "px-2"}`}>
+                          <div className="flex justify-between mb-2 text-xs">
+                            <span className="block opacity-40">
+                              member name
+                            </span>
+                            <div className="flex">
+                              <img
+                                src={edit}
+                                alt="Edit"
+                                className="mr-1 cursor-pointer"
+                                onClick={() => {
+                                  setOnEditTeamMember(true);
+                                  setEditTeamMember(station2TeamMember[index]);
+                                }}
+                              />
+                              <img
+                                src={deleteIcon}
+                                alt="Delete"
+                                className="cursor-pointer"
+                              />
+                            </div>
+                          </div>
+                          <span className="text-sm block">{member}</span>
+                        </div>
 
-              {/* team member */}
-              <div className="mb-6">
-                <div
-                  className={`flex items-center justify-between mb-4 px-2 ${
-                    (!showLocation1 || !showLocation) && "hidden"
-                  }`}
-                >
-                  <span className="flex items-center">
-                    <span className="text-sm mr-5 whitespace-nowrap">
-                      Location team members
-                    </span>
-                  </span>
-                  <span
-                    className="flex items-center cursor-pointer"
-                    onClick={() => setShowTeamMember(!showTeamMember)}
-                  >
-                    {showTeamMember ? (
-                      <>
-                        <span className="text-xs mr-1">Hide</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                          />
-                        </svg>
-                      </>
-                    ) : (
-                      <>
-                        <span className="text-xs mr-1 whitespace-nowrap">
-                          Show all
-                        </span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                          />
-                        </svg>
-                      </>
-                    )}
-                  </span>
-                </div>
-
-                {/* team members */}
-                <div
-                  className={`${
-                    (!showTeamMember || !showLocation) && "hidden"
-                  }`}
-                >
-                  <div className="mb-10 px-2">
-                    <div className="mb-8">
-                      <div className="flex justify-between mb-2 text-xs">
-                        <span className="block opacity-40">member name</span>
-                        <div className="flex">
-                          <img
-                            src={edit}
-                            alt="Edit"
-                            className="mr-1 cursor-pointer"
-                            onClick={() => {
-                              setOnEditTeamMember(true);
-                              setEditTeamMember(teamMembers[0]);
-                            }}
-                          />
-                          <img
-                            src={deleteIcon}
-                            alt="Delete"
-                            className="cursor-pointer"
-                          />
+                        <div className={`${index % 2 !== 0 && "px-2"}`}>
+                          <div className="flex opacity-40 text-xs justify-between mb-2">
+                            <span>Member station</span>
+                            <span>Member position</span>
+                            <span>Member role</span>
+                          </div>
+                          <div className="flex text-xs justify-between">
+                            <span className="flex items-center">
+                              <span className="mr-1"> Station 1</span>
+                            </span>
+                            <span className="flex items-center">
+                              <span className="mr-1">Obstetrician</span>
+                            </span>
+                            <span className="flex items-center">
+                              <span className="mr-1">Admin</span>
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <span className="text-sm block">Ronald Richards</span>
-                    </div>
-
-                    <div className="flex opacity-40 text-xs justify-between mb-2">
-                      <span>Member station</span>
-                      <span>Member position</span>
-                      <span>Member role</span>
-                    </div>
-                    <div className="flex text-xs justify-between">
-                      <span className="flex items-center">
-                        <span className="mr-1"> Station 1</span>
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Obstetrician</span>
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Admin</span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="mb-10 bg-[#F8F8F8]">
-                    <hr className="mb-8 mx-2" />
-                    <div className="mb-8">
-                      <div className="flex justify-between mb-2 text-xs px-2">
-                        <span className="block opacity-40">member name</span>
-                        <div className="flex">
-                          <img
-                            src={edit}
-                            alt="Edit"
-                            className="mr-1 cursor-pointer"
-                            onClick={() => {
-                              setOnEditTeamMember(true);
-                              setEditTeamMember(teamMembers[1]);
-                            }}
-                          />
-                          <img
-                            src={deleteIcon}
-                            alt="Delete"
-                            className="cursor-pointer"
-                          />
-                        </div>
-                      </div>
-                      <span className="text-sm block px-2">
-                        Savannah Niguyen
-                      </span>
-                    </div>
-
-                    <div className="flex opacity-40 text-xs justify-between mb-2 px-2">
-                      <span>Member station</span>
-                      <span>Member position</span>
-                      <span>Member role</span>
-                    </div>
-                    <div className="flex text-xs justify-between px-2 mb-8">
-                      <span className="flex items-center">
-                        <span className="mr-1"> Station 1</span>
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Obstetrician</span>
-                      </span>
-                      <span className="flex items-center">
-                        <span className="mr-1">Admin</span>
-                      </span>
-                    </div>
-                    <hr />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -731,9 +685,9 @@ const Settings = () => {
                   }`}
                 >
                   <div className="mb-6 text-xs">
-                    <div className="mb-6">
-                      <span className="block mb-4">Set the operating days</span>
-                      <div className="flex">
+                    <div>
+                      <span className="block">Set the operating days</span>
+                      {/* <div className="flex">
                         <span className="flex items-center mr-2">
                           <span className="mr-2">from</span>
                           <Datepicker
@@ -741,30 +695,30 @@ const Settings = () => {
                             onChange={handleSettingFromChange}
                             show={settingFromDate}
                             setShow={handleSettingFromClose}
-                          />
-                          {/* <DatePicker
+                          /> */}
+                      {/* <DatePicker
                             selected={startDate}
                             onChange={(date: Date) => setStartDate(date)}
                             className="cursor-pointer dark:text-black dark:bg-white dark:border-gray-300 text-xs py-1 focus-visible:outline-none focus:outline-none"
                           /> */}
-                        </span>
-                        <span className="flex items-center">
+                      {/* </span> */}
+                      {/* <span className="flex items-center">
                           <span className="mr-2">to</span>
                           <Datepicker
                             options={options}
                             onChange={handleSettingToChange}
                             show={settingToDate}
                             setShow={handleSettingToClose}
-                          />
-                          {/* <DatePicker
+                          /> */}
+                      {/* <DatePicker
                             selected={endDate}
                             onChange={(date: Date) => setEndDate(date)}
                             className="cursor-pointer dark:text-black dark:bg-white dark:border-gray-300 text-xs py-1 focus-visible:outline-none focus:outline-none"
                           /> */}
-                        </span>
-                      </div>
+                      {/* </span>
+                      </div> */}
                     </div>
-                    <div>
+                    {/* <div>
                       <span className="block mb-4">
                         Set the operating hours
                       </span>
@@ -778,7 +732,7 @@ const Settings = () => {
                           <TimePicker />
                         </span>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <OperatingHours />
 
@@ -882,10 +836,7 @@ const Settings = () => {
                   }`}
                 >
                   <div className="mb-6 text-xs">
-                    <TimePicker
-                      text="Set approximate wait time in hours"
-                      hideAm={true}
-                    />
+                    <TimePicker text="Set approximate wait time in hours" />
                   </div>
                 </div>
               </div>
@@ -1205,6 +1156,14 @@ const Settings = () => {
             </div>
           </div>
         </div>
+        <div className="text-center lg:hidden mb-6">
+          <button
+            type="button"
+            className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none text-xs"
+          >
+            Save changes
+          </button>
+        </div>
       </div>
 
       <div className="text-xs w-screen block lg:hidden">
@@ -1229,6 +1188,14 @@ const Settings = () => {
           }`}
         >
           <Header text="General settings" />
+          <div className="text-end mb-6">
+            <button
+              type="button"
+              className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none text-xs"
+            >
+              Save changes
+            </button>
+          </div>
 
           <div className="dark:text-black">
             <div className="mb-6 p-4 bg-white rounded-lg">
@@ -1237,7 +1204,7 @@ const Settings = () => {
 
                 <div className="flex items-center">
                   <span
-                    className="flex items-center cursor-pointer mr-5"
+                    className="flex items-center cursor-pointer"
                     onClick={() => setShowBusinessInfo(!showBusinessInfo)}
                   >
                     {showBusinessInfo ? (
@@ -1278,12 +1245,6 @@ const Settings = () => {
                       </>
                     )}
                   </span>
-                  <button
-                    type="button"
-                    className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none text-xs"
-                  >
-                    Save changes
-                  </button>
                 </div>
               </div>
               {showBusinessInfo && (
@@ -1404,7 +1365,7 @@ const Settings = () => {
             <div className="p-4 bg-white rounded-lg mb-6">
               <div className="mb-6 flex items-center justify-between">
                 <span className="flex items-center">
-                  <span className="mr-5">Locations</span>
+                  <span className="mr-5 text-base">Locations</span>
                   <img src={edit} alt="Edit" className="mr-2 lg:hidden" />
                   <img src={deleteIcon} alt="Delete" className="lg:hidden" />
                 </span>
@@ -1458,7 +1419,7 @@ const Settings = () => {
                 }`}
               >
                 <span className="flex items-center">
-                  <span className="text-sm mr-5">Location 1</span>
+                  <span className="text-base mr-5">Location 1</span>
                   <img src={edit} alt="Edit" className="mr-2 lg:hidden" />
                   <img src={deleteIcon} alt="Delete" className="lg:hidden" />
                 </span>
@@ -1576,7 +1537,7 @@ const Settings = () => {
                   }`}
                 >
                   <span className="flex items-center">
-                    <span className="text-sm mr-5">Station</span>
+                    <span className="text-base mr-5">Station</span>
                   </span>
                   <span
                     className="flex items-center cursor-pointer"
@@ -1631,114 +1592,137 @@ const Settings = () => {
                     Station name
                   </span>
 
-                  <Stations text="Station 1" />
-                  <hr className="mb-4" />
-                  <Stations text="Station 2" />
-                </div>
-              </div>
-
-              {/* team member */}
-              <div className={`${showLocation && "mb-6"}`}>
-                <div
-                  className={`flex items-center justify-between mb-4 ${
-                    (!showLocation1 || !showLocation) && "hidden"
-                  }`}
-                >
-                  <span className="flex items-center">
-                    <span className="text-sm mr-5">Location team members</span>
-                  </span>
-                  <span
-                    className="flex items-center cursor-pointer"
-                    onClick={() => setShowTeamMember(!showTeamMember)}
-                  >
-                    {showTeamMember ? (
-                      <>
-                        <span className="text-xs mr-1">Hide</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                          />
-                        </svg>
-                      </>
-                    ) : (
-                      <>
-                        <span className="text-xs mr-1">Show all</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                          />
-                        </svg>
-                      </>
-                    )}
-                  </span>
-                </div>
-
-                <div
-                  className={`${
-                    (!showTeamMember || !showLocation || !showLocation1) &&
-                    "hidden"
-                  }`}
-                >
-                  <span className="opacity-40 block text-xs mb-4">
-                    member name
-                  </span>
-
-                  {teamMembers.map((member, index) => (
-                    <div key={index}>
-                      <div className="flex justify-between mb-6">
-                        <span className="text-xs flex items-center w-[150px]">
-                          <span className="mr-5 opacity-40">{index + 1}</span>
-                          <span className="text-xs opacity-40">{member}</span>
-                        </span>
-                        <span className="text-xs flex items-center">
-                          <span className="opacity-40 mr-1">
-                            Station {index + 1}
-                          </span>
-                        </span>
-                        <span className="text-xs flex items-center">
-                          <span className="opacity-40 mr-1">Obstetrician</span>
-                        </span>
-                        <span className="text-xs flex items-center">
-                          <span className="opacity-40 mr-1">Admin</span>
-                        </span>
-                        <span className="flex items-center">
-                          <img
-                            src={edit}
-                            alt="Edit"
-                            className="mr-1 cursor-pointer"
-                            onClick={() => {
-                              setOnEditTeamMember(true);
-                              setEditTeamMember(teamMembers[index]);
-                            }}
-                          />
-                          <img src={deleteIcon} alt="Delete" />
-                        </span>
+                  <div>
+                    <div className="text-xs flex justify-between mb-4">
+                      <span className="text-base">Station 1</span>
+                      <div className="flex text-xs">
+                        <img
+                          src={edit}
+                          alt="Edit"
+                          className="mr-1 cursor-pointer w-[20px]"
+                        />
+                        <img
+                          src={add}
+                          alt="Add"
+                          className="mr-1 cursor-pointer w-[20px]"
+                        />
+                        <img
+                          src={deleteIcon}
+                          alt="Delete"
+                          className="cursor-pointer w-[20px]"
+                        />
                       </div>
-                      {index === teamMembers.length - 1 ? null : (
-                        <hr className="mb-4" />
-                      )}
                     </div>
-                  ))}
+                    <span className="opacity-40 block text-xs mb-4">
+                      member name
+                    </span>
+
+                    {station1TeamMember.map((member, index) => (
+                      <div key={index}>
+                        <div className="flex justify-between mb-6">
+                          <span className="text-xs flex items-center w-[150px]">
+                            <span className="mr-5 opacity-40">{index + 1}</span>
+                            <span className="text-xs opacity-40">{member}</span>
+                          </span>
+                          <span className="text-xs flex items-center">
+                            <span className="opacity-40 mr-1">
+                              Station {index + 1}
+                            </span>
+                          </span>
+                          <span className="text-xs flex items-center">
+                            <span className="opacity-40 mr-1">
+                              Obstetrician
+                            </span>
+                          </span>
+                          <span className="text-xs flex items-center">
+                            <span className="opacity-40 mr-1">Admin</span>
+                          </span>
+                          <span className="flex items-center">
+                            <img
+                              src={edit}
+                              alt="Edit"
+                              className="mr-1 cursor-pointer"
+                              onClick={() => {
+                                setOnEditTeamMember(true);
+                                setEditTeamMember(station1TeamMember[index]);
+                              }}
+                            />
+                            <img src={deleteIcon} alt="Delete" />
+                          </span>
+                        </div>
+                        {index !== teamMembers.length - 1 && (
+                          <hr className="mb-4" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <div>
+                    <div className="text-xs flex justify-between mb-4">
+                      <span className="text-base">Station 2</span>
+                      <div className="flex text-xs">
+                        <img
+                          src={edit}
+                          alt="Edit"
+                          className="mr-1 cursor-pointer w-[20px]"
+                        />
+                        <img
+                          src={add}
+                          alt="Add"
+                          className="mr-1 cursor-pointer w-[20px]"
+                        />
+                        <img
+                          src={deleteIcon}
+                          alt="Delete"
+                          className="cursor-pointer w-[20px]"
+                        />
+                      </div>
+                    </div>
+                    <span className="opacity-40 block text-xs mb-4">
+                      member name
+                    </span>
+
+                    {station2TeamMember.map((member, index) => (
+                      <div key={index}>
+                        <div className="flex justify-between mb-6">
+                          <span className="text-xs flex items-center w-[150px]">
+                            <span className="mr-5 opacity-40">{index + 1}</span>
+                            <span className="text-xs opacity-40">{member}</span>
+                          </span>
+                          <span className="text-xs flex items-center">
+                            <span className="opacity-40 mr-1">
+                              Station {index + 1}
+                            </span>
+                          </span>
+                          <span className="text-xs flex items-center">
+                            <span className="opacity-40 mr-1">
+                              Obstetrician
+                            </span>
+                          </span>
+                          <span className="text-xs flex items-center">
+                            <span className="opacity-40 mr-1">Admin</span>
+                          </span>
+                          <span className="flex items-center">
+                            <img
+                              src={edit}
+                              alt="Edit"
+                              className="mr-1 cursor-pointer"
+                              onClick={() => {
+                                setOnEditTeamMember(true);
+                                setEditTeamMember(station2TeamMember[index]);
+                              }}
+                            />
+                            <img src={deleteIcon} alt="Delete" />
+                          </span>
+                        </div>
+                        {index !== teamMembers.length - 1 && (
+                          <hr className="mb-4" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
+
               {/* operating hours */}
               <div className={`${showLocation && "mb-6"}`}>
                 <div
@@ -1747,7 +1731,7 @@ const Settings = () => {
                   }`}
                 >
                   <span className="flex items-center">
-                    <span className="text-sm mr-5">
+                    <span className="text-base mr-5">
                       Operating hours and days
                     </span>
                   </span>
@@ -1801,9 +1785,9 @@ const Settings = () => {
                   }`}
                 >
                   <div className="mb-6 text-xs flex items-center">
-                    <div className="mr-6">
-                      <span className="block mb-4">Set the operating days</span>
-                      <div className="flex">
+                    <div>
+                      <span className="block">Set the operating days</span>
+                      {/* <div className="flex">
                         <span className="flex items-center mr-2">
                           <span className="mr-2">from</span>
                           <Datepicker
@@ -1812,11 +1796,7 @@ const Settings = () => {
                             show={settingFromDate}
                             setShow={handleSettingFromClose}
                           />
-                          {/* <DatePicker
-                              selected={startDate}
-                              onChange={(date: Date) => setStartDate(date)}
-                              className="cursor-pointer dark:text-black dark:bg-white dark:border-gray-300 text-xs py-1 focus-visible:outline-none focus:outline-none"
-                            /> */}
+                    
                         </span>
                         <span className="flex items-center">
                           <span className="mr-2">to</span>
@@ -1826,15 +1806,11 @@ const Settings = () => {
                             show={settingToDate}
                             setShow={handleSettingToClose}
                           />
-                          {/* <DatePicker
-                              selected={endDate}
-                              onChange={(date: Date) => setEndDate(date)}
-                              className="cursor-pointer dark:text-black dark:bg-white dark:border-gray-300 text-xs py-1 focus-visible:outline-none focus:outline-none"
-                            /> */}
+                     
                         </span>
-                      </div>
+                      </div> */}
                     </div>
-                    <div>
+                    {/* <div>
                       <span className="block mb-4">
                         Set the operating hours
                       </span>
@@ -1848,7 +1824,7 @@ const Settings = () => {
                           <TimePicker />
                         </span>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <OperatingHours />
 
@@ -1897,7 +1873,7 @@ const Settings = () => {
               >
                 <div className={`flex items-center justify-between mb-4 `}>
                   <span className="flex items-center">
-                    <span className="text-sm mr-5 whitespace-nowrap">
+                    <span className="text-base mr-5 whitespace-nowrap">
                       Approximate wait time
                     </span>
                   </span>
@@ -1954,10 +1930,7 @@ const Settings = () => {
                   }`}
                 >
                   <div className="mb-6 text-xs">
-                    <TimePicker
-                      text="Set approximate wait time in hours"
-                      hideAm={true}
-                    />
+                    <TimePicker text="Set approximate wait time in hours" />
                   </div>
                 </div>
               </div>

@@ -48,13 +48,7 @@ export const SignUp = () => {
               placeholder="Email..."
               required
             />
-            <input
-              type="text"
-              id="userName"
-              className="bg-primary border border-gray-300 text-xs text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-2"
-              placeholder="User name..."
-              required
-            />
+
             <input
               type="password"
               id="password"

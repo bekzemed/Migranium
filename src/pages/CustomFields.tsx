@@ -21,7 +21,7 @@ const CustomFields = () => {
 
         <div className="bg-white rounded-lg px-2 py-4 mb-4">
           <div className="pb-6 border-b border-b-gray-300">
-            <span className="block text-sm mb-6 dark:text-black">
+            <span className="block text-base mb-6 dark:text-black">
               List of fields
             </span>
             <div className="mb-4">
@@ -106,7 +106,7 @@ const CustomFields = () => {
             </div>
           </div>
           <div className="py-6">
-            <span className="block text-sm mb-6">Add new field</span>
+            <span className="block text-base mb-6">Add new field</span>
             <div className="mb-4">
               <label
                 htmlFor="postalCode"
@@ -171,7 +171,7 @@ const CustomFields = () => {
           <div className="bg-white rounded-lg px-4 py-4 mb-4 dark:text-black">
             <div className="pb-10 border-b border-b-gray-300">
               <div className="flex items-center justify-between">
-                <span className="block text-sm mb-6">List of fields</span>
+                <span className="block text-base mb-6">List of fields</span>
                 <div className="flex justify-center">
                   <button
                     type="button"
@@ -270,7 +270,7 @@ const CustomFields = () => {
               </div>
             </div>
             <div className="py-6">
-              <span className="block text-sm mb-6">Add new field</span>
+              <span className="block text-base mb-6">Add new field</span>
               <div className="mb-4">
                 <label
                   htmlFor="postalCode"

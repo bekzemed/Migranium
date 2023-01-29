@@ -9,7 +9,7 @@ export const AboutBusiness = () => {
   const [categoryData, setCategoryData] = useState("");
   const navigate = useNavigate();
 
-  const onSubmit = () => navigate("/about-you");
+  const onSubmit = () => navigate("/dashboard");
   return (
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />
@@ -35,22 +35,12 @@ export const AboutBusiness = () => {
               required
             />
 
-            <div className="flex mb-5">
-              <input
-                type="password"
-                id="password"
-                className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mr-2"
-                placeholder="Password"
-                required
-              />
-              <input
-                type="password"
-                id="confirm_password"
-                className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none"
-                placeholder="Confirm password..."
-                required
-              />
-            </div>
+            <input
+              type="text"
+              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
+              placeholder="Address..."
+              required
+            />
 
             <div className="relative mb-5">
               <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -110,13 +100,13 @@ export const AboutBusiness = () => {
                   id="category"
                   value={categoryData}
                   className="bg-primary border border-gray-300 text-gray-900 text-xs pr-10 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none cursor-pointer"
-                  placeholder="select a business category"
+                  placeholder="Business category"
                   required
                 />
               </div>
             </div>
             {showDropDown && (
-              <ul className="w-1/2 mb-5 float-right border border-gray-300 text-xs cursor-pointer">
+              <ul className="w-1/2 mb-5 float-right border border-gray-300 text-xs cursor-pointer mt-2 rounded-lg pl-2">
                 <li
                   className="p-1 border-b hover:bg-gray-300 dark:text-black"
                   onClick={() => setCategoryData("Entertainment")}

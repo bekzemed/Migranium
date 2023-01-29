@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { AboutBusiness } from "./pages/AboutBusiness";
-import { AboutYou } from "./pages/AboutYou";
 import AddLocation from "./pages/AddLocation";
 import Customers from "./pages/Customers";
 import CustomFields from "./pages/CustomFields";
@@ -35,7 +34,6 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/about-business" element={<AboutBusiness />} />
-        <Route path="/about-you" element={<AboutYou />} />
         <Route path="/user">
           <Route index element={<User />} />
           <Route path="home-page" element={<HomePage />} />

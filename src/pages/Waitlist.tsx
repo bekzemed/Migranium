@@ -288,7 +288,12 @@ const WaitList = () => {
                         <th className="opacity-40 py-4">{index + 1}</th>
                         <td className="py-4 w-[170px]">
                           <div className="flex">
-                            <span className="mr-3">{user.name}</span>
+                            <span className="mr-3 flex w-[60px]">
+                              {user.name}
+                            </span>
+                            <img src={chat} alt="Chat" className="mr-2" />
+                            <img src={message} alt="Message" className="mr-2" />
+                            <img src={phone} alt="Phone" />
                           </div>
                         </td>
                         <td className="py-4 opacity-40">Clinic</td>
