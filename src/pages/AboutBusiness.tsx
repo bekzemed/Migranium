@@ -34,18 +34,26 @@ export const AboutBusiness = () => {
               placeholder="Address..."
               required
             />
-            <input
-              type="text"
-              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
-              placeholder="Country"
-              required
-            />
-            <input
-              type="text"
-              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
-              placeholder="City"
-              required
-            />
+            <div className="lg:flex">
+              <input
+                type="text"
+                className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5 lg:mr-2"
+                placeholder="Country"
+                required
+              />
+              <input
+                type="text"
+                className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5 lg:mr-2"
+                placeholder="Province"
+                required
+              />
+              <input
+                type="text"
+                className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
+                placeholder="City"
+                required
+              />
+            </div>
 
             <div className="relative mb-5">
               <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
