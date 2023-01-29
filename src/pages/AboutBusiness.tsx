@@ -24,7 +24,7 @@ export const AboutBusiness = () => {
               type="text"
               id="name"
               className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none dark:text-black dark:bg-primary mb-5"
-              placeholder="Name..."
+              placeholder="Business Name..."
               required
             />
 

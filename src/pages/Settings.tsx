@@ -735,6 +735,12 @@ const Settings = () => {
                     </div> */}
                   </div>
                   <OperatingHours />
+                  <span className="text-xs lg:text-sm flex items-center mb-4">
+                    <img src={add} alt="Add" className="mr-2" />
+                    <span className="text-primary">
+                      Add the day with multiple hours
+                    </span>
+                  </span>
 
                   <div className="mb-10 mt-6 text-xs">
                     <div className="mb-5">
@@ -1827,6 +1833,12 @@ const Settings = () => {
                     </div> */}
                   </div>
                   <OperatingHours />
+                  <span className="text-xs lg:text-sm flex items-center mb-4">
+                    <img src={add} alt="Add" className="mr-2" />
+                    <span className="text-primary">
+                      Add the day with multiple hours
+                    </span>
+                  </span>
 
                   <div className="mb-10 mt-6 text-xs flex items-center">
                     <div className="mr-6">

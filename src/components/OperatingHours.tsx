@@ -119,11 +119,6 @@ const OperatingHours = () => {
           </div>
         </div>
       </div>
-
-      <span className="text-xs lg:text-sm flex items-center mb-4">
-        <img src={add} alt="Add" className="mr-2" />
-        <span className="text-primary">Add the day with multiple hours</span>
-      </span>
     </>
   );
 };
