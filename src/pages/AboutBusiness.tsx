@@ -27,18 +27,23 @@ export const AboutBusiness = () => {
               placeholder="Name..."
               required
             />
-            <input
-              type="email"
-              id="email"
-              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none dark:text-black dark:bg-primary mb-5"
-              placeholder="Email..."
-              required
-            />
 
             <input
               type="text"
               className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
               placeholder="Address..."
+              required
+            />
+            <input
+              type="text"
+              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
+              placeholder="Country"
+              required
+            />
+            <input
+              type="text"
+              className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
+              placeholder="City"
               required
             />
 
