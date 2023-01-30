@@ -77,7 +77,7 @@ const Header = ({
         {showNotification && (
           <>
             <div
-              className={`absolute top-16 ${data ? "left-33" : "left-3"} arrow`}
+              className={`absolute top-16 ${data ? "left-48" : "left-3"} arrow`}
             ></div>
             <div className="absolute left-0 right-0 mx-auto z-50 text-black top-20 rounded-lg bg-white text-sm p-4 shadow-lg">
               <div className="flex justify-between items-center pb-4">
