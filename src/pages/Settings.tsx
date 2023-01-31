@@ -88,8 +88,20 @@ const Settings = () => {
           onEditTeamMember && "filter blur-sm"
         }`}
       >
-        <span className="opacity-80 block mb-1 text-xs">Cashex</span>
-        <span className="text-2xl block mb-4">General settings</span>
+        <div className="flex justify-between mb-4 items-end">
+          <div>
+            <span className="opacity-80 block mb-1 text-xs">Cashex</span>
+            <span className="text-2xl block">General settings</span>
+          </div>
+          <div className="text-center lg:hidden">
+            <button
+              type="button"
+              className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none text-xs"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
 
         <div className="mb-4">
           <div className="bg-white rounded-lg py-4 mb-4">
@@ -251,11 +263,7 @@ const Settings = () => {
           <div className="bg-white rounded-lg py-4 mb-4">
             <div className="mb-2">
               <div className="flex items-center px-2 justify-between mb-6">
-                <span className="flex items-center">
-                  <span className="mr-5">Locations</span>
-                  <img src={edit} alt="Edit" className="mr-2 lg:hidden" />
-                  <img src={deleteIcon} alt="Delete" className="lg:hidden" />
-                </span>
+                <span>Locations</span>
                 <span
                   className="flex items-center cursor-pointer"
                   onClick={() => setShowLocation(!showLocation)}
@@ -495,6 +503,7 @@ const Settings = () => {
                     </div>
                     {station1TeamMember.map((member, index) => (
                       <div
+                        key={index}
                         className={`pt-4 pb-6 ${
                           index % 2 !== 0 ? "bg-[#F8F8F8]" : "px-2 "
                         }`}
@@ -569,6 +578,7 @@ const Settings = () => {
                     </div>
                     {station2TeamMember.map((member, index) => (
                       <div
+                        key={index}
                         className={`pt-4 pb-6 ${
                           index % 2 !== 0 ? "bg-[#F8F8F8]" : "px-2 "
                         }`}
@@ -939,9 +949,9 @@ const Settings = () => {
                     >
                       <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   )}
@@ -989,9 +999,9 @@ const Settings = () => {
                     >
                       <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                       />
                     </svg>
                   )}
@@ -1161,14 +1171,6 @@ const Settings = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="text-center lg:hidden mb-6">
-          <button
-            type="button"
-            className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none text-xs"
-          >
-            Save changes
-          </button>
         </div>
       </div>
 
@@ -1793,44 +1795,7 @@ const Settings = () => {
                   <div className="mb-6 text-xs flex items-center">
                     <div>
                       <span className="block">Set the operating days</span>
-                      {/* <div className="flex">
-                        <span className="flex items-center mr-2">
-                          <span className="mr-2">from</span>
-                          <Datepicker
-                            options={options}
-                            onChange={handleSettingFromChange}
-                            show={settingFromDate}
-                            setShow={handleSettingFromClose}
-                          />
-                    
-                        </span>
-                        <span className="flex items-center">
-                          <span className="mr-2">to</span>
-                          <Datepicker
-                            options={options}
-                            onChange={handleSettingToChange}
-                            show={settingToDate}
-                            setShow={handleSettingToClose}
-                          />
-                     
-                        </span>
-                      </div> */}
                     </div>
-                    {/* <div>
-                      <span className="block mb-4">
-                        Set the operating hours
-                      </span>
-                      <div className="flex">
-                        <span className="flex items-center mr-2">
-                          <span className="mr-2">from</span>
-                          <TimePicker />
-                        </span>
-                        <span className="flex items-center">
-                          <span className="mr-2">to</span>
-                          <TimePicker />
-                        </span>
-                      </div>
-                    </div> */}
                   </div>
                   <OperatingHours />
                   <span className="text-xs lg:text-sm flex items-center mb-4">
@@ -2039,9 +2004,9 @@ const Settings = () => {
                       >
                         <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
                         <path
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                          clip-rule="evenodd"
+                          clipRule="evenodd"
                         />
                       </svg>
                     )}
@@ -2089,9 +2054,9 @@ const Settings = () => {
                       >
                         <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
                         <path
-                          fill-rule="evenodd"
+                          fillRule="evenodd"
                           d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                          clip-rule="evenodd"
+                          clipRule="evenodd"
                         />
                       </svg>
                     )}
