@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { AboutBusiness } from "./pages/AboutBusiness";
 import AddLocation from "./pages/AddLocation";
+import ChatWithAdmin from "./pages/ChatWithAdmin";
 import Customers from "./pages/Customers";
 import CustomFields from "./pages/CustomFields";
 import Dashboard from "./pages/Dashboard";
@@ -10,6 +11,7 @@ import Home from "./pages/Home";
 import HomePage from "./pages/HomePage";
 import Messages from "./pages/Messages";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import RequestSwap from "./pages/RequestSwap";
 import Settings from "./pages/Settings";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
@@ -18,6 +20,7 @@ import TeamMembers from "./pages/TeamMembers";
 import Terms from "./pages/Terms";
 import UpgradeProfile from "./pages/UpgradeProfile";
 import { User } from "./pages/User";
+import UserProfileSetting from "./pages/UserProfileSetting";
 import WaitList from "./pages/Waitlist";
 import WaitListMember from "./pages/WaitListMember";
 import ScrollToTop from "./util/scrollToTop";
@@ -37,6 +40,9 @@ function App() {
         <Route path="/user">
           <Route index element={<User />} />
           <Route path="home-page" element={<HomePage />} />
+          <Route path="chat-with-admin" element={<ChatWithAdmin />} />
+          <Route path="profile-setting" element={<UserProfileSetting />} />
+          <Route path="request-swap" element={<RequestSwap />} />
         </Route>
         <Route path="/dashboard">
           <Route index element={<Dashboard />} />

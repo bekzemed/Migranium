@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddCustomFields from "./AddCustomFields";
-import LocationLogo from "./LocationLogo";
+import ProfileLogo from "./ProfileLogo";
 
 const AddLocationComponent = () => {
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ const AddLocationComponent = () => {
         </div>
 
         <div className="pb-4 lg:pb-10 px-2 border-b border-b-gray-300">
-          <LocationLogo />
+          <ProfileLogo />
         </div>
 
         <div className="py-4 lg:py-6 px-2 border-b border-b-gray-300">

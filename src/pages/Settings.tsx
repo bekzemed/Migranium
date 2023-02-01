@@ -11,7 +11,7 @@ import {
 import DashNav from "../components/DashNav";
 import EditTeamMember from "../components/EditTeamMember";
 import Header from "../components/Header";
-import LocationLogo from "../components/LocationLogo";
+import ProfileLogo from "../components/ProfileLogo";
 import OperatingHours from "../components/OperatingHours";
 import TimePicker from "../components/TimePicker";
 import { options } from "../util/operatingHours";
@@ -250,7 +250,7 @@ const Settings = () => {
                 </div>
 
                 <div className="mb-4 px-2">
-                  <LocationLogo />
+                  <ProfileLogo />
                 </div>
 
                 <div className="px-2">
@@ -1363,7 +1363,7 @@ const Settings = () => {
                   {/*  */}
 
                   <div className="mb-6">
-                    <LocationLogo />
+                    <ProfileLogo />
                   </div>
                   <BusinessInfoInput />
                 </>

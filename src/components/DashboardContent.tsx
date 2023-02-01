@@ -77,10 +77,10 @@ export const DashboardMobile = () => {
   );
 };
 
-export const DashboarUserdMobile = () => {
+export const DashboarUserMobile = () => {
   return (
     <ul className="flex items-center overflow-x-scroll bg-secondary gap-9 md:justify-center whitespace-nowrap  px-2 py-4 text-white">
-      <Link to="/dashboard">
+      <Link to="/user/home-page">
         <li>
           <img src={home} alt="Home" className="m-auto mb-1" />
 
@@ -88,14 +88,14 @@ export const DashboarUserdMobile = () => {
         </li>
       </Link>
 
-      <Link to="/dashboard/waitlist">
+      <Link to="/user/chat-with-admin">
         <li>
           <img src={chat} alt="chat" className="m-auto mb-1" />
           <span>Chat with admin</span>
         </li>
       </Link>
 
-      <Link to="/dashboard/messages">
+      <Link to="/user/request-swap">
         <li>
           <img src={swap} alt="Swap" className="m-auto mb-1" />
 
@@ -103,7 +103,7 @@ export const DashboarUserdMobile = () => {
         </li>
       </Link>
 
-      <Link to="/dashboard/settings">
+      <Link to="/user/profile-setting">
         <li>
           <img src={settings} alt="Settings" className="m-auto mb-1" />
 
@@ -214,7 +214,7 @@ export const DashboardUserDesktop = () => {
         </Link>
 
         <ul className="gap-2 text-white flex-1">
-          <Link to="/dashboard">
+          <Link to="/user/home-page">
             <li className="flex p-2 items-center hover:bg-list cursor-pointer rounded-lg lg:mb-3 2xl:mb-5">
               <img className="mr-2 w-[20px]" src={home} alt="home" />
 
@@ -222,7 +222,7 @@ export const DashboardUserDesktop = () => {
             </li>
           </Link>
 
-          <Link to="/dashboard/waitlist">
+          <Link to="/user/chat-with-admin">
             <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
               <img className="mr-2 w-[20px]" src={chat} alt="chat" />
 
@@ -230,7 +230,7 @@ export const DashboardUserDesktop = () => {
             </li>
           </Link>
 
-          <Link to="/dashboard/messages">
+          <Link to="/user/request-swap">
             <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
               <img className="mr-2 w-[20px]" src={swap} alt="swap" />
 
@@ -238,11 +238,11 @@ export const DashboardUserDesktop = () => {
             </li>
           </Link>
 
-          <Link to="/dashboard/settings">
+          <Link to="/user/profile-setting">
             <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
               <img className="mr-2 w-[20px]" src={settings} alt="Settings" />
 
-              <span>Settings</span>
+              <span>profile settings</span>
             </li>
           </Link>
         </ul>

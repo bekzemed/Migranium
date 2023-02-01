@@ -1,7 +1,7 @@
 import React from "react";
 import locationLogo from "../assets/location-upload.svg";
 
-const LocationLogo = () => {
+const ProfileLogo = () => {
   return (
     <>
       <span className="block mb-2 text-xs font-medium text-gray-900 dark:text-black">
@@ -20,4 +20,4 @@ const LocationLogo = () => {
   );
 };
 
-export default LocationLogo;
+export default ProfileLogo;

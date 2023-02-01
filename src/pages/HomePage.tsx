@@ -2,13 +2,14 @@ import { useState } from "react";
 import logo from "../assets/logo.svg";
 import {
   DashboardUserDesktop,
-  DashboarUserdMobile,
+  DashboarUserMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import AddRating from "../components/AddRating";
 
 const cashexQueue = [
   {
@@ -48,6 +49,8 @@ const HomePage = () => {
   const [onNotificationShow, setOnNotificationShow] = useState(false);
   const [selectedCashexUser, setSelectedCashexUser] = useState({});
   const [showNotification, setShowNotification] = useState(false);
+  const [closeQueue, setCloseQueue] = useState(false);
+  const [rateClosingQueue, setRateClosingQueue] = useState(false);
 
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -56,8 +59,20 @@ const HomePage = () => {
         onDone={() => onShow(!show)}
         setShowNotification={setShowNotification}
       />
+      {(closeQueue || rateClosingQueue) && (
+        <AddRating
+          closeQueue={closeQueue}
+          setCloseQueue={setCloseQueue}
+          rateClosingQueue={rateClosingQueue}
+          setRateClosingQueue={setRateClosingQueue}
+        />
+      )}
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
+      <div
+        className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
+          (closeQueue || rateClosingQueue) && "filter blur-sm"
+        }`}
+      >
         <div className="flex justify-between items-center">
           <div>
             <span className="opacity-80 block mb-1 text-xs">
@@ -171,7 +186,12 @@ const HomePage = () => {
                   <span className="block mb-1 opacity-40">
                     Cancel appointment
                   </span>
-                  <span className="text-[#FF0000]">Leave waitlist</span>
+                  <span
+                    className="text-[#FF0000]"
+                    onClick={() => setCloseQueue(true)}
+                  >
+                    Leave waitlist
+                  </span>
                 </div>
               </div>
             </div>
@@ -361,7 +381,12 @@ const HomePage = () => {
                   <span className="block mb-1 opacity-40">
                     Cancel appointment
                   </span>
-                  <span className="text-[#FF0000]">Leave waitlist</span>
+                  <span
+                    className="text-[#FF0000]"
+                    onClick={() => setCloseQueue(true)}
+                  >
+                    Leave waitlist
+                  </span>
                 </div>
               </div>
             </div>
@@ -457,7 +482,7 @@ const HomePage = () => {
       </div>
 
       <div className="text-xs w-screen block lg:hidden">
-        <DashboarUserdMobile />
+        <DashboarUserMobile />
       </div>
 
       {/* desktop */}
@@ -477,7 +502,20 @@ const HomePage = () => {
             data={selectedCashexUser}
           />
 
-          <div className="bg-white rounded-lg px-4 py-4 mb-10 dark:text-black">
+          {(closeQueue || rateClosingQueue) && (
+            <AddRating
+              closeQueue={closeQueue}
+              setCloseQueue={setCloseQueue}
+              rateClosingQueue={rateClosingQueue}
+              setRateClosingQueue={setRateClosingQueue}
+            />
+          )}
+
+          <div
+            className={`bg-white rounded-lg px-4 py-4 mb-10 dark:text-black ${
+              (closeQueue || rateClosingQueue) && "filter blur-sm"
+            }`}
+          >
             <div className="text-xs">
               <div className="pb-6 border-b border-b-gray-300">
                 <span className="mb-4 block text-lg">Cashex queue</span>
@@ -582,7 +620,10 @@ const HomePage = () => {
                         <span className="block mb-1 opacity-40">
                           Cancel appointment
                         </span>
-                        <span className="text-[#FF0000] text-sm">
+                        <span
+                          className="text-[#FF0000] text-sm cursor-pointer"
+                          onClick={() => setCloseQueue(true)}
+                        >
                           Leave waitlist
                         </span>
                       </div>
