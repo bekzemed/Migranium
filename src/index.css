@@ -80,6 +80,18 @@
   right: 57px;
 }
 
+.notification {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid #fff;
+  font-size: 0;
+  line-height: 0;
+}
+
+
+
 :root {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;

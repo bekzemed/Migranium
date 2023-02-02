@@ -1,34 +1,21 @@
 import { Link, useLocation } from "react-router-dom";
 import bell from "../assets/bell-outline.svg";
 
-const Header = ({
-  text,
+const UserNav = ({
   onNotificationShow,
   showNotification,
   setShowNotification,
-  header,
+  data,
 }: any) => {
   const onNotification = () => setShowNotification(!showNotification);
-  const location = useLocation();
 
   return (
-    <div className="mb-10 flex justify-between items-center dark:text-black">
+    <div className="mb-6 flex justify-between items-center dark:text-black">
       <div>
-        {location.pathname !== "/dashboard/upgrade-profile" && (
-          <span className="opacity-70 block mb-1 text-xs">
-            {header || "Cashex"}
-          </span>
-        )}
-        <span
-          className={`text-2xl block ${
-            location.pathname !== "/dashboard/upgrade-profile" && "mb-4"
-          }`}
-        >
-          {text}
-        </span>
+        <span className="text-xl block">Clinic</span>
       </div>
 
-      <div className="text-xs flex items-center relative">
+      <div className="text-xs flex items-center">
         {onNotificationShow ? (
           <button
             type="button"
@@ -54,8 +41,8 @@ const Header = ({
         {/*  */}
         {showNotification && (
           <>
-            <div className="absolute top-16 left-3 arrow"></div>
-            <div className="absolute left-0 right-0 mx-auto z-50 text-black top-20 rounded-lg bg-white text-sm p-4 shadow-lg">
+            <div className="absolute top-24 right-6 notification"></div>
+            <div className="absolute right-4 mx-auto z-50 text-black top-28 rounded-lg bg-white text-sm p-4 shadow-lg">
               <div className="flex justify-between items-center pb-4">
                 <span className="text-xl">Notifications</span>
                 <svg
@@ -75,10 +62,9 @@ const Header = ({
                 </svg>
               </div>
               <hr className="pb-4" />
-
-              <>
+              <div>
                 <div className="flex justify-between text-xs mb-4">
-                  <span>You have one new customer on Station 1, check it</span>
+                  <span>Your estimated wait time is {data.time}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -94,9 +80,14 @@ const Header = ({
                     />
                   </svg>
                 </div>
-
-                <div className="flex justify-between text-xs opacity-40 mb-4">
-                  <span>You have one new customer on Station 1, check it</span>
+                <div className="flex justify-between text-xs  mb-4">
+                  <div>
+                    <span className="block">
+                      {data.name} is proposal you to exchange que, check
+                      notification on
+                    </span>
+                    <span>Home page - Request to Swap turn in queue</span>
+                  </div>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -112,48 +103,17 @@ const Header = ({
                     />
                   </svg>
                 </div>
-
                 <hr />
                 <span className="text-sm py-4 text-center opacity-40 block">
                   Mark all as read
                 </span>
-              </>
+              </div>
             </div>
           </>
         )}
-
-        {/*  */}
-        <>
-          <Link to="/dashboard/upgrade-profile">
-            <button
-              type="button"
-              className="text-white border-slate-300 justify-center  bg-secondary focus:outline-none  font-medium rounded-full text-xs px-5 py-1.5 text-center inline-flex items-center mr-3"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-5 h-5 mr-2"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              Upgrade profile
-            </button>
-          </Link>
-          <span className="mr-3 cursor-pointer">Alexander Loremip</span>
-          <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-secondary rounded-full dark:bg-gray-600 cursor-pointer">
-            <span className="font-medium text-white dark:text-gray-300">
-              AL
-            </span>
-          </div>
-        </>
       </div>
     </div>
   );
 };
 
-export default Header;
+export default UserNav;

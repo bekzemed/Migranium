@@ -20,6 +20,7 @@ import TeamMembers from "./pages/TeamMembers";
 import Terms from "./pages/Terms";
 import UpgradeProfile from "./pages/UpgradeProfile";
 import { User } from "./pages/User";
+import { UserDetails } from "./pages/UserDetails";
 import UserProfileSetting from "./pages/UserProfileSetting";
 import WaitList from "./pages/Waitlist";
 import WaitListMember from "./pages/WaitListMember";
@@ -40,6 +41,7 @@ function App() {
         <Route path="/user">
           <Route index element={<User />} />
           <Route path="home-page" element={<HomePage />} />
+          <Route path="user-detail" element={<UserDetails />} />
           <Route path="chat-with-admin" element={<ChatWithAdmin />} />
           <Route path="profile-setting" element={<UserProfileSetting />} />
           <Route path="request-swap" element={<RequestSwap />} />
