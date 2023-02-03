@@ -509,7 +509,7 @@ const Settings = () => {
                         }`}
                       >
                         <div className={`mb-8 ${index % 2 !== 0 && "px-2"}`}>
-                          <div className="flex justify-between mb-2 text-xs">
+                          <div className="flex justify-between text-xs">
                             <span className="block opacity-40">name</span>
                             <div className="flex">
                               <img
@@ -582,7 +582,7 @@ const Settings = () => {
                         }`}
                       >
                         <div className={`mb-8 ${index % 2 !== 0 && "px-2"}`}>
-                          <div className="flex justify-between mb-2 text-xs">
+                          <div className="flex justify-between text-xs">
                             <span className="block opacity-40">name</span>
                             <div className="flex">
                               <img
