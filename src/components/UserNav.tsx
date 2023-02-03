@@ -12,7 +12,10 @@ const UserNav = ({
   return (
     <div className="mb-6 flex justify-between items-center dark:text-black">
       <div>
-        <span className="text-xl block">Clinic</span>
+        <span className="text-xl block">Cashexs</span>
+        <span className="block text-sm">
+          2972 Westheimer Rd. Santa Ana, Illinois 85486
+        </span>
       </div>
 
       <div className="text-xs flex items-center">

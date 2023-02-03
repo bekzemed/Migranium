@@ -76,20 +76,32 @@ const HomePage = () => {
           (closeQueue || rateClosingQueue || swap) && "filter blur-sm"
         }`}
       >
-        <div className="flex justify-between items-center">
-          <div>
-            <span className="opacity-80 block mb-1 text-sm">
-              2972 Westheimer Rd. Santa Ana, Illinois 85486
-            </span>
-            <span className="text-sm block mb-4">Clinic</span>
-          </div>
+        <div className="mb-6">
+          <span className="text-lg block">Cashexs</span>
+          <span className="block text-xs">
+            2972 Westheimer Rd. Santa Ana, Illinois 85486
+          </span>
         </div>
 
         <div className="bg-white rounded-lg px-2 py-4 mb-10 dark:text-black">
           <div className="text-xs">
             <div>
-              <span className="mb-4 block text-sm">Cashexs</span>
-
+              <div className="flex items-center justify-end mb-6">
+                <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                  Anonymous mode
+                </span>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    value=""
+                    title=""
+                    placeholder=""
+                    className="sr-only peer"
+                    onClick={() => setAnonymousMode(!anonymousMode)}
+                  />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
+                </label>
+              </div>
               <div className="flex justify-between mb-6">
                 <div>
                   <span className="text-xs opacity-40 mb-4 block">
@@ -512,17 +524,6 @@ const HomePage = () => {
           >
             <div className="text-xs">
               <div className="pb-6 border-b border-b-gray-300 ">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="block text-lg">Cashexs</span>
-                </div>
-
-                <div className="mb-8">
-                  <span className="block mb-1 opacity-40">Location</span>
-                  <span className="block text-sm">
-                    2972 Westheimer Rd. Santa Ana, Illinois 85486
-                  </span>
-                </div>
-
                 <div className="flex items-start justify-between">
                   <div>
                     <div className="mr-5 2xl:mr-28">
