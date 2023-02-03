@@ -5,7 +5,7 @@ const MigraniumPlans = ({ migraniumPlans, setShowPlan, setPlanType }: any) => {
     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
       {migraniumPlans.map((plans: any, index: number) => (
         <div
-          className="bg-white rounded-xl px-16 py-10 flex flex-col mb-6 lg:mr-3"
+          className="bg-white rounded-xl px-16 py-10 flex flex-col mb-6 lg:mr-3 shadow-lg"
           key={plans.id}
         >
           <span className="block mb-2 text-center text-xl white">

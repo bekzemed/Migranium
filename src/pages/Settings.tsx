@@ -510,9 +510,7 @@ const Settings = () => {
                       >
                         <div className={`mb-8 ${index % 2 !== 0 && "px-2"}`}>
                           <div className="flex justify-between mb-2 text-xs">
-                            <span className="block opacity-40">
-                              member name
-                            </span>
+                            <span className="block opacity-40">name</span>
                             <div className="flex">
                               <img
                                 src={edit}
@@ -535,9 +533,9 @@ const Settings = () => {
 
                         <div className={`${index % 2 !== 0 && "px-2"}`}>
                           <div className="flex opacity-40 text-xs justify-between mb-2">
-                            <span>Member station</span>
-                            <span>Member position</span>
-                            <span>Member role</span>
+                            <span>Station</span>
+                            <span>Position</span>
+                            <span>Role</span>
                           </div>
                           <div className="flex text-xs justify-between">
                             <span className="flex items-center">
@@ -547,7 +545,7 @@ const Settings = () => {
                               <span className="mr-1">Obstetrician</span>
                             </span>
                             <span className="flex items-center">
-                              <span className="mr-1">Admin</span>
+                              <span>Admin</span>
                             </span>
                           </div>
                         </div>
@@ -585,9 +583,7 @@ const Settings = () => {
                       >
                         <div className={`mb-8 ${index % 2 !== 0 && "px-2"}`}>
                           <div className="flex justify-between mb-2 text-xs">
-                            <span className="block opacity-40">
-                              member name
-                            </span>
+                            <span className="block opacity-40">name</span>
                             <div className="flex">
                               <img
                                 src={edit}
@@ -610,9 +606,9 @@ const Settings = () => {
 
                         <div className={`${index % 2 !== 0 && "px-2"}`}>
                           <div className="flex opacity-40 text-xs justify-between mb-2">
-                            <span>Member station</span>
-                            <span>Member position</span>
-                            <span>Member role</span>
+                            <span>Station</span>
+                            <span>Position</span>
+                            <span>Role</span>
                           </div>
                           <div className="flex text-xs justify-between">
                             <span className="flex items-center">
@@ -622,7 +618,7 @@ const Settings = () => {
                               <span className="mr-1">Obstetrician</span>
                             </span>
                             <span className="flex items-center">
-                              <span className="mr-1">Admin</span>
+                              <span>Admin</span>
                             </span>
                           </div>
                         </div>
@@ -1596,10 +1592,6 @@ const Settings = () => {
                     "hidden"
                   }`}
                 >
-                  <span className="opacity-40 block text-sm mb-4">
-                    Station name
-                  </span>
-
                   <div>
                     <div className="text-xs flex justify-between mb-4">
                       <span className="text-base">Station 1</span>

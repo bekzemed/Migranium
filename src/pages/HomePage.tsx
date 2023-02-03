@@ -17,27 +17,27 @@ const cashexQueue = [
   {
     id: 1,
     name: "Cody Fisher",
-    time: "0 hours 15 minutes",
+    time: "00:15",
   },
   {
     id: 2,
     name: "Robert Fox",
-    time: "0 hours 30 minutes",
+    time: "00:30",
   },
   {
     id: 3,
     name: "Brooklyn Simmons",
-    time: "0 hours 45 minutes",
+    time: "00:45",
   },
   {
     id: 4,
     name: "Ronald Richards",
-    time: "1 hours 00 minutes",
+    time: "01:00",
   },
   {
     id: 5,
     name: "Marvin McKinney",
-    time: "1 hours 15 minutes",
+    time: "01:15",
   },
 ];
 
@@ -70,6 +70,8 @@ const HomePage = () => {
           setRateClosingQueue={setRateClosingQueue}
         />
       )}
+
+      {swap && <SwapJustification swap={swap} setSwap={setSwap} />}
 
       <div
         className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
@@ -203,8 +205,12 @@ const HomePage = () => {
             </div>
 
             <div className="pt-6">
-              <div className={`flex justify-between ${listOfCashex && "mb-4"}`}>
-                <span className="text-sm">List of Cashex queue</span>
+              <div
+                className={`flex justify-between items-center ${
+                  listOfCashex && "mb-4"
+                }`}
+              >
+                <span className="text-sm">Waitlist</span>
                 <span
                   className="flex items-center cursor-pointer"
                   onClick={() => setListOfCashex(!listOfCashex)}
@@ -255,25 +261,61 @@ const HomePage = () => {
                     <thead>
                       <tr className="opacity-40 dark:text-black text-xs border-b border-gray-300">
                         <th></th>
-                        <th className="pb-5 text-start">User name</th>
-                        <th className="pb-5 text-end">Estimated wait time</th>
-                        <th className="pb-5 text-end">
-                          Proposal to swap queue
-                        </th>
+                        <th className="pb-5 text-start">name</th>
+                        <th className="pb-5 text-end">Est. Wait Time</th>
                       </tr>
                     </thead>
                     <tbody className="text:black dark:text-black text-xs">
                       {cashexQueue.map((queue, index) => (
                         <tr
                           className={`text-center border-b  border-gray-300 py-4 ${
-                            index + 1 !== currentUser && "opacity-60"
+                            index + 1 === currentUser && "opacity-60"
                           }`}
                           key={index}
                         >
-                          <th className="py-4">{index + 1}</th>
+                          <th className="py-4 flex">{index + 1}</th>
                           <td className="py-4 text-start">
-                            {queue.name}{" "}
-                            {`${index + 1 === currentUser && "(You)"}`}
+                            <div>
+                              <div className="mb-2 flex items-center">
+                                <span className="mr-3">{queue.name}</span>
+                                <div className="flex items-center">
+                                  <img
+                                    src={message}
+                                    alt="Message"
+                                    className="mr-2 cursor-pointer"
+                                    onClick={() => {
+                                      setSelectedCashexUser(cashexQueue[index]);
+                                      setOnNotificationShow(true);
+                                    }}
+                                  />
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="#0070BA"
+                                    className="w-5 h-5 cursor-pointer"
+                                    onClick={() =>
+                                      index + 1 !== currentUser && setSwap(true)
+                                    }
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z"
+                                      clipRule="evenodd"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                              {index + 1 === currentUser && <span> (You)</span>}
+                              {index === 0 ? (
+                                <span className="rounded-full px-3 py-1 text-xs bg-[#FDD924]">
+                                  Serving
+                                </span>
+                              ) : (
+                                <span className="rounded-full px-3 py-1 text-xs bg-[#6ACA57]">
+                                  Waiting
+                                </span>
+                              )}
+                            </div>
                           </td>
                           <td className="py-4 text-end">{queue.time}</td>
                         </tr>
@@ -453,8 +495,8 @@ const HomePage = () => {
                     <thead>
                       <tr className="opacity-40 dark:text-black text-xs border-b border-gray-300">
                         <th></th>
-                        <th className="pb-5 text-start">User name</th>
-                        <th className="pb-5 text-end">Estimated wait time</th>
+                        <th className="pb-5 text-start">name</th>
+                        <th className="pb-5 text-end">Est. Wait Time</th>
                       </tr>
                     </thead>
                     <tbody className="text:black dark:text-black text-xs">
@@ -641,7 +683,7 @@ const HomePage = () => {
                 <div
                   className={`flex justify-between ${listOfCashex && "mb-4"}`}
                 >
-                  <span className="text-lg">List of Cashex queue</span>
+                  <span className="text-lg">Waitlist</span>
                   <span
                     className="flex items-center cursor-pointer"
                     onClick={() => setListOfCashex(!listOfCashex)}
@@ -685,15 +727,14 @@ const HomePage = () => {
                     )}
                   </span>
                 </div>
-                <></>
                 {listOfCashex && (
                   <div className="bg-white rounded-lg px-2 py-4">
                     <table className="w-full mb-6">
                       <thead>
                         <tr className="opacity-40 dark:text-black text-xs border-b border-gray-300">
                           <th></th>
-                          <th className="pb-5 text-start">User name</th>
-                          <th className="pb-5">Estimated wait time</th>
+                          <th className="pb-5 text-start">name</th>
+                          <th className="pb-5">Est. Wait Time</th>
                           <th className="pb-5">Status</th>
                           <th className="pb-5 text-end">
                             Proposal to swap queue

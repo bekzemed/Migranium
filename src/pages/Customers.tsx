@@ -7,10 +7,13 @@ import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import downArrow from "../assets/down.svg";
 import exportIcon from "../assets/export.svg";
+import filter from "../assets/filter.svg";
 
 const Customers = () => {
   const [show, onShow] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [customer1, setCustomer1] = useState(false);
+  const [customer2, setCustomer2] = useState(false);
 
   return (
     <div
@@ -31,8 +34,28 @@ const Customers = () => {
           showNotification && "background-notification dark:bg-primary"
         }`}
       >
-        <span className="opacity-80 block mb-1 text-xs">Cashex</span>
-        <span className="text-2xl block mb-4">Customers</span>
+        <div className="flex justify-between items-center">
+          <div>
+            <span className="opacity-80 block mb-1 text-xs">Cashex</span>
+            <span className="text-2xl block mb-4">Customers</span>
+          </div>
+          <div className="dark:text-black text-sm flex">
+            <div className="p-2 rounded-full border border-gray-300 bg-white flex items-center mr-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z" />
+                <path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z" />
+              </svg>
+            </div>
+            <div className="p-2 rounded-full border border-gray-300 bg-white flex items-center">
+              <img src={filter} alt="Down arrow" />
+            </div>
+          </div>
+        </div>
 
         <div className="relative mb-6">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -68,50 +91,148 @@ const Customers = () => {
           } rounded-lg px-2 py-4 flex flex-col mb-6`}
         >
           <div className="pb-4">
-            <span className="block mb-4">Arlene McCoy</span>
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Email</span>
-              <span>arlene@mailforspam.com</span>
+            <div className="mb-4 flex justify-between items-center">
+              <span className="block">Arlene McCoy</span>
+              <span
+                className="flex items-center cursor-pointer"
+                onClick={() => setCustomer1(!customer1)}
+              >
+                {customer1 ? (
+                  <>
+                    <span className="text-xs mr-1">Hide</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                      />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-xs mr-1">Show all</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </>
+                )}
+              </span>
             </div>
 
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Phone number</span>
-              <span>+ 1 (239) 555-0108</span>
-            </div>
+            {customer1 && (
+              <div>
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Email</span>
+                  <span>arlene@mailforspam.com</span>
+                </div>
 
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Location</span>
-              <span>2972 Westheimer Rd. Santa Ana, Illinois 85486</span>
-            </div>
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Phone number</span>
+                  <span>+ 1 (239) 555-0108</span>
+                </div>
 
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Last acive:</span>
-              <span>October 21, 2022, 01:46pm</span>
-            </div>
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Location</span>
+                  <span>2972 Westheimer Rd. Santa Ana, Illinois 85486</span>
+                </div>
+
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Last acive:</span>
+                  <span>October 21, 2022, 01:46pm</span>
+                </div>
+              </div>
+            )}
             <hr />
           </div>
 
           <div>
-            <span className="block mb-4">Cody Fisher</span>
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Email</span>
-              <span>cody@mailforspam.com</span>
+            <div className="mb-4 flex justify-between items-center">
+              <span className="block">Cody Fisher</span>
+              <span
+                className="flex items-center cursor-pointer"
+                onClick={() => setCustomer2(!customer2)}
+              >
+                {customer2 ? (
+                  <>
+                    <span className="text-xs mr-1">Hide</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                      />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <span className="text-xs mr-1">Show all</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </>
+                )}
+              </span>
             </div>
 
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Phone number</span>
-              <span>+ 1 (217) 555-0113</span>
-            </div>
+            {customer2 && (
+              <div>
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Email</span>
+                  <span>cody@mailforspam.com</span>
+                </div>
 
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Location</span>
-              <span>2464 Royal Ln. Mesa, New Jersey 45463</span>
-            </div>
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Phone number</span>
+                  <span>+ 1 (217) 555-0113</span>
+                </div>
 
-            <div className="pb-4 text-sm">
-              <span className="opacity-40 block pb-2">Last acive:</span>
-              <span>October 19, 2022, 09:46pm</span>
-            </div>
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Location</span>
+                  <span>2464 Royal Ln. Mesa, New Jersey 45463</span>
+                </div>
+
+                <div className="pb-4 text-sm">
+                  <span className="opacity-40 block pb-2">Last acive:</span>
+                  <span>October 19, 2022, 09:46pm</span>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

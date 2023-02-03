@@ -63,21 +63,6 @@ const AddStation = ({ addStation, setAddStation }: any) => {
             </span>
             <OperatingHours />
           </div>
-          {/* <div className=" text-xs mb-2">
-            <span className="block text-xs mb-2">Set the operating hours</span>
-
-            <div className="flex items-center">
-              <div className="mr-3">
-                <TimePicker text="from" />
-              </div>
-              <TimePicker text="to" />
-            </div>
-          </div> */}
-
-          {/* <span className="text-xs flex items-center my-6">
-            <img src={add} alt="Add" className="mr-2" />
-            <span className="text-primary">The day with multiple hours</span>
-          </span> */}
         </div>
 
         <div className="py-4">

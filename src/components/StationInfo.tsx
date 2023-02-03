@@ -1,21 +1,9 @@
-import { useState } from "react";
-import Datepicker from "tailwind-datepicker-react";
 import add from "../assets/add.svg";
-import { options } from "../util/operatingHours";
-import TimePicker from "./TimePicker";
+import OperatingHours from "./OperatingHours";
 
-const LocationInfo = ({ showLocationInfo, setShowLocationInfo }: any) => {
-  const [fromDate, setFromDate] = useState(false);
-  const [toDate, setToDate] = useState(false);
-
-  const handleFromChange = (selectedDate: Date) => console.log(selectedDate);
-  const handleFromClose = (state: boolean) => setFromDate(state);
-
-  const handleToChange = (selectedDate: Date) => console.log(selectedDate);
-  const handleToClose = (state: boolean) => setToDate(state);
-
+const StationInfo = ({ showLocationInfo, setShowLocationInfo }: any) => {
   return (
-    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[350px] xl:w-[500px] p-4 z-30 shadow-lg">
+    <div className="bg-white rounded-lg h-[500px] 2xl:h-auto overflow-y-scroll absolute left-1/2 top-1/2 date-picker dark:text-black w-[350px] xl:w-[500px] p-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
         <span>Station settings</span>
         <svg
@@ -82,45 +70,15 @@ const LocationInfo = ({ showLocationInfo, setShowLocationInfo }: any) => {
       </div>
 
       <div className="py-4">
-        <span className="mb-4 block">Operating hours and days</span>
-        <div className="mb-2">
-          <span className="block text-xs mb-2">Set the operating days</span>
-          <div className="flex mb-4">
-            <span className="flex items-center text-xs mr-2">
-              <span className="mr-2">from</span>
-              <Datepicker
-                options={options}
-                onChange={handleFromChange}
-                show={fromDate}
-                setShow={handleFromClose}
-              />
+        <div className="py-4">
+          <span className="mb-4 block">Operating hours and days</span>
+          <div className="mb-2">
+            <span className="block text-xs mb-6">
+              Set the operating days and hours
             </span>
-            <span className="flex items-center text-xs">
-              <span className="mr-2">to</span>
-              <Datepicker
-                options={options}
-                onChange={handleToChange}
-                show={toDate}
-                setShow={handleToClose}
-              />
-            </span>
+            <OperatingHours />
           </div>
         </div>
-        <div className=" text-xs mb-2">
-          <span className="block text-xs mb-2">Set the operating hours</span>
-
-          <div className="flex items-center">
-            <div className="mr-3">
-              <TimePicker text="from" />
-            </div>
-            <TimePicker text="to" />
-          </div>
-        </div>
-
-        <span className="text-xs flex items-center my-6">
-          <img src={add} alt="Add" className="mr-2" />
-          <span className="text-primary">The day with multiple hours</span>
-        </span>
 
         <div className="flex justify-center">
           <button
@@ -135,4 +93,4 @@ const LocationInfo = ({ showLocationInfo, setShowLocationInfo }: any) => {
   );
 };
 
-export default LocationInfo;
+export default StationInfo;

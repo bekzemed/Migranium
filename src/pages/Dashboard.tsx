@@ -13,7 +13,7 @@ import {
 import DashNav from "../components/DashNav";
 import GenerateQRCode from "../components/GenerateQRCode";
 import Header from "../components/Header";
-import LocationInfo from "../components/LocationInfo";
+import StationInfo from "../components/StationInfo";
 import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
 
@@ -33,7 +33,7 @@ const Dashboard = () => {
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       {showLocationInfo && (
-        <LocationInfo
+        <StationInfo
           showLocationInfo={showLocationInfo}
           setShowLocationInfo={setShowLocationInfo}
         />
@@ -107,7 +107,7 @@ const Dashboard = () => {
               key={index}
             >
               <div className="mb-6">
-                <div className="flex justify-between mb-2">
+                <div className="flex justify-between mb-4">
                   <span>Cashex</span>
                   <img
                     src={info}
@@ -115,33 +115,6 @@ const Dashboard = () => {
                     onClick={() => setShowLocationInfo(true)}
                   />
                 </div>
-                <div className="mb-3">
-                  <div className="text-xs opacity-40 mb-2">
-                    <span className="pr-2 border-r-2">0 serving</span>
-                    <span className="px-2 border-r-2">1 waiting</span>
-                    <span className="pl-2">6.9 hours wait</span>
-                  </div>
-                  <div className="text-xs opacity-40">
-                    <span>Last active: October 19, 2022, 09:46pm</span>
-                  </div>
-                </div>
-                <div className="flex justify-between text-sm mb-4">
-                  <div
-                    className="flex items-center"
-                    onClick={() => setShowQRCode(true)}
-                  >
-                    <img src={QR} alt="QR code" className="mr-1 bg-secondary" />
-                    <span className="text-primary">Generate QR</span>
-                  </div>
-                  <div
-                    className="flex items-center"
-                    onClick={() => setAddStation(true)}
-                  >
-                    <img src={add} alt="Add" className="mr-1" />
-                    <span className="text-primary">Add station</span>
-                  </div>
-                </div>
-                <hr className="mb-4" />
 
                 <div>
                   <div className="flex justify-between mb-4">
@@ -380,6 +353,35 @@ const Dashboard = () => {
                         </div>
                       )}
                 </div>
+
+                <hr className="mb-4" />
+
+                <div className="mb-3">
+                  <div className="text-xs opacity-40 mb-2">
+                    <span className="pr-2 border-r-2">0 serving</span>
+                    <span className="px-2 border-r-2">1 waiting</span>
+                    <span className="pl-2">6.9 hours wait</span>
+                  </div>
+                  <div className="text-xs opacity-40">
+                    <span>Last active: October 19, 2022, 09:46pm</span>
+                  </div>
+                </div>
+                <div className="flex justify-between text-sm mb-4">
+                  <div
+                    className="flex items-center"
+                    onClick={() => setShowQRCode(true)}
+                  >
+                    <img src={QR} alt="QR code" className="mr-1 bg-secondary" />
+                    <span className="text-primary">Generate QR</span>
+                  </div>
+                  <div
+                    className="flex items-center"
+                    onClick={() => setAddStation(true)}
+                  >
+                    <img src={add} alt="Add" className="mr-1" />
+                    <span className="text-primary">Add station</span>
+                  </div>
+                </div>
               </div>
             </div>
           ))
@@ -404,7 +406,7 @@ const Dashboard = () => {
         <DashboardDesktop />
 
         {showLocationInfo && (
-          <LocationInfo
+          <StationInfo
             showLocationInfo={showLocationInfo}
             setShowLocationInfo={setShowLocationInfo}
           />
@@ -414,13 +416,6 @@ const Dashboard = () => {
           <GenerateQRCode
             showQRCode={showQRCode}
             setShowQRCode={setShowQRCode}
-          />
-        )}
-
-        {showLocationInfo && (
-          <LocationInfo
-            showLocationInfo={showLocationInfo}
-            setShowLocationInfo={setShowLocationInfo}
           />
         )}
 
