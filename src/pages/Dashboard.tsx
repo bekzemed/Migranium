@@ -513,21 +513,6 @@ const Dashboard = () => {
                       </div>
                     </div>
                   </div>
-
-                  <div className="mb-6">
-                    <div className="text-xs opacity-40 mb-2">
-                      <span className="pr-2 border-r-2">0 serving</span>
-                      <span className="px-2 border-r-2">1 waiting</span>
-                      <span className="px-2 border-r-2">6.9 hours wait</span>
-
-                      <span className="pl-2">
-                        Last active: October 19, 2022, 09:46pm
-                      </span>
-                    </div>
-                  </div>
-
-                  <hr className="mb-4" />
-
                   <div
                     className={`w-[400px] pr-4 ${
                       locationStation && "border-r-2 border-gray-300"
@@ -806,6 +791,20 @@ const Dashboard = () => {
                             </div>
                           </div>
                         )}
+                  </div>
+
+                  <hr className="mb-4" />
+
+                  <div className="mb-6">
+                    <div className="text-xs opacity-40 mb-2">
+                      <span className="pr-2 border-r-2">0 serving</span>
+                      <span className="px-2 border-r-2">1 waiting</span>
+                      <span className="px-2 border-r-2">6.9 hours wait</span>
+
+                      <span className="pl-2">
+                        Last active: October 19, 2022, 09:46pm
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
