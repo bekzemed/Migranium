@@ -52,7 +52,7 @@ export const options = {
       </svg>
     ),
   },
-  datepickerClassNames: "left-1/2 top-1/2 date-picker",
+  datepickerClassNames: "left-1/2 top-1/2 center-absolute",
   defaultDate: new Date(),
   language: "en",
 };

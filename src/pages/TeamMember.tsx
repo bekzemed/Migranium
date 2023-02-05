@@ -1,23 +1,19 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import trash from "../assets/trash.svg";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
-import trash from "../assets/trash.svg";
 
 const TeamMember = () => {
   const { state } = useLocation();
-  console.log(state);
 
   const navigate = useNavigate();
 
   const [show, onShow] = useState(false);
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black mb-6">
@@ -224,10 +220,6 @@ const TeamMember = () => {
             Save changes
           </button>
         </div>
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

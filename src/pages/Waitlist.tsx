@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import bell from "../assets/bell.svg";
 import chat from "../assets/chat.svg";
 import downArrow from "../assets/down.svg";
 import edit from "../assets/edit-small.svg";
@@ -10,13 +11,10 @@ import phone from "../assets/phone.svg";
 import right from "../assets/right.svg";
 import time from "../assets/time.svg";
 import trash from "../assets/trash.svg";
-import bell from "../assets/bell.svg";
 import upAndDown from "../assets/upAndDown.svg";
 import user from "../assets/user.svg";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import AddCustomer from "../components/AddCustomer";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import WaitlistButtons from "../components/WaitlistButtons";
@@ -54,15 +52,16 @@ const WaitList = () => {
   const [show, onShow] = useState(false);
   const [showWaitUser, setShowWaitUser] = useState(false);
   const [showWaitUserInfo, setShowWaitUserInfo] = useState(false);
+  const [showAddCustomer, setShowAddCustomer] = useState(false);
   const [showOptions, setOptions] = useState(false);
   const [showOptionsIndex, setOptionsIndex] = useState(-1);
   const [waitUserInfo, setWaitUserInfo] = useState({});
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
+      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black relative">
         <span className="opacity-80 block mb-1 text-xs">Cashex</span>
         <span className="text-2xl block mb-4">Waitlist</span>
 
@@ -93,6 +92,13 @@ const WaitList = () => {
           />
         )}
 
+        {showAddCustomer && (
+          <AddCustomer
+            showAddCustomer={showAddCustomer}
+            setShowAddCustomer={setShowAddCustomer}
+          />
+        )}
+
         {showWaitUserInfo && (
           <WaitListInfo
             showWaitUserInfo={showWaitUserInfo}
@@ -104,7 +110,8 @@ const WaitList = () => {
         {waitlist.length ? (
           <div
             className={`${
-              showWaitUser || showWaitUserInfo ? "filter blur-sm" : ""
+              (showWaitUser || showWaitUserInfo || showAddCustomer) &&
+              "filter blur-sm"
             }`}
           >
             <div className="bg-white rounded-lg px-2 py-4 mb-6">
@@ -208,24 +215,42 @@ const WaitList = () => {
           </div>
         )}
       </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
+      <div
+        className="flex justify-center w-12 h-12 absolute right-8 bottom-20 shadow-lg z-30 items-center rounded-full bg-secondary px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer"
+        onClick={() => setShowAddCustomer(true)}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="#fff"
+          className="w-5 h-5"
+        >
+          <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+        </svg>
       </div>
 
       {/* desktop */}
       <div className="w-full h-screen hidden lg:flex">
         <DashboardDesktop />
+        {showWaitUser && (
+          <WaitListDetail
+            showWaitUser={showWaitUser}
+            setShowWaitUser={setShowWaitUser}
+          />
+        )}
+        {showAddCustomer && (
+          <AddCustomer
+            showAddCustomer={showAddCustomer}
+            setShowAddCustomer={setShowAddCustomer}
+          />
+        )}
 
-        <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block">
+        <div
+          className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block ${
+            (showWaitUser || showAddCustomer) && "filter blur-sm"
+          }`}
+        >
           <Header text="Waitlist" />
-
-          {showWaitUser && (
-            <WaitListDetail
-              showWaitUser={showWaitUser}
-              setShowWaitUser={setShowWaitUser}
-            />
-          )}
 
           <div className="mb-10 flex items-center justify-between dark:text-black">
             <div className="flex text-xs justify-between">

@@ -4,15 +4,12 @@ import add from "../assets/add.svg";
 import deleteIcon from "../assets/delete.svg";
 import edit from "../assets/edit.svg";
 import BusinessInfoInput from "../components/BusinessInfoInput";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import EditTeamMember from "../components/EditTeamMember";
 import Header from "../components/Header";
-import ProfileLogo from "../components/ProfileLogo";
 import OperatingHours from "../components/OperatingHours";
+import ProfileLogo from "../components/ProfileLogo";
 import TimePicker from "../components/TimePicker";
 import { options } from "../util/operatingHours";
 // import DatePicker from "react-datepicker";
@@ -21,6 +18,7 @@ import { options } from "../util/operatingHours";
 
 const Settings = () => {
   const [show, onShow] = useState(false);
+
   const [showLocation1, setShowLocation1] = useState(false);
   const [showLocation2, setShowLocation2] = useState(false);
 
@@ -72,7 +70,7 @@ const Settings = () => {
   const station2TeamMember = ["Cody Fisher", "Albert Flores"];
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       {onEditTeamMember && (
@@ -1168,10 +1166,6 @@ const Settings = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

@@ -1,13 +1,10 @@
 import { useState } from "react";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
-import DashNav from "../components/DashNav";
-import Header from "../components/Header";
 import downArrow from "../assets/down.svg";
 import exportIcon from "../assets/export.svg";
 import filter from "../assets/filter.svg";
+import { DashboardDesktop } from "../components/DashboardContent";
+import DashNav from "../components/DashNav";
+import Header from "../components/Header";
 
 const Customers = () => {
   const [show, onShow] = useState(false);
@@ -17,9 +14,9 @@ const Customers = () => {
 
   return (
     <div
-      className={`bg-primary h-screen flex flex-col ${
+      className={`bg-primary flex-1 flex flex-col ${
         showNotification && "bg-[#00000005]"
-      }`}
+      } overflow-y-scroll`}
     >
       <DashNav
         showNotification={showNotification}
@@ -235,10 +232,6 @@ const Customers = () => {
             )}
           </div>
         </div>
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

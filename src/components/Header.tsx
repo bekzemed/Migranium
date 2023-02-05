@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import bell from "../assets/bell-outline.svg";
+import { useAppSelector } from "../redux/hooks";
 
 const Header = ({
   text,
@@ -11,6 +12,9 @@ const Header = ({
   const onNotification = () => setShowNotification(!showNotification);
   const location = useLocation();
 
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
+
   return (
     <div className="mb-10 flex justify-between items-center dark:text-black">
       <div>
@@ -19,13 +23,7 @@ const Header = ({
             {header || "Cashex"}
           </span>
         )}
-        <span
-          className={`text-2xl block ${
-            location.pathname !== "/dashboard/upgrade-profile" && "mb-4"
-          }`}
-        >
-          {text}
-        </span>
+        <span className="text-2xl block">{text}</span>
       </div>
 
       <div className="text-xs flex items-center relative">
@@ -126,8 +124,13 @@ const Header = ({
         <>
           <Link to="/dashboard/upgrade-profile">
             <button
+              style={selected === 10 ? { backgroundColor: theme } : {}}
               type="button"
-              className="text-white border-slate-300 justify-center  bg-secondary focus:outline-none  font-medium rounded-full text-xs px-5 py-1.5 text-center inline-flex items-center mr-3"
+              className={`text-white ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              } border-slate-300 justify-center  bg-secondary focus:outline-none  font-medium rounded-full text-xs px-5 py-1.5 text-center inline-flex items-center mr-3`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +148,13 @@ const Header = ({
             </button>
           </Link>
           <span className="mr-3 cursor-pointer">Alexander Loremip</span>
-          <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-secondary rounded-full dark:bg-gray-600 cursor-pointer">
+          <div
+            className={`relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-secondary rounded-full dark:bg-gray-600 cursor-pointer ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
+          >
             <span className="font-medium text-white dark:text-gray-300">
               AL
             </span>

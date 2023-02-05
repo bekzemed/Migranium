@@ -8,7 +8,7 @@ export const SignIn = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
-  const onSubmit = () => navigate("/dashboard");
+  const onSubmit = () => navigate("/dashboard/waitlist");
   return (
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />

@@ -1,9 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import MigraniumPlans from "../components/MigraniumPlans";
@@ -84,7 +80,7 @@ const UpgradeProfile = () => {
   const [planType, setPlanType] = useState("");
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       {showPlan && (
@@ -112,10 +108,6 @@ const UpgradeProfile = () => {
           setShowPlan={setShowPlan}
           setPlanType={setPlanType}
         />
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

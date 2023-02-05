@@ -2,10 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import trash from "../assets/trash.svg";
 import AddTeamMember from "../components/AddTeamMember";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 
@@ -54,7 +51,7 @@ const TeamMembers = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       {addTeamMember && (
@@ -231,10 +228,6 @@ const TeamMembers = () => {
             Add team member
           </span>
         </div>
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

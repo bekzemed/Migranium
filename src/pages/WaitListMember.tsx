@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 
@@ -13,7 +10,7 @@ const WaitListMember = () => {
   const [show, onShow] = useState(false);
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black mb-6">
@@ -119,10 +116,6 @@ const WaitListMember = () => {
             Save changes
           </button>
         </div>
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

@@ -9,7 +9,7 @@ export const AboutBusiness = () => {
   const [categoryData, setCategoryData] = useState("");
   const navigate = useNavigate();
 
-  const onSubmit = () => navigate("/dashboard");
+  const onSubmit = () => navigate("/dashboard/waitlist");
   return (
     <div>
       <NavBar show={show} onDone={() => setShow(!show)} />
@@ -119,7 +119,7 @@ export const AboutBusiness = () => {
               </div>
             </div>
             {showDropDown && (
-              <ul className="w-1/2 mb-5 float-right border border-gray-300 text-xs cursor-pointer mt-2 rounded-lg pl-2">
+              <ul className="w-1/2 mb-5 float-right border border-gray-300 text-xs cursor-pointer mt-2 rounded-lg ml-2">
                 <li
                   className="p-1 border-b hover:bg-gray-300 dark:text-black"
                   onClick={() => setCategoryData("Entertainment")}

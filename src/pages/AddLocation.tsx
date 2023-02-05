@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AddLocationComponent from "../components/AddLocationComponent";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 
@@ -13,7 +10,7 @@ const AddLocation = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="pt-10 px-2 flex-1 overflow-y-scroll lg:hidden dark:text-black">
@@ -38,10 +35,6 @@ const AddLocation = () => {
         </div>
 
         <AddLocationComponent />
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

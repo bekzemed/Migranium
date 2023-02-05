@@ -1,6 +1,6 @@
 const SubscriptionPlan = ({ showPlan, setShowPlan, planType }: any) => {
   return (
-    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[360px] xl:w-[500px] p-4 lg:p-6 z-30 shadow-lg">
+    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 center-absolute dark:text-black w-[360px] xl:w-[500px] p-4 lg:p-6 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
         <span>{planType} plan</span>
         <svg

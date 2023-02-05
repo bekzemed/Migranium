@@ -1,8 +1,4 @@
 import { useState } from "react";
-import Datepicker from "tailwind-datepicker-react";
-import add from "../assets/add.svg";
-import { options } from "../util/operatingHours";
-import TimePicker from "./TimePicker";
 
 const AddTeamMember = ({ addTeamMember, setAddTeamMember }: any) => {
   const [fromDate, setFromDate] = useState(false);
@@ -15,7 +11,7 @@ const AddTeamMember = ({ addTeamMember, setAddTeamMember }: any) => {
   const handleToClose = (state: boolean) => setToDate(state);
 
   return (
-    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 date-picker dark:text-black w-[350px] xl:w-[400px] p-4 z-30 shadow-lg">
+    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 center-absolute dark:text-black w-[350px] xl:w-[400px] p-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
         <span>Add new team member</span>
         <svg

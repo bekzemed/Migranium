@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import add from "../assets/add.svg";
 import copy from "../assets/copy.svg";
 import deleteOutline from "../assets/delete-outline.svg";
@@ -6,16 +7,12 @@ import editOutline from "../assets/edit-outline.svg";
 import info from "../assets/info.svg";
 import QR from "../assets/qr-disabled.svg";
 import AddStation from "../components/AddStation";
-import {
-  DashboardDesktop,
-  DashboardMobile,
-} from "../components/DashboardContent";
+import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import GenerateQRCode from "../components/GenerateQRCode";
 import Header from "../components/Header";
-import StationInfo from "../components/StationInfo";
 import Pagination from "../components/Pagination";
-import { Link } from "react-router-dom";
+import StationInfo from "../components/StationInfo";
 
 const Dashboard = () => {
   const [show, onShow] = useState(false);
@@ -29,7 +26,7 @@ const Dashboard = () => {
   const [showQRCode, setShowQRCode] = useState(false);
   const cashex = [1, 2];
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       {showLocationInfo && (
@@ -395,10 +392,6 @@ const Dashboard = () => {
         )}
 
         <Pagination />
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboardMobile />
       </div>
 
       {/* desktop */}

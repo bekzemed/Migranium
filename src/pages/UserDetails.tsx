@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useAppSelector } from "../redux/hooks";
 
 export const UserDetails = () => {
   const navigate = useNavigate();
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
 
   const onSubmit = () => navigate("/user/home-page");
   return (
     <div>
-      <div className="bg-primary px-4 lg:px-0 text-center h-screen lg:flex lg:justify-center dark:text-black">
+      <div
+        className={`${theme} px-4 lg:px-0 text-center h-screen lg:flex lg:justify-center dark:text-black`}
+      >
         <div className="flex flex-col h-full justify-center lg:w-[400px] ">
           <span className="font-black text-sm pb-3 block lg:pb-3">Cashexs</span>
           <span className="font-black text-2xl pb-5 block lg:pb-3">

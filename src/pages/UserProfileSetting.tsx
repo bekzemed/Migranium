@@ -6,16 +6,18 @@ import {
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import UserProfileSettingComponent from "../components/UserProfileSettingComponent";
+import { useAppSelector } from "../redux/hooks";
 
 const UserProfileSetting = () => {
   const [show, onShow] = useState(false);
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const [anonymousMode, setAnonymousMode] = useState(false);
   const [onNotificationShow, setOnNotificationShow] = useState(false);
   const [selectedCashexUser, setSelectedCashexUser] = useState({});
   const [showNotification, setShowNotification] = useState(false);
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className={`${theme} h-screen flex flex-col`}>
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">

@@ -1,5 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { DashboardMobile } from "./components/DashboardContent";
 import { AboutBusiness } from "./pages/AboutBusiness";
 import AddLocation from "./pages/AddLocation";
 import ChatWithAdmin from "./pages/ChatWithAdmin";
@@ -18,6 +19,7 @@ import { SignUp } from "./pages/SignUp";
 import TeamMember from "./pages/TeamMember";
 import TeamMembers from "./pages/TeamMembers";
 import Terms from "./pages/Terms";
+import Theme from "./pages/Theme";
 import UpgradeProfile from "./pages/UpgradeProfile";
 import { User } from "./pages/User";
 import { UserDetails } from "./pages/UserDetails";
@@ -25,6 +27,17 @@ import UserProfileSetting from "./pages/UserProfileSetting";
 import WaitList from "./pages/Waitlist";
 import WaitListMember from "./pages/WaitListMember";
 import ScrollToTop from "./util/scrollToTop";
+
+const Layout = () => {
+  return (
+    <>
+      <Outlet />
+      <div className="text-xs w-screen block lg:hidden">
+        <DashboardMobile />
+      </div>
+    </>
+  );
+};
 
 function App() {
   return (
@@ -46,21 +59,24 @@ function App() {
           <Route path="profile-setting" element={<UserProfileSetting />} />
           <Route path="request-swap" element={<RequestSwap />} />
         </Route>
-        <Route path="/dashboard">
-          <Route index element={<Dashboard />} />
-          <Route path="waitlist">
-            <Route index element={<WaitList />} />
-            <Route path=":id" element={<WaitListMember />} />
-          </Route>
-          <Route path="messages" element={<Messages />} />
-          <Route path="customers" element={<Customers />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="custom-fields" element={<CustomFields />} />
-          <Route path="add-location" element={<AddLocation />} />
-          <Route path="upgrade-profile" element={<UpgradeProfile />} />
-          <Route path="team-members">
-            <Route index element={<TeamMembers />} />
-            <Route path=":id" element={<TeamMember />} />
+        <Route element={<Layout />}>
+          <Route path="/dashboard">
+            <Route index element={<Dashboard />} />
+            <Route path="waitlist">
+              <Route index element={<WaitList />} />
+              <Route path=":id" element={<WaitListMember />} />
+            </Route>
+            <Route path="messages" element={<Messages />} />
+            <Route path="theme" element={<Theme />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="custom-fields" element={<CustomFields />} />
+            <Route path="add-location" element={<AddLocation />} />
+            <Route path="upgrade-profile" element={<UpgradeProfile />} />
+            <Route path="team-members">
+              <Route index element={<TeamMembers />} />
+              <Route path=":id" element={<TeamMember />} />
+            </Route>
           </Route>
         </Route>
       </Routes>
