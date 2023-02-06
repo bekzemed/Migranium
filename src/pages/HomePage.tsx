@@ -4,15 +4,14 @@ import {
   DashboardUserDesktop,
   DashboarUserMobile,
 } from "../components/DashboardContent";
-import DashNav from "../components/DashNav";
 
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import message from "../assets/message.svg";
 import AddRating from "../components/AddRating";
+import DashNav from "../components/DashNav";
 import SwapJustification from "../components/SwapJustification";
 import UserNav from "../components/UserNav";
-import { useAppSelector } from "../redux/hooks";
 
 const cashexQueue = [
   {
@@ -46,7 +45,6 @@ let currentUser = 4;
 
 const HomePage = () => {
   const [show, onShow] = useState(false);
-  const theme = useAppSelector((state) => state.theme.backgroundTheme);
 
   const [listOfCashex, setListOfCashex] = useState(false);
   const [anonymousMode, setAnonymousMode] = useState(false);
@@ -58,7 +56,7 @@ const HomePage = () => {
   const [swap, setSwap] = useState(false);
 
   return (
-    <div className={`${theme} h-screen flex flex-col`}>
+    <div className="bg-primary h-screen flex flex-col">
       <DashNav
         show={show}
         onDone={() => onShow(!show)}

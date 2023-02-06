@@ -3,6 +3,7 @@ import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import MigraniumPlans from "../components/MigraniumPlans";
+import PoweredBy from "../components/PoweredBy";
 import SubscriptionPlan from "../components/SubscriptionPlan";
 
 const migraniumPlans = [
@@ -75,13 +76,12 @@ const migraniumPlans = [
 ];
 
 const UpgradeProfile = () => {
-  const [show, onShow] = useState(false);
   const [showPlan, setShowPlan] = useState(false);
   const [planType, setPlanType] = useState("");
 
   return (
     <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
-      <DashNav show={show} onDone={() => onShow(!show)} />
+      <DashNav />
 
       {showPlan && (
         <SubscriptionPlan
@@ -92,22 +92,27 @@ const UpgradeProfile = () => {
       )}
 
       <div
-        className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black ${
+        className={`px-2 pt-10 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black ${
           showPlan && "filter blur-sm"
         }`}
       >
-        <div className="mb-4">
-          <span className="text-xl block mb-1">Get more out of Migranium</span>
-          <span className="text-sm opacity-50 block">
-            Supercharge your account with our simple and flexible plans
-          </span>
-        </div>
+        <div className="flex-1">
+          <div className="mb-4">
+            <span className="text-xl block mb-1">
+              Get more out of Migranium
+            </span>
+            <span className="text-sm opacity-50 block">
+              Supercharge your account with our simple and flexible plans
+            </span>
+          </div>
 
-        <MigraniumPlans
-          migraniumPlans={migraniumPlans}
-          setShowPlan={setShowPlan}
-          setPlanType={setPlanType}
-        />
+          <MigraniumPlans
+            migraniumPlans={migraniumPlans}
+            setShowPlan={setShowPlan}
+            setPlanType={setPlanType}
+          />
+        </div>
+        <PoweredBy />
       </div>
 
       {/* desktop */}
@@ -123,25 +128,28 @@ const UpgradeProfile = () => {
         )}
 
         <div
-          className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden dark:text-black lg:block ${
+          className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll dark:text-black flex flex-col ${
             showPlan && "filter blur-sm"
           }`}
         >
-          <Header text="Upgrade your Cashex profile" />
-          <div className="mb-10">
-            <span className="text-xl block mb-1">
-              Get more out of Migranium
-            </span>
-            <span className="text-sm opacity-50 block">
-              Supercharge your account with our simple and flexible plans
-            </span>
-          </div>
+          <div className="flex-1">
+            <Header text="Upgrade your Cashex profile" />
+            <div className="mb-10">
+              <span className="text-xl block mb-1">
+                Get more out of Migranium
+              </span>
+              <span className="text-sm opacity-50 block">
+                Supercharge your account with our simple and flexible plans
+              </span>
+            </div>
 
-          <MigraniumPlans
-            migraniumPlans={migraniumPlans}
-            setShowPlan={setShowPlan}
-            setPlanType={setPlanType}
-          />
+            <MigraniumPlans
+              migraniumPlans={migraniumPlans}
+              setShowPlan={setShowPlan}
+              setPlanType={setPlanType}
+            />
+          </div>
+          <PoweredBy />
         </div>
       </div>
     </div>

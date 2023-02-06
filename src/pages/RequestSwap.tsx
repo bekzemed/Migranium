@@ -6,7 +6,7 @@ import {
   DashboarUserMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
-import Header from "../components/Header";
+import { UserHeader } from "../components/Header";
 import { useAppSelector } from "../redux/hooks";
 
 const RequestSwap = () => {
@@ -18,7 +18,7 @@ const RequestSwap = () => {
   const [showNotification, setShowNotification] = useState(false);
 
   return (
-    <div className={`${theme} h-screen flex flex-col`}>
+    <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
@@ -68,7 +68,7 @@ const RequestSwap = () => {
         <DashboardUserDesktop />
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block dark:text-black">
-          <Header
+          <UserHeader
             text="Request to swap turn"
             header="Ronald Richards"
             isAnonymous={true}

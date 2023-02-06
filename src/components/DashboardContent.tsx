@@ -86,12 +86,6 @@ export const DashboardMobile = () => {
           <span>Theme</span>
         </li>
       </Link>
-      <Link to="/dashboard/customers">
-        <li>
-          <img src={customers} alt="Customers" className="m-auto mb-1" />
-          <span>Customers</span>
-        </li>
-      </Link>
 
       <Link to="/dashboard/settings">
         <li>

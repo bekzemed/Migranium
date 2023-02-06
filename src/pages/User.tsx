@@ -1,16 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import welcome from "../assets/welcome.svg";
 import logo from "../assets/logo.svg";
-import { useAppSelector } from "../redux/hooks";
+import welcome from "../assets/welcome.svg";
 
 export const User = () => {
   const navigate = useNavigate();
-  const theme = useAppSelector((state) => state.theme.backgroundTheme);
 
   return (
-    <div
-      className={`${theme} px-4 lg:px-0 text-center h-screen lg:flex lg:justify-center dark:text-black`}
-    >
+    <div className="bg-primary px-4 lg:px-0 text-center h-screen lg:flex lg:justify-center dark:text-black">
       <div className="flex flex-col h-full justify-center lg:mr-10 2xl:mr-16">
         <span className="font-black text-2xl pb-5 block lg:pb-3 whitespace-nowrap">
           Welcome to Cashexs

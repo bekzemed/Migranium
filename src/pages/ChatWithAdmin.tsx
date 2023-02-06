@@ -5,8 +5,7 @@ import {
   DashboarUserMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
-import Header from "../components/Header";
-import { useAppSelector } from "../redux/hooks";
+import { UserHeader } from "../components/Header";
 
 const date = new Date();
 
@@ -25,14 +24,13 @@ const messages = [
 
 const ChatWithAdmin = () => {
   const [show, onShow] = useState(false);
-  const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const [anonymousMode, setAnonymousMode] = useState(false);
   const [onNotificationShow, setOnNotificationShow] = useState(false);
   const [selectedCashexUser, setSelectedCashexUser] = useState({});
   const [showNotification, setShowNotification] = useState(false);
 
   return (
-    <div className={`${theme} h-screen flex flex-col`}>
+    <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
@@ -50,7 +48,7 @@ const ChatWithAdmin = () => {
         <DashboardUserDesktop />
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block dark:text-black">
-          <Header
+          <UserHeader
             text="Chat with admin"
             header="Ronald Richards"
             isAnonymous={true}

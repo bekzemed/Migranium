@@ -169,6 +169,24 @@ const Themes = () => {
           </div>
 
           <div className="my-4">
+            <span className="block text-sm mb-1 lg:mb-2">
+              Change to default
+            </span>
+            <div
+              className="w-[36px] h-[36px] mr-1 cursor-pointer bg-secondary rounded-lg relative"
+              onClick={() => {
+                dispatch(changeTheme("bg-secondary"));
+                dispatch(selectedTheme(11));
+                {
+                  open && setOpen(false);
+                }
+              }}
+            >
+              {selected === 11 && check}
+            </div>
+          </div>
+
+          <div className="my-4">
             <span className="block text-sm mb-1 lg:mb-2">Custom</span>
             <div
               className="w-[36px] h-[36px] mr-1 mb-1 cursor-pointer border border-gray-300 rounded-lg relative"
