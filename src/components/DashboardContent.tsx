@@ -157,8 +157,8 @@ export const DashboardDesktop = () => {
           theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
         }`}
       >
-        <Link to="/">
-          <div className="flex items-center cursor-pointer px-2 lg:mb-[30px] 2xl:mb-[70px] rounded-lg">
+        <Link to="/" className="lg:mb-[30px] 2xl:mb-[70px]">
+          <div className="flex items-center cursor-pointer px-2  rounded-lg">
             <img src={logo} className="mr-2 w-[31px]" alt="Migranium Logo" />
 
             <span className="text-lg font-semibold text-white migranium-font">
@@ -255,8 +255,8 @@ export const DashboardUserDesktop = () => {
   return (
     <div className="text-xs hidden lg:block w-[250px]">
       <div className="flex flex-col h-screen p-8 bg-secondary">
-        <Link to="/">
-          <div className="flex items-center cursor-pointer px-2 lg:mb-[30px] 2xl:mb-[70px]">
+        <Link to="/" className="lg:mb-[30px] 2xl:mb-[70px]">
+          <div className="flex items-center cursor-pointer px-2">
             <img src={logo} className="mr-2 w-[31px]" alt="Migranium Logo" />
 
             <span className="text-lg font-semibold text-white migranium-font">

@@ -149,6 +149,7 @@ const Header = ({
           </Link>
           <span className="mr-3 cursor-pointer">Alexander Loremip</span>
           <div
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             className={`relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-secondary rounded-full dark:bg-gray-600 cursor-pointer ${
               theme === "bg-theme0" || theme === "bg-theme1"
                 ? "bg-black"
