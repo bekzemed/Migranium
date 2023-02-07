@@ -1,9 +1,12 @@
 import add from "../assets/add.svg";
+import { useAppSelector } from "../redux/hooks";
 import OperatingHours from "./OperatingHours";
 
 const AddStation = ({ addStation, setAddStation }: any) => {
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
   return (
-    <div className="bg-white rounded-lg absolute h-[500px] 2xl:h-auto overflow-y-scroll left-1/2 top-1/2 center-absolute dark:text-black w-[350px] xl:w-[500px] p-4 z-30 shadow-lg">
+    <div className="bg-white rounded-lg absolute h-[500px] overflow-y-scroll left-1/2 top-1/2 center-absolute dark:text-black w-[360px] xl:w-[550px] px-2 lg:px-4 py-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
         <span>Add new station</span>
         <svg
@@ -91,8 +94,13 @@ const AddStation = ({ addStation, setAddStation }: any) => {
 
         <div className="flex justify-center">
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className=" p-2 text-xs xl:w-[150px] font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Save changes
           </button>

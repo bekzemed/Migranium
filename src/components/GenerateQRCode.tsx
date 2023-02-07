@@ -1,8 +1,11 @@
 import copy from "../assets/copy.svg";
 import QR from "../assets/QR-code.svg";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../redux/hooks";
 
 const GenerateQRCode = ({ showQRCode, setShowQRCode }: any) => {
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
   return (
     <div className="bg-white rounded-lg absolute left-1/2 top-1/2 center-absolute dark:text-black w-[360px] xl:w-[500px] p-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
@@ -50,8 +53,13 @@ const GenerateQRCode = ({ showQRCode, setShowQRCode }: any) => {
       <div className="py-4 flex flex-col justify-center items-center">
         <div className="flex justify-cente mb-3">
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className="p-2 px-4 text-xs xl:w-[150px] font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+            className={`p-2 px-4 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Print QR code
           </button>

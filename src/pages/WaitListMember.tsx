@@ -3,9 +3,12 @@ import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import PoweredBy from "../components/PoweredBy";
+import { useAppSelector } from "../redux/hooks";
 
 const WaitListMember = () => {
   const { state } = useLocation();
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
 
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
@@ -109,8 +112,13 @@ const WaitListMember = () => {
 
         <div className="flex justify-center">
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className=" p-2 text-xs font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Save changes
           </button>
@@ -132,8 +140,13 @@ const WaitListMember = () => {
                     Personal info
                   </span>
                   <button
+                    style={selected === 10 ? { backgroundColor: theme } : {}}
                     type="button"
-                    className=" p-2 text-xs font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+                    className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                      theme === "bg-theme0" || theme === "bg-theme1"
+                        ? "bg-black"
+                        : theme
+                    }`}
                   >
                     Save changes
                   </button>

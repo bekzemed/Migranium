@@ -1,9 +1,9 @@
 const TimePicker = ({ text }: any) => {
   return (
     <div className="flex items-center">
-      <span className="mr-2 whitespace-nowrap">{text}</span>
-      <div className="w-24 bg-white rounded-full border border-gray-300 text-xs">
-        <div className="flex items-center justify-center ">
+      {text && <span className="mr-2 whitespace-nowrap">{text}</span>}
+      <div className="w-24 bg-white rounded-lg border border-gray-300 text-xs">
+        <div className="flex items-center justify-center px-3 py-1">
           <select
             title="hours"
             name="hours"
@@ -26,10 +26,18 @@ const TimePicker = ({ text }: any) => {
           <select
             title="minutes"
             name="minutes"
-            className="bg-transparent text-sm appearance-none outline-none"
+            className="bg-transparent text-sm appearance-none outline-none mr-2"
           >
             <option value="0">00</option>
             <option value="30">30</option>
+          </select>
+          <select
+            title="ampm"
+            name="ampm"
+            className="bg-transparent text-sm appearance-none outline-none"
+          >
+            <option value="am">AM</option>
+            <option value="pm">PM</option>
           </select>
         </div>
       </div>

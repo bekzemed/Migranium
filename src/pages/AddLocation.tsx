@@ -17,7 +17,7 @@ const AddLocation = () => {
           <div className="flex justify-between items-center">
             <div>
               <span className="opacity-80 block mb-1 text-xs">Cashex</span>
-              <span className="text-2xl block mb-4">Location settings</span>
+              <span className="text-2xl block mb-4">Add location</span>
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const AddLocation = () => {
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll flex flex-col">
           <div className="flex-1">
-            <Header text="General settings" />
+            <Header text="Add location" />
 
             <AddLocationComponent />
           </div>

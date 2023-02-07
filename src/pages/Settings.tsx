@@ -36,7 +36,6 @@ const Settings = () => {
   const [showLocation, setShowLocation] = useState(false);
 
   const [showStation, setShowStation] = useState(false);
-  const [showTeamMember, setShowTeamMember] = useState(false);
   const [showOperatingHours, setShowOperatingHours] = useState(false);
   const [showCustomFields, setShowCustomFields] = useState(false);
   const [showPaymentDetails, setShowPaymentDetails] = useState(false);
@@ -428,7 +427,7 @@ const Settings = () => {
                 </div>
                 {/* location station */}
 
-                <div className="mb-6">
+                <div>
                   <div
                     className={`flex items-center justify-between mb-4 px-2 ${
                       (!showLocation1 || !showLocation) && "hidden"
@@ -481,8 +480,8 @@ const Settings = () => {
                     </span>
                   </div>
                   <div
-                    className={`mb-6 ${
-                      (!showStation || !showLocation) && "hidden"
+                    className={`${
+                      !showStation || !showLocation ? "hidden" : "mb-6"
                     }`}
                   >
                     <div>
@@ -701,343 +700,309 @@ const Settings = () => {
                   >
                     <div className="mb-6 text-xs">
                       <div>
-                        <span className="block">Set the operating days</span>
-                        {/* <div className="flex">
-                        <span className="flex items-center mr-2">
-                          <span className="mr-2">from</span>
-                          <Datepicker
-                            options={options}
-                            onChange={handleSettingFromChange}
-                            show={settingFromDate}
-                            setShow={handleSettingFromClose}
-                          /> */}
-                        {/* <DatePicker
-                            selected={startDate}
-                            onChange={(date: Date) => setStartDate(date)}
-                            className="cursor-pointer dark:text-black dark:bg-white dark:border-gray-300 text-xs py-1 focus-visible:outline-none focus:outline-none"
-                          /> */}
-                        {/* </span> */}
-                        {/* <span className="flex items-center">
-                          <span className="mr-2">to</span>
-                          <Datepicker
-                            options={options}
-                            onChange={handleSettingToChange}
-                            show={settingToDate}
-                            setShow={handleSettingToClose}
-                          /> */}
-                        {/* <DatePicker
-                            selected={endDate}
-                            onChange={(date: Date) => setEndDate(date)}
-                            className="cursor-pointer dark:text-black dark:bg-white dark:border-gray-300 text-xs py-1 focus-visible:outline-none focus:outline-none"
-                          /> */}
-                        {/* </span>
-                      </div> */}
-                      </div>
-                      {/* <div>
-                      <span className="block mb-4">
-                        Set the operating hours
-                      </span>
-                      <div className="flex justify-between">
-                        <span className="flex items-center mr-2">
-                          <span className="mr-2">from</span>
-                          <TimePicker />
-                        </span>
-                        <span className="flex items-center">
-                          <span className="mr-2">to</span>
-                          <TimePicker />
+                        <span className="block mb-6">
+                          Set the operating days
                         </span>
                       </div>
-                    </div> */}
-                    </div>
-                    <OperatingHours />
-                    <span className="text-xs lg:text-sm flex items-center mb-4">
-                      <img src={add} alt="Add" className="mr-2" />
-                      <span className="text-primary">
-                        Add the day with multiple hours
+                      <OperatingHours />
+                      <span className="text-xs lg:text-sm flex items-center mb-4">
+                        <img src={add} alt="Add" className="mr-2" />
+                        <span className="text-primary">
+                          Add the day with multiple hours
+                        </span>
                       </span>
-                    </span>
 
-                    <div className="mb-10 mt-6 text-xs">
-                      <div className="mb-5">
-                        <span className="block mb-4">
-                          Set the day with multiple hours
-                        </span>
-                        <div className="w-1/2">
-                          <Datepicker
-                            options={options}
-                            onChange={handleMultipleDateHours}
-                            show={dateMultipleHours}
-                            setShow={handleMultipleDateHoursClose}
-                          />
-                          {/* <DatePicker
+                      <div className="mb-10 mt-6 text-xs">
+                        <div className="mb-5">
+                          <span className="block mb-4">
+                            Set the day with multiple hours
+                          </span>
+                          <div className="w-1/2">
+                            <Datepicker
+                              options={options}
+                              onChange={handleMultipleDateHours}
+                              show={dateMultipleHours}
+                              setShow={handleMultipleDateHoursClose}
+                            />
+                            {/* <DatePicker
                           selected={multipleHourDate}
                           onChange={(date: Date) => setMultipleHourDate(date)}
                           className="cursor-pointer dark:text-black dark:bg-white dark:border-gray-300 text-xs py-1 focus-visible:outline-none focus:outline-none"
                         /> */}
+                          </div>
                         </div>
-                      </div>
-                      <div className="mr-6">
-                        <span className="block mb-4">Set the hours</span>
-                        <div className="flex">
-                          <span className="flex items-center mr-2">
-                            <span className="mr-2">from</span>
-                            <TimePicker />
-                          </span>
-                          <span className="flex items-center">
-                            <span className="mr-2">to</span>
-                            <TimePicker />
-                          </span>
+                        <div className="mr-6">
+                          <span className="block mb-4">Set the hours</span>
+                          <div className="flex">
+                            <span className="flex items-center mr-2">
+                              <span className="mr-2">from</span>
+                              <TimePicker />
+                            </span>
+                            <span className="flex items-center">
+                              <span className="mr-2">to</span>
+                              <TimePicker />
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                {/* approximate wait time */}
-                <div
-                  className={`mb-6 px-2 ${
-                    (!showLocation1 || !showLocation) && "hidden"
-                  }`}
-                >
-                  <div className={`flex items-center justify-between mb-4 `}>
-                    <span className="flex items-center">
-                      <span className="text-sm mr-5 whitespace-nowrap">
-                        Approximate wait time
-                      </span>
-                    </span>
-                    <span
-                      className="flex items-center cursor-pointer"
-                      onClick={() =>
-                        setShowApproximateWaitTime(!showApproximateWaitTime)
-                      }
-                    >
-                      {showApproximateWaitTime ? (
-                        <>
-                          <span className="text-xs mr-1">Hide</span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                            />
-                          </svg>
-                        </>
-                      ) : (
-                        <>
-                          <span className="text-xs mr-1 whitespace-nowrap">
-                            Show all
-                          </span>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                            />
-                          </svg>
-                        </>
-                      )}
-                    </span>
-                  </div>
+                  {/* approximate wait time */}
                   <div
-                    className={`${
-                      (!showApproximateWaitTime || !showLocation) && "hidden"
+                    className={`mb-4 ${
+                      (!showLocation1 || !showLocation) && "hidden"
                     }`}
                   >
-                    <div className="mb-6 text-xs">
-                      <TimePicker text="Set approximate wait time in hours" />
+                    <div className={`flex items-center justify-between mb-4 `}>
+                      <span className="flex items-center">
+                        <span className="text-sm mr-5 whitespace-nowrap">
+                          Approximate wait time
+                        </span>
+                      </span>
+                      <span
+                        className="flex items-center cursor-pointer"
+                        onClick={() =>
+                          setShowApproximateWaitTime(!showApproximateWaitTime)
+                        }
+                      >
+                        {showApproximateWaitTime ? (
+                          <>
+                            <span className="text-xs mr-1">Hide</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                              />
+                            </svg>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-xs mr-1 whitespace-nowrap">
+                              Show all
+                            </span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </>
+                        )}
+                      </span>
+                    </div>
+                    <div
+                      className={`${
+                        (!showApproximateWaitTime || !showLocation) && "hidden"
+                      }`}
+                    >
+                      <div className="mb-6 text-xs">
+                        <TimePicker text="Set approximate wait time in hours" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* custom field */}
+
+                  <div
+                    className={`mb-4 ${
+                      (!showLocation1 || !showLocation) && "hidden"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-sm">Custom fields</span>
+
+                      <span
+                        className="flex items-center cursor-pointer"
+                        onClick={() => setShowCustomFields(!showCustomFields)}
+                      >
+                        {showCustomFields ? (
+                          <>
+                            <span className="text-xs mr-1">Hide</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                              />
+                            </svg>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-xs mr-1">Show all</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </>
+                        )}
+                      </span>
+                    </div>
+                    <div
+                      className={`${
+                        (!showCustomFields || !showLocation) && "hidden"
+                      }`}
+                    >
+                      <div className="flex">
+                        <div className="flex-1 mr-3 text-xs">
+                          <label
+                            htmlFor="creditOrDebit"
+                            className="block mb-2 font-medium text-gray-900 dark:text-black"
+                          >
+                            Postal code
+                          </label>
+                          <input
+                            type={showPostalCode ? "text" : "password"}
+                            id="creditOrDebit"
+                            className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                            placeholder="Enter postal code..."
+                            required
+                          />
+                        </div>
+                        <div className="flex items-center text-xs">
+                          <img src={edit} alt="" className="mr-1" />
+                          <img src={deleteIcon} alt="" className="mr-1" />
+                          {showPostalCode ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="#0070BA"
+                              className="w-6 h-6"
+                              onClick={() => setShowPostalCode(false)}
+                            >
+                              <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                              <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                              <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                            </svg>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="#0070BA"
+                              className="w-6 h-6"
+                              onClick={() => setShowPostalCode(true)}
+                            >
+                              <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                              <path
+                                fillRule="evenodd"
+                                d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex text-xs">
+                        <div className="flex-1 mr-3">
+                          <label
+                            htmlFor="phoneNumber"
+                            className="block mb-2 font-medium text-gray-900 dark:text-black"
+                          >
+                            Phone number
+                          </label>
+                          <input
+                            type={showPhoneNumber ? "text" : "password"}
+                            id="phoneNumber"
+                            className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                            placeholder="Enter phone number..."
+                            required
+                          />
+                        </div>
+                        <div className="flex items-center">
+                          <img src={edit} alt="" className="mr-1" />
+                          <img src={deleteIcon} alt="" className="mr-1" />
+                          {showPhoneNumber ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="#0070BA"
+                              className="w-6 h-6"
+                              onClick={() => setShowPhoneNumber(false)}
+                            >
+                              <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                              <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                              <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                            </svg>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="#0070BA"
+                              className="w-6 h-6"
+                              onClick={() => setShowPhoneNumber(true)}
+                            >
+                              <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                              <path
+                                fillRule="evenodd"
+                                d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                          )}
+                        </div>
+                      </div>
+
+                      <label
+                        htmlFor="customField"
+                        className="block mb-2 font-medium text-gray-900 dark:text-black text-xs"
+                      >
+                        Create custom field
+                      </label>
+                      <input
+                        type="text"
+                        id="customField"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4 text-xs"
+                        placeholder="Enter title of field..."
+                        required
+                      />
+                      <input
+                        type="text"
+                        id="customField"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4 text-xs"
+                        placeholder="Enter placeholder for field..."
+                        required
+                      />
+
+                      <span className="text-xs flex items-center my-4">
+                        <img src={add} alt="Add" className="mr-2" />
+                        <span className="text-primary">Add field</span>
+                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="px-2 text-xs bg-white rounded-lg py-4 mb-4">
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-base">Custom fields</span>
-
-                <span
-                  className="flex items-center cursor-pointer"
-                  onClick={() => setShowCustomFields(!showCustomFields)}
-                >
-                  {showCustomFields ? (
-                    <>
-                      <span className="text-xs mr-1">Hide</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                        />
-                      </svg>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-xs mr-1">Show all</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                        />
-                      </svg>
-                    </>
-                  )}
-                </span>
-              </div>
-
-              <div className={`${!showCustomFields && "hidden"}`}>
-                <div className="flex">
-                  <div className="flex-1 mr-3">
-                    <label
-                      htmlFor="creditOrDebit"
-                      className="block mb-2 font-medium text-gray-900 dark:text-black"
-                    >
-                      Postal code
-                    </label>
-                    <input
-                      type={showPostalCode ? "text" : "password"}
-                      id="creditOrDebit"
-                      className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                      placeholder="Enter postal code..."
-                      required
-                    />
-                  </div>
-                  <div className="flex items-center">
-                    <img src={edit} alt="" className="mr-1" />
-                    <img src={deleteIcon} alt="" className="mr-1" />
-                    {showPostalCode ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#0070BA"
-                        className="w-6 h-6"
-                        onClick={() => setShowPostalCode(false)}
-                      >
-                        <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
-                        <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
-                        <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
-                      </svg>
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#0070BA"
-                        className="w-6 h-6"
-                        onClick={() => setShowPostalCode(true)}
-                      >
-                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                        <path
-                          fillRule="evenodd"
-                          d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex">
-                  <div className="flex-1 mr-3">
-                    <label
-                      htmlFor="phoneNumber"
-                      className="block mb-2 font-medium text-gray-900 dark:text-black"
-                    >
-                      Phone number
-                    </label>
-                    <input
-                      type={showPhoneNumber ? "text" : "password"}
-                      id="phoneNumber"
-                      className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                      placeholder="Enter phone number..."
-                      required
-                    />
-                  </div>
-                  <div className="flex items-center">
-                    <img src={edit} alt="" className="mr-1" />
-                    <img src={deleteIcon} alt="" className="mr-1" />
-                    {showPhoneNumber ? (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#0070BA"
-                        className="w-6 h-6"
-                        onClick={() => setShowPhoneNumber(false)}
-                      >
-                        <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
-                        <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
-                        <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
-                      </svg>
-                    ) : (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#0070BA"
-                        className="w-6 h-6"
-                        onClick={() => setShowPhoneNumber(true)}
-                      >
-                        <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                        <path
-                          fillRule="evenodd"
-                          d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    )}
-                  </div>
-                </div>
-
-                <label
-                  htmlFor="customField"
-                  className="block mb-2 font-medium text-gray-900 dark:text-black"
-                >
-                  Create custom field
-                </label>
-                <input
-                  type="text"
-                  id="customField"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter title of field..."
-                  required
-                />
-                <input
-                  type="text"
-                  id="customField"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter placeholder for field..."
-                  required
-                />
-
-                <span className="text-xs flex items-center my-4">
-                  <img src={add} alt="Add" className="mr-2" />
-                  <span className="text-primary">Add field</span>
-                </span>
               </div>
             </div>
 
@@ -1547,7 +1512,7 @@ const Settings = () => {
                 </div>
                 {/* location station */}
 
-                <div className={`${showLocation && "mb-6"}`}>
+                <div>
                   <div
                     className={`flex items-center justify-between mb-4 ${
                       (!showLocation1 || !showLocation) && "hidden"
@@ -1745,7 +1710,7 @@ const Settings = () => {
                 </div>
 
                 {/* operating hours */}
-                <div className={`${showLocation && "mb-6"}`}>
+                <div>
                   <div
                     className={`flex items-center justify-between mb-4 ${
                       (!showLocation1 || !showLocation) && "hidden"
@@ -1808,9 +1773,7 @@ const Settings = () => {
                     }`}
                   >
                     <div className="mb-6 text-xs flex items-center">
-                      <div>
-                        <span className="block">Set the operating days</span>
-                      </div>
+                      <span className="block">Set the operating days</span>
                     </div>
                     <OperatingHours />
                     <span className="text-xs lg:text-sm flex items-center mb-4">
@@ -1859,9 +1822,7 @@ const Settings = () => {
 
                 {/* approximate wait time */}
                 <div
-                  className={`mb-6 ${
-                    (!showLocation1 || !showLocation) && "hidden"
-                  }`}
+                  className={`${(!showLocation1 || !showLocation) && "hidden"}`}
                 >
                   <div className={`flex items-center justify-between mb-4 `}>
                     <span className="flex items-center">
@@ -1926,183 +1887,185 @@ const Settings = () => {
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/*  */}
-              <div className="p-4 bg-white rounded-lg mb-6 text-xs">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-base">Custom fields</span>
+                {/* custom fields */}
+                <div
+                  className={`${(!showLocation1 || !showLocation) && "hidden"}`}
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-base">Custom fields</span>
 
-                  <span
-                    className="flex items-center cursor-pointer"
-                    onClick={() => setShowCustomFields(!showCustomFields)}
-                  >
-                    {showCustomFields ? (
-                      <>
-                        <span className="text-xs mr-1">Hide</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4.5 15.75l7.5-7.5 7.5 7.5"
-                          />
-                        </svg>
-                      </>
-                    ) : (
-                      <>
-                        <span className="text-xs mr-1">Show all</span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                          />
-                        </svg>
-                      </>
-                    )}
-                  </span>
-                </div>
-
-                <div className={`${!showCustomFields && "hidden"}`}>
-                  <div className="flex lg:w-[300px]">
-                    <div className="flex-1 mr-3">
-                      <label
-                        htmlFor="creditOrDebit"
-                        className="block mb-2 font-medium text-gray-900 dark:text-black"
-                      >
-                        Postal code
-                      </label>
-                      <input
-                        type={showPostalCode ? "text" : "password"}
-                        id="creditOrDebit"
-                        className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                        placeholder="Enter postal code..."
-                        required
-                      />
-                    </div>
-                    <div className="flex items-center">
-                      <img src={edit} alt="" className="mr-1" />
-                      <img src={deleteIcon} alt="" className="mr-1" />
-                      {showPostalCode ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="#0070BA"
-                          className="w-6 h-6 cursor-pointer"
-                          onClick={() => setShowPostalCode(false)}
-                        >
-                          <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
-                          <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
-                          <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="#0070BA"
-                          className="w-6 h-6 cursor-pointer"
-                          onClick={() => setShowPostalCode(true)}
-                        >
-                          <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                          <path
-                            fillRule="evenodd"
-                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="flex lg:w-[300px]">
-                    <div className="flex-1 mr-3">
-                      <label
-                        htmlFor="phoneNumber"
-                        className="block mb-2 font-medium text-gray-900 dark:text-black"
-                      >
-                        Phone number
-                      </label>
-                      <input
-                        type={showPhoneNumber ? "text" : "password"}
-                        id="phoneNumber"
-                        className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                        placeholder="Enter phone number..."
-                        required
-                      />
-                    </div>
-                    <div className="flex items-center">
-                      <img src={edit} alt="" className="mr-1" />
-                      <img src={deleteIcon} alt="" className="mr-1" />
-                      {showPhoneNumber ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="#0070BA"
-                          className="w-6 h-6 cursor-pointer"
-                          onClick={() => setShowPhoneNumber(false)}
-                        >
-                          <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
-                          <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
-                          <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="#0070BA"
-                          className="w-6 h-6 cursor-pointer"
-                          onClick={() => setShowPhoneNumber(true)}
-                        >
-                          <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                          <path
-                            fillRule="evenodd"
-                            d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="customField"
-                      className="block mb-2 font-medium text-gray-900 dark:text-black"
+                    <span
+                      className="flex items-center cursor-pointer"
+                      onClick={() => setShowCustomFields(!showCustomFields)}
                     >
-                      Create custom field
-                    </label>
-                    <div className="flex items-center">
-                      <input
-                        type="text"
-                        id="customField"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-[200px] mr-3 p-2 focus-visible:outline-none focus:outline-none"
-                        placeholder="Enter title of field..."
-                        required
-                      />
-                      <input
-                        type="text"
-                        id="customField"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-[200px] mr-3 p-2 focus-visible:outline-none focus:outline-none"
-                        placeholder="Enter placeholder for field..."
-                        required
-                      />
-                      <span className="text-xs flex items-center">
-                        <img src={add} alt="Add" className="mr-2" />
-                        <span className="text-primary">Add field</span>
-                      </span>
+                      {showCustomFields ? (
+                        <>
+                          <span className="text-xs mr-1">Hide</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                            />
+                          </svg>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-xs mr-1">Show all</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                            />
+                          </svg>
+                        </>
+                      )}
+                    </span>
+                  </div>
+
+                  <div className={`${!showCustomFields && "hidden"} text-xs`}>
+                    <div className="flex lg:w-[300px]">
+                      <div className="flex-1 mr-3">
+                        <label
+                          htmlFor="creditOrDebit"
+                          className="block mb-2 font-medium text-gray-900 dark:text-black"
+                        >
+                          Postal code
+                        </label>
+                        <input
+                          type={showPostalCode ? "text" : "password"}
+                          id="creditOrDebit"
+                          className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                          placeholder="Enter postal code..."
+                          required
+                        />
+                      </div>
+                      <div className="flex items-center">
+                        <img src={edit} alt="" className="mr-1" />
+                        <img src={deleteIcon} alt="" className="mr-1" />
+                        {showPostalCode ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="#0070BA"
+                            className="w-6 h-6 cursor-pointer"
+                            onClick={() => setShowPostalCode(false)}
+                          >
+                            <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                            <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                            <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="#0070BA"
+                            className="w-6 h-6 cursor-pointer"
+                            onClick={() => setShowPostalCode(true)}
+                          >
+                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                            <path
+                              fillRule="evenodd"
+                              d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex lg:w-[300px]">
+                      <div className="flex-1 mr-3">
+                        <label
+                          htmlFor="phoneNumber"
+                          className="block mb-2 font-medium text-gray-900 dark:text-black"
+                        >
+                          Phone number
+                        </label>
+                        <input
+                          type={showPhoneNumber ? "text" : "password"}
+                          id="phoneNumber"
+                          className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
+                          placeholder="Enter phone number..."
+                          required
+                        />
+                      </div>
+                      <div className="flex items-center">
+                        <img src={edit} alt="" className="mr-1" />
+                        <img src={deleteIcon} alt="" className="mr-1" />
+                        {showPhoneNumber ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="#0070BA"
+                            className="w-6 h-6 cursor-pointer"
+                            onClick={() => setShowPhoneNumber(false)}
+                          >
+                            <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z" />
+                            <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z" />
+                            <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z" />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="#0070BA"
+                            className="w-6 h-6 cursor-pointer"
+                            onClick={() => setShowPhoneNumber(true)}
+                          >
+                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                            <path
+                              fillRule="evenodd"
+                              d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="customField"
+                        className="block mb-2 font-medium text-gray-900 dark:text-black"
+                      >
+                        Create custom field
+                      </label>
+                      <div className="flex items-center">
+                        <input
+                          type="text"
+                          id="customField"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-[200px] mr-3 p-2 focus-visible:outline-none focus:outline-none"
+                          placeholder="Enter title of field..."
+                          required
+                        />
+                        <input
+                          type="text"
+                          id="customField"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-[200px] mr-3 p-2 focus-visible:outline-none focus:outline-none"
+                          placeholder="Enter placeholder for field..."
+                          required
+                        />
+                        <span className="text-xs flex items-center">
+                          <img src={add} alt="Add" className="mr-2" />
+                          <span className="text-primary">Add field</span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

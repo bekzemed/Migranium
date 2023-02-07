@@ -12,6 +12,8 @@ import AddRating from "../components/AddRating";
 import DashNav from "../components/DashNav";
 import SwapJustification from "../components/SwapJustification";
 import UserNav from "../components/UserNav";
+import { useAppSelector } from "../redux/hooks";
+import { Link } from "react-router-dom";
 
 const cashexQueue = [
   {
@@ -54,6 +56,11 @@ const HomePage = () => {
   const [closeQueue, setCloseQueue] = useState(false);
   const [rateClosingQueue, setRateClosingQueue] = useState(false);
   const [swap, setSwap] = useState(false);
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
+  const fill = useAppSelector((state) => state.theme.fillColor);
+  const color = useAppSelector((state) => state.theme.color);
+  const textColor = useAppSelector((state) => state.theme.textColor);
 
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -120,18 +127,27 @@ const HomePage = () => {
                   <CircularProgressbar
                     value={4}
                     maxValue={5}
-                    className="w-[70px] m-auto mb-3"
+                    className={`w-[70px] m-auto mb-3 ${color}`}
                     text="4"
                     strokeWidth={6}
                     styles={buildStyles({
-                      pathColor: `#0070BA`,
-                      textColor: "#0070BA",
+                      pathColor: `${
+                        selected === 1 || selected === 0 ? "#000" : color
+                      }`,
+                      textColor: `${
+                        selected === 1 || selected === 0 ? "#000" : color
+                      }`,
                       trailColor: "#EEEEEE",
-                      backgroundColor: "#0070BA",
+                      backgroundColor: `${
+                        selected === 1 || selected === 0 ? "#000" : color
+                      }`,
                       textSize: "35px",
                     })}
                   />
-                  <span className="text-primary text-center block">
+                  <span
+                    style={selected === 10 ? { color: textColor } : {}}
+                    className={`${textColor} text-center block`}
+                  >
                     customers
                   </span>
                 </div>
@@ -149,14 +165,23 @@ const HomePage = () => {
                         text="1"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `#0070BA`,
-                          textColor: "#0070BA",
+                          pathColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
+                          textColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: "#0070BA",
+                          backgroundColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           textSize: "35px",
                         })}
                       />
-                      <span className="text-primary text-center block mr-3">
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${textColor} text-center block mr-3`}
+                      >
                         hours
                       </span>
                     </div>
@@ -169,14 +194,23 @@ const HomePage = () => {
                         text="00"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `#0070BA`,
-                          textColor: "#0070BA",
+                          pathColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
+                          textColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: "#0070BA",
+                          backgroundColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           textSize: "35px",
                         })}
                       />
-                      <span className="text-primary text-center block">
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${textColor} text-center block`}
+                      >
                         minutes
                       </span>
                     </div>
@@ -285,20 +319,38 @@ const HomePage = () => {
                                 </span>
 
                                 <div className="flex items-center">
-                                  <img
-                                    src={message}
-                                    alt="Message"
-                                    className="mr-2 cursor-pointer"
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    style={
+                                      selected === 10 ? { fill: fill } : {}
+                                    }
+                                    className={`w-6 h-6 mr-2 cursor-pointer ${
+                                      fill === "fill-theme0" ||
+                                      fill === "fill-theme1"
+                                        ? "fill-black"
+                                        : fill
+                                    }`}
                                     onClick={() => {
                                       setSelectedCashexUser(cashexQueue[index]);
                                       setOnNotificationShow(true);
                                     }}
-                                  />
+                                  >
+                                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                                  </svg>
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 20 20"
-                                    fill="#0070BA"
-                                    className="w-5 h-5 cursor-pointer"
+                                    style={
+                                      selected === 10 ? { fill: fill } : {}
+                                    }
+                                    className={`w-5 h-5 ${
+                                      fill === "fill-theme0" ||
+                                      fill === "fill-theme1"
+                                        ? "fill-black"
+                                        : fill
+                                    }`}
                                     onClick={() =>
                                       index + 1 !== currentUser && setSwap(true)
                                     }
@@ -358,14 +410,23 @@ const HomePage = () => {
                     text="4"
                     strokeWidth={6}
                     styles={buildStyles({
-                      pathColor: `#0070BA`,
-                      textColor: "#0070BA",
+                      pathColor: `${
+                        selected === 1 || selected === 0 ? "#000" : color
+                      }`,
+                      textColor: `${
+                        selected === 1 || selected === 0 ? "#000" : color
+                      }`,
                       trailColor: "#EEEEEE",
-                      backgroundColor: "#0070BA",
+                      backgroundColor: `${
+                        selected === 1 || selected === 0 ? "#000" : color
+                      }`,
                       textSize: "35px",
                     })}
                   />
-                  <span className="text-primary text-center block">
+                  <span
+                    style={selected === 10 ? { color: textColor } : {}}
+                    className={`${textColor} text-center block`}
+                  >
                     customers
                   </span>
                 </div>
@@ -383,14 +444,23 @@ const HomePage = () => {
                         text="1"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `#0070BA`,
-                          textColor: "#0070BA",
+                          pathColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
+                          textColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: "#0070BA",
+                          backgroundColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           textSize: "35px",
                         })}
                       />
-                      <span className="text-primary text-center block mr-3">
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${textColor} text-center block mr-3`}
+                      >
                         hours
                       </span>
                     </div>
@@ -403,14 +473,23 @@ const HomePage = () => {
                         text="00"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `#0070BA`,
-                          textColor: "#0070BA",
+                          pathColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
+                          textColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: "#0070BA",
+                          backgroundColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           textSize: "35px",
                         })}
                       />
-                      <span className="text-primary text-center block">
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${textColor} text-center block`}
+                      >
                         minutes
                       </span>
                     </div>
@@ -606,14 +685,23 @@ const HomePage = () => {
                         text="4"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `#0070BA`,
-                          textColor: "#0070BA",
+                          pathColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
+                          textColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: "#0070BA",
+                          backgroundColor: `${
+                            selected === 1 || selected === 0 ? "#000" : color
+                          }`,
                           textSize: "35px",
                         })}
                       />
-                      <span className="text-primary text-center block">
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${textColor} text-center block`}
+                      >
                         customers
                       </span>
                     </div>
@@ -631,14 +719,29 @@ const HomePage = () => {
                             text="1"
                             strokeWidth={6}
                             styles={buildStyles({
-                              pathColor: `#0070BA`,
-                              textColor: "#0070BA",
+                              pathColor: `${
+                                selected === 1 || selected === 0
+                                  ? "#000"
+                                  : color
+                              }`,
+                              textColor: `${
+                                selected === 1 || selected === 0
+                                  ? "#000"
+                                  : color
+                              }`,
                               trailColor: "#EEEEEE",
-                              backgroundColor: "#0070BA",
+                              backgroundColor: `${
+                                selected === 1 || selected === 0
+                                  ? "#000"
+                                  : color
+                              }`,
                               textSize: "35px",
                             })}
                           />
-                          <span className="text-primary text-center block mr-3">
+                          <span
+                            style={selected === 10 ? { color: textColor } : {}}
+                            className={`${textColor} text-center block mr-3`}
+                          >
                             hours
                           </span>
                         </div>
@@ -651,14 +754,29 @@ const HomePage = () => {
                             text="00"
                             strokeWidth={6}
                             styles={buildStyles({
-                              pathColor: `#0070BA`,
-                              textColor: "#0070BA",
+                              pathColor: `${
+                                selected === 1 || selected === 0
+                                  ? "#000"
+                                  : color
+                              }`,
+                              textColor: `${
+                                selected === 1 || selected === 0
+                                  ? "#000"
+                                  : color
+                              }`,
                               trailColor: "#EEEEEE",
-                              backgroundColor: "#0070BA",
+                              backgroundColor: `${
+                                selected === 1 || selected === 0
+                                  ? "#000"
+                                  : color
+                              }`,
                               textSize: "35px",
                             })}
                           />
-                          <span className="text-primary text-center block">
+                          <span
+                            style={selected === 10 ? { color: textColor } : {}}
+                            className={`${textColor} text-center block`}
+                          >
                             minutes
                           </span>
                         </div>
@@ -792,20 +910,34 @@ const HomePage = () => {
                                 index + 1 === currentUser && "opacity-60"
                               } flex items-center justify-end`}
                             >
-                              <img
-                                src={message}
-                                alt="Message"
-                                className="mr-3 cursor-pointer"
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                style={selected === 10 ? { fill: fill } : {}}
+                                className={`w-6 h-6 mr-3 cursor-pointer ${
+                                  fill === "fill-theme0" ||
+                                  fill === "fill-theme1"
+                                    ? "fill-black"
+                                    : fill
+                                }`}
                                 onClick={() => {
                                   setSelectedCashexUser(cashexQueue[index]);
                                   setOnNotificationShow(true);
                                 }}
-                              />
+                              >
+                                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                              </svg>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 20 20"
-                                fill="#0070BA"
-                                className="w-5 h-5 cursor-pointer"
+                                style={selected === 10 ? { fill: fill } : {}}
+                                className={`w-5 h-5 cursor-pointer ${
+                                  fill === "fill-theme0" ||
+                                  fill === "fill-theme1"
+                                    ? "fill-black"
+                                    : fill
+                                }`}
                                 onClick={() =>
                                   index + 1 !== currentUser && setSwap(true)
                                 }
@@ -826,10 +958,12 @@ const HomePage = () => {
 
                 <div className="text-center flex items-center justify-center text-[10px] opacity-70 mt-6">
                   <span className="mr-2">Powered by</span>
-                  <span className="text-primary migranium-font flex items-center">
-                    <img src={logo} alt="Logo" className="w-[20px]" />
-                    migranium
-                  </span>
+                  <Link to="/">
+                    <span className="text-primary migranium-font flex items-center">
+                      <img src={logo} alt="Logo" className="w-[20px]" />
+                      migranium
+                    </span>
+                  </Link>
                 </div>
               </div>
             </div>

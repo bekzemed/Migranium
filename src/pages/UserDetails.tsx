@@ -1,8 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import { useAppSelector } from "../redux/hooks";
 
 export const UserDetails = () => {
   const navigate = useNavigate();
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
 
   const onSubmit = () => navigate("/user/home-page");
   return (
@@ -59,8 +62,13 @@ export const UserDetails = () => {
             />
 
             <button
+              style={selected === 10 ? { backgroundColor: theme } : {}}
               type="submit"
-              className="text-white bg-secondary hover:bg-bright focus-visible:outline-none focus:outline-none font-medium rounded-full text-xs w-full px-5 py-2.5 text-center mb-4"
+              className={`text-white focus-visible:outline-none focus:outline-none font-medium rounded-full text-xs w-full px-5 py-2.5 text-center mb-4 ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
             >
               Confirm
             </button>

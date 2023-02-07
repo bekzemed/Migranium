@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import welcome from "../assets/welcome.svg";
+import { useAppSelector } from "../redux/hooks";
 
 export const User = () => {
   const navigate = useNavigate();
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
 
   return (
     <div className="bg-primary px-4 lg:px-0 text-center h-screen lg:flex lg:justify-center dark:text-black">
@@ -22,8 +25,11 @@ export const User = () => {
         </span>
 
         <button
+          style={selected === 10 ? { backgroundColor: theme } : {}}
           type="button"
-          className="text-white bg-secondary hover:bg-bright focus-visible:outline-none focus:outline-none font-medium rounded-full text-sm w-full px-5 py-2.5 text-center"
+          className={`text-white focus-visible:outline-none focus:outline-none font-medium rounded-full text-sm w-full px-5 py-2.5 text-center ${
+            theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
+          }`}
           onClick={() => navigate("user-detail")}
         >
           Join waitlist

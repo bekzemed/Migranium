@@ -1,7 +1,10 @@
 import React from "react";
+import { useAppSelector } from "../redux/hooks";
 import ProfileLogo from "./ProfileLogo";
 
 const UserProfileSettingComponent = () => {
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
   return (
     <div className="bg-white rounded-lg px-2 py-4 mb-6 lg:px-6">
       <span className="block mb-6 text-sm lg:text-base">Profile info</span>
@@ -48,8 +51,13 @@ const UserProfileSettingComponent = () => {
         <div className="flex text-xs items-center">
           <div className="mr-3">
             <button
+              style={selected === 10 ? { backgroundColor: theme } : {}}
               type="button"
-              className=" p-2 text-xs font-medium text-center w-[110px] bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+              className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
             >
               Save changes
             </button>

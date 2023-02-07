@@ -4,7 +4,6 @@ import add from "../assets/add.svg";
 import copy from "../assets/copy.svg";
 import deleteOutline from "../assets/delete-outline.svg";
 import editOutline from "../assets/edit-outline.svg";
-import info from "../assets/info.svg";
 import QR from "../assets/qr-disabled.svg";
 import AddStation from "../components/AddStation";
 import { DashboardDesktop } from "../components/DashboardContent";
@@ -28,6 +27,8 @@ const Dashboard = () => {
   const cashex = [1, 2];
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
+  const fill = useAppSelector((state) => state.theme.fillColor);
+  const textColor = useAppSelector((state) => state.theme.textColor);
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
       <DashNav />
@@ -118,11 +119,30 @@ const Dashboard = () => {
                 <div className="mb-6">
                   <div className="flex justify-between mb-4">
                     <span>Cashex</span>
-                    <img
-                      src={info}
-                      alt="Info"
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      style={selected === 10 ? { fill: fill } : {}}
+                      className={`w-[25px] ${
+                        fill === "fill-theme0" || fill === "fill-theme1"
+                          ? "fill-black"
+                          : fill
+                      }`}
                       onClick={() => setShowLocationInfo(true)}
-                    />
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div className="text-xs mb-2 opacity-50">
+                    <div className="flex">
+                      <span className="mr-1">Address:</span>
+                      <span>Canada</span>
+                    </div>
                   </div>
 
                   <div>
@@ -279,18 +299,73 @@ const Dashboard = () => {
 
                             <div className="flex text-sm mb-4">
                               <div className="flex items-center mr-4">
-                                <img
-                                  src={QR}
-                                  alt="QR code"
-                                  className="mr-1 bg-secondary"
-                                />
-                                <span className="text-primary">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  style={selected === 10 ? { fill: fill } : {}}
+                                  className={`w-[20px] ${
+                                    fill === "fill-theme0" ||
+                                    fill === "fill-theme1"
+                                      ? "fill-black"
+                                      : fill
+                                  } mr-1`}
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M3.75 2A1.75 1.75 0 002 3.75v3.5C2 8.216 2.784 9 3.75 9h3.5A1.75 1.75 0 009 7.25v-3.5A1.75 1.75 0 007.25 2h-3.5zM3.5 3.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zM3.75 11A1.75 1.75 0 002 12.75v3.5c0 .966.784 1.75 1.75 1.75h3.5A1.75 1.75 0 009 16.25v-3.5A1.75 1.75 0 007.25 11h-3.5zm-.25 1.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zm7.5-9c0-.966.784-1.75 1.75-1.75h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0116.25 9h-3.5A1.75 1.75 0 0111 7.25v-3.5zm1.75-.25a.25.25 0 00-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 00.25-.25v-3.5a.25.25 0 00-.25-.25h-3.5zm-7.26 1a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm-9 9a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm-3.5-1.5a1 1 0 011-1H12a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V12zm6-1a1 1 0 00-1 1v.01a1 1 0 001 1H17a1 1 0 001-1V12a1 1 0 00-1-1h-.01zm-1 6a1 1 0 011-1H17a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V17zm-4-1a1 1 0 00-1 1v.01a1 1 0 001 1H12a1 1 0 001-1V17a1 1 0 00-1-1h-.01z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+
+                                <span
+                                  style={
+                                    selected === 10 ? { color: textColor } : {}
+                                  }
+                                  className={`${
+                                    textColor === "text-theme0" ||
+                                    textColor === "text-theme1"
+                                      ? "text-black"
+                                      : textColor
+                                  }`}
+                                >
                                   Generate QR
                                 </span>
                               </div>
                               <div className="flex items-center">
-                                <img src={copy} alt="Copy" className="mr-1" />
-                                <span className="text-primary">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  style={selected === 10 ? { fill: fill } : {}}
+                                  className={`w-[20px] ${
+                                    fill === "fill-theme0" ||
+                                    fill === "fill-theme1"
+                                      ? "fill-black"
+                                      : fill
+                                  } mr-1`}
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M15.988 3.012A2.25 2.25 0 0118 5.25v6.5A2.25 2.25 0 0115.75 14H13.5V7A2.5 2.5 0 0011 4.5H8.128a2.252 2.252 0 011.884-1.488A2.25 2.25 0 0112.25 1h1.5a2.25 2.25 0 012.238 2.012zM11.5 3.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v.25h-3v-.25z"
+                                    clipRule="evenodd"
+                                  />
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M2 7a1 1 0 011-1h8a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V7zm2 3.25a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zm0 3.5a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+
+                                <span
+                                  style={
+                                    selected === 10 ? { color: textColor } : {}
+                                  }
+                                  className={`${
+                                    textColor === "text-theme0" ||
+                                    textColor === "text-theme1"
+                                      ? "text-black"
+                                      : textColor
+                                  }`}
+                                >
                                   Copy the link
                                 </span>
                               </div>
@@ -355,18 +430,73 @@ const Dashboard = () => {
 
                             <div className="flex text-sm mb-4">
                               <div className="flex items-center mr-4">
-                                <img
-                                  src={QR}
-                                  alt="QR code"
-                                  className="mr-1 bg-secondary"
-                                />
-                                <span className="text-primary">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  style={selected === 10 ? { fill: fill } : {}}
+                                  className={`w-[20px] ${
+                                    fill === "fill-theme0" ||
+                                    fill === "fill-theme1"
+                                      ? "fill-black"
+                                      : fill
+                                  } mr-1`}
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M3.75 2A1.75 1.75 0 002 3.75v3.5C2 8.216 2.784 9 3.75 9h3.5A1.75 1.75 0 009 7.25v-3.5A1.75 1.75 0 007.25 2h-3.5zM3.5 3.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zM3.75 11A1.75 1.75 0 002 12.75v3.5c0 .966.784 1.75 1.75 1.75h3.5A1.75 1.75 0 009 16.25v-3.5A1.75 1.75 0 007.25 11h-3.5zm-.25 1.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zm7.5-9c0-.966.784-1.75 1.75-1.75h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0116.25 9h-3.5A1.75 1.75 0 0111 7.25v-3.5zm1.75-.25a.25.25 0 00-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 00.25-.25v-3.5a.25.25 0 00-.25-.25h-3.5zm-7.26 1a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm-9 9a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm-3.5-1.5a1 1 0 011-1H12a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V12zm6-1a1 1 0 00-1 1v.01a1 1 0 001 1H17a1 1 0 001-1V12a1 1 0 00-1-1h-.01zm-1 6a1 1 0 011-1H17a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V17zm-4-1a1 1 0 00-1 1v.01a1 1 0 001 1H12a1 1 0 001-1V17a1 1 0 00-1-1h-.01z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+
+                                <span
+                                  style={
+                                    selected === 10 ? { color: textColor } : {}
+                                  }
+                                  className={`${
+                                    textColor === "text-theme0" ||
+                                    textColor === "text-theme1"
+                                      ? "text-black"
+                                      : textColor
+                                  }`}
+                                >
                                   Generate QR
                                 </span>
                               </div>
                               <div className="flex items-center">
-                                <img src={copy} alt="Copy" className="mr-1" />
-                                <span className="text-primary">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  style={selected === 10 ? { fill: fill } : {}}
+                                  className={`w-[20px] ${
+                                    fill === "fill-theme0" ||
+                                    fill === "fill-theme1"
+                                      ? "fill-black"
+                                      : fill
+                                  } mr-1`}
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M15.988 3.012A2.25 2.25 0 0118 5.25v6.5A2.25 2.25 0 0115.75 14H13.5V7A2.5 2.5 0 0011 4.5H8.128a2.252 2.252 0 011.884-1.488A2.25 2.25 0 0112.25 1h1.5a2.25 2.25 0 012.238 2.012zM11.5 3.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v.25h-3v-.25z"
+                                    clipRule="evenodd"
+                                  />
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M2 7a1 1 0 011-1h8a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V7zm2 3.25a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zm0 3.5a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+
+                                <span
+                                  style={
+                                    selected === 10 ? { color: textColor } : {}
+                                  }
+                                  className={`${
+                                    textColor === "text-theme0" ||
+                                    textColor === "text-theme1"
+                                      ? "text-black"
+                                      : textColor
+                                  }`}
+                                >
                                   Copy the link
                                 </span>
                               </div>
@@ -392,19 +522,67 @@ const Dashboard = () => {
                       className="flex items-center"
                       onClick={() => setShowQRCode(true)}
                     >
-                      <img
-                        src={QR}
-                        alt="QR code"
-                        className="mr-1 bg-secondary"
-                      />
-                      <span className="text-primary">Generate QR</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-[20px] ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        } mr-1`}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3.75 2A1.75 1.75 0 002 3.75v3.5C2 8.216 2.784 9 3.75 9h3.5A1.75 1.75 0 009 7.25v-3.5A1.75 1.75 0 007.25 2h-3.5zM3.5 3.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zM3.75 11A1.75 1.75 0 002 12.75v3.5c0 .966.784 1.75 1.75 1.75h3.5A1.75 1.75 0 009 16.25v-3.5A1.75 1.75 0 007.25 11h-3.5zm-.25 1.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zm7.5-9c0-.966.784-1.75 1.75-1.75h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0116.25 9h-3.5A1.75 1.75 0 0111 7.25v-3.5zm1.75-.25a.25.25 0 00-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 00.25-.25v-3.5a.25.25 0 00-.25-.25h-3.5zm-7.26 1a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm-9 9a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm-3.5-1.5a1 1 0 011-1H12a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V12zm6-1a1 1 0 00-1 1v.01a1 1 0 001 1H17a1 1 0 001-1V12a1 1 0 00-1-1h-.01zm-1 6a1 1 0 011-1H17a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V17zm-4-1a1 1 0 00-1 1v.01a1 1 0 001 1H12a1 1 0 001-1V17a1 1 0 00-1-1h-.01z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${
+                          textColor === "text-theme0" ||
+                          textColor === "text-theme1"
+                            ? "text-black"
+                            : textColor
+                        }`}
+                      >
+                        Generate QR
+                      </span>
                     </div>
                     <div
                       className="flex items-center"
                       onClick={() => setAddStation(true)}
                     >
-                      <img src={add} alt="Add" className="mr-1" />
-                      <span className="text-primary">Add station</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-[25px] ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        }`}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${
+                          textColor === "text-theme0" ||
+                          textColor === "text-theme1"
+                            ? "text-black"
+                            : textColor
+                        }`}
+                      >
+                        Add station
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -514,32 +692,98 @@ const Dashboard = () => {
                     <div className="flex justify-between mb-6">
                       <div className="flex items-center">
                         <span className="mr-3">Cashex</span>
-                        <img
-                          src={info}
-                          alt="Info"
-                          className="cursor-pointer"
+
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          style={selected === 10 ? { fill: fill } : {}}
+                          className={`w-[25px] ${
+                            fill === "fill-theme0" || fill === "fill-theme1"
+                              ? "fill-black"
+                              : fill
+                          }`}
                           onClick={() => setShowLocationInfo(true)}
-                        />
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
                       </div>
                       <div className="flex justify-between text-sm">
                         <div
                           className="flex items-center mr-3 cursor-pointer"
                           onClick={() => setShowQRCode(true)}
                         >
-                          <img
-                            src={QR}
-                            alt="QR code"
-                            className="mr-1 bg-secondary"
-                          />
-                          <span className="text-primary">Generate QR</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            style={selected === 10 ? { fill: fill } : {}}
+                            className={`w-[20px] ${
+                              fill === "fill-theme0" || fill === "fill-theme1"
+                                ? "fill-black"
+                                : fill
+                            } mr-1`}
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M3.75 2A1.75 1.75 0 002 3.75v3.5C2 8.216 2.784 9 3.75 9h3.5A1.75 1.75 0 009 7.25v-3.5A1.75 1.75 0 007.25 2h-3.5zM3.5 3.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zM3.75 11A1.75 1.75 0 002 12.75v3.5c0 .966.784 1.75 1.75 1.75h3.5A1.75 1.75 0 009 16.25v-3.5A1.75 1.75 0 007.25 11h-3.5zm-.25 1.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zm7.5-9c0-.966.784-1.75 1.75-1.75h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0116.25 9h-3.5A1.75 1.75 0 0111 7.25v-3.5zm1.75-.25a.25.25 0 00-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 00.25-.25v-3.5a.25.25 0 00-.25-.25h-3.5zm-7.26 1a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm-9 9a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm-3.5-1.5a1 1 0 011-1H12a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V12zm6-1a1 1 0 00-1 1v.01a1 1 0 001 1H17a1 1 0 001-1V12a1 1 0 00-1-1h-.01zm-1 6a1 1 0 011-1H17a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V17zm-4-1a1 1 0 00-1 1v.01a1 1 0 001 1H12a1 1 0 001-1V17a1 1 0 00-1-1h-.01z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+
+                          <span
+                            style={selected === 10 ? { color: textColor } : {}}
+                            className={`${
+                              textColor === "text-theme0" ||
+                              textColor === "text-theme1"
+                                ? "text-black"
+                                : textColor
+                            }`}
+                          >
+                            Generate QR
+                          </span>
                         </div>
                         <div
                           className="flex items-center cursor-pointer"
                           onClick={() => setAddStation(true)}
                         >
-                          <img src={add} alt="Add" className="mr-1" />
-                          <span className="text-primary">Add station</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            style={selected === 10 ? { fill: fill } : {}}
+                            className={`w-[25px] ${
+                              fill === "fill-theme0" || fill === "fill-theme1"
+                                ? "fill-black"
+                                : fill
+                            }`}
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+
+                          <span
+                            style={selected === 10 ? { color: textColor } : {}}
+                            className={`${
+                              textColor === "text-theme0" ||
+                              textColor === "text-theme1"
+                                ? "text-black"
+                                : textColor
+                            }`}
+                          >
+                            Add station
+                          </span>
                         </div>
+                      </div>
+                    </div>
+                    <div className="text-xs mb-2 opacity-50">
+                      <div className="flex">
+                        <span className="mr-1">Address:</span>
+                        <span>Canada</span>
                       </div>
                     </div>
                     <div
@@ -703,12 +947,39 @@ const Dashboard = () => {
 
                               <div className="mb-4">
                                 <div className="flex items-center justify-center mb-4">
-                                  <img
-                                    src={QR}
-                                    alt="QR code"
-                                    className="mr-1 bg-secondary"
-                                  />
-                                  <span className="text-primary">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    style={
+                                      selected === 10 ? { fill: fill } : {}
+                                    }
+                                    className={`w-[20px] ${
+                                      fill === "fill-theme0" ||
+                                      fill === "fill-theme1"
+                                        ? "fill-black"
+                                        : fill
+                                    } mr-1`}
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M3.75 2A1.75 1.75 0 002 3.75v3.5C2 8.216 2.784 9 3.75 9h3.5A1.75 1.75 0 009 7.25v-3.5A1.75 1.75 0 007.25 2h-3.5zM3.5 3.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zM3.75 11A1.75 1.75 0 002 12.75v3.5c0 .966.784 1.75 1.75 1.75h3.5A1.75 1.75 0 009 16.25v-3.5A1.75 1.75 0 007.25 11h-3.5zm-.25 1.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zm7.5-9c0-.966.784-1.75 1.75-1.75h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0116.25 9h-3.5A1.75 1.75 0 0111 7.25v-3.5zm1.75-.25a.25.25 0 00-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 00.25-.25v-3.5a.25.25 0 00-.25-.25h-3.5zm-7.26 1a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm-9 9a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm-3.5-1.5a1 1 0 011-1H12a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V12zm6-1a1 1 0 00-1 1v.01a1 1 0 001 1H17a1 1 0 001-1V12a1 1 0 00-1-1h-.01zm-1 6a1 1 0 011-1H17a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V17zm-4-1a1 1 0 00-1 1v.01a1 1 0 001 1H12a1 1 0 001-1V17a1 1 0 00-1-1h-.01z"
+                                      clipRule="evenodd"
+                                    />
+                                  </svg>
+
+                                  <span
+                                    style={
+                                      selected === 10
+                                        ? { color: textColor }
+                                        : {}
+                                    }
+                                    className={`${
+                                      textColor === "text-theme0" ||
+                                      textColor === "text-theme1"
+                                        ? "text-black"
+                                        : textColor
+                                    }`}
+                                  >
                                     Generate QR
                                   </span>
                                 </div>
@@ -720,7 +991,30 @@ const Dashboard = () => {
 
                                 <div className="relative mb-5">
                                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <img src={copy} alt="Copy" />
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 20 20"
+                                      style={
+                                        selected === 10 ? { fill: fill } : {}
+                                      }
+                                      className={`w-[20px] ${
+                                        fill === "fill-theme0" ||
+                                        fill === "fill-theme1"
+                                          ? "fill-black"
+                                          : fill
+                                      }`}
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M15.988 3.012A2.25 2.25 0 0118 5.25v6.5A2.25 2.25 0 0115.75 14H13.5V7A2.5 2.5 0 0011 4.5H8.128a2.252 2.252 0 011.884-1.488A2.25 2.25 0 0112.25 1h1.5a2.25 2.25 0 012.238 2.012zM11.5 3.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v.25h-3v-.25z"
+                                        clipRule="evenodd"
+                                      />
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M2 7a1 1 0 011-1h8a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V7zm2 3.25a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zm0 3.5a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
                                   </div>
                                   <input
                                     type="text"
@@ -795,12 +1089,39 @@ const Dashboard = () => {
 
                               <div className="mb-4">
                                 <div className="flex items-center justify-center mb-4">
-                                  <img
-                                    src={QR}
-                                    alt="QR code"
-                                    className="mr-1 bg-secondary"
-                                  />
-                                  <span className="text-primary">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    style={
+                                      selected === 10 ? { fill: fill } : {}
+                                    }
+                                    className={`w-[20px] ${
+                                      fill === "fill-theme0" ||
+                                      fill === "fill-theme1"
+                                        ? "fill-black"
+                                        : fill
+                                    } mr-1`}
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M3.75 2A1.75 1.75 0 002 3.75v3.5C2 8.216 2.784 9 3.75 9h3.5A1.75 1.75 0 009 7.25v-3.5A1.75 1.75 0 007.25 2h-3.5zM3.5 3.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zM3.75 11A1.75 1.75 0 002 12.75v3.5c0 .966.784 1.75 1.75 1.75h3.5A1.75 1.75 0 009 16.25v-3.5A1.75 1.75 0 007.25 11h-3.5zm-.25 1.75a.25.25 0 01.25-.25h3.5a.25.25 0 01.25.25v3.5a.25.25 0 01-.25.25h-3.5a.25.25 0 01-.25-.25v-3.5zm7.5-9c0-.966.784-1.75 1.75-1.75h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0116.25 9h-3.5A1.75 1.75 0 0111 7.25v-3.5zm1.75-.25a.25.25 0 00-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 00.25-.25v-3.5a.25.25 0 00-.25-.25h-3.5zm-7.26 1a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1V5.5a1 1 0 00-1-1h-.01zm-9 9a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm9 0a1 1 0 00-1 1v.01a1 1 0 001 1h.01a1 1 0 001-1v-.01a1 1 0 00-1-1h-.01zm-3.5-1.5a1 1 0 011-1H12a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V12zm6-1a1 1 0 00-1 1v.01a1 1 0 001 1H17a1 1 0 001-1V12a1 1 0 00-1-1h-.01zm-1 6a1 1 0 011-1H17a1 1 0 011 1v.01a1 1 0 01-1 1h-.01a1 1 0 01-1-1V17zm-4-1a1 1 0 00-1 1v.01a1 1 0 001 1H12a1 1 0 001-1V17a1 1 0 00-1-1h-.01z"
+                                      clipRule="evenodd"
+                                    />
+                                  </svg>
+
+                                  <span
+                                    style={
+                                      selected === 10
+                                        ? { color: textColor }
+                                        : {}
+                                    }
+                                    className={`${
+                                      textColor === "text-theme0" ||
+                                      textColor === "text-theme1"
+                                        ? "text-black"
+                                        : textColor
+                                    }`}
+                                  >
                                     Generate QR
                                   </span>
                                 </div>
@@ -812,7 +1133,30 @@ const Dashboard = () => {
 
                                 <div className="relative mb-5">
                                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                                    <img src={copy} alt="Copy" />
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      viewBox="0 0 20 20"
+                                      style={
+                                        selected === 10 ? { fill: fill } : {}
+                                      }
+                                      className={`w-[20px] ${
+                                        fill === "fill-theme0" ||
+                                        fill === "fill-theme1"
+                                          ? "fill-black"
+                                          : fill
+                                      }`}
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M15.988 3.012A2.25 2.25 0 0118 5.25v6.5A2.25 2.25 0 0115.75 14H13.5V7A2.5 2.5 0 0011 4.5H8.128a2.252 2.252 0 011.884-1.488A2.25 2.25 0 0112.25 1h1.5a2.25 2.25 0 012.238 2.012zM11.5 3.25a.75.75 0 01.75-.75h1.5a.75.75 0 01.75.75v.25h-3v-.25z"
+                                        clipRule="evenodd"
+                                      />
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M2 7a1 1 0 011-1h8a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V7zm2 3.25a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75zm0 3.5a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
                                   </div>
                                   <input
                                     type="text"

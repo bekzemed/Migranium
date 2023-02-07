@@ -1,17 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import bell from "../assets/bell.svg";
-import chat from "../assets/chat.svg";
 import downArrow from "../assets/down.svg";
-import edit from "../assets/edit-small.svg";
 import filter from "../assets/filter.svg";
-import info from "../assets/info-outline.svg";
-import message from "../assets/message.svg";
-import phone from "../assets/phone.svg";
-import right from "../assets/right.svg";
 import time from "../assets/time.svg";
-import trash from "../assets/trash.svg";
-import upAndDown from "../assets/upAndDown.svg";
 import user from "../assets/user.svg";
 import AddCustomer from "../components/AddCustomer";
 import { DashboardDesktop } from "../components/DashboardContent";
@@ -59,6 +50,7 @@ const WaitList = () => {
   const [waitUserInfo, setWaitUserInfo] = useState({});
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
+  const fill = useAppSelector((state) => state.theme.fillColor);
 
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
@@ -125,19 +117,43 @@ const WaitList = () => {
                   <div className="flex items-center">
                     <span className="opacity-40 px-5 border-x-2">Clinic</span>
                     <span className="opacity-40 px-5">2.2 days</span>
-                    <img
-                      src={right}
-                      alt="Right"
-                      className="pr-3 cursor-pointer"
-                    />
-                    <img
-                      src={info}
-                      alt="Info"
-                      className="cursor-pointer"
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      style={selected === 10 ? { fill: fill } : {}}
+                      className={`w-[30px] ${
+                        fill === "fill-theme0" || fill === "fill-theme1"
+                          ? "fill-black"
+                          : fill
+                      }`}
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      style={selected === 10 ? { fill: fill } : {}}
+                      className={`w-[30px] ${
+                        fill === "fill-theme0" || fill === "fill-theme1"
+                          ? "fill-black"
+                          : fill
+                      }`}
                       onClick={() => {
                         setShowWaitUser(true);
                       }}
-                    />
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -174,21 +190,52 @@ const WaitList = () => {
                         </td>
                         <td className="py-4 opacity-40">2.2 days</td>
                         <td className="py-4 flex justify-end">
-                          <img src={right} alt="Right" className="mr-2" />
-                          <img
-                            src={info}
-                            alt="Info"
-                            className="mr-2"
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            style={selected === 10 ? { fill: fill } : {}}
+                            className={`w-6 h-6 mr-2 ${
+                              fill === "fill-theme0" || fill === "fill-theme1"
+                                ? "fill-black"
+                                : fill
+                            }`}
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            style={selected === 10 ? { fill: fill } : {}}
+                            className={`w-6 h-6 mr-2 ${
+                              fill === "fill-theme0" || fill === "fill-theme1"
+                                ? "fill-black"
+                                : fill
+                            }`}
                             onClick={() => {
                               setShowWaitUserInfo(true);
                               setWaitUserInfo(user);
                             }}
-                          />
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            fill="#0070BA"
-                            className="w-6 h-6 "
+                            style={selected === 10 ? { fill: fill } : {}}
+                            className={`w-6 h-6 ${
+                              fill === "fill-theme0" || fill === "fill-theme1"
+                                ? "fill-black"
+                                : fill
+                            }`}
                             onClick={() => {
                               setOptions(!showOptions);
                               setOptionsIndex(user.id);
@@ -295,15 +342,59 @@ const WaitList = () => {
                     <div className="flex items-center">
                       <span className="mr-3">Marakinyo</span>
                       <div className="flex items-center">
-                        <img src={chat} alt="Chat" className="mr-3" />
-                        <img src={message} alt="Message" className="mr-3" />
-                        <img src={phone} alt="Phone" />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          style={selected === 10 ? { fill: fill } : {}}
+                          className={`w-6 h-6 mr-2 ${
+                            fill === "fill-theme0" || fill === "fill-theme1"
+                              ? "fill-black"
+                              : fill
+                          }`}
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          style={selected === 10 ? { fill: fill } : {}}
+                          className={`w-6 h-6 mr-2 ${
+                            fill === "fill-theme0" || fill === "fill-theme1"
+                              ? "fill-black"
+                              : fill
+                          }`}
+                        >
+                          <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                          <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                        </svg>
+
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          style={selected === 10 ? { fill: fill } : {}}
+                          className={`w-6 h-6 ${
+                            fill === "fill-theme0" || fill === "fill-theme1"
+                              ? "fill-black"
+                              : fill
+                          }`}
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
                       </div>
                     </div>
                     <span className="opacity-40">Clinic</span>
                     <span className="opacity-40">2.2 days</span>
                     <div className="cursor-pointer flex items-center justify-end">
-                      <img src={right} alt="Right" className="mr-3" />
+                      {/* <img src={right} alt="Right" className="mr-3" />
                       <img
                         src={info}
                         alt="Info"
@@ -311,12 +402,92 @@ const WaitList = () => {
                         onClick={() => {
                           setShowWaitUser(true);
                         }}
-                      />
+                      /> */}
 
-                      <img src={edit} alt="Edit" className="mr-3" />
-                      <img src={upAndDown} alt="UpAndDown" className="mr-3" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-6 h-6 mr-2 ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        }`}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
 
-                      <img src={trash} alt="Trash" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-6 h-6 mr-2 ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        }`}
+                        onClick={() => {
+                          setShowWaitUser(true);
+                        }}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-6 h-6 mr-2 ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        }`}
+                      >
+                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                        <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                      </svg>
+
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-6 h-6 mr-2 ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        }`}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M6.97 2.47a.75.75 0 011.06 0l4.5 4.5a.75.75 0 01-1.06 1.06L8.25 4.81V16.5a.75.75 0 01-1.5 0V4.81L3.53 8.03a.75.75 0 01-1.06-1.06l4.5-4.5zm9.53 4.28a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V7.5a.75.75 0 01.75-.75z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-6 h-6 ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        }`}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -363,13 +534,56 @@ const WaitList = () => {
                               <span className="mr-3 flex w-[60px]">
                                 {user.name}
                               </span>
-                              <img src={chat} alt="Chat" className="mr-2" />
-                              <img
-                                src={message}
-                                alt="Message"
-                                className="mr-2"
-                              />
-                              <img src={phone} alt="Phone" />
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                style={selected === 10 ? { fill: fill } : {}}
+                                className={`w-6 h-6 mr-2 ${
+                                  fill === "fill-theme0" ||
+                                  fill === "fill-theme1"
+                                    ? "fill-black"
+                                    : fill
+                                }`}
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                style={selected === 10 ? { fill: fill } : {}}
+                                className={`w-6 h-6 mr-2 ${
+                                  fill === "fill-theme0" ||
+                                  fill === "fill-theme1"
+                                    ? "fill-black"
+                                    : fill
+                                }`}
+                              >
+                                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
+                                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                              </svg>
+
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                style={selected === 10 ? { fill: fill } : {}}
+                                className={`w-6 h-6 ${
+                                  fill === "fill-theme0" ||
+                                  fill === "fill-theme1"
+                                    ? "fill-black"
+                                    : fill
+                                }`}
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
                             </div>
                           </td>
                           <td className="py-4 opacity-40">Clinic</td>
@@ -383,12 +597,49 @@ const WaitList = () => {
                             </span>
                           </td>
                           <td className="py-4 flex justify-end ">
-                            <img src={bell} alt="Bell" className="mr-3" />
-                            <img src={right} alt="" className="mr-3" />
-                            <img
-                              src={info}
-                              alt=""
-                              className="mr-3"
+                            <svg
+                              style={selected === 10 ? { fill: fill } : {}}
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              className={`w-6 h-6 mr-2 cursor-pointer ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={selected === 10 ? { fill: fill } : {}}
+                              className={`w-6 h-6 mr-2 ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={selected === 10 ? { fill: fill } : {}}
+                              className={`w-6 h-6 mr-2 ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
                               onClick={() =>
                                 navigate(`${user.id}`, {
                                   state: waitUsers.find(
@@ -396,12 +647,22 @@ const WaitList = () => {
                                   ),
                                 })
                               }
-                            />
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
-                              fill="#0070BA"
-                              className="w-6 h-6 "
+                              style={selected === 10 ? { fill: fill } : {}}
+                              className={`w-6 h-6 ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
                               onClick={() => {
                                 setOptions(!showOptions);
                                 setOptionsIndex(user.id);

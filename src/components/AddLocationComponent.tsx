@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../redux/hooks";
 import AddCustomFields from "./AddCustomFields";
-import ProfileLogo from "./ProfileLogo";
+import OperatingHours from "./OperatingHours";
+import TimePicker from "./TimePicker";
+import Datepicker from "tailwind-datepicker-react";
+import { options } from "../util/operatingHours";
 
 const AddLocationComponent = () => {
   const navigate = useNavigate();
   const [addCustomFields, setAddCustomFields] = useState(false);
+  const [dateMultipleHours, setDateMultipleHours] = useState(false);
+
+  const handleMultipleDateHours = (selectedDate: Date) =>
+    console.log(selectedDate);
+  const handleMultipleDateHoursClose = (state: boolean) =>
+    setDateMultipleHours(state);
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
+  const fill = useAppSelector((state) => state.theme.fillColor);
 
   return (
     <>
@@ -16,20 +29,26 @@ const AddLocationComponent = () => {
         />
       )}
       <div
-        className={`bg-white rounded-lg py-4 mb-4 px-2 dark:text-black ${
+        className={`bg-white rounded-lg py-4 mb-4 px-2 lg:px-4 dark:text-black ${
           addCustomFields && "filter blur-sm"
         }`}
       >
         <div className="lg:flex justify-between items-center">
-          <span className="block text-base pb-5 px-2">Location</span>
+          <span className="block text-base pb-5">Location</span>
 
           <div className="hidden lg:flex items-center">
             <button
+              style={selected === 10 ? { backgroundColor: theme } : {}}
               type="button"
-              className="bg-secondary text-xs text-white rounded-full focus-visible:outline-none focus:outline-none mr-3"
+              className={`p-2 mr-3 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
             >
               Save changes
             </button>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -45,7 +64,7 @@ const AddLocationComponent = () => {
             </svg>
           </div>
         </div>
-        <div className="mb-4 px-2 lg:flex">
+        <div className="pb-6 lg:flex border-b border-b-gray-300">
           <div className="lg:w-[250px] lg:mr-3">
             <label
               htmlFor="locationName"
@@ -79,108 +98,104 @@ const AddLocationComponent = () => {
           </div>
         </div>
 
-        <div className="pb-4 lg:pb-10 px-2 border-b border-b-gray-300">
-          <ProfileLogo />
-        </div>
-
-        <div className="py-4 lg:py-6 px-2 border-b border-b-gray-300">
-          <span className="block text-base pb-5">Business Info</span>
+        <div className="py-4 lg:py-6 border-b border-b-gray-300">
+          <span className="block text-base pb-5">Team member</span>
 
           <div>
             <div className="lg:flex">
-              <div className="lg:w-[250px] lg:mr-3">
+              <div className="lg:w-[250px] lg:mr-3 mb-4">
                 <label
-                  htmlFor="businessName"
+                  htmlFor="name"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Business name
+                  Name
                 </label>
                 <input
                   type="text"
-                  id="businessName"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Cashex"
+                  id="name"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter name"
                   required
                 />
               </div>
 
-              <div className="lg:w-[250px] lg:mr-3">
+              <div className="lg:w-[250px] lg:mr-3 mb-4">
                 <label
-                  htmlFor="businessType"
+                  htmlFor="email"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Business type
+                  Email
                 </label>
                 <input
-                  type="text"
-                  id="businessType"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Select business type"
+                  type="email"
+                  id="email"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter email"
                   required
                 />
               </div>
 
-              <div className="lg:w-[250px]">
+              <div className="lg:w-[250px] mb-4">
                 <label
-                  htmlFor="businessEmail"
+                  htmlFor="phoneNumber"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Business email
+                  Phone number
                 </label>
                 <input
                   type="text"
-                  id="businessEmail"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter business email"
+                  id="phoneNumber"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter phone number"
                   required
                 />
               </div>
             </div>
 
             <div className="lg:flex">
-              <div className="lg:w-[250px] lg:mr-3">
+              <div className="lg:w-[250px] lg:mr-3 mb-4 lg:mb-0">
                 <label
-                  htmlFor="businessPhone"
+                  htmlFor="station"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Business phone
+                  Station
                 </label>
                 <input
                   type="text"
-                  id="businessPhone"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter business phone"
+                  id="station"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter station"
                   required
                 />
               </div>
 
-              <div className="lg:w-[250px] lg:mr-3">
+              <div className="lg:w-[250px] lg:mr-3 mb-4 lg:mb-0">
                 <label
-                  htmlFor="numberOfRooms"
+                  htmlFor="jobTitle"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Number of rooms
+                  Job title
                 </label>
                 <input
                   type="text"
-                  id="numberOfRooms"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter number of rooms"
+                  id="jobTitle"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter job title"
                   required
                 />
               </div>
-              <div className="lg:w-[250px]">
+              <div className="lg:w-[250px] mb-4 lg:mb-0">
                 <label
-                  htmlFor="numberOfStaff"
+                  htmlFor="role"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Number of staff
+                  Role
                 </label>
                 <input
                   type="text"
-                  id="numberOfStaff"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter number of staff"
+                  id="role"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter role"
                   required
                 />
               </div>
@@ -188,21 +203,21 @@ const AddLocationComponent = () => {
           </div>
         </div>
 
-        <div className="py-4 lg:py-6 px-2 border-b border-b-gray-300">
-          <span className="block text-base pb-5">Business Address</span>
+        <div className="py-4 lg:py-6 border-b border-b-gray-300">
+          <span className="block text-base pb-5">Address</span>
 
           <div>
             <div className="lg:flex">
               <div className="lg:w-[250px] lg:mr-3">
                 <label
-                  htmlFor="businessCountry"
+                  htmlFor="Country"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Business country
+                  country
                 </label>
                 <input
                   type="text"
-                  id="businessCountry"
+                  id="Country"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
                   placeholder="Select country"
                   required
@@ -211,16 +226,16 @@ const AddLocationComponent = () => {
 
               <div className="lg:w-[250px] lg:mr-3">
                 <label
-                  htmlFor="businessState"
+                  htmlFor="State"
                   className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
                 >
-                  Business state / province
+                  State / province
                 </label>
                 <input
                   type="text"
-                  id="businessState"
+                  id="State"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Select business state / province"
+                  placeholder="Select  state / province"
                   required
                 />
               </div>
@@ -236,7 +251,7 @@ const AddLocationComponent = () => {
                   type="text"
                   id="city"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Enter business city"
+                  placeholder="Enter  city"
                   required
                 />
               </div>
@@ -288,12 +303,79 @@ const AddLocationComponent = () => {
           </div>
         </div>
 
-        <div className="py-4 lg:py-6 px-2">
+        <div className="py-4 lg:py-6 border-b border-b-gray-300">
+          <span className="block mb-6">Set the operating days</span>
+          <OperatingHours />
+          <span className="text-xs lg:text-sm flex items-center mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              style={selected === 10 ? { fill: fill } : {}}
+              className={`w-6 h-6 ${
+                fill === "fill-theme0" || fill === "fill-theme1"
+                  ? "fill-black"
+                  : fill
+              } cursor-pointer`}
+            >
+              <path
+                fillRule="evenodd"
+                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span className="text-primary">
+              Add the day with multiple hours
+            </span>
+          </span>
+
+          <div className="mt-6 text-xs lg:flex lg:flex-row-reverse lg:justify-end items-center">
+            <div className="mb-5 lg:mb-0">
+              <span className="block mb-4">
+                Set the day with multiple hours
+              </span>
+              <div className="w-1/2 lg:w-max">
+                <Datepicker
+                  options={options}
+                  onChange={handleMultipleDateHours}
+                  show={dateMultipleHours}
+                  setShow={handleMultipleDateHoursClose}
+                />
+              </div>
+            </div>
+            <div className="mr-6">
+              <span className="block mb-4">Set the hours</span>
+              <div className="flex">
+                <span className="flex items-center mr-2">
+                  <span className="mr-2">from</span>
+                  <TimePicker />
+                </span>
+                <span className="flex items-center">
+                  <span className="mr-2">to</span>
+                  <TimePicker />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="py-4 lg:py-6 border-b border-b-gray-300">
+          <span className="block mb-6">Approximate wait time</span>
+          <div className="text-xs">
+            <TimePicker text="Set approximate wait time in hours" />
+          </div>
+        </div>
+
+        <div className="py-4 lg:py-6">
           <div className="pb-5 flex justify-between items-center">
             <span className="block text-base">Custom Fields</span>
             <div
-              className="flex justify-center items-center rounded-full bg-secondary px-3 py-2 focus-visible:outline-none focus:outline-none"
+              className={`flex justify-center items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
               onClick={() => setAddCustomFields(true)}
+              style={selected === 10 ? { backgroundColor: theme } : {}}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -382,8 +464,13 @@ const AddLocationComponent = () => {
         </div>
         <div className="text-center lg:hidden">
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none text-xs"
+            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Save changes
           </button>

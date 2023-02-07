@@ -4,6 +4,7 @@ import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
 import Header from "../components/Header";
 import PoweredBy from "../components/PoweredBy";
+import WaitlistButtons from "../components/WaitlistButtons";
 import { useAppSelector } from "../redux/hooks";
 
 const CustomFields = () => {
@@ -17,6 +18,7 @@ const CustomFields = () => {
         <div className="flex-1">
           <span className="opacity-80 block mb-1 text-xs">Cashex</span>
           <span className="text-2xl block mb-4">Custom fields</span>
+          <WaitlistButtons />
           <div className="bg-white rounded-lg px-2 py-4 mb-4">
             <div className="pb-6 border-b border-b-gray-300">
               <span className="block text-base mb-6">Add new field</span>
@@ -170,6 +172,7 @@ const CustomFields = () => {
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll flex flex-col">
           <div className="flex-1">
             <Header text="Custom fields" />
+            <WaitlistButtons />
 
             <div className="bg-white rounded-lg px-4 py-4 mb-4 dark:text-black">
               <div className="pb-10 border-b border-b-gray-300">

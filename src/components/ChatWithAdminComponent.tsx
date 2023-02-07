@@ -1,6 +1,9 @@
 import React from "react";
+import { useAppSelector } from "../redux/hooks";
 
 const ChatWithAdminComponent = ({ messages }: any) => {
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
   return (
     <div className="bg-white rounded-lg px-2 py-4 mb-6 lg:px-6">
       <span className="block mb-10 text-sm lg:text-base">
@@ -43,8 +46,13 @@ const ChatWithAdminComponent = ({ messages }: any) => {
           </div>
           <div className="text-end">
             <button
-              type="submit"
-              className="bg-secondary text-white rounded-full focus-visible:outline-none focus:outline-none text-xs px-4 py-2"
+              style={selected === 10 ? { backgroundColor: theme } : {}}
+              type="button"
+              className={`py-2 px-4 text-xs font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
             >
               Send
             </button>

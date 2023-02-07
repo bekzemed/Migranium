@@ -1,8 +1,12 @@
+import { useAppSelector } from "../redux/hooks";
+
 const EditTeamMember = ({
   value,
   setOnEditTeamMember,
   onEditTeamMember,
 }: any) => {
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
   return (
     <div className=" bg-white rounded-lg p-4 absolute left-1/2 top-1/2 center-absolute dark:text-black w-[350px] z-30 shadow-lg flex flex-col">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
@@ -85,9 +89,13 @@ const EditTeamMember = ({
         </div>
         <div className="flex justify-center">
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className=" p-2 text-xs font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
-            onClick={() => setOnEditTeamMember(!onEditTeamMember)}
+            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Save changes
           </button>

@@ -5,7 +5,7 @@ import {
   DashboarUserMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
-import { UserHeader } from "../components/Header";
+import Header, { UserHeader } from "../components/Header";
 
 const date = new Date();
 
@@ -48,7 +48,7 @@ const ChatWithAdmin = () => {
         <DashboardUserDesktop />
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block dark:text-black">
-          <UserHeader
+          {/* <UserHeader
             text="Chat with admin"
             header="Ronald Richards"
             isAnonymous={true}
@@ -58,7 +58,16 @@ const ChatWithAdmin = () => {
             showNotification={showNotification}
             setShowNotification={setShowNotification}
             data={selectedCashexUser}
+          /> */}
+
+          <Header
+            text="Chat with admin"
+            header="Ronald Richards"
+            onNotificationShow={onNotificationShow}
+            showNotification={showNotification}
+            setShowNotification={setShowNotification}
           />
+
           <ChatWithAdminComponent messages={messages} />
         </div>
       </div>

@@ -16,8 +16,13 @@ const ProfileLogo = () => {
         <img src={locationLogo} alt="Location logo" className="mr-4" />
         {location.pathname === "/user/profile-setting" ? (
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className="p-2 text-xs font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none bg-secondary"
+            className={`p-2 text-xs font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Browse
           </button>

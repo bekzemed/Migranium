@@ -1,6 +1,5 @@
 import { useState } from "react";
-import add from "../assets/add.svg";
-import OperatingHours from "./OperatingHours";
+import { useAppSelector } from "../redux/hooks";
 
 const AddCustomer = ({ showAddCustomer, setShowAddCustomer }: any) => {
   const stations = ["Station 1", "Station 2"];
@@ -9,6 +8,8 @@ const AddCustomer = ({ showAddCustomer, setShowAddCustomer }: any) => {
   const [showLocation, setShowLocation] = useState(false);
   const [station, setStation] = useState("");
   const [location, setLocation] = useState("");
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
   return (
     <div className="bg-white rounded-lg z-40 absolute h-[450px] xl:h-auto overflow-y-scroll left-1/2 top-1/2 center-absolute dark:text-black w-[350px] p-4 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
@@ -76,7 +77,56 @@ const AddCustomer = ({ showAddCustomer, setShowAddCustomer }: any) => {
             required
           />
         </div>
+
         <div className="mb-2">
+          <label
+            htmlFor="location"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+          >
+            Location
+          </label>
+          <div
+            className="relative w-full cursor-pointer"
+            onClick={() => setShowLocation(!showLocation)}
+          >
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="#005893"
+                className="w-6 h-6"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="location"
+              className="bg-gray-50 border w-full cursor-pointer border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none"
+              placeholder="Enter customer location"
+              value={location}
+              required
+            />
+          </div>
+        </div>
+        {showLocation && (
+          <ul className="w-full mb-5 float-right border border-gray-300 text-xs cursor-pointer mt-2 rounded-lg ml-2">
+            {locations.map((location, index) => (
+              <li
+                key={index}
+                className="p-2 border-b hover:bg-gray-300 dark:text-black"
+                onClick={() => setLocation(location)}
+              >
+                {location}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="mb-4">
           <label
             htmlFor="station"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
@@ -125,59 +175,16 @@ const AddCustomer = ({ showAddCustomer, setShowAddCustomer }: any) => {
             ))}
           </ul>
         )}
-        <div className="mb-4">
-          <label
-            htmlFor="location"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-          >
-            Location
-          </label>
-          <div
-            className="relative w-full cursor-pointer"
-            onClick={() => setShowLocation(!showLocation)}
-          >
-            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="#005893"
-                className="w-6 h-6"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12.53 16.28a.75.75 0 01-1.06 0l-7.5-7.5a.75.75 0 011.06-1.06L12 14.69l6.97-6.97a.75.75 0 111.06 1.06l-7.5 7.5z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <input
-              type="text"
-              id="location"
-              className="bg-gray-50 border w-full cursor-pointer border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none"
-              placeholder="Enter customer location"
-              value={location}
-              required
-            />
-          </div>
-        </div>
-        {showLocation && (
-          <ul className="w-full mb-5 float-right border border-gray-300 text-xs cursor-pointer mt-2 rounded-lg ml-2">
-            {locations.map((location, index) => (
-              <li
-                key={index}
-                className="p-2 border-b hover:bg-gray-300 dark:text-black"
-                onClick={() => setLocation(location)}
-              >
-                {location}
-              </li>
-            ))}
-          </ul>
-        )}
 
         <div className="flex justify-center">
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className=" p-2 text-xs xl:w-[150px] font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Save changes
           </button>

@@ -4,8 +4,9 @@ import {
   DashboarUserMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
-import { UserHeader } from "../components/Header";
+import Header, { UserHeader } from "../components/Header";
 import UserProfileSettingComponent from "../components/UserProfileSettingComponent";
+import { useAppSelector } from "../redux/hooks";
 
 const UserProfileSetting = () => {
   const [show, onShow] = useState(false);
@@ -13,6 +14,8 @@ const UserProfileSetting = () => {
   const [onNotificationShow, setOnNotificationShow] = useState(false);
   const [selectedCashexUser, setSelectedCashexUser] = useState({});
   const [showNotification, setShowNotification] = useState(false);
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
 
   return (
     <div className="bg-primary h-screen flex flex-col">
@@ -26,9 +29,15 @@ const UserProfileSetting = () => {
             </span>
             <span className="text-2xl block mb-4">Profile settings</span>
           </div>
+
           <button
+            style={selected === 10 ? { backgroundColor: theme } : {}}
             type="button"
-            className=" p-2 text-xs font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Save changes
           </button>
@@ -46,7 +55,7 @@ const UserProfileSetting = () => {
         <DashboardUserDesktop />
 
         <div className="lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll hidden lg:block dark:text-black">
-          <UserHeader
+          {/* <UserHeader
             text="Chat with admin"
             header="Ronald Richards"
             isAnonymous={true}
@@ -56,12 +65,24 @@ const UserProfileSetting = () => {
             showNotification={showNotification}
             setShowNotification={setShowNotification}
             data={selectedCashexUser}
+          /> */}
+          <Header
+            text="Chat with admin"
+            header="Ronald Richards"
+            onNotificationShow={onNotificationShow}
+            showNotification={showNotification}
+            setShowNotification={setShowNotification}
           />
 
           <div className="text-end mb-4">
             <button
+              style={selected === 10 ? { backgroundColor: theme } : {}}
               type="button"
-              className=" p-2 text-xs font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+              className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
             >
               Save changes
             </button>

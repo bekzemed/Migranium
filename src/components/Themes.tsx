@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { changeTheme, selectedTheme } from "../redux/features/themeSlice";
+import {
+  changeColor,
+  changeFillColor,
+  changeTextColor,
+  changeTheme,
+  selectedTheme,
+} from "../redux/features/themeSlice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 
 const Themes = () => {
@@ -25,6 +31,7 @@ const Themes = () => {
       />
     </svg>
   );
+
   return (
     <div>
       <span className="block pb-4 border-b border-b-gray-300 text-xl">
@@ -49,6 +56,9 @@ const Themes = () => {
                 onClick={() => {
                   dispatch(changeTheme("bg-theme0"));
                   dispatch(selectedTheme(0));
+                  dispatch(changeFillColor("fill-theme0"));
+                  dispatch(changeTextColor("text-theme0"));
+                  dispatch(changeColor("#fff"));
                   {
                     open && setOpen(false);
                   }
@@ -60,7 +70,10 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme1 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme1"));
+                  dispatch(changeFillColor("fill-theme1"));
+                  dispatch(changeTextColor("text-theme1"));
                   dispatch(selectedTheme(1));
+                  dispatch(changeColor("#F1F5FB"));
                   {
                     open && setOpen(false);
                   }
@@ -72,6 +85,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme2 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme2"));
+                  dispatch(changeFillColor("fill-theme2"));
+                  dispatch(changeTextColor("text-theme2"));
+                  dispatch(changeColor("#444444"));
                   dispatch(selectedTheme(2));
                   {
                     open && setOpen(false);
@@ -85,6 +101,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme3 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme3"));
+                  dispatch(changeFillColor("fill-theme3"));
+                  dispatch(changeTextColor("text-theme3"));
+                  dispatch(changeColor("#e71818"));
                   dispatch(selectedTheme(3));
                   {
                     open && setOpen(false);
@@ -97,6 +116,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme4 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme4"));
+                  dispatch(changeFillColor("fill-theme4"));
+                  dispatch(changeTextColor("text-theme4"));
+                  dispatch(changeColor("#0074fc"));
                   dispatch(selectedTheme(4));
                   {
                     open && setOpen(false);
@@ -109,6 +131,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme5 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme5"));
+                  dispatch(changeFillColor("fill-theme5"));
+                  dispatch(changeTextColor("text-theme5"));
+                  dispatch(changeColor("#08c108"));
                   dispatch(selectedTheme(5));
                   {
                     open && setOpen(false);
@@ -121,6 +146,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme6 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme6"));
+                  dispatch(changeFillColor("fill-theme6"));
+                  dispatch(changeTextColor("text-theme6"));
+                  dispatch(changeColor("#f0ad4e"));
                   dispatch(selectedTheme(6));
                   {
                     open && setOpen(false);
@@ -133,6 +161,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme7 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme7"));
+                  dispatch(changeFillColor("fill-theme7"));
+                  dispatch(changeTextColor("text-theme7"));
+                  dispatch(changeColor("#8b4513"));
                   dispatch(selectedTheme(7));
                   {
                     open && setOpen(false);
@@ -145,6 +176,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme8 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme8"));
+                  dispatch(changeFillColor("fill-theme8"));
+                  dispatch(changeTextColor("text-theme8"));
+                  dispatch(changeColor("#800080"));
                   dispatch(selectedTheme(8));
                   {
                     open && setOpen(false);
@@ -157,6 +191,9 @@ const Themes = () => {
                 className="w-[36px] h-[36px] mr-1 cursor-pointer bg-theme9 rounded-lg relative"
                 onClick={() => {
                   dispatch(changeTheme("bg-theme9"));
+                  dispatch(changeFillColor("fill-theme9"));
+                  dispatch(changeTextColor("text-theme9"));
+                  dispatch(changeColor("#ffc0cb"));
                   dispatch(selectedTheme(9));
                   {
                     open && setOpen(false);
@@ -176,6 +213,9 @@ const Themes = () => {
               className="w-[36px] h-[36px] mr-1 cursor-pointer bg-secondary rounded-lg relative"
               onClick={() => {
                 dispatch(changeTheme("bg-secondary"));
+                dispatch(changeFillColor("fill-primary"));
+                dispatch(changeTextColor("text-primary"));
+                dispatch(changeColor("#0070BA"));
                 dispatch(selectedTheme(11));
                 {
                   open && setOpen(false);
@@ -236,6 +276,9 @@ const Themes = () => {
                     className=" p-2 text-xs xl:w-[150px] font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
                     onClick={() => {
                       dispatch(changeTheme(`${customColor}`));
+                      dispatch(changeFillColor(`${customColor}`));
+                      dispatch(changeColor(`${customColor}`));
+                      dispatch(changeTextColor(`${customColor}`));
                     }}
                   >
                     Save changes
