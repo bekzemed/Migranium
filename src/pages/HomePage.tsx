@@ -277,7 +277,13 @@ const HomePage = () => {
                           <td className="py-4 text-start">
                             <div>
                               <div className="mb-2 flex items-center">
-                                <span className="mr-3">{queue.name}</span>
+                                <span className="mr-3">
+                                  <span>{queue.name}</span>
+                                  {index + 1 === currentUser && (
+                                    <span> (You)</span>
+                                  )}
+                                </span>
+
                                 <div className="flex items-center">
                                   <img
                                     src={message}
@@ -305,7 +311,6 @@ const HomePage = () => {
                                   </svg>
                                 </div>
                               </div>
-                              {index + 1 === currentUser && <span> (You)</span>}
                               {index === 0 ? (
                                 <span className="rounded-full px-3 py-1 text-xs bg-[#FDD924]">
                                   Serving
@@ -736,9 +741,7 @@ const HomePage = () => {
                           <th className="pb-5 text-start">name</th>
                           <th className="pb-5">Est. Wait Time</th>
                           <th className="pb-5">Status</th>
-                          <th className="pb-5 text-end">
-                            Proposal to swap queue
-                          </th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody className="text:black dark:text-black text-xs">
