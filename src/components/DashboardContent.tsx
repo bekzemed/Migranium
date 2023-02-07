@@ -109,7 +109,7 @@ export const DashboarUserMobile = () => {
   return (
     <ul
       style={selected === 10 ? { backgroundColor: theme } : {}}
-      className={`flex items-center overflow-x-scroll bg-secondary gap-9 md:justify-center whitespace-nowrap  px-2 py-4 text-white ${
+      className={`flex items-center overflow-x-scroll gap-9 md:justify-center whitespace-nowrap  px-2 py-4 text-white ${
         theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
       }`}
     >

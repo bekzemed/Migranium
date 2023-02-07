@@ -58,7 +58,7 @@ const Themes = () => {
                   dispatch(selectedTheme(0));
                   dispatch(changeFillColor("fill-theme0"));
                   dispatch(changeTextColor("text-theme0"));
-                  dispatch(changeColor("#fff"));
+                  dispatch(changeColor("#000"));
                   {
                     open && setOpen(false);
                   }
@@ -73,7 +73,7 @@ const Themes = () => {
                   dispatch(changeFillColor("fill-theme1"));
                   dispatch(changeTextColor("text-theme1"));
                   dispatch(selectedTheme(1));
-                  dispatch(changeColor("#F1F5FB"));
+                  dispatch(changeColor("#000"));
                   {
                     open && setOpen(false);
                   }

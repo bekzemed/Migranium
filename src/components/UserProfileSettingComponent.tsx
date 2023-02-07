@@ -53,7 +53,7 @@ const UserProfileSettingComponent = () => {
             <button
               style={selected === 10 ? { backgroundColor: theme } : {}}
               type="button"
-              className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              className={`p-2 whitespace-nowrap text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
                 theme === "bg-theme0" || theme === "bg-theme1"
                   ? "bg-black"
                   : theme

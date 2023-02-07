@@ -7,13 +7,12 @@ import {
 
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import message from "../assets/message.svg";
+import { Link } from "react-router-dom";
 import AddRating from "../components/AddRating";
 import DashNav from "../components/DashNav";
 import SwapJustification from "../components/SwapJustification";
 import UserNav from "../components/UserNav";
 import { useAppSelector } from "../redux/hooks";
-import { Link } from "react-router-dom";
 
 const cashexQueue = [
   {
@@ -56,7 +55,6 @@ const HomePage = () => {
   const [closeQueue, setCloseQueue] = useState(false);
   const [rateClosingQueue, setRateClosingQueue] = useState(false);
   const [swap, setSwap] = useState(false);
-  const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   const fill = useAppSelector((state) => state.theme.fillColor);
   const color = useAppSelector((state) => state.theme.color);
@@ -131,22 +129,20 @@ const HomePage = () => {
                     text="4"
                     strokeWidth={6}
                     styles={buildStyles({
-                      pathColor: `${
-                        selected === 1 || selected === 0 ? "#000" : color
-                      }`,
-                      textColor: `${
-                        selected === 1 || selected === 0 ? "#000" : color
-                      }`,
+                      pathColor: `${color}`,
+                      textColor: `${color}`,
                       trailColor: "#EEEEEE",
-                      backgroundColor: `${
-                        selected === 1 || selected === 0 ? "#000" : color
-                      }`,
+                      backgroundColor: `${color}`,
                       textSize: "35px",
                     })}
                   />
                   <span
                     style={selected === 10 ? { color: textColor } : {}}
-                    className={`${textColor} text-center block`}
+                    className={`${
+                      selected === 1 || selected === 0
+                        ? "text-black"
+                        : textColor
+                    } text-center block`}
                   >
                     customers
                   </span>
@@ -165,22 +161,20 @@ const HomePage = () => {
                         text="1"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
-                          textColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          pathColor: `${color}`,
+                          textColor: `${color}`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          backgroundColor: `${color}`,
                           textSize: "35px",
                         })}
                       />
                       <span
                         style={selected === 10 ? { color: textColor } : {}}
-                        className={`${textColor} text-center block mr-3`}
+                        className={`${
+                          selected === 1 || selected === 0
+                            ? "text-black"
+                            : textColor
+                        } text-center block mr-3`}
                       >
                         hours
                       </span>
@@ -194,22 +188,20 @@ const HomePage = () => {
                         text="00"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
-                          textColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          pathColor: `${color}`,
+                          textColor: `${color}`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          backgroundColor: `${color}`,
                           textSize: "35px",
                         })}
                       />
                       <span
                         style={selected === 10 ? { color: textColor } : {}}
-                        className={`${textColor} text-center block`}
+                        className={`${
+                          selected === 1 || selected === 0
+                            ? "text-black"
+                            : textColor
+                        } text-center block`}
                       >
                         minutes
                       </span>
@@ -410,22 +402,20 @@ const HomePage = () => {
                     text="4"
                     strokeWidth={6}
                     styles={buildStyles({
-                      pathColor: `${
-                        selected === 1 || selected === 0 ? "#000" : color
-                      }`,
-                      textColor: `${
-                        selected === 1 || selected === 0 ? "#000" : color
-                      }`,
+                      pathColor: `${color}`,
+                      textColor: `${color}`,
                       trailColor: "#EEEEEE",
-                      backgroundColor: `${
-                        selected === 1 || selected === 0 ? "#000" : color
-                      }`,
+                      backgroundColor: `${color}`,
                       textSize: "35px",
                     })}
                   />
                   <span
                     style={selected === 10 ? { color: textColor } : {}}
-                    className={`${textColor} text-center block`}
+                    className={`${
+                      selected === 1 || selected === 0
+                        ? "text-black"
+                        : textColor
+                    } text-center block`}
                   >
                     customers
                   </span>
@@ -444,22 +434,20 @@ const HomePage = () => {
                         text="1"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
-                          textColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          pathColor: `${color}`,
+                          textColor: `${color}`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          backgroundColor: `${color}`,
                           textSize: "35px",
                         })}
                       />
                       <span
                         style={selected === 10 ? { color: textColor } : {}}
-                        className={`${textColor} text-center block mr-3`}
+                        className={`${
+                          selected === 1 || selected === 0
+                            ? "text-black"
+                            : textColor
+                        } text-center block mr-3`}
                       >
                         hours
                       </span>
@@ -473,22 +461,20 @@ const HomePage = () => {
                         text="00"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
-                          textColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          pathColor: `${color}`,
+                          textColor: `${color}`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          backgroundColor: `${color}`,
                           textSize: "35px",
                         })}
                       />
                       <span
                         style={selected === 10 ? { color: textColor } : {}}
-                        className={`${textColor} text-center block`}
+                        className={`${
+                          selected === 1 || selected === 0
+                            ? "text-black"
+                            : textColor
+                        } text-center block`}
                       >
                         minutes
                       </span>
@@ -685,22 +671,20 @@ const HomePage = () => {
                         text="4"
                         strokeWidth={6}
                         styles={buildStyles({
-                          pathColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
-                          textColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          pathColor: `${color}`,
+                          textColor: `${color}`,
                           trailColor: "#EEEEEE",
-                          backgroundColor: `${
-                            selected === 1 || selected === 0 ? "#000" : color
-                          }`,
+                          backgroundColor: `${color}`,
                           textSize: "35px",
                         })}
                       />
                       <span
                         style={selected === 10 ? { color: textColor } : {}}
-                        className={`${textColor} text-center block`}
+                        className={`${
+                          selected === 1 || selected === 0
+                            ? "text-black"
+                            : textColor
+                        } text-center block`}
                       >
                         customers
                       </span>
@@ -719,28 +703,21 @@ const HomePage = () => {
                             text="1"
                             strokeWidth={6}
                             styles={buildStyles({
-                              pathColor: `${
-                                selected === 1 || selected === 0
-                                  ? "#000"
-                                  : color
-                              }`,
-                              textColor: `${
-                                selected === 1 || selected === 0
-                                  ? "#000"
-                                  : color
-                              }`,
+                              pathColor: `${color}`,
+                              textColor: `${color}`,
+
                               trailColor: "#EEEEEE",
-                              backgroundColor: `${
-                                selected === 1 || selected === 0
-                                  ? "#000"
-                                  : color
-                              }`,
+                              backgroundColor: `${color}`,
                               textSize: "35px",
                             })}
                           />
                           <span
                             style={selected === 10 ? { color: textColor } : {}}
-                            className={`${textColor} text-center block mr-3`}
+                            className={`${
+                              selected === 1 || selected === 0
+                                ? "text-black"
+                                : textColor
+                            } text-center block mr-3`}
                           >
                             hours
                           </span>
@@ -754,28 +731,20 @@ const HomePage = () => {
                             text="00"
                             strokeWidth={6}
                             styles={buildStyles({
-                              pathColor: `${
-                                selected === 1 || selected === 0
-                                  ? "#000"
-                                  : color
-                              }`,
-                              textColor: `${
-                                selected === 1 || selected === 0
-                                  ? "#000"
-                                  : color
-                              }`,
+                              pathColor: `${color}`,
+                              textColor: `${color}`,
                               trailColor: "#EEEEEE",
-                              backgroundColor: `${
-                                selected === 1 || selected === 0
-                                  ? "#000"
-                                  : color
-                              }`,
+                              backgroundColor: `${color}`,
                               textSize: "35px",
                             })}
                           />
                           <span
                             style={selected === 10 ? { color: textColor } : {}}
-                            className={`${textColor} text-center block`}
+                            className={`${
+                              selected === 1 || selected === 0
+                                ? "text-black"
+                                : textColor
+                            } text-center block`}
                           >
                             minutes
                           </span>
