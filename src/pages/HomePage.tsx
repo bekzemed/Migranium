@@ -1,5 +1,4 @@
 import { useState } from "react";
-import logo from "../assets/logo.svg";
 import {
   DashboardUserDesktop,
   DashboarUserMobile,
@@ -7,9 +6,9 @@ import {
 
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { Link } from "react-router-dom";
 import AddRating from "../components/AddRating";
 import DashNav from "../components/DashNav";
+import PoweredBy from "../components/PoweredBy";
 import SwapJustification from "../components/SwapJustification";
 import UserNav from "../components/UserNav";
 import { useAppSelector } from "../redux/hooks";
@@ -374,13 +373,7 @@ const HomePage = () => {
                 </div>
               )}
 
-              <div className="text-center flex items-center justify-center text-[10px] opacity-70 mt-6">
-                <span className="mr-2">Powered by</span>
-                <span className="text-primary migranium-font flex items-center">
-                  <img src={logo} alt="Logo" className="w-[20px]" />
-                  migranium
-                </span>
-              </div>
+              <PoweredBy />
             </div>
           </div>
         </div>
@@ -590,13 +583,7 @@ const HomePage = () => {
                 </div>
               )}
 
-              <div className="text-center flex items-center justify-center text-[10px] opacity-70 mt-6">
-                <span className="mr-2">Powered by</span>
-                <span className="text-primary migranium-font flex items-center">
-                  <img src={logo} alt="Logo" className="w-[20px]" />
-                  migranium
-                </span>
-              </div>
+              <PoweredBy />
             </div>
           </div>
         </div>
@@ -925,15 +912,7 @@ const HomePage = () => {
                   </div>
                 )}
 
-                <div className="text-center flex items-center justify-center text-[10px] opacity-70 mt-6">
-                  <span className="mr-2">Powered by</span>
-                  <Link to="/">
-                    <span className="text-primary migranium-font flex items-center">
-                      <img src={logo} alt="Logo" className="w-[20px]" />
-                      migranium
-                    </span>
-                  </Link>
-                </div>
+                <PoweredBy />
               </div>
             </div>
           </div>

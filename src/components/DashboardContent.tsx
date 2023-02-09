@@ -4,7 +4,6 @@ import customers from "../assets/customers.svg";
 import fields from "../assets/fields.svg";
 import home from "../assets/home.svg";
 import location from "../assets/location.svg";
-import logo from "../assets/logo-white.svg";
 import logout from "../assets/logout.svg";
 import members from "../assets/members.svg";
 import messages from "../assets/messages-disable.svg";
@@ -164,15 +163,6 @@ export const DashboardDesktop = () => {
           theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
         }`}
       >
-        <Link to="/" className="lg:mb-[30px] 2xl:mb-[70px]">
-          <div className="flex items-center cursor-pointer px-2  rounded-lg">
-            <img src={logo} className="mr-2 w-[31px]" alt="Migranium Logo" />
-
-            <span className="text-lg font-semibold text-white migranium-font">
-              migranium
-            </span>
-          </div>
-        </Link>
         <ul className="gap-2 text-white flex-1">
           <Link to="/dashboard/waitlist">
             <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">

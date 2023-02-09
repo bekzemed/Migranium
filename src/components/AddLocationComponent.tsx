@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Datepicker from "tailwind-datepicker-react";
 import { useAppSelector } from "../redux/hooks";
+import { options } from "../util/operatingHours";
 import AddCustomFields from "./AddCustomFields";
+import AddTeamMember from "./AddTeamMember";
 import OperatingHours from "./OperatingHours";
 import TimePicker from "./TimePicker";
-import Datepicker from "tailwind-datepicker-react";
-import { options } from "../util/operatingHours";
 
 const AddLocationComponent = () => {
   const navigate = useNavigate();
   const [addCustomFields, setAddCustomFields] = useState(false);
+  const [addTeamMember, setAddTeamMember] = useState(false);
   const [dateMultipleHours, setDateMultipleHours] = useState(false);
 
   const handleMultipleDateHours = (selectedDate: Date) =>
@@ -19,18 +21,26 @@ const AddLocationComponent = () => {
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   const fill = useAppSelector((state) => state.theme.fillColor);
+  const textColor = useAppSelector((state) => state.theme.textColor);
 
   return (
     <>
       {addCustomFields && (
         <AddCustomFields
-          addCustomFields={AddCustomFields}
+          addCustomFields={addCustomFields}
           setAddCustomFields={setAddCustomFields}
+        />
+      )}
+
+      {addTeamMember && (
+        <AddTeamMember
+          addTeamMember={addTeamMember}
+          setAddTeamMember={setAddTeamMember}
         />
       )}
       <div
         className={`bg-white rounded-lg py-4 mb-4 px-2 lg:px-4 dark:text-black ${
-          addCustomFields && "filter blur-sm"
+          (addCustomFields || addTeamMember) && "filter blur-sm"
         }`}
       >
         <div className="lg:flex justify-between items-center">
@@ -95,111 +105,6 @@ const AddLocationComponent = () => {
               placeholder="migranium.com/welcome/cashex"
               required
             />
-          </div>
-        </div>
-
-        <div className="py-4 lg:py-6 border-b border-b-gray-300">
-          <span className="block text-base pb-5">Team member</span>
-
-          <div>
-            <div className="lg:flex">
-              <div className="lg:w-[250px] lg:mr-3 mb-4">
-                <label
-                  htmlFor="name"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
-                  placeholder="Enter name"
-                  required
-                />
-              </div>
-
-              <div className="lg:w-[250px] lg:mr-3 mb-4">
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
-                  placeholder="Enter email"
-                  required
-                />
-              </div>
-
-              <div className="lg:w-[250px] mb-4">
-                <label
-                  htmlFor="phoneNumber"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  Phone number
-                </label>
-                <input
-                  type="text"
-                  id="phoneNumber"
-                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
-                  placeholder="Enter phone number"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="lg:flex">
-              <div className="lg:w-[250px] lg:mr-3 mb-4 lg:mb-0">
-                <label
-                  htmlFor="station"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  Station
-                </label>
-                <input
-                  type="text"
-                  id="station"
-                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
-                  placeholder="Enter station"
-                  required
-                />
-              </div>
-
-              <div className="lg:w-[250px] lg:mr-3 mb-4 lg:mb-0">
-                <label
-                  htmlFor="jobTitle"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  Job title
-                </label>
-                <input
-                  type="text"
-                  id="jobTitle"
-                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
-                  placeholder="Enter job title"
-                  required
-                />
-              </div>
-              <div className="lg:w-[250px] mb-4 lg:mb-0">
-                <label
-                  htmlFor="role"
-                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
-                >
-                  Role
-                </label>
-                <input
-                  type="text"
-                  id="role"
-                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
-                  placeholder="Enter role"
-                  required
-                />
-              </div>
-            </div>
           </div>
         </div>
 
@@ -304,6 +209,135 @@ const AddLocationComponent = () => {
         </div>
 
         <div className="py-4 lg:py-6 border-b border-b-gray-300">
+          <div className="pb-5 flex justify-between items-center">
+            <span className="block text-base">Team member</span>
+            <div
+              className={`flex justify-center items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
+              onClick={() => setAddTeamMember(true)}
+              style={selected === 10 ? { backgroundColor: theme } : {}}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="#fff"
+                className="w-5 h-5"
+              >
+                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+              </svg>
+
+              <span className="text-white cursor-pointer text-xs">
+                Add team member
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div className="lg:flex">
+              <div className="lg:w-[250px] lg:mr-3 mb-4">
+                <label
+                  htmlFor="name"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter name"
+                  required
+                />
+              </div>
+
+              <div className="lg:w-[250px] lg:mr-3 mb-4">
+                <label
+                  htmlFor="email"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter email"
+                  required
+                />
+              </div>
+
+              <div className="lg:w-[250px] mb-4">
+                <label
+                  htmlFor="phoneNumber"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                >
+                  Phone number
+                </label>
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter phone number"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="lg:flex">
+              <div className="lg:w-[250px] lg:mr-3 mb-4 lg:mb-0">
+                <label
+                  htmlFor="station"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                >
+                  Station
+                </label>
+                <input
+                  type="text"
+                  id="station"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter station"
+                  required
+                />
+              </div>
+
+              <div className="lg:w-[250px] lg:mr-3 mb-4 lg:mb-0">
+                <label
+                  htmlFor="jobTitle"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                >
+                  Job title
+                </label>
+                <input
+                  type="text"
+                  id="jobTitle"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter job title"
+                  required
+                />
+              </div>
+              <div className="lg:w-[250px] mb-4 lg:mb-0">
+                <label
+                  htmlFor="role"
+                  className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                >
+                  Role
+                </label>
+                <input
+                  type="text"
+                  id="role"
+                  className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-xs rounded-full  block p-2 focus-visible:outline-none focus:outline-none mr-3"
+                  placeholder="Enter role"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="py-4 lg:py-6 border-b border-b-gray-300">
           <span className="block mb-6">Set the operating days</span>
           <OperatingHours />
           <span className="text-xs lg:text-sm flex items-center mb-4">
@@ -311,7 +345,7 @@ const AddLocationComponent = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               style={selected === 10 ? { fill: fill } : {}}
-              className={`w-6 h-6 ${
+              className={`w-6 h-6 mr-2 ${
                 fill === "fill-theme0" || fill === "fill-theme1"
                   ? "fill-black"
                   : fill
@@ -323,7 +357,14 @@ const AddLocationComponent = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="text-primary">
+            <span
+              style={selected === 10 ? { color: textColor } : {}}
+              className={`${
+                textColor === "text-theme0" || textColor === "text-theme1"
+                  ? "text-black"
+                  : textColor
+              }`}
+            >
               Add the day with multiple hours
             </span>
           </span>

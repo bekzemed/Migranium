@@ -1,10 +1,11 @@
 import add from "../assets/add.svg";
 import { useAppSelector } from "../redux/hooks";
-import OperatingHours from "./OperatingHours";
 
 const AddStation = ({ addStation, setAddStation }: any) => {
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
+  const fill = useAppSelector((state) => state.theme.fillColor);
+  const textColor = useAppSelector((state) => state.theme.textColor);
   return (
     <div className="bg-white rounded-lg absolute h-[500px] overflow-y-scroll left-1/2 top-1/2 center-absolute dark:text-black w-[360px] xl:w-[550px] px-2 lg:px-4 py-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
@@ -58,16 +59,6 @@ const AddStation = ({ addStation, setAddStation }: any) => {
       </div>
 
       <div className="py-4">
-        <div className="py-4 border-b border-b-gray-300">
-          <span className="mb-4 block">Operating hours and days</span>
-          <div className="mb-2">
-            <span className="block text-xs mb-6">
-              Set the operating days and hours
-            </span>
-            <OperatingHours />
-          </div>
-        </div>
-
         <div className="py-4">
           <span className="mb-4 block">Add team members</span>
 
@@ -86,8 +77,32 @@ const AddStation = ({ addStation, setAddStation }: any) => {
               required
             />
             <span className="text-xs flex items-center my-6">
-              <img src={add} alt="Add" className="mr-2" />
-              <span className="text-primary">Add team member</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                style={selected === 10 ? { fill: fill } : {}}
+                className={`w-5 h-5 mr-2 ${
+                  fill === "fill-theme0" || fill === "fill-theme1"
+                    ? "fill-black"
+                    : fill
+                }`}
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span
+                style={selected === 10 ? { color: textColor } : {}}
+                className={`${
+                  textColor === "text-theme0" || textColor === "text-theme1"
+                    ? "text-black"
+                    : textColor
+                }`}
+              >
+                Add team member
+              </span>
             </span>
           </div>
         </div>

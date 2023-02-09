@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import trash from "../assets/trash.svg";
 import AddTeamMember from "../components/AddTeamMember";
 import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
@@ -50,6 +49,8 @@ const TeamMembers = () => {
   const [addTeamMember, setAddTeamMember] = useState(false);
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
+  const fill = useAppSelector((state) => state.theme.fillColor);
+  const textColor = useAppSelector((state) => state.theme.textColor);
 
   const navigate = useNavigate();
 
@@ -154,16 +155,38 @@ const TeamMembers = () => {
                         <div className="flex justify-between mb-1 items-center">
                           <span className="opacity-40">Station</span>
                           <div className="flex items-center">
+                            {/* edit */}
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="#005893"
-                              className="w-5 h-5 mr-2"
+                              viewBox="0 0 24 24"
+                              style={selected === 10 ? { fill: fill } : {}}
+                              className={`w-5 h-5 mr-2 cursor-pointer ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
                             >
-                              <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                              <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                              <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                              <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
                             </svg>
-                            <img src={trash} alt="Trash" />
+
+                            {/* delete */}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={selected === 10 ? { fill: fill } : {}}
+                              className={`w-5 h-5 cursor-pointer ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
                           </div>
                         </div>
                         <span>{member.station}</span>
@@ -219,18 +242,27 @@ const TeamMembers = () => {
           <div className="flex justify-center items-center mb-10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="#0070BA"
-              className="w-6 h-6 mr-1"
+              viewBox="0 0 20 20"
+              style={selected === 10 ? { fill: fill } : {}}
+              className={`w-5 h-5 mr-2 ${
+                fill === "fill-theme0" || fill === "fill-theme1"
+                  ? "fill-black"
+                  : fill
+              }`}
             >
               <path
                 fillRule="evenodd"
-                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
                 clipRule="evenodd"
               />
             </svg>
             <span
-              className="text-primary text-xs"
+              style={selected === 10 ? { color: textColor } : {}}
+              className={`text-xs ${
+                textColor === "text-theme0" || textColor === "text-theme1"
+                  ? "text-black"
+                  : textColor
+              }`}
               onClick={() => setAddTeamMember(!addTeamMember)}
             >
               Add team member
@@ -323,25 +355,43 @@ const TeamMembers = () => {
                           <td className="py-4 opacity-40">{member.role}</td>
 
                           <td className="py-4 flex justify-center items-center">
+                            {/* edit */}
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="#005893"
-                              className="w-5 h-5 mr-2"
+                              viewBox="0 0 24 24"
+                              style={selected === 10 ? { fill: fill } : {}}
+                              className={`w-5 h-5 mr-2 cursor-pointer ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
                             >
-                              <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-                              <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+                              <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                              <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
                             </svg>
-                            <img
-                              src={trash}
-                              className="cursor-pointer"
-                              alt="Trash"
+
+                            {/* delete */}
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              style={selected === 10 ? { fill: fill } : {}}
+                              className={`w-5 h-5 cursor-pointer ${
+                                fill === "fill-theme0" || fill === "fill-theme1"
+                                  ? "fill-black"
+                                  : fill
+                              }`}
                               onClick={() =>
                                 teamMembers.filter(
                                   (team) => team.id !== member.id
                                 )
                               }
-                            />
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
                           </td>
                         </tr>
                       ))}

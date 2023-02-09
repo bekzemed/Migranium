@@ -271,7 +271,7 @@ const WaitList = () => {
       </div>
       <div
         style={selected === 10 ? { backgroundColor: theme } : {}}
-        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-20 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
+        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-20 lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
           theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
         }`}
         onClick={() => setShowAddCustomer(true)}
@@ -342,6 +342,7 @@ const WaitList = () => {
                     <div className="flex items-center">
                       <span className="mr-3">Marakinyo</span>
                       <div className="flex items-center">
+                        {/* chat */}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -359,6 +360,8 @@ const WaitList = () => {
                           />
                         </svg>
 
+                        {/* message */}
+
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -372,6 +375,8 @@ const WaitList = () => {
                           <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                           <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                         </svg>
+
+                        {/* phone */}
 
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -394,16 +399,7 @@ const WaitList = () => {
                     <span className="opacity-40">Clinic</span>
                     <span className="opacity-40">2.2 days</span>
                     <div className="cursor-pointer flex items-center justify-end">
-                      {/* <img src={right} alt="Right" className="mr-3" />
-                      <img
-                        src={info}
-                        alt="Info"
-                        className="mr-3"
-                        onClick={() => {
-                          setShowWaitUser(true);
-                        }}
-                      /> */}
-
+                      {/* right */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -420,6 +416,7 @@ const WaitList = () => {
                           clipRule="evenodd"
                         />
                       </svg>
+                      {/* info */}
 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -441,6 +438,8 @@ const WaitList = () => {
                         />
                       </svg>
 
+                      {/* edit */}
+
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -454,6 +453,8 @@ const WaitList = () => {
                         <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
                         <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
                       </svg>
+
+                      {/* up and down arrow */}
 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -471,6 +472,8 @@ const WaitList = () => {
                           clipRule="evenodd"
                         />
                       </svg>
+
+                      {/* delete */}
 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -530,15 +533,17 @@ const WaitList = () => {
                         >
                           <th className="opacity-40 py-4">{index + 1}</th>
                           <td className="py-4 w-[170px]">
-                            <div className="flex">
+                            <div className="flex items-center">
                               <span className="mr-3 flex w-[60px]">
                                 {user.name}
                               </span>
+                              {/* chat */}
+
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
+                                viewBox="0 0 20 20"
                                 style={selected === 10 ? { fill: fill } : {}}
-                                className={`w-6 h-6 mr-2 ${
+                                className={`w-5 h-5 mr-2 ${
                                   fill === "fill-theme0" ||
                                   fill === "fill-theme1"
                                     ? "fill-black"
@@ -547,31 +552,35 @@ const WaitList = () => {
                               >
                                 <path
                                   fillRule="evenodd"
-                                  d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
+                                  d="M10 3c-4.31 0-8 3.033-8 7 0 2.024.978 3.825 2.499 5.085a3.478 3.478 0 01-.522 1.756.75.75 0 00.584 1.143 5.976 5.976 0 003.936-1.108c.487.082.99.124 1.503.124 4.31 0 8-3.033 8-7s-3.69-7-8-7zm0 8a1 1 0 100-2 1 1 0 000 2zm-2-1a1 1 0 11-2 0 1 1 0 012 0zm5 1a1 1 0 100-2 1 1 0 000 2z"
                                   clipRule="evenodd"
                                 />
                               </svg>
 
+                              {/* message */}
+
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
+                                viewBox="0 0 20 20"
                                 style={selected === 10 ? { fill: fill } : {}}
-                                className={`w-6 h-6 mr-2 ${
+                                className={`w-5 h-5 mr-2 ${
                                   fill === "fill-theme0" ||
                                   fill === "fill-theme1"
                                     ? "fill-black"
                                     : fill
                                 }`}
                               >
-                                <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-                                <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                                <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+                                <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
                               </svg>
+
+                              {/* phone */}
 
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
+                                viewBox="0 0 20 20"
                                 style={selected === 10 ? { fill: fill } : {}}
-                                className={`w-6 h-6 ${
+                                className={`w-5 h-5 ${
                                   fill === "fill-theme0" ||
                                   fill === "fill-theme1"
                                     ? "fill-black"
@@ -580,7 +589,7 @@ const WaitList = () => {
                               >
                                 <path
                                   fillRule="evenodd"
-                                  d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
+                                  d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z"
                                   clipRule="evenodd"
                                 />
                               </svg>
@@ -596,7 +605,8 @@ const WaitList = () => {
                               {user.status}
                             </span>
                           </td>
-                          <td className="py-4 flex justify-end ">
+                          <td className="py-4 flex justify-end">
+                            {/* bell */}
                             <svg
                               style={selected === 10 ? { fill: fill } : {}}
                               xmlns="http://www.w3.org/2000/svg"
@@ -613,6 +623,7 @@ const WaitList = () => {
                                 clipRule="evenodd"
                               />
                             </svg>
+                            {/* right */}
 
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
@@ -631,6 +642,7 @@ const WaitList = () => {
                               />
                             </svg>
 
+                            {/* info */}
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
@@ -654,6 +666,8 @@ const WaitList = () => {
                                 clipRule="evenodd"
                               />
                             </svg>
+
+                            {/* option */}
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"

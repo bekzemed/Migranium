@@ -9,6 +9,8 @@ const WaitListMember = () => {
   const { state } = useLocation();
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
+  const fill = useAppSelector((state) => state.theme.fillColor);
+  const textColor = useAppSelector((state) => state.theme.textColor);
 
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
@@ -93,19 +95,33 @@ const WaitListMember = () => {
               />
             </div>
             <div className="flex items-center ">
+              {/* add */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="#0070BA"
-                className="w-6 h-6 mr-1"
+                viewBox="0 0 20 20"
+                style={selected === 10 ? { fill: fill } : {}}
+                className={`w-5 h-5 mr-2 ${
+                  fill === "fill-theme0" || fill === "fill-theme1"
+                    ? "fill-black"
+                    : fill
+                }`}
               >
                 <path
                   fillRule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="text-primary text-xs">Add field</span>
+              <span
+                style={selected === 10 ? { color: textColor } : {}}
+                className={`${
+                  textColor === "text-theme0" || textColor === "text-theme1"
+                    ? "text-black"
+                    : textColor
+                }`}
+              >
+                Add field
+              </span>
             </div>
           </div>
         </div>
@@ -283,19 +299,34 @@ const WaitListMember = () => {
                     />
 
                     <div className="flex items-center">
+                      {/* add */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#0070BA"
-                        className="w-6 h-6 mr-1"
+                        viewBox="0 0 20 20"
+                        style={selected === 10 ? { fill: fill } : {}}
+                        className={`w-5 h-5 mr-2 ${
+                          fill === "fill-theme0" || fill === "fill-theme1"
+                            ? "fill-black"
+                            : fill
+                        }`}
                       >
                         <path
                           fillRule="evenodd"
-                          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-11.25a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-primary text-xs">Add field</span>
+                      <span
+                        style={selected === 10 ? { color: textColor } : {}}
+                        className={`${
+                          textColor === "text-theme0" ||
+                          textColor === "text-theme1"
+                            ? "text-black"
+                            : textColor
+                        }`}
+                      >
+                        Add field
+                      </span>
                     </div>
                   </div>
                 </div>

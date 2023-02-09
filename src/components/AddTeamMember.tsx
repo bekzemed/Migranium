@@ -1,15 +1,8 @@
-import { useState } from "react";
+import { useAppSelector } from "../redux/hooks";
 
 const AddTeamMember = ({ addTeamMember, setAddTeamMember }: any) => {
-  const [fromDate, setFromDate] = useState(false);
-  const [toDate, setToDate] = useState(false);
-
-  const handleFromChange = (selectedDate: Date) => console.log(selectedDate);
-  const handleFromClose = (state: boolean) => setFromDate(state);
-
-  const handleToChange = (selectedDate: Date) => console.log(selectedDate);
-  const handleToClose = (state: boolean) => setToDate(state);
-
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const selected = useAppSelector((state) => state.theme.selected);
   return (
     <div className="bg-white rounded-lg absolute left-1/2 top-1/2 center-absolute dark:text-black w-[350px] xl:w-[400px] p-4 z-30 shadow-lg">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
@@ -127,7 +120,12 @@ const AddTeamMember = ({ addTeamMember, setAddTeamMember }: any) => {
         <div className="flex justify-center">
           <button
             type="button"
-            className=" p-2 text-xs xl:w-[150px] font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+            style={selected === 10 ? { backgroundColor: theme } : {}}
+            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+              theme === "bg-theme0" || theme === "bg-theme1"
+                ? "bg-black"
+                : theme
+            }`}
           >
             Add team member
           </button>

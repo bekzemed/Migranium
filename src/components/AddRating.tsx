@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import right from "../assets/right.svg";
+import { useState } from "react";
 import decline from "../assets/decline.svg";
+import right from "../assets/right.svg";
+import { useAppSelector } from "../redux/hooks";
 
 const AddRating = ({
   closeQueue,
@@ -10,6 +11,9 @@ const AddRating = ({
 }: any) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+  const selected = useAppSelector((state) => state.theme.selected);
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
+  const color = useAppSelector((state) => state.theme.color);
 
   return (
     <div>
@@ -46,13 +50,19 @@ const AddRating = ({
                 </div>
               </div>
             </div>
+
             <button
+              style={selected === 10 ? { backgroundColor: theme } : {}}
               type="button"
-              className="bg-secondary text-xs text-white rounded-full focus-visible:outline-none focus:outline-none w-[200px]"
               onClick={() => {
                 setRateClosingQueue(true);
                 setCloseQueue(false);
               }}
+              className={`text-xs text-white rounded-full focus-visible:outline-none focus:outline-none w-[200px] ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
             >
               Close queue
             </button>
@@ -91,10 +101,10 @@ const AddRating = ({
                     return (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        fill={index <= (hover || rating) ? "#0070BA" : "#fff"}
+                        fill={index <= (hover || rating) ? `${color}` : "#fff"}
                         viewBox="0 0 24 24"
                         stroke-width="1.5"
-                        stroke="#0070BA"
+                        stroke={`${color}`}
                         className={`w-6 h-6 ${index !== 5 && "mr-2"}`}
                         onClick={() => setRating(index)}
                         onMouseEnter={() => setHover(index)}
@@ -124,9 +134,14 @@ const AddRating = ({
             </div>
             <div className="text-center">
               <button
+                style={selected === 10 ? { backgroundColor: theme } : {}}
                 type="button"
-                className="bg-secondary text-xs text-white rounded-full focus-visible:outline-none focus:outline-none w-[200px]"
                 onClick={() => setRateClosingQueue(false)}
+                className={`text-xs text-white rounded-full focus-visible:outline-none focus:outline-none w-[200px] ${
+                  theme === "bg-theme0" || theme === "bg-theme1"
+                    ? "bg-black"
+                    : theme
+                }`}
               >
                 Close queue
               </button>

@@ -266,14 +266,18 @@ const Themes = () => {
                     className="bg-gray-50 border w-full  border-gray-300 text-gray-900 text-sm rounded-full  block pl-20 pr-2 py-2 focus-visible:outline-none focus:outline-none"
                     placeholder="Select custom color"
                     value={customColor}
-                    readOnly
                     required
                   />
                 </div>
                 <div className="flex justify-center">
                   <button
                     type="button"
-                    className=" p-2 text-xs xl:w-[150px] font-medium text-center bg-secondary text-white  rounded-full focus-visible:outline-none focus:outline-none"
+                    style={selected === 10 ? { backgroundColor: theme } : {}}
+                    className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                      theme === "bg-theme0" || theme === "bg-theme1"
+                        ? "bg-black"
+                        : theme
+                    }`}
                     onClick={() => {
                       dispatch(changeTheme(`${customColor}`));
                       dispatch(changeFillColor(`${customColor}`));

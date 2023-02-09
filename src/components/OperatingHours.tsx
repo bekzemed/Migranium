@@ -59,7 +59,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -81,7 +81,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ml-3 ${
+                  className={`w-5 h-5 ml-1 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -138,7 +138,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -160,7 +160,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ml-3 ${
+                  className={`w-5 h-5 ml-1 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -217,7 +217,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -239,7 +239,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ml-3 ${
+                  className={`w-5 h-5 ml-1 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -296,7 +296,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -318,7 +318,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ml-3 ${
+                  className={`w-5 h-5 ml-1 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -375,7 +375,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -397,7 +397,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ml-3 ${
+                  className={`w-5 h-5 ml-1 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -454,7 +454,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -476,7 +476,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ml-3 ${
+                  className={`w-5 h-5 ml-1 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -532,7 +532,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -554,7 +554,7 @@ const OperatingHours = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   style={selected === 10 ? { fill: fill } : {}}
-                  className={`w-6 h-6 ml-3 ${
+                  className={`w-5 h-5 ml-1 ${
                     fill === "fill-theme0" || fill === "fill-theme1"
                       ? "fill-black"
                       : fill
@@ -585,7 +585,7 @@ const OperatingHours = () => {
 
 const Toggle = ({ setClose, close }: any) => {
   return (
-    <div className="ml-3 lg:ml-[15px] 2xl:ml-10 flex items-center">
+    <div className="ml-1 lg:ml-2 flex items-center">
       <label className="relative inline-flex items-center cursor-pointer">
         <input
           type="checkbox"
