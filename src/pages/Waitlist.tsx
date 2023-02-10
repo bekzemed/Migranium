@@ -51,6 +51,7 @@ const WaitList = () => {
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   const fill = useAppSelector((state) => state.theme.fillColor);
+  const color = useAppSelector((state) => state.theme.color);
 
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
@@ -118,40 +119,38 @@ const WaitList = () => {
                     <span className="opacity-40 px-5 border-x-2">Clinic</span>
                     <span className="opacity-40 px-5">2.2 days</span>
 
+                    {/* right */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
-                      style={selected === 10 ? { fill: fill } : {}}
-                      className={`w-[30px] ${
-                        fill === "fill-theme0" || fill === "fill-theme1"
-                          ? "fill-black"
-                          : fill
-                      }`}
+                      strokeWidth="1.5"
+                      stroke={`${color}`}
+                      fill="#fff"
+                      className="w-6 h-6 mr-2"
                     >
                       <path
-                        fillRule="evenodd"
-                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                        clipRule="evenodd"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
 
+                    {/* info */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
-                      style={selected === 10 ? { fill: fill } : {}}
-                      className={`w-[30px] ${
-                        fill === "fill-theme0" || fill === "fill-theme1"
-                          ? "fill-black"
-                          : fill
-                      }`}
+                      strokeWidth="1.5"
+                      stroke={`${color}`}
+                      fill="#fff"
+                      className="w-6 h-6"
                       onClick={() => {
                         setShowWaitUser(true);
                       }}
                     >
                       <path
-                        fillRule="evenodd"
-                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                        clipRule="evenodd"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
                       />
                     </svg>
                   </div>
@@ -190,61 +189,61 @@ const WaitList = () => {
                         </td>
                         <td className="py-4 opacity-40">2.2 days</td>
                         <td className="py-4 flex justify-end">
+                          {/* right */}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            style={selected === 10 ? { fill: fill } : {}}
-                            className={`w-6 h-6 mr-2 ${
-                              fill === "fill-theme0" || fill === "fill-theme1"
-                                ? "fill-black"
-                                : fill
-                            }`}
+                            strokeWidth="1.5"
+                            stroke={`${color}`}
+                            fill="#fff"
+                            className="w-6 h-6 mr-2"
                           >
                             <path
-                              fillRule="evenodd"
-                              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                              clipRule="evenodd"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                             />
                           </svg>
+
+                          {/* info */}
 
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            style={selected === 10 ? { fill: fill } : {}}
-                            className={`w-6 h-6 mr-2 ${
-                              fill === "fill-theme0" || fill === "fill-theme1"
-                                ? "fill-black"
-                                : fill
-                            }`}
+                            strokeWidth="1.5"
+                            stroke={`${color}`}
+                            fill="#fff"
+                            className="w-6 h-6 mr-2"
                             onClick={() => {
                               setShowWaitUserInfo(true);
                               setWaitUserInfo(user);
                             }}
                           >
                             <path
-                              fillRule="evenodd"
-                              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                              clipRule="evenodd"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
                             />
                           </svg>
+
+                          {/* option */}
+
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
-                            style={selected === 10 ? { fill: fill } : {}}
-                            className={`w-6 h-6 ${
-                              fill === "fill-theme0" || fill === "fill-theme1"
-                                ? "fill-black"
-                                : fill
-                            }`}
+                            strokeWidth="1.5"
+                            stroke={`${color}`}
+                            fill="#fff"
+                            className="w-6 h-6"
                             onClick={() => {
                               setOptions(!showOptions);
                               setOptionsIndex(user.id);
                             }}
                           >
                             <path
-                              fillRule="evenodd"
-                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm0 8.625a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM15.375 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zM7.5 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
-                              clipRule="evenodd"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                             />
                           </svg>
                         </td>
@@ -343,20 +342,19 @@ const WaitList = () => {
                       <span className="mr-3">Marakinyo</span>
                       <div className="flex items-center">
                         {/* chat */}
+
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
-                          style={selected === 10 ? { fill: fill } : {}}
-                          className={`w-6 h-6 mr-2 ${
-                            fill === "fill-theme0" || fill === "fill-theme1"
-                              ? "fill-black"
-                              : fill
-                          }`}
+                          strokeWidth="1.5"
+                          stroke={`${color}`}
+                          fill="#fff"
+                          className="w-6 h-6 mr-2"
                         >
                           <path
-                            fillRule="evenodd"
-                            d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
-                            clipRule="evenodd"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"
                           />
                         </svg>
 
@@ -365,33 +363,31 @@ const WaitList = () => {
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
-                          style={selected === 10 ? { fill: fill } : {}}
-                          className={`w-6 h-6 mr-2 ${
-                            fill === "fill-theme0" || fill === "fill-theme1"
-                              ? "fill-black"
-                              : fill
-                          }`}
+                          strokeWidth="1.5"
+                          stroke={`${color}`}
+                          fill="#fff"
+                          className="w-6 h-6 mr-2"
                         >
-                          <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
-                          <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                          />
                         </svg>
 
                         {/* phone */}
-
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
-                          style={selected === 10 ? { fill: fill } : {}}
-                          className={`w-6 h-6 ${
-                            fill === "fill-theme0" || fill === "fill-theme1"
-                              ? "fill-black"
-                              : fill
-                          }`}
+                          strokeWidth="1.5"
+                          stroke={`${color}`}
+                          fill="#fff"
+                          className="w-6 h-6 mr-2"
                         >
                           <path
-                            fillRule="evenodd"
-                            d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"
-                            clipRule="evenodd"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
                           />
                         </svg>
                       </div>
@@ -403,38 +399,35 @@ const WaitList = () => {
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        style={selected === 10 ? { fill: fill } : {}}
-                        className={`w-6 h-6 mr-2 ${
-                          fill === "fill-theme0" || fill === "fill-theme1"
-                            ? "fill-black"
-                            : fill
-                        }`}
+                        strokeWidth="1.5"
+                        stroke={`${color}`}
+                        fill="#fff"
+                        className="w-6 h-6 mr-2"
                       >
                         <path
-                          fillRule="evenodd"
-                          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                          clipRule="evenodd"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
                       </svg>
+
                       {/* info */}
 
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        style={selected === 10 ? { fill: fill } : {}}
-                        className={`w-6 h-6 mr-2 ${
-                          fill === "fill-theme0" || fill === "fill-theme1"
-                            ? "fill-black"
-                            : fill
-                        }`}
+                        strokeWidth="1.5"
+                        stroke={`${color}`}
+                        fill="#fff"
+                        className="w-6 h-6 mr-2"
                         onClick={() => {
                           setShowWaitUser(true);
                         }}
                       >
                         <path
-                          fillRule="evenodd"
-                          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                          clipRule="evenodd"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
                         />
                       </svg>
 
@@ -443,15 +436,16 @@ const WaitList = () => {
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        style={selected === 10 ? { fill: fill } : {}}
-                        className={`w-6 h-6 mr-2 ${
-                          fill === "fill-theme0" || fill === "fill-theme1"
-                            ? "fill-black"
-                            : fill
-                        }`}
+                        strokeWidth="1.5"
+                        stroke={`${color}`}
+                        fill="#fff"
+                        className="w-6 h-6 mr-2"
                       >
-                        <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
-                        <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                        />
                       </svg>
 
                       {/* up and down arrow */}
@@ -478,17 +472,15 @@ const WaitList = () => {
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        style={selected === 10 ? { fill: fill } : {}}
-                        className={`w-6 h-6 ${
-                          fill === "fill-theme0" || fill === "fill-theme1"
-                            ? "fill-black"
-                            : fill
-                        }`}
+                        strokeWidth="1.5"
+                        stroke={`${color}`}
+                        fill="#fff"
+                        className="w-6 h-6"
                       >
                         <path
-                          fillRule="evenodd"
-                          d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z"
-                          clipRule="evenodd"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
                         />
                       </svg>
                     </div>
@@ -541,19 +533,16 @@ const WaitList = () => {
 
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                style={selected === 10 ? { fill: fill } : {}}
-                                className={`w-5 h-5 mr-2 ${
-                                  fill === "fill-theme0" ||
-                                  fill === "fill-theme1"
-                                    ? "fill-black"
-                                    : fill
-                                }`}
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke={`${color}`}
+                                fill="#fff"
+                                className="w-5 h-5 mr-2"
                               >
                                 <path
-                                  fillRule="evenodd"
-                                  d="M10 3c-4.31 0-8 3.033-8 7 0 2.024.978 3.825 2.499 5.085a3.478 3.478 0 01-.522 1.756.75.75 0 00.584 1.143 5.976 5.976 0 003.936-1.108c.487.082.99.124 1.503.124 4.31 0 8-3.033 8-7s-3.69-7-8-7zm0 8a1 1 0 100-2 1 1 0 000 2zm-2-1a1 1 0 11-2 0 1 1 0 012 0zm5 1a1 1 0 100-2 1 1 0 000 2z"
-                                  clipRule="evenodd"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"
                                 />
                               </svg>
 
@@ -561,36 +550,32 @@ const WaitList = () => {
 
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                style={selected === 10 ? { fill: fill } : {}}
-                                className={`w-5 h-5 mr-2 ${
-                                  fill === "fill-theme0" ||
-                                  fill === "fill-theme1"
-                                    ? "fill-black"
-                                    : fill
-                                }`}
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke={`${color}`}
+                                fill="#fff"
+                                className="w-5 h-5 mr-2"
                               >
-                                <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
-                                <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                                />
                               </svg>
 
                               {/* phone */}
-
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                style={selected === 10 ? { fill: fill } : {}}
-                                className={`w-5 h-5 ${
-                                  fill === "fill-theme0" ||
-                                  fill === "fill-theme1"
-                                    ? "fill-black"
-                                    : fill
-                                }`}
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke={`${color}`}
+                                fill="#fff"
+                                className="w-5 h-5 mr-2"
                               >
                                 <path
-                                  fillRule="evenodd"
-                                  d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z"
-                                  clipRule="evenodd"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
                                 />
                               </svg>
                             </div>
@@ -607,38 +592,36 @@ const WaitList = () => {
                           </td>
                           <td className="py-4 flex justify-end">
                             {/* bell */}
+
                             <svg
-                              style={selected === 10 ? { fill: fill } : {}}
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
-                              className={`w-6 h-6 mr-2 cursor-pointer ${
-                                fill === "fill-theme0" || fill === "fill-theme1"
-                                  ? "fill-black"
-                                  : fill
-                              }`}
+                              strokeWidth="1.5"
+                              stroke={`${color}`}
+                              fill="#fff"
+                              className="w-5 h-5 mr-2 cursor-pointer"
                             >
                               <path
-                                fillRule="evenodd"
-                                d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
-                                clipRule="evenodd"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
                               />
                             </svg>
+
                             {/* right */}
 
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
-                              style={selected === 10 ? { fill: fill } : {}}
-                              className={`w-6 h-6 mr-2 ${
-                                fill === "fill-theme0" || fill === "fill-theme1"
-                                  ? "fill-black"
-                                  : fill
-                              }`}
+                              strokeWidth="1.5"
+                              stroke={`${color}`}
+                              fill="#fff"
+                              className="w-5 h-5 mr-2"
                             >
                               <path
-                                fillRule="evenodd"
-                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                                clipRule="evenodd"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                               />
                             </svg>
 
@@ -646,12 +629,10 @@ const WaitList = () => {
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
-                              style={selected === 10 ? { fill: fill } : {}}
-                              className={`w-6 h-6 mr-2 ${
-                                fill === "fill-theme0" || fill === "fill-theme1"
-                                  ? "fill-black"
-                                  : fill
-                              }`}
+                              strokeWidth="1.5"
+                              stroke={`${color}`}
+                              fill="#fff"
+                              className="w-5 h-5 mr-2"
                               onClick={() =>
                                 navigate(`${user.id}`, {
                                   state: waitUsers.find(
@@ -661,31 +642,30 @@ const WaitList = () => {
                               }
                             >
                               <path
-                                fillRule="evenodd"
-                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                                clipRule="evenodd"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
                               />
                             </svg>
 
                             {/* option */}
+
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
-                              style={selected === 10 ? { fill: fill } : {}}
-                              className={`w-6 h-6 ${
-                                fill === "fill-theme0" || fill === "fill-theme1"
-                                  ? "fill-black"
-                                  : fill
-                              }`}
+                              strokeWidth="1.5"
+                              stroke={`${color}`}
+                              fill="#fff"
+                              className="w-5 h-5"
                               onClick={() => {
                                 setOptions(!showOptions);
                                 setOptionsIndex(user.id);
                               }}
                             >
                               <path
-                                fillRule="evenodd"
-                                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm0 8.625a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM15.375 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zM7.5 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z"
-                                clipRule="evenodd"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                               />
                             </svg>
                           </td>
