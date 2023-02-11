@@ -21,33 +21,34 @@ const UserProfileSetting = () => {
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
-        <div className="flex items-center justify-between">
-          <div>
-            <span className="opacity-80 block mb-1 text-xs">
-              Ronald Richards
-            </span>
-            <span className="text-2xl block mb-4">Profile settings</span>
+      <div className="pt-10 flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black">
+        <div className="px-2 flex-1">
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="opacity-80 block mb-1 text-xs">
+                Ronald Richards
+              </span>
+              <span className="text-2xl block mb-4">Profile settings</span>
+            </div>
+
+            <button
+              style={selected === 10 ? { backgroundColor: theme } : {}}
+              type="button"
+              className={`p-2 whitespace-nowrap text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                theme === "bg-theme0" || theme === "bg-theme1"
+                  ? "bg-black"
+                  : theme
+              }`}
+            >
+              Save changes
+            </button>
           </div>
 
-          <button
-            style={selected === 10 ? { backgroundColor: theme } : {}}
-            type="button"
-            className={`p-2 whitespace-nowrap text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
-              theme === "bg-theme0" || theme === "bg-theme1"
-                ? "bg-black"
-                : theme
-            }`}
-          >
-            Save changes
-          </button>
+          <UserProfileSettingComponent />
         </div>
-
-        <UserProfileSettingComponent />
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboarUserMobile />
+        <div className="text-xs w-screen block lg:hidden">
+          <DashboarUserMobile />
+        </div>
       </div>
 
       {/* desktop */}

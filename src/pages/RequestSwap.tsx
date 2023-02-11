@@ -21,46 +21,47 @@ const RequestSwap = () => {
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
-        <span className="opacity-80 block mb-1 text-xs">Ronald Richards</span>
-        <span className="text-2xl block mb-4">Request to swap turn</span>
+      <div className="pt-10 flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black">
+        <div className="px-2 flex-1">
+          <span className="opacity-80 block mb-1 text-xs">Ronald Richards</span>
+          <span className="text-2xl block mb-4">Request to swap turn</span>
 
-        <div className="bg-white rounded-lg px-4 py-4 mb-6 lg:px-6">
-          <div className="flex flex-col text-xs">
-            <div className="mb-4">
-              <span className="block mb-3 opacity-40">
-                You have proposal to swap turn with:
-              </span>
-              <span className="text-base">Brooklyn Simmons</span>
-            </div>
-            <div className="mb-4">
-              <span className="block mb-3 opacity-40">
-                proposal number on queue:
-              </span>
-              <span className="text-base">3</span>
-            </div>
-            <div className="mb-4">
-              <span className="block mb-3 opacity-40">
-                proposal estimated wait time is:
-              </span>
-              <span className="text-base">0 hours 45 minutes</span>
-            </div>
-            <div className="flex">
-              <div className="flex items-center mr-3">
-                <img src={right} alt="" className="mr-2" />
-                <span className="text-[#6ACA57]">Accept</span>
+          <div className="bg-white rounded-lg px-4 py-4 mb-6 lg:px-6">
+            <div className="flex flex-col text-xs">
+              <div className="mb-4">
+                <span className="block mb-3 opacity-40">
+                  You have proposal to swap turn with:
+                </span>
+                <span className="text-base">Brooklyn Simmons</span>
               </div>
-              <div className="flex items-center mr-3">
-                <img src={decline} alt="" className="mr-2" />
-                <span className="text-[#FF0000]">Decline</span>
+              <div className="mb-4">
+                <span className="block mb-3 opacity-40">
+                  proposal number on queue:
+                </span>
+                <span className="text-base">3</span>
+              </div>
+              <div className="mb-4">
+                <span className="block mb-3 opacity-40">
+                  proposal estimated wait time is:
+                </span>
+                <span className="text-base">0 hours 45 minutes</span>
+              </div>
+              <div className="flex">
+                <div className="flex items-center mr-3">
+                  <img src={right} alt="" className="mr-2" />
+                  <span className="text-[#6ACA57]">Accept</span>
+                </div>
+                <div className="flex items-center mr-3">
+                  <img src={decline} alt="" className="mr-2" />
+                  <span className="text-[#FF0000]">Decline</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboarUserMobile />
+        <div className="text-xs w-screen block lg:hidden">
+          <DashboarUserMobile />
+        </div>
       </div>
 
       {/* desktop */}

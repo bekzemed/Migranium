@@ -13,10 +13,10 @@ const WaitListMember = () => {
   const textColor = useAppSelector((state) => state.theme.textColor);
 
   return (
-    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
+    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
       <DashNav />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black mb-6">
+      <div className="px-2 pt-10 pb-5 flex-1 overflow-y-scroll lg:hidden dark:text-black mb-6">
         <span className="opacity-80 block mb-1 text-xs">Profile info</span>
         <span className="text-2xl block mb-4">{state.name}</span>
 

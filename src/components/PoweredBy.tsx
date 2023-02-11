@@ -7,7 +7,7 @@ const PoweredBy = () => {
   const fill = useAppSelector((state) => state.theme.fillColor);
 
   return (
-    <div className="text-center flex items-center justify-center text-[10px] opacity-70 m-3 lg:m-0">
+    <div className="text-center flex items-center justify-center text-[10px] opacity-70 lg:m-0">
       <span className="mr-2">Powered by</span>
       <Link to="/">
         <span

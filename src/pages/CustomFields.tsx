@@ -11,10 +11,10 @@ const CustomFields = () => {
   const fill = useAppSelector((state) => state.theme.fillColor);
   const textColor = useAppSelector((state) => state.theme.textColor);
   return (
-    <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
+    <div className="bg-primary h-screen flex flex-col overflow-y-scroll h-full">
       <DashNav />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
+      <div className="px-2 pt-10 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
         <div className="flex-1">
           <span className="opacity-80 block mb-1 text-xs">Cashex</span>
           <span className="text-2xl block mb-4">Custom fields</span>

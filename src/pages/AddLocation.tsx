@@ -9,10 +9,10 @@ const AddLocation = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
+    <div className="bg-primary h-screen flex flex-col overflow-y-scroll h-full">
       <DashNav />
 
-      <div className="pt-10 px-2 flex-1 overflow-y-scroll lg:hidden flex flex-col dark:text-black">
+      <div className="pt-10 pb-5 px-2 flex-1 overflow-y-scroll lg:hidden flex flex-col dark:text-black">
         <div className="flex-1">
           <div className="flex justify-between items-center">
             <div>

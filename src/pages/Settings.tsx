@@ -60,7 +60,7 @@ const Settings = () => {
   const station2TeamMember = ["Cody Fisher", "Albert Flores"];
 
   return (
-    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
+    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
       <DashNav />
 
       {onEditTeamMember && (
@@ -72,7 +72,7 @@ const Settings = () => {
       )}
 
       <div
-        className={`px-2 pt-10 flex-1 overflow-y-scroll lg:hidden flex flex-col dark:text-black ${
+        className={`px-2 pt-10 pb-5 flex-1 overflow-y-scroll lg:hidden flex flex-col dark:text-black ${
           onEditTeamMember && "filter blur-sm"
         }`}
       >

@@ -33,14 +33,16 @@ const ChatWithAdmin = () => {
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="px-2 pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black">
-        <span className="opacity-80 block mb-1 text-xs">Ronald Richards</span>
-        <span className="text-2xl block mb-4">Chat with admin</span>
-        <ChatWithAdminComponent messages={messages} />
-      </div>
+      <div className="pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black flex flex-col">
+        <div className="px-2 flex-1">
+          <span className="opacity-80 block mb-1 text-xs">Ronald Richards</span>
+          <span className="text-2xl block mb-4">Chat with admin</span>
+          <ChatWithAdminComponent messages={messages} />
+        </div>
 
-      <div className="text-xs w-screen block lg:hidden dark:text-black">
-        <DashboarUserMobile />
+        <div className="text-xs w-screen block lg:hidden dark:text-black">
+          <DashboarUserMobile />
+        </div>
       </div>
 
       {/* desktop */}

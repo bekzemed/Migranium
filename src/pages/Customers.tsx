@@ -14,7 +14,7 @@ const Customers = () => {
 
   return (
     <div
-      className={`bg-primary flex-1 flex flex-col ${
+      className={`bg-primary flex-1 flex flex-col h-full ${
         showNotification && "bg-[#00000005]"
       } overflow-y-scroll`}
     >
@@ -25,7 +25,7 @@ const Customers = () => {
       />
 
       <div
-        className={`px-2 pt-10 flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black ${
+        className={`px-2 pt-10 pb-5 flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black ${
           showNotification && "background-notification dark:bg-primary"
         }`}
       >

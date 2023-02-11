@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import TopMenuImage from "../assets/top-menu.svg";
 
 const TopMenu = () => {
@@ -14,9 +15,11 @@ const TopMenu = () => {
             customers happy.
           </span>
           <div className="flex items-center justify-between pb-10 md:justify-start">
-            <button className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none md:mr-10">
-              Try it free
-            </button>
+            <Link to="/sign-up">
+              <button className="bg-secondary text-white font-bold py-2 px-8 rounded-full focus-visible:outline-none focus:outline-none md:mr-10">
+                Try it free
+              </button>
+            </Link>
 
             <div className="flex items-center lg:text-left">
               <svg

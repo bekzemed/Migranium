@@ -23,79 +23,89 @@ export const DashboardMobile = () => {
         theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
       } gap-9 md:justify-center whitespace-nowrap  px-2 py-4 text-white`}
     >
-      <Link to="/dashboard/waitlist">
-        <li>
-          <img src={waitlist} alt="Waitlist" className="m-auto mb-1" />
-          <span>Waitlist</span>
-        </li>
-      </Link>
+      <li>
+        <Link to="/dashboard/waitlist">
+          <div>
+            <img src={waitlist} alt="Waitlist" className="m-auto mb-1" />
+            <span>Waitlist</span>
+          </div>
+        </Link>
+      </li>
 
-      <Link to="/dashboard/messages">
-        <li>
-          <img src={messages} alt="Messages" className="m-auto mb-1" />
+      <li>
+        <Link to="/dashboard/messages">
+          <div>
+            <img src={messages} alt="Messages" className="m-auto mb-1" />
+            <span>Messages</span>
+          </div>
+        </Link>
+      </li>
 
-          <span>Messages</span>
-        </li>
-      </Link>
+      <li>
+        <Link to="/dashboard">
+          <div>
+            <img src={location} alt="Location" className="m-auto mb-1" />
+            <span>Locations</span>
+          </div>
+        </Link>
+      </li>
 
-      <Link to="/dashboard">
-        <li>
-          <img src={location} alt="Location" className="m-auto mb-1" />
+      <li>
+        <Link to="/dashboard/team-members">
+          <div>
+            <img src={members} alt="Team members" className="m-auto mb-1" />
+            <span>Team members</span>
+          </div>
+        </Link>
+      </li>
 
-          <span>Locations</span>
-        </li>
-      </Link>
+      <li>
+        <Link to="/dashboard/custom-fields">
+          <div>
+            <img src={fields} alt="Team members" className="m-auto mb-1" />
+            <span>Custom Fields</span>
+          </div>
+        </Link>
+      </li>
 
-      <Link to="/dashboard/team-members">
-        <li>
-          <img src={members} alt="Team members" className="m-auto mb-1" />
+      <li>
+        <Link to="/dashboard/customers">
+          <div>
+            <img src={customers} alt="Customers" className="m-auto mb-1" />
+            <span>Customers</span>
+          </div>
+        </Link>
+      </li>
+      <li>
+        <Link to="/dashboard/theme">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="#fff"
+              className="w-5 h-5 mx-auto mb-1"
+            >
+              <path
+                fillRule="evenodd"
+                d="M8.5 3.528v4.644c0 .729-.29 1.428-.805 1.944l-1.217 1.216a8.75 8.75 0 013.55.621l.502.201a7.25 7.25 0 004.178.365l-2.403-2.403a2.75 2.75 0 01-.805-1.944V3.528a40.205 40.205 0 00-3 0zm4.5.084l.19.015a.75.75 0 10.12-1.495 41.364 41.364 0 00-6.62 0 .75.75 0 00.12 1.495L7 3.612v4.56c0 .331-.132.649-.366.883L2.6 13.09c-1.496 1.496-.817 4.15 1.403 4.475C5.961 17.852 7.963 18 10 18s4.039-.148 5.997-.436c2.22-.325 2.9-2.979 1.403-4.475l-4.034-4.034A1.25 1.25 0 0113 8.172v-4.56z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span>Theme</span>
+          </div>
+        </Link>
+      </li>
 
-          <span>Team members</span>
-        </li>
-      </Link>
-
-      <Link to="/dashboard/custom-fields">
-        <li>
-          <img src={fields} alt="Team members" className="m-auto mb-1" />
-
-          <span>Custom Fields</span>
-        </li>
-      </Link>
-
-      <Link to="/dashboard/customers">
-        <li>
-          <img src={customers} alt="Customers" className="m-auto mb-1" />
-          <span>Customers</span>
-        </li>
-      </Link>
-      <Link to="/dashboard/theme">
-        <li>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="#fff"
-            className="w-5 h-5 mx-auto mb-1"
-          >
-            <path
-              fillRule="evenodd"
-              d="M8.5 3.528v4.644c0 .729-.29 1.428-.805 1.944l-1.217 1.216a8.75 8.75 0 013.55.621l.502.201a7.25 7.25 0 004.178.365l-2.403-2.403a2.75 2.75 0 01-.805-1.944V3.528a40.205 40.205 0 00-3 0zm4.5.084l.19.015a.75.75 0 10.12-1.495 41.364 41.364 0 00-6.62 0 .75.75 0 00.12 1.495L7 3.612v4.56c0 .331-.132.649-.366.883L2.6 13.09c-1.496 1.496-.817 4.15 1.403 4.475C5.961 17.852 7.963 18 10 18s4.039-.148 5.997-.436c2.22-.325 2.9-2.979 1.403-4.475l-4.034-4.034A1.25 1.25 0 0113 8.172v-4.56z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <span>Theme</span>
-        </li>
-      </Link>
-
-      <Link to="/dashboard/settings">
-        <li>
-          <img src={settings} alt="Settings" className="m-auto mb-1" />
-
-          <span>Settings</span>
-        </li>
-      </Link>
+      <li>
+        <Link to="/dashboard/settings">
+          <div>
+            <img src={settings} alt="Settings" className="m-auto mb-1" />
+            <span>Settings</span>
+          </div>
+        </Link>
+      </li>
       <li>
         <img src={logout} alt="Log out" className="m-auto mb-1" />
-
         <span>Log out</span>
       </li>
     </ul>

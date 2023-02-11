@@ -30,12 +30,14 @@ import ScrollToTop from "./util/scrollToTop";
 
 const Layout = () => {
   return (
-    <>
-      <Outlet />
+    <div className="flex flex-col h-screen">
+      <div className="flex-1 relative">
+        <Outlet />
+      </div>
       <div className="text-xs w-screen block lg:hidden">
         <DashboardMobile />
       </div>
-    </>
+    </div>
   );
 };
 

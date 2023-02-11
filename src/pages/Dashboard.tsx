@@ -25,7 +25,7 @@ const Dashboard = () => {
   const fill = useAppSelector((state) => state.theme.fillColor);
   const textColor = useAppSelector((state) => state.theme.textColor);
   return (
-    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll">
+    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
       <DashNav />
 
       {showLocationInfo && (
@@ -44,7 +44,7 @@ const Dashboard = () => {
       )}
 
       <div
-        className={`px-2 pt-10 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black ${
+        className={`px-2 pt-10 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black ${
           (showLocationInfo || addStation || showQRCode) && "filter blur-sm"
         }`}
       >

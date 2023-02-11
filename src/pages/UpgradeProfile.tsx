@@ -80,7 +80,7 @@ const UpgradeProfile = () => {
   const [planType, setPlanType] = useState("");
 
   return (
-    <div className="bg-primary h-screen flex flex-col overflow-y-scroll">
+    <div className="bg-primary flex flex-col overflow-y-scroll h-full">
       <DashNav />
 
       {showPlan && (
@@ -92,7 +92,7 @@ const UpgradeProfile = () => {
       )}
 
       <div
-        className={`px-2 pt-10 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black ${
+        className={`px-2 pt-10 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black ${
           showPlan && "filter blur-sm"
         }`}
       >

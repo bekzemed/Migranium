@@ -5,6 +5,8 @@ const Pagination = () => {
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   const textColor = useAppSelector((state) => state.theme.textColor);
+  console.log(theme);
+
   return (
     <div className="mb-10">
       <ul className="flex justify-center cursor-pointer">
@@ -12,7 +14,7 @@ const Pagination = () => {
           style={selected === 10 ? { backgroundColor: theme } : {}}
           className={`text-white rounded-full flex justify-center h-[35px] w-[35px] items-center mr-3 ${
             theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
-          }-3`}
+          }`}
         >
           1
         </li>

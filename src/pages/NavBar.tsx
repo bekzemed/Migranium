@@ -127,12 +127,14 @@ const NavBar = ({ show, onDone, hide }: any) => {
                       Log in
                     </span>
                   </Link>
-                  <button
-                    type="button"
-                    className="bg-secondary text-white font-bold rounded-full w-fit text-[10px] focus-visible:outline-none focus:outline-none ml-2"
-                  >
-                    Try it free
-                  </button>
+                  <Link to="/sign-up">
+                    <button
+                      type="button"
+                      className="bg-secondary text-white font-bold rounded-full w-fit text-[10px] focus-visible:outline-none focus:outline-none ml-2"
+                    >
+                      Try it free
+                    </button>
+                  </Link>
                 </div>
                 <button
                   data-collapse-toggle="navbar-default"
