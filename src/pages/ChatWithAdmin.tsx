@@ -37,7 +37,9 @@ const ChatWithAdmin = () => {
         <div className="px-2 flex-1">
           <span className="opacity-80 block mb-1 text-xs">Ronald Richards</span>
           <span className="text-2xl block mb-4">Chat with admin</span>
-          <ChatWithAdminComponent messages={messages} />
+          <div className="h-[70vh] overflow-y-scroll">
+            <ChatWithAdminComponent messages={messages} />
+          </div>
         </div>
 
         <div className="text-xs w-screen block lg:hidden dark:text-black">
