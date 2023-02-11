@@ -57,7 +57,7 @@ const WaitList = () => {
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
       <DashNav />
 
-      <div className="px-2 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
+      <div className="px-2 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
         <div className="flex-1">
           <span className="opacity-80 block mb-1 text-xs">Cashex</span>
           <span className="text-2xl block mb-4">Waitlist</span>
@@ -270,7 +270,7 @@ const WaitList = () => {
       </div>
       <div
         style={selected === 10 ? { backgroundColor: theme } : {}}
-        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-10 lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
+        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-2 lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
           theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
         }`}
         onClick={() => setShowAddCustomer(true)}
