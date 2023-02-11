@@ -60,7 +60,7 @@ const HomePage = () => {
   const textColor = useAppSelector((state) => state.theme.textColor);
 
   return (
-    <div className="bg-primary h-screen flex flex-col h-screen">
+    <div className="bg-primary h-screen flex flex-col">
       <DashNav
         show={show}
         onDone={() => onShow(!show)}
