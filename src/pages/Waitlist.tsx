@@ -54,15 +54,15 @@ const WaitList = () => {
   const color = useAppSelector((state) => state.theme.color);
 
   return (
-    <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
+    <div className="bg-primary flex-1 flex flex-col h-full">
       <DashNav />
 
-      <div className="px-2 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
+      <div className="px-2 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
         <div className="flex-1">
           <span className="opacity-80 block mb-1 text-xs">Cashex</span>
           <span className="text-2xl block mb-4">Waitlist</span>
 
-          <div className="flex text-xs justify-between mb-5">
+          <div className="flex text-xs justify-between mb-3">
             <div className="px-5 py-1 rounded-full border border-gray-300 bg-white flex items-center">
               <img src={user} alt="User" className="mr-1" />
               <span>0</span>
@@ -111,7 +111,7 @@ const WaitList = () => {
                 "filter blur-sm"
               }`}
             >
-              <div className="bg-white rounded-lg px-2 py-4 mb-6">
+              <div className="bg-white rounded-lg px-2 py-4 mb-3">
                 <span className="block mb-4">Next visitor is</span>
                 <div className="text-xs flex justify-between">
                   <span>Marakinyo</span>
@@ -159,7 +159,7 @@ const WaitList = () => {
 
               <WaitlistButtons />
 
-              <div className="bg-white rounded-lg px-2 py-4">
+              <div className="bg-white rounded-lg px-2 py-4 h-[30vh] overflow-y-scroll">
                 <table className="w-full">
                   <thead>
                     <tr className="opacity-40 dark:text-black text-xs border-b border-gray-300">

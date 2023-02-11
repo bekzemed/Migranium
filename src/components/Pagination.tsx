@@ -8,7 +8,7 @@ const Pagination = () => {
   console.log(theme);
 
   return (
-    <div className="mb-10">
+    <div>
       <ul className="flex justify-center cursor-pointer">
         <li
           style={selected === 10 ? { backgroundColor: theme } : {}}

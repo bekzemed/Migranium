@@ -80,11 +80,13 @@ const Customers = () => {
           </div>
 
           <div
-            className={` ${
+            className={`${
               showNotification
                 ? "background-notification dark:bg-primary"
                 : "bg-white"
-            } rounded-lg px-2 py-4 flex flex-col mb-6`}
+            } rounded-lg px-2 py-4 flex flex-col ${
+              (customer1 || customer2) && "h-[45vh] overflow-y-scroll"
+            }`}
           >
             <div className="pb-4">
               <div className="mb-4 flex justify-between items-center">
