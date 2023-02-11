@@ -65,7 +65,7 @@ const TeamMembers = () => {
         />
       )}
       <div
-        className={`px-2 pt-10 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black ${
+        className={`px-2 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black ${
           addTeamMember && "filter blur-sm"
         }`}
       >

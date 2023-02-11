@@ -5,7 +5,7 @@ import {
   DashboarUserMobile,
 } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
-import Header, { UserHeader } from "../components/Header";
+import Header from "../components/Header";
 
 const date = new Date();
 
@@ -33,7 +33,7 @@ const ChatWithAdmin = () => {
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="pt-10 flex-1 overflow-y-scroll lg:hidden dark:text-black flex flex-col">
+      <div className="flex-1 overflow-y-scroll lg:hidden dark:text-black flex flex-col">
         <div className="px-2 flex-1">
           <span className="opacity-80 block mb-1 text-xs">Ronald Richards</span>
           <span className="text-2xl block mb-4">Chat with admin</span>

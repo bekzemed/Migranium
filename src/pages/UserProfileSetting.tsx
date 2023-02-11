@@ -21,7 +21,7 @@ const UserProfileSetting = () => {
     <div className="bg-primary h-screen flex flex-col">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
-      <div className="pt-10 flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black">
+      <div className="flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black">
         <div className="px-2 flex-1">
           <div className="flex items-center justify-between">
             <div>

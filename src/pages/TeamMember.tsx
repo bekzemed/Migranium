@@ -19,7 +19,7 @@ const TeamMember = () => {
     <div className="bg-primary h-full flex flex-col overflow-y-scroll">
       <DashNav />
 
-      <div className="px-2 pt-10 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black mb-6">
+      <div className="px-2 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black mb-6">
         <div className="flex-1">
           <div className="flex justify-between items-end mb-4">
             <div>

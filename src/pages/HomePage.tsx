@@ -78,7 +78,7 @@ const HomePage = () => {
       {swap && <SwapJustification swap={swap} setSwap={setSwap} />}
 
       <div
-        className={`pt-10 flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black ${
+        className={`flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black ${
           (closeQueue || rateClosingQueue || swap) && "filter blur-sm"
         }`}
       >
