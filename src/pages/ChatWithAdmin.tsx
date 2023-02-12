@@ -42,9 +42,7 @@ const ChatWithAdmin = () => {
           </div>
         </div>
       </div>
-      <div className="text-xs w-screen block lg:hidden dark:text-black">
-        <DashboarUserMobile />
-      </div>
+      <DashboarUserMobile />
 
       {/* desktop */}
       <div className="w-full h-screen hidden lg:flex">

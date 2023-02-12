@@ -684,6 +684,7 @@ const Dashboard = () => {
             )}
           </div>
         </div>
+        <div></div>
         <Pagination />
         <PoweredBy />
       </div>

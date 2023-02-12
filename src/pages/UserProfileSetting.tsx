@@ -47,9 +47,7 @@ const UserProfileSetting = () => {
           <UserProfileSettingComponent />
         </div>
       </div>
-      <div className="text-xs w-screen block lg:hidden">
-        <DashboarUserMobile />
-      </div>
+      <DashboarUserMobile />
 
       {/* desktop */}
       <div className="w-full h-screen hidden lg:flex">

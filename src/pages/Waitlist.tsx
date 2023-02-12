@@ -54,7 +54,7 @@ const WaitList = () => {
   const color = useAppSelector((state) => state.theme.color);
 
   return (
-    <div className="bg-primary flex-1 flex flex-col h-full">
+    <div className="bg-primary flex-1 flex flex-col h-full relative">
       <DashNav />
 
       <div className="px-2 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
@@ -176,7 +176,7 @@ const WaitList = () => {
                       <tr
                         className={`text-center ${
                           index + 1 !== waitUsers.length && "border-b"
-                        } border-gray-300 py-4 relative`}
+                        } border-gray-300 py-4`}
                         key={index}
                       >
                         <th className="opacity-40 py-4">{index + 1}</th>
@@ -266,12 +266,11 @@ const WaitList = () => {
             </div>
           )}
         </div>
-
         <PoweredBy />
       </div>
       <div
         style={selected === 10 ? { backgroundColor: theme } : {}}
-        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-[72px] lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
+        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-[15px] lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
           theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
         }`}
         onClick={() => setShowAddCustomer(true)}

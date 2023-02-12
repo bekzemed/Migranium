@@ -1,9 +1,8 @@
 #root {
   width: 100vw;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
-  /* overflow-y: hidden; */
+  overflow-y: scroll;
+  background-color: #F1F5FB;
 }
 
 .scrollable {

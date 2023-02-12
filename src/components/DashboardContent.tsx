@@ -116,48 +116,50 @@ export const DashboarUserMobile = () => {
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   return (
-    <ul
-      style={selected === 10 ? { backgroundColor: theme } : {}}
-      className={`flex items-center overflow-x-scroll gap-9 md:justify-center whitespace-nowrap  px-2 py-4 text-white ${
-        theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
-      }`}
-    >
-      <Link to="/user/home-page">
+    <div className="fixed bottom-0 text-white text-xs w-screen lg:hidden">
+      <ul
+        style={selected === 10 ? { backgroundColor: theme } : {}}
+        className={`flex items-center overflow-x-scroll gap-9 md:justify-center whitespace-nowrap  px-2 py-4 ${
+          theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
+        }`}
+      >
+        <Link to="/user/home-page">
+          <li>
+            <img src={home} alt="Home" className="m-auto mb-1" />
+
+            <span>Home Page</span>
+          </li>
+        </Link>
+
+        <Link to="/user/chat-with-admin">
+          <li>
+            <img src={chat} alt="chat" className="m-auto mb-1" />
+            <span>Chat with admin</span>
+          </li>
+        </Link>
+
+        <Link to="/user/request-swap">
+          <li>
+            <img src={swap} alt="Swap" className="m-auto mb-1" />
+
+            <span>Request to swap</span>
+          </li>
+        </Link>
+
+        <Link to="/user/profile-setting">
+          <li>
+            <img src={settings} alt="Settings" className="m-auto mb-1" />
+
+            <span>Profile settings</span>
+          </li>
+        </Link>
         <li>
-          <img src={home} alt="Home" className="m-auto mb-1" />
+          <img src={logout} alt="Log out" className="m-auto mb-1" />
 
-          <span>Home Page</span>
+          <span>Log out</span>
         </li>
-      </Link>
-
-      <Link to="/user/chat-with-admin">
-        <li>
-          <img src={chat} alt="chat" className="m-auto mb-1" />
-          <span>Chat with admin</span>
-        </li>
-      </Link>
-
-      <Link to="/user/request-swap">
-        <li>
-          <img src={swap} alt="Swap" className="m-auto mb-1" />
-
-          <span>Request to swap</span>
-        </li>
-      </Link>
-
-      <Link to="/user/profile-setting">
-        <li>
-          <img src={settings} alt="Settings" className="m-auto mb-1" />
-
-          <span>Profile settings</span>
-        </li>
-      </Link>
-      <li>
-        <img src={logout} alt="Log out" className="m-auto mb-1" />
-
-        <span>Log out</span>
-      </li>
-    </ul>
+      </ul>
+    </div>
   );
 };
 

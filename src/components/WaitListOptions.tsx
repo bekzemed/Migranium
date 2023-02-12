@@ -7,7 +7,7 @@ const WaitListOptions = () => {
   const textColor = useAppSelector((state) => state.theme.textColor);
 
   return (
-    <div className="absolute bg-white rounded-lg w-[140px] z-30 right-0 shadow-lg p-4 border border-gray-300">
+    <div className="absolute bg-white rounded-lg w-[140px] right-2 shadow-lg p-4 border border-gray-300 z-[100]">
       <div className="flex flex-col">
         <div className="lg:hidden">
           <div className="flex text-xs items-center mb-3">
