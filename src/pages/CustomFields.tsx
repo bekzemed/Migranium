@@ -19,7 +19,8 @@ const CustomFields = () => {
           <span className="opacity-80 block mb-1 text-xs">Cashex</span>
           <span className="text-2xl block mb-4">Custom fields</span>
           <WaitlistButtons />
-          <div className="bg-white rounded-lg px-2 py-4 mb-4 h-[50vh] overflow-y-scroll">
+          <div className="bg-white rounded-lg px-2 py-4 mb-4">
+            {/* <div className="bg-white rounded-lg px-2 py-4 mb-4 h-[50vh] overflow-y-scroll"> */}
             <div className="pb-6 border-b border-b-gray-300">
               <span className="block text-base mb-6">Add new field</span>
               <div className="mb-4">

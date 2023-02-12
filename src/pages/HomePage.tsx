@@ -89,7 +89,8 @@ const HomePage = () => {
               2972 Westheimer Rd. Santa Ana, Illinois 85486
             </span>
           </div>
-          <div className="h-[70vh] overflow-y-scroll">
+          {/* <div> */}
+          <div className="overflow-y-scroll">
             <div className="bg-white rounded-lg px-2 py-4 mb-10 dark:text-black">
               <div className="text-xs">
                 <div>
@@ -595,9 +596,9 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div className="text-xs w-screen block lg:hidden">
-          <DashboarUserMobile />
-        </div>
+      </div>
+      <div className="text-xs w-screen block lg:hidden">
+        <DashboarUserMobile />
       </div>
 
       {/* desktop */}

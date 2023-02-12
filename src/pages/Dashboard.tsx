@@ -105,7 +105,8 @@ const Dashboard = () => {
             />
           </div>
 
-          <div className="h-[50vh] mb-[12px] overflow-y-scroll shadow-sm">
+          <div className="mb-[12px] shadow-sm">
+            {/* <div className="h-[50vh] mb-[12px] overflow-y-scroll shadow-sm"> */}
             {cashex.length ? (
               cashex.map((_, index) => (
                 <div

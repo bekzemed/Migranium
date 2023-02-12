@@ -14,7 +14,8 @@ const Theme = () => {
           <span className="opacity-80 block mb-1 text-xs">Cashex</span>
           <span className="text-2xl block mb-4">Themes</span>
 
-          <div className="rounded-lg px-2 py-4 flex flex-col mb-6 bg-white scrollable shadow-sm">
+          <div className="rounded-lg px-2 py-4 flex flex-col mb-6 bg-white shadow-sm">
+            {/* <div className="rounded-lg px-2 py-4 flex flex-col mb-6 bg-white scrollable shadow-sm"> */}
             <Themes />
           </div>
         </div>

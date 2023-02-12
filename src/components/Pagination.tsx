@@ -5,7 +5,6 @@ const Pagination = () => {
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   const textColor = useAppSelector((state) => state.theme.textColor);
-  console.log(theme);
 
   return (
     <div>

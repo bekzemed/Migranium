@@ -159,7 +159,8 @@ const WaitList = () => {
 
               <WaitlistButtons />
 
-              <div className="bg-white rounded-lg px-2 py-4 h-[30vh] overflow-y-scroll">
+              <div className="bg-white rounded-lg px-2 py-4">
+                {/* <div className="bg-white rounded-lg px-2 py-4 h-[30vh] overflow-y-scroll"> */}
                 <table className="w-full">
                   <thead>
                     <tr className="opacity-40 dark:text-black text-xs border-b border-gray-300">

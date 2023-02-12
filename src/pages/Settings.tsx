@@ -96,7 +96,8 @@ const Settings = () => {
               </button>
             </div>
           </div>
-          <div className="setting">
+          <div>
+            {/* <div className="setting"> */}
             <div className="bg-white rounded-lg py-4 mb-4">
               <div className="pb-5 flex items-center justify-between px-2">
                 <span className="block">Business info</span>

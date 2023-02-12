@@ -31,7 +31,7 @@ import ScrollToTop from "./util/scrollToTop";
 const Layout = () => {
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex-1 relative">
+      <div className="flex-1 relative overflow-y-scroll">
         <Outlet />
       </div>
       <div className="text-xs w-screen block lg:hidden">

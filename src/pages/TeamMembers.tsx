@@ -75,9 +75,11 @@ const TeamMembers = () => {
 
           {teamMembers.length ? (
             <div
-              className={`bg-white rounded-lg px-2 py-4 mb-4 ${
-                showTeamMembers && "h-[50vh] overflow-y-scroll"
-              }`}
+              className="bg-white rounded-lg px-2 py-4 mb-4"
+              // <div
+              //   className={`bg-white rounded-lg px-2 py-4 mb-4 ${
+              //     showTeamMembers && "h-[50vh] overflow-y-scroll"
+              //   }`}
             >
               <div className="border-b border-b-gray-300 text-xs py-4 opacity-40">
                 <span className="ml-12">Name</span>
