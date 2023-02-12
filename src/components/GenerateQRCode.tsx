@@ -1,6 +1,5 @@
-import copy from "../assets/copy.svg";
-import QR from "../assets/QR-code.svg";
 import { Link } from "react-router-dom";
+import QR from "../assets/QR-code.svg";
 import { useAppSelector } from "../redux/hooks";
 
 const GenerateQRCode = ({ showQRCode, setShowQRCode }: any) => {
@@ -8,7 +7,7 @@ const GenerateQRCode = ({ showQRCode, setShowQRCode }: any) => {
   const selected = useAppSelector((state) => state.theme.selected);
   const fill = useAppSelector((state) => state.theme.fillColor);
   return (
-    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 center-absolute dark:text-black w-[360px] xl:w-[500px] p-4 z-30 shadow-lg">
+    <div className="bg-white rounded-lg absolute left-1/2 top-1/2 center-absolute dark:text-black w-[360px] xl:w-[500px] p-4 shadow-lg z-[100]">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
         <span className="lg:flex justify-center w-full">Generate QR code</span>
         <svg

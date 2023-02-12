@@ -271,7 +271,7 @@ const WaitList = () => {
       </div>
       <div
         style={selected === 10 ? { backgroundColor: theme } : {}}
-        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-2 lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
+        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-[72px] lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
           theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
         }`}
         onClick={() => setShowAddCustomer(true)}
