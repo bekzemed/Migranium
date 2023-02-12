@@ -7,7 +7,7 @@ const Pagination = () => {
   const textColor = useAppSelector((state) => state.theme.textColor);
 
   return (
-    <div>
+    <div className="my-5">
       <ul className="flex justify-center cursor-pointer">
         <li
           style={selected === 10 ? { backgroundColor: theme } : {}}
