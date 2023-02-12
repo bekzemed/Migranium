@@ -30,7 +30,7 @@ const ChatWithAdmin = () => {
   const [showNotification, setShowNotification] = useState(false);
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary h-screen flex flex-col pb-[72px] overflow-y-scroll lg:pb-0">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="flex-1 overflow-y-scroll lg:hidden dark:text-black flex flex-col">

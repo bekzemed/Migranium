@@ -18,7 +18,7 @@ const UserProfileSetting = () => {
   const selected = useAppSelector((state) => state.theme.selected);
 
   return (
-    <div className="bg-primary h-screen flex flex-col">
+    <div className="bg-primary h-screen flex flex-col pb-[72px] overflow-y-scroll lg:pb-0">
       <DashNav show={show} onDone={() => onShow(!show)} />
 
       <div className="flex-1 flex flex-col overflow-y-scroll lg:hidden dark:text-black">
