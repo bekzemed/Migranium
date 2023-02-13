@@ -58,7 +58,7 @@ const WaitList = () => {
       <DashNav />
 
       <div className="px-2 pb-5 flex-1 overflow-y-scroll flex flex-col lg:hidden dark:text-black">
-        <div className="flex-1">
+        <div className="flex-1 relative pb-4">
           <span className="opacity-80 block mb-1 text-xs">Cashex</span>
           <span className="text-2xl block mb-4">Waitlist</span>
 
@@ -160,7 +160,6 @@ const WaitList = () => {
               <WaitlistButtons />
 
               <div className="bg-white rounded-lg px-2 py-4">
-                {/* <div className="bg-white rounded-lg px-2 py-4 h-[30vh] overflow-y-scroll"> */}
                 <table className="w-full">
                   <thead>
                     <tr className="opacity-40 dark:text-black text-xs border-b border-gray-300">
@@ -256,6 +255,24 @@ const WaitList = () => {
                   </tbody>
                 </table>
               </div>
+              <div
+                style={selected === 10 ? { backgroundColor: theme } : {}}
+                className={`flex justify-center w-12 h-12 absolute right-0 lg:right-4 2xl:right-8 bottom-0 lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
+                  theme === "bg-theme0" || theme === "bg-theme1"
+                    ? "bg-black"
+                    : theme
+                }`}
+                onClick={() => setShowAddCustomer(true)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="#fff"
+                  className="w-5 h-5"
+                >
+                  <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                </svg>
+              </div>
             </div>
           ) : (
             <div className="bg-white rounded-lg px-2 py-4 mb-6">
@@ -268,25 +285,9 @@ const WaitList = () => {
         </div>
         <PoweredBy />
       </div>
-      <div
-        style={selected === 10 ? { backgroundColor: theme } : {}}
-        className={`flex justify-center w-12 h-12 absolute right-2 lg:right-4 2xl:right-8 bottom-[15px] lg:bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
-          theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
-        }`}
-        onClick={() => setShowAddCustomer(true)}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="#fff"
-          className="w-5 h-5"
-        >
-          <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-        </svg>
-      </div>
 
       {/* desktop */}
-      <div className="w-full h-screen hidden lg:flex">
+      <div className="w-full h-screen hidden lg:flex relative">
         <DashboardDesktop />
         {showWaitUser && (
           <WaitListDetail
@@ -300,6 +301,23 @@ const WaitList = () => {
             setShowAddCustomer={setShowAddCustomer}
           />
         )}
+
+        <div
+          style={selected === 10 ? { backgroundColor: theme } : {}}
+          className={`flex justify-center w-12 h-12 absolute right-4 2xl:right-8 bottom-4 shadow-lg z-30 items-center rounded-full px-3 py-2 focus-visible:outline-none focus:outline-none cursor-pointer ${
+            theme === "bg-theme0" || theme === "bg-theme1" ? "bg-black" : theme
+          }`}
+          onClick={() => setShowAddCustomer(true)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="#fff"
+            className="w-5 h-5"
+          >
+            <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+          </svg>
+        </div>
 
         <div
           className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll flex flex-col ${
@@ -520,7 +538,7 @@ const WaitList = () => {
                         <tr
                           className={`text-center ${
                             index + 1 !== waitUsers.length && "border-b"
-                          } border-gray-300 py-4 cursor-pointer relative`}
+                          } border-gray-300 py-4 cursor-pointer`}
                           key={index}
                         >
                           <th className="opacity-40 py-4">{index + 1}</th>
