@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import Messages from "./pages/Messages";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RequestSwap from "./pages/RequestSwap";
+import Schedule from "./pages/Schedule";
 import Settings from "./pages/Settings";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
@@ -77,6 +78,7 @@ function App() {
             <Route path="custom-fields" element={<CustomFields />} />
             <Route path="add-location" element={<AddLocation />} />
             <Route path="upgrade-profile" element={<UpgradeProfile />} />
+            <Route path="schedule" element={<Schedule />} />
             <Route path="team-members">
               <Route index element={<TeamMembers />} />
               <Route path=":id" element={<TeamMember />} />

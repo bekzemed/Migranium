@@ -8,7 +8,7 @@ const EditTeamMember = ({
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   return (
-    <div className=" bg-white rounded-lg p-4 absolute left-1/2 top-1/2 center-absolute dark:text-black w-[350px] z-30 shadow-lg flex flex-col">
+    <div className="bg-white rounded-lg p-4 absolute left-1/2 top-1/2 center-absolute dark:text-black w-[350px] z-30 shadow-lg flex flex-col">
       <div className="flex justify-between items-center pb-4 border-b border-b-gray-300">
         <span>Edit Team Member</span>
         <svg

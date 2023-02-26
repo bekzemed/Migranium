@@ -78,7 +78,7 @@ const WaitList = () => {
               <img src={downArrow} alt="Down arrow" />
             </div>
             <div className="p-2 rounded-full border border-gray-300 bg-white flex items-center">
-              <img src={filter} alt="Down arrow" />
+              <img src={filter} alt="Filter" />
             </div>
           </div>
 

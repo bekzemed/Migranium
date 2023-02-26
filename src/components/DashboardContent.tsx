@@ -10,6 +10,7 @@ import messages from "../assets/messages-disable.svg";
 import settings from "../assets/settings.svg";
 import swap from "../assets/swap.svg";
 import waitlist from "../assets/waitlist-disable.svg";
+import schedule from "../assets/schedule.svg";
 import { useAppSelector } from "../redux/hooks";
 
 export const DashboardMobile = () => {
@@ -28,6 +29,14 @@ export const DashboardMobile = () => {
           <div>
             <img src={waitlist} alt="Waitlist" className="m-auto mb-1" />
             <span>Waitlist</span>
+          </div>
+        </Link>
+      </li>
+      <li>
+        <Link to="/dashboard/schedule">
+          <div>
+            <img src={schedule} alt="Schedule" className="m-auto mb-1" />
+            <span>Schedule</span>
           </div>
         </Link>
       </li>
@@ -181,6 +190,14 @@ export const DashboardDesktop = () => {
               <img className="mr-2 w-[20px]" src={waitlist} alt="Waitlist" />
 
               <span>Waitlist</span>
+            </li>
+          </Link>
+
+          <Link to="/dashboard/schedule">
+            <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
+              <img className="mr-2 w-[20px]" src={schedule} alt="Schedule" />
+
+              <span>Schedule</span>
             </li>
           </Link>
 

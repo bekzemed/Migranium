@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import OperatingHours from "../components/OperatingHours";
 import PoweredBy from "../components/PoweredBy";
 import ProfileLogo from "../components/ProfileLogo";
+import ResetPassword from "../components/ResetPassword";
 import TimePicker from "../components/TimePicker";
 import { useAppSelector } from "../redux/hooks";
 import { options } from "../util/operatingHours";
@@ -22,6 +23,9 @@ const Settings = () => {
   const selected = useAppSelector((state) => state.theme.selected);
   const fill = useAppSelector((state) => state.theme.fillColor);
   const textColor = useAppSelector((state) => state.theme.textColor);
+  const color = useAppSelector((state) => state.theme.color);
+  const [showResetPassword, setShowResetPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [showLocation1, setShowLocation1] = useState(false);
 
   const [dateMultipleHours, setDateMultipleHours] = useState(false);
@@ -71,9 +75,16 @@ const Settings = () => {
         />
       )}
 
+      {showResetPassword && (
+        <ResetPassword
+          showResetPassword={showResetPassword}
+          setShowResetPassword={setShowResetPassword}
+        />
+      )}
+
       <div
         className={`px-2 pb-5 flex-1 overflow-y-scroll lg:hidden flex flex-col dark:text-black ${
-          onEditTeamMember && "filter blur-sm"
+          (onEditTeamMember || showResetPassword) && "filter blur-sm"
         }`}
       >
         <div className="flex-1">
@@ -236,10 +247,78 @@ const Settings = () => {
                       <input
                         type="text"
                         id="businessPhone"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
                         placeholder="+7 890 123 23 88"
                         required
                       />
+                      <label
+                        htmlFor="password"
+                        className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                      >
+                        Password
+                      </label>
+                      <div className="flex items-center">
+                        <input
+                          type={showPassword ? "text" : "password"}
+                          id="password"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mr-3"
+                          placeholder="Enter your password"
+                          required
+                        />
+                        {showPassword ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke={`${color}`}
+                            className="w-5 h-5 cursor-pointer mr-2"
+                            onClick={() => setShowPassword(false)}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                            />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke={`${color}`}
+                            className="w-5 h-5 cursor-pointer mr-2"
+                            onClick={() => setShowPassword(true)}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                            />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                            />
+                          </svg>
+                        )}
+                        {/* edit */}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          style={selected === 10 ? { fill: fill } : {}}
+                          className={`w-5 h-5 mr-2 ${
+                            fill === "fill-theme0" || fill === "fill-theme1"
+                              ? "fill-black"
+                              : fill
+                          }`}
+                          onClick={() => setShowResetPassword(true)}
+                        >
+                          <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                          <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
 
@@ -1387,10 +1466,16 @@ const Settings = () => {
             onEditTeamMember={onEditTeamMember}
           />
         )}
+        {showResetPassword && (
+          <ResetPassword
+            showResetPassword={showResetPassword}
+            setShowResetPassword={setShowResetPassword}
+          />
+        )}
 
         <div
           className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll flex flex-col ${
-            onEditTeamMember && "filter blur-sm"
+            (onEditTeamMember || showResetPassword) && "filter blur-sm"
           }`}
         >
           <div className="flex-1">
@@ -1462,8 +1547,8 @@ const Settings = () => {
                 {showBusinessInfo && (
                   <>
                     {/*  */}
-                    <div className="mb-6 flex">
-                      <div className="mr-4 w-[200px]">
+                    <div className="mb-6 flex flex-wrap gap-10">
+                      <div className="w-[200px]">
                         <label
                           htmlFor="businessName"
                           className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
@@ -1479,7 +1564,7 @@ const Settings = () => {
                         />
                       </div>
 
-                      <div className="mr-4 w-[200px]">
+                      <div className="w-[200px]">
                         <label
                           htmlFor="businessType"
                           className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
@@ -1532,7 +1617,7 @@ const Settings = () => {
                         )}
                       </div>
 
-                      <div className="mr-4 w-[200px]">
+                      <div className="w-[200px]">
                         <label
                           htmlFor="businessEmail"
                           className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
@@ -1562,6 +1647,76 @@ const Settings = () => {
                           placeholder="+7 890 123 23 88"
                           required
                         />
+                      </div>
+                      <div className="w-[200px]">
+                        <label
+                          htmlFor="password"
+                          className="block mb-2 text-xs font-medium text-gray-900 dark:text-black"
+                        >
+                          Password
+                        </label>
+                        <div className="flex items-center">
+                          <input
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mr-3"
+                            placeholder="Enter your password"
+                            required
+                          />
+                          {showPassword ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke={`${color}`}
+                              className="w-6 h-6 cursor-pointer mr-2"
+                              onClick={() => setShowPassword(false)}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"
+                              />
+                            </svg>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth="1.5"
+                              stroke={`${color}`}
+                              className="w-6 h-6 cursor-pointer mr-2"
+                              onClick={() => setShowPassword(true)}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                              />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                              />
+                            </svg>
+                          )}
+                          {/* edit */}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            style={selected === 10 ? { fill: fill } : {}}
+                            className={`w-6 h-6 cursor-pointer ${
+                              fill === "fill-theme0" || fill === "fill-theme1"
+                                ? "fill-black"
+                                : fill
+                            }`}
+                            onClick={() => setShowResetPassword(true)}
+                          >
+                            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z" />
+                            <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                     {/*  */}
