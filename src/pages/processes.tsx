@@ -25,7 +25,7 @@ const Processes = () => {
   return (
     <div
       id="HowItWorks"
-      className="px-4 py-14 lg:px-20 xl:px-28 flex flex-col justify-center items-center"
+      className="px-4 py-14 lg:px-20 xl:px-28 flex flex-col justify-center items-center dark:text-black"
     >
       <span className="text-3xl font-bold pb-5 md:text-5xl">How it works</span>
       <Carousel

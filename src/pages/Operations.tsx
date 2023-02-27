@@ -2,7 +2,10 @@ import React from "react";
 
 const Operations = () => {
   return (
-    <div id="Statistics" className="py-14 px-4 lg:px-20 2xl:px-80">
+    <div
+      id="Statistics"
+      className="py-14 px-4 lg:px-20 2xl:px-80 dark:text-black"
+    >
       <span className="block text-center pb-10 lg:pb-20 md:w-[800px] m-auto font-black text-lg md:text-2xl lg:text-3xl">
         Migranium works seamlessly behind the scenes to help you streamline and
         optimize your operations.

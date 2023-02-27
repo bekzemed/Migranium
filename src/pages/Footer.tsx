@@ -24,7 +24,7 @@ const Footer = () => {
             </span>
           </a>
         </div>
-        <div className="text-sm text-gray-700 dark:text-white py-12 flex justify-between opacity-80">
+        <div className="text-sm text-gray-700 dark:text-black py-12 flex justify-between opacity-80">
           <a href={`${location.pathname === "/" ? "#Features" : "/"}`}>
             Features
           </a>
@@ -57,7 +57,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="text-xs opacity-80 flex justify-between pb-3">
+        <div className="text-xs opacity-80 flex justify-between pb-3 dark:text-black">
           <div>
             <Link to="/terms">
               <span className="mr-2">Terms</span>
@@ -75,7 +75,7 @@ const Footer = () => {
 
       {/* desktop */}
 
-      <div className="hidden md:flex flex-col justify-center px-2 md:px-5">
+      <div className="hidden md:flex flex-col justify-center px-2 md:px-5 dark:text-black">
         <div className="py-10 border-y flex justify-between items-center mb-10 container m-auto">
           <div className="flex cursor-pointer" onClick={scrollToTop}>
             <img src={logo} className="mr-1 sm:h-9" alt="Migranium Logo" />
@@ -84,7 +84,7 @@ const Footer = () => {
             </span>
           </div>
 
-          <ul className="text-sm text-gray-700 dark:text-white opacity-80 gap-5 flex">
+          <ul className="text-sm text-gray-700 opacity-80 gap-5 flex dark:text-black">
             <li className="hover:text-primary">
               <a href={`${location.pathname === "/" ? "#Features" : "/"} `}>
                 Features

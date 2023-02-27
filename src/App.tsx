@@ -23,8 +23,10 @@ import Terms from "./pages/Terms";
 import Theme from "./pages/Theme";
 import UpgradeProfile from "./pages/UpgradeProfile";
 import { User } from "./pages/User";
+import UserAppointment from "./pages/UserAppointment";
 import { UserDetails } from "./pages/UserDetails";
 import UserProfileSetting from "./pages/UserProfileSetting";
+import { UserSchedule } from "./pages/UserSchedule";
 import WaitList from "./pages/Waitlist";
 import WaitListMember from "./pages/WaitListMember";
 import ScrollToTop from "./util/scrollToTop";
@@ -63,6 +65,10 @@ function App() {
           <Route path="chat-with-admin" element={<ChatWithAdmin />} />
           <Route path="profile-setting" element={<UserProfileSetting />} />
           <Route path="request-swap" element={<RequestSwap />} />
+          <Route path="schedule">
+            <Route index element={<UserSchedule />} />
+            <Route path="appointment" element={<UserAppointment />} />
+          </Route>
         </Route>
         <Route element={<Layout />}>
           <Route path="/dashboard">

@@ -6,7 +6,10 @@ import Definition from "../components/Definition";
 
 const Definitions = () => {
   return (
-    <div id="Features" className="px-4 py-20 lg:px-20 2xl:px-80">
+    <div
+      id="Features"
+      className="px-4 py-20 lg:px-20 2xl:px-80 dark:text-black"
+    >
       <span className="text-3xl font-bold pb-5 flex justify-center md:text-5xl">
         What is migranium?
       </span>

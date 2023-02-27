@@ -154,6 +154,13 @@ export const DashboarUserMobile = () => {
             <span>Request to swap</span>
           </li>
         </Link>
+        <Link to="/user/schedule">
+          <li>
+            <img src={schedule} alt="Schedule" className="m-auto mb-1" />
+
+            <span>Schedule</span>
+          </li>
+        </Link>
 
         <Link to="/user/profile-setting">
           <li>
@@ -310,6 +317,13 @@ export const DashboardUserDesktop = () => {
               <img className="mr-2 w-[20px]" src={swap} alt="swap" />
 
               <span>Request to swap</span>
+            </li>
+          </Link>
+          <Link to="/user/schedule">
+            <li className="flex p-2 items-center hover:bg-list rounded-lg lg:mb-3 2xl:mb-5 cursor-pointer">
+              <img className="mr-2 w-[20px]" src={schedule} alt="schedule" />
+
+              <span>Schedule</span>
             </li>
           </Link>
 

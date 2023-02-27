@@ -2,16 +2,16 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <div id="ContactUs" className="w-full  py-14 px-4 lg:px-20">
+    <div id="ContactUs" className="w-full  py-14 px-4 lg:px-20 dark:text-black">
       <span className="block text-3xl font-bold pb-8 text-center lg:text-4xl">
         Get in touch with us
       </span>
       <form className="pb-10 md:w-[400px] lg:w-[700px] m-auto">
-        <div className="xl:flex xl:basis-full">
+        <div className="xl:flex xl:basis-full dark:text-black">
           <div className="pb-5 flex-1 lg:mr-3">
             <label
               htmlFor="name"
-              className="block mb-2 ml-3 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 ml-3 text-sm font-medium text-gray-900"
             >
               Name
             </label>
@@ -27,7 +27,7 @@ const ContactUs = () => {
           <div className="pb-5 flex-1 lg:mr-3">
             <label
               htmlFor="email"
-              className="block mb-2 ml-3 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 ml-3 text-sm font-medium text-gray-900"
             >
               Email
             </label>
@@ -43,7 +43,7 @@ const ContactUs = () => {
           <div className="pb-5 flex-1 lg:mr-3">
             <label
               htmlFor="phone"
-              className="block mb-2 ml-3 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 ml-3 text-sm font-medium text-gray-900"
             >
               Phone
             </label>
@@ -60,7 +60,7 @@ const ContactUs = () => {
         <div>
           <label
             htmlFor="message"
-            className="block mb-2 ml-3 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 ml-3 text-sm font-medium text-gray-900"
           >
             Message
           </label>
