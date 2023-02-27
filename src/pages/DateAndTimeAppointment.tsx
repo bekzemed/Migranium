@@ -176,8 +176,8 @@ const DateAndTimeAppointment = () => {
                   className={`border p-3 rounded cursor-pointer ${
                     timeSlot.available
                       ? theme === "bg-theme0" || theme === "bg-theme1"
-                        ? "bg-black"
-                        : `${theme} text-white`
+                        ? "bg-black text-white"
+                        : `text-white ${theme}`
                       : "bg-primary"
                   }`}
                   key={index}
