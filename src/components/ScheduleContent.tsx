@@ -130,9 +130,9 @@ const ScheduleContent = () => {
               Past
             </span>
           </div>
-          <div className="flex items-center p-2 rounded-full border border-gray-300 lg:p-0 lg:border-none">
-            <img src={filter} alt="Filter" className="lg:mr-2" />
-            <span className="hidden lg:block">Filter</span>
+          <div className="flex items-center p-2 rounded-full border border-gray-300 xl:p-0 xl:border-none">
+            <img src={filter} alt="Filter" className="xl:mr-2" />
+            <span className="hidden xl:block">Filter</span>
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@ const ScheduleContent = () => {
                 <span className="text-sm">{Object.keys(event)}</span>
                 {event["February 15, 2023"].map((scheduleEvent, index) => (
                   <div key={index}>
-                    <div className="grid grid-cols-3 lg:grid-cols-6 text-xs py-4 items-center">
+                    <div className="grid grid-cols-3 xl:grid-cols-6 text-xs py-4 items-center">
                       <span className="opacity-80">
                         {scheduleEvent.from}-{scheduleEvent.to}
                       </span>
@@ -153,13 +153,13 @@ const ScheduleContent = () => {
                         {scheduleEvent.name}
                       </p>
 
-                      <span className="text-start hidden lg:block">
+                      <span className="text-start hidden xl:block">
                         {scheduleEvent.email}
                       </span>
-                      <span className="text-center hidden lg:block">
+                      <span className="text-center hidden xl:block">
                         {scheduleEvent.phone}
                       </span>
-                      <div className="items-center justify-center hidden lg:flex">
+                      <div className="items-center justify-center hidden xl:flex">
                         {/* chat */}
 
                         <svg
@@ -296,7 +296,7 @@ const ScheduleContent = () => {
 
                     {index === showDetails && (
                       <div className="text-xs py-2">
-                        <div className="block lg:hidden">
+                        <div className="block xl:hidden">
                           <span className="block mb-2">
                             {scheduleEvent.email}
                           </span>
@@ -382,8 +382,8 @@ const ScheduleContent = () => {
                             </svg>
                           </div>
                         </div>
-                        <div className="flex items-start justify-between lg:grid grid-cols-6 lg:items-start">
-                          <div className="hidden lg:block"></div>
+                        <div className="flex items-start justify-between xl:grid grid-cols-6 xl:items-start">
+                          <div className="hidden xl:block"></div>
                           <div>
                             <p className="text-black text-sm font-extrabold mb-2">
                               Healthcare number:
@@ -424,7 +424,7 @@ const ScheduleContent = () => {
                 <span className="text-sm">{Object.keys(event)}</span>
                 {event["February 15, 2023"].map((scheduleEvent, index) => (
                   <div key={index}>
-                    <div className="grid grid-cols-3 lg:grid-cols-6 text-xs py-4 items-center">
+                    <div className="grid grid-cols-3 xl:grid-cols-6 text-xs py-4 items-center">
                       <span className="opacity-80">
                         {scheduleEvent.from}-{scheduleEvent.to}
                       </span>
@@ -432,13 +432,13 @@ const ScheduleContent = () => {
                         {scheduleEvent.name}
                       </p>
 
-                      <span className="text-start hidden lg:block">
+                      <span className="text-start hidden xl:block">
                         {scheduleEvent.email}
                       </span>
-                      <span className="text-center hidden lg:block">
+                      <span className="text-center hidden xl:block">
                         {scheduleEvent.phone}
                       </span>
-                      <div className="items-center justify-center hidden lg:flex">
+                      <div className="items-center justify-center hidden xl:flex">
                         {/* chat */}
 
                         <svg
@@ -574,7 +574,7 @@ const ScheduleContent = () => {
 
                     {index === showPastDetails && (
                       <div className="text-xs py-2">
-                        <div className="block lg:hidden">
+                        <div className="block xl:hidden">
                           <span className="block mb-2">
                             {scheduleEvent.email}
                           </span>
@@ -660,8 +660,8 @@ const ScheduleContent = () => {
                             </svg>
                           </div>
                         </div>
-                        <div className="flex items-start justify-between lg:grid grid-cols-6 lg:items-start">
-                          <div className="hidden lg:block"></div>
+                        <div className="flex items-start justify-between xl:grid grid-cols-6 xl:items-start">
+                          <div className="hidden xl:block"></div>
                           <div>
                             <p className="text-black text-sm font-extrabold mb-2">
                               Healthcare number:
