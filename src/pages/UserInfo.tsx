@@ -58,7 +58,7 @@ export const UserInfo = () => {
             <button
               type="submit"
               style={selected === 10 ? { backgroundColor: theme } : {}}
-              className={`text-white bg-secondary hover:bg-bright focus-visible:outline-none focus:outline-none font-medium rounded-full text-sm w-full lg:w-1/2 px-5 py-2.5 text-center ${
+              className={`text-white focus-visible:outline-none focus:outline-none font-medium rounded-full text-sm w-full lg:w-1/2 px-5 py-2.5 text-center ${
                 theme === "bg-theme0" || theme === "bg-theme1"
                   ? "bg-black"
                   : theme
