@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Datepicker from "tailwind-datepicker-react";
 import deleteIcon from "../assets/delete.svg";
 import edit from "../assets/edit.svg";
+import AddBillingMethod from "../components/AddBillingMethod";
 import BusinessInfoInput from "../components/BusinessInfoInput";
 import { DashboardDesktop } from "../components/DashboardContent";
 import DashNav from "../components/DashNav";
@@ -41,6 +43,9 @@ const Settings = () => {
   const [showOperatingHours, setShowOperatingHours] = useState(false);
   const [showCustomFields, setShowCustomFields] = useState(false);
   const [showPaymentDetails, setShowPaymentDetails] = useState(false);
+  const [showBilling, setShowBilling] = useState(false);
+  const [showAddBilling, setShowAddBilling] = useState(false);
+  const [showSubscription, setShowSubscription] = useState(false);
 
   const [showPhoneNumber, setShowPhoneNumber] = useState(false);
   const [showPostalCode, setShowPostalCode] = useState(false);
@@ -62,6 +67,7 @@ const Settings = () => {
 
   const station1TeamMember = ["Ronald Richards", "Savannah Niguyen"];
   const station2TeamMember = ["Cody Fisher", "Albert Flores"];
+  const currentPlan = "Free";
 
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
@@ -81,10 +87,17 @@ const Settings = () => {
           setShowResetPassword={setShowResetPassword}
         />
       )}
+      {showAddBilling && (
+        <AddBillingMethod
+          showAddBilling={showAddBilling}
+          setShowAddBilling={setShowAddBilling}
+        />
+      )}
 
       <div
         className={`px-2 pb-5 flex-1 overflow-y-scroll lg:hidden flex flex-col dark:text-black ${
-          (onEditTeamMember || showResetPassword) && "filter blur-sm"
+          (onEditTeamMember || showResetPassword || showAddBilling) &&
+          "filter blur-sm"
         }`}
       >
         <div className="flex-1">
@@ -1317,7 +1330,7 @@ const Settings = () => {
 
             <div className="px-2 text-xs bg-white rounded-lg py-4 mb-4">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-base">Payment details</span>
+                <span className="text-base">Subscription and Billing</span>
 
                 <span
                   className="flex items-center cursor-pointer"
@@ -1362,92 +1375,165 @@ const Settings = () => {
                   )}
                 </span>
               </div>
-              <div className={`${!showPaymentDetails && "hidden"}`}>
-                <label
-                  htmlFor="creditOrDebit"
-                  className="block mb-2 font-medium text-gray-900 dark:text-black"
-                >
-                  Credit or debit card
-                </label>
-                <input
-                  type="text"
-                  id="creditOrDebit"
-                  className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="card number"
-                  required
-                />
-
-                <div className="flex">
-                  <input
-                    type="text"
-                    id="creditOrDebit"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full mr-2  block w-1/2 p-2 focus-visible:outline-none focus:outline-none mb-4"
-                    placeholder="Card date"
-                    required
-                  />
-
-                  <input
-                    type="text"
-                    id="creditOrDebit"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-1/2 p-2 focus-visible:outline-none focus:outline-none mb-4"
-                    placeholder="CVV"
-                    required
-                  />
+              <div className={`${!showPaymentDetails && "hidden"} mb-4`}>
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="text-base">Subscription</span>
+                  <span
+                    className="flex items-center cursor-pointer"
+                    onClick={() => setShowSubscription(!showSubscription)}
+                  >
+                    {showSubscription ? (
+                      <>
+                        <span className="text-xs mr-1">Hide</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                          />
+                        </svg>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-xs mr-1">Show all</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
+                        </svg>
+                      </>
+                    )}
+                  </span>
                 </div>
+                <div
+                  className={`${
+                    (!showSubscription || !showPaymentDetails) && "hidden"
+                  }`}
+                >
+                  <div className="flex flex-col">
+                    <span className="text-sm mb-2">
+                      Current plan - {`${currentPlan}`}
+                    </span>
+                    <div className="flex">
+                      <Link to="/dashboard/upgrade-profile">
+                        <button
+                          style={
+                            selected === 10 ? { backgroundColor: theme } : {}
+                          }
+                          type="button"
+                          className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none mr-2 ${
+                            theme === "bg-theme0" || theme === "bg-theme1"
+                              ? "bg-black"
+                              : theme
+                          }`}
+                        >
+                          Upgrade plan
+                        </button>
+                      </Link>
 
-                <label
-                  htmlFor="country"
-                  className="block mb-2 font-medium text-gray-900 dark:text-black"
-                >
-                  country
-                </label>
-                <input
-                  type="text"
-                  id="country"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Select country"
-                  required
-                />
+                      <button
+                        style={
+                          selected === 10 ? { backgroundColor: theme } : {}
+                        }
+                        type="button"
+                        className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                          theme === "bg-theme0" || theme === "bg-theme1"
+                            ? "bg-black"
+                            : theme
+                        }`}
+                      >
+                        Cancel subscription
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={`flex items-center justify-between mb-6 ${
+                  !showPaymentDetails && "hidden"
+                }`}
+              >
+                <span className="text-base">Billing</span>
 
-                <label
-                  htmlFor="state"
-                  className="block mb-2 font-medium text-gray-900 dark:text-black"
+                <span
+                  className="flex items-center cursor-pointer"
+                  onClick={() => setShowBilling(!showBilling)}
                 >
-                  State
-                </label>
-                <input
-                  type="text"
-                  id="state"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="Select state..."
-                  required
-                />
-                <label
-                  htmlFor="zip"
-                  className="block mb-2 font-medium text-gray-900 dark:text-black"
-                >
-                  Zip code
-                </label>
-                <input
-                  type="text"
-                  id="zip"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="02231"
-                  required
-                />
-                <label
-                  htmlFor="billingEmail"
-                  className="block mb-2 font-medium text-gray-900 dark:text-black"
-                >
-                  Billing email
-                </label>
-                <input
-                  type="text"
-                  id="billingEmail"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-4"
-                  placeholder="mailforspam@mailforspam.com"
-                  required
-                />
+                  {showBilling ? (
+                    <>
+                      <span className="text-xs mr-1">Hide</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                        />
+                      </svg>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-xs mr-1">Show all</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-6 h-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                        />
+                      </svg>
+                    </>
+                  )}
+                </span>
+              </div>
+              <div
+                className={`${
+                  (!showBilling || !showPaymentDetails) && "hidden"
+                }`}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-sm">Manage billing methods</span>
+                  <button
+                    style={selected === 10 ? { backgroundColor: theme } : {}}
+                    type="button"
+                    className={`p-2 text-xs font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                      theme === "bg-theme0" || theme === "bg-theme1"
+                        ? "bg-black"
+                        : theme
+                    }`}
+                    onClick={() => setShowAddBilling(!showAddBilling)}
+                  >
+                    Add a new Billing Method
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1473,9 +1559,17 @@ const Settings = () => {
           />
         )}
 
+        {showAddBilling && (
+          <AddBillingMethod
+            showAddBilling={showAddBilling}
+            setShowAddBilling={setShowAddBilling}
+          />
+        )}
+
         <div
           className={`lg:px-4 2xl:px-8 py-8 flex-1 overflow-y-scroll flex flex-col ${
-            (onEditTeamMember || showResetPassword) && "filter blur-sm"
+            (onEditTeamMember || showResetPassword || showAddBilling) &&
+            "filter blur-sm"
           }`}
         >
           <div className="flex-1">
@@ -2739,7 +2833,7 @@ const Settings = () => {
               {/*  */}
               <div className="p-4 bg-white rounded-lg mb-6 text-xs">
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-base">Payment details</span>
+                  <span className="text-base">Subscription and Billing</span>
 
                   <span
                     className="flex items-center cursor-pointer"
@@ -2784,105 +2878,164 @@ const Settings = () => {
                     )}
                   </span>
                 </div>
-                <div className={`${!showPaymentDetails && "hidden"}`}>
-                  <label
-                    htmlFor="creditOrDebit"
-                    className="block mb-2 font-medium text-gray-900 dark:text-black"
+                <div className={`${!showPaymentDetails && "hidden"} mb-4`}>
+                  <div className="mb-3 flex items-center justify-between">
+                    <span className="text-base">Subscription</span>
+                    <span
+                      className="flex items-center cursor-pointer"
+                      onClick={() => setShowSubscription(!showSubscription)}
+                    >
+                      {showSubscription ? (
+                        <>
+                          <span className="text-xs mr-1">Hide</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                            />
+                          </svg>
+                        </>
+                      ) : (
+                        <>
+                          <span className="text-xs mr-1">Show all</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="w-6 h-6"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                            />
+                          </svg>
+                        </>
+                      )}
+                    </span>
+                  </div>
+                  <div
+                    className={`${
+                      (!showSubscription || !showPaymentDetails) && "hidden"
+                    }`}
                   >
-                    Credit or debit card
-                  </label>
-                  <div className="mb-4 flex">
-                    <input
-                      type="text"
-                      id="creditOrDebit"
-                      className="bg-gray-50 border  border-gray-300 text-gray-900 rounded-full  block w-[200px] mr-3 p-2 focus-visible:outline-none focus:outline-none"
-                      placeholder="card number"
-                      required
-                    />
+                    <div className="flex justify-between items-center my-4">
+                      <span className="text-sm mb-2">
+                        Current plan - {`${currentPlan}`}
+                      </span>
+                      <div className="flex">
+                        <Link to="/dashboard/upgrade-profile">
+                          <button
+                            style={
+                              selected === 10 ? { backgroundColor: theme } : {}
+                            }
+                            type="button"
+                            className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none mr-2 ${
+                              theme === "bg-theme0" || theme === "bg-theme1"
+                                ? "bg-black"
+                                : theme
+                            }`}
+                          >
+                            Upgrade plan
+                          </button>
+                        </Link>
 
-                    <input
-                      type="text"
-                      id="creditOrDebit"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full mr-2  block w-[145px] p-2 focus-visible:outline-none focus:outline-none"
-                      placeholder="Card date"
-                      required
-                    />
-
-                    <input
-                      type="text"
-                      id="creditOrDebit"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-[145px] p-2 focus-visible:outline-none focus:outline-none"
-                      placeholder="CVV"
-                      required
-                    />
-                  </div>
-
-                  <div className="flex mb-4">
-                    <div className="w-[250px] mr-3">
-                      <label
-                        htmlFor="country"
-                        className="block mb-2 font-medium text-gray-900 dark:text-black"
-                      >
-                        country
-                      </label>
-                      <input
-                        type="text"
-                        id="country"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none"
-                        placeholder="Select country"
-                        required
-                      />
-                    </div>
-
-                    <div className="w-[250px]">
-                      <label
-                        htmlFor="state"
-                        className="block mb-2 font-medium text-gray-900 dark:text-black"
-                      >
-                        State
-                      </label>
-                      <input
-                        type="text"
-                        id="state"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none"
-                        placeholder="Select state..."
-                        required
-                      />
+                        <button
+                          style={
+                            selected === 10 ? { backgroundColor: theme } : {}
+                          }
+                          type="button"
+                          className={`p-2 text-xs xl:w-[150px] font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                            theme === "bg-theme0" || theme === "bg-theme1"
+                              ? "bg-black"
+                              : theme
+                          }`}
+                        >
+                          Cancel subscription
+                        </button>
+                      </div>
                     </div>
                   </div>
+                </div>
+                <div
+                  className={`flex items-center justify-between mb-6 ${
+                    !showPaymentDetails && "hidden"
+                  }`}
+                >
+                  <span className="text-base">Billing</span>
 
-                  <div className="flex mb-4">
-                    <div className="w-[250px] mr-3">
-                      <label
-                        htmlFor="zip"
-                        className="block mb-2 font-medium text-gray-900 dark:text-black"
-                      >
-                        Zip code
-                      </label>
-                      <input
-                        type="text"
-                        id="zip"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none"
-                        placeholder="02231"
-                        required
-                      />
-                    </div>
-
-                    <div className="w-[250px]">
-                      <label
-                        htmlFor="billingEmail"
-                        className="block mb-2 font-medium text-gray-900 dark:text-black"
-                      >
-                        Billing email
-                      </label>
-                      <input
-                        type="text"
-                        id="billingEmail"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none"
-                        placeholder="mailforspam@mailforspam.com"
-                        required
-                      />
-                    </div>
+                  <span
+                    className="flex items-center cursor-pointer"
+                    onClick={() => setShowBilling(!showBilling)}
+                  >
+                    {showBilling ? (
+                      <>
+                        <span className="text-xs mr-1">Hide</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                          />
+                        </svg>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-xs mr-1">Show all</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
+                        </svg>
+                      </>
+                    )}
+                  </span>
+                </div>
+                <div
+                  className={`${
+                    (!showBilling || !showPaymentDetails) && "hidden"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Manage billing methods</span>
+                    <button
+                      style={selected === 10 ? { backgroundColor: theme } : {}}
+                      type="button"
+                      className={`p-2 text-xs font-medium text-center text-white  rounded-full focus-visible:outline-none focus:outline-none ${
+                        theme === "bg-theme0" || theme === "bg-theme1"
+                          ? "bg-black"
+                          : theme
+                      }`}
+                      onClick={() => setShowAddBilling(!showAddBilling)}
+                    >
+                      Add a new Billing Method
+                    </button>
                   </div>
                 </div>
               </div>

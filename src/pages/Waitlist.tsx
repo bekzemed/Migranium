@@ -47,6 +47,7 @@ const WaitList = () => {
   const [showAddCustomer, setShowAddCustomer] = useState(false);
   const [showOptions, setOptions] = useState(false);
   const [showOptionsIndex, setOptionsIndex] = useState(-1);
+  const [activeButton, setActiveButton] = useState(0);
   const [waitUserInfo, setWaitUserInfo] = useState({});
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
@@ -157,7 +158,10 @@ const WaitList = () => {
                 </div>
               </div>
 
-              <WaitlistButtons />
+              <WaitlistButtons
+                activeButton={activeButton}
+                setActiveButton={setActiveButton}
+              />
 
               <div className="bg-white rounded-lg px-2 py-4">
                 <table className="w-full">
@@ -505,7 +509,10 @@ const WaitList = () => {
                   </div>
                 </div>
 
-                <WaitlistButtons />
+                <WaitlistButtons
+                  activeButton={activeButton}
+                  setActiveButton={setActiveButton}
+                />
 
                 <div className="bg-white rounded-lg px-2 py-4">
                   <table className="w-full mb-4">
