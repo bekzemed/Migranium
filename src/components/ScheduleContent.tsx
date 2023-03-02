@@ -18,7 +18,12 @@ const ScheduleContent = ({ datas }) => {
   return (
     <>
       {datas.map(
-        (data) => data.all && <p className="text-lg mb-4">All Schedules</p>
+        (data, index) =>
+          data.all && (
+            <p key={index} className="text-lg mb-4">
+              All Schedules
+            </p>
+          )
       )}
       {datas.map((event, index) => (
         <div className="bg-white rounded-lg px-4 py-4 mb-4" key={index}>
