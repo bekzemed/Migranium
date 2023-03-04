@@ -2,18 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import welcome from "../assets/welcome.svg";
 import { useAppSelector } from "../redux/hooks";
-import NavBar from "./NavBar";
 
 export const UserSchedule = () => {
   const navigate = useNavigate();
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
-  const [show, setShow] = useState(false);
 
   return (
     <div>
-      <NavBar show={show} onDone={() => setShow(!show)} hide={true} />
-
       <div className="bg-primary px-4 lg:px-0 text-center h-screen lg:flex lg:justify-center dark:text-black">
         <div className="flex flex-col h-full justify-center lg:mr-10 2xl:mr-16">
           <span className="font-black text-2xl pb-5 block lg:pb-3 whitespace-nowrap">
