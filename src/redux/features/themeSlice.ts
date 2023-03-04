@@ -6,6 +6,7 @@ type ThemeState = {
   textColor: string;
   selected: number;
   color: string;
+  switchColor: string;
 };
 
 const initialState: ThemeState = {
@@ -14,6 +15,7 @@ const initialState: ThemeState = {
   color: "#0070BA",
   textColor: "text-primary",
   selected: -1,
+  switchColor: "peer-checked:bg-primary",
 };
 
 export const themeSlice = createSlice({
@@ -35,6 +37,9 @@ export const themeSlice = createSlice({
     changeTextColor: (state, { payload }: PayloadAction<any>) => {
       state.textColor = payload;
     },
+    changeSwitchColor: (state, { payload }: PayloadAction<any>) => {
+      state.switchColor = payload;
+    },
   },
 });
 
@@ -44,5 +49,6 @@ export const {
   changeFillColor,
   changeColor,
   changeTextColor,
+  changeSwitchColor,
 } = themeSlice.actions;
 export default themeSlice.reducer;

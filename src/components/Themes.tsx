@@ -2,6 +2,7 @@ import { useState } from "react";
 import {
   changeColor,
   changeFillColor,
+  changeSwitchColor,
   changeTextColor,
   changeTheme,
   selectedTheme,
@@ -59,6 +60,7 @@ const Themes = () => {
                   dispatch(changeFillColor("fill-theme0"));
                   dispatch(changeTextColor("text-theme0"));
                   dispatch(changeColor("#000"));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme0"));
                   {
                     open && setOpen(false);
                   }
@@ -74,6 +76,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme1"));
                   dispatch(selectedTheme(1));
                   dispatch(changeColor("#000"));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme1"));
                   {
                     open && setOpen(false);
                   }
@@ -89,6 +92,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme2"));
                   dispatch(changeColor("#444444"));
                   dispatch(selectedTheme(2));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme2"));
                   {
                     open && setOpen(false);
                   }
@@ -105,6 +109,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme3"));
                   dispatch(changeColor("#e71818"));
                   dispatch(selectedTheme(3));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme3"));
                   {
                     open && setOpen(false);
                   }
@@ -120,6 +125,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme4"));
                   dispatch(changeColor("#0074fc"));
                   dispatch(selectedTheme(4));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme4"));
                   {
                     open && setOpen(false);
                   }
@@ -135,6 +141,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme5"));
                   dispatch(changeColor("#08c108"));
                   dispatch(selectedTheme(5));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme5"));
                   {
                     open && setOpen(false);
                   }
@@ -150,6 +157,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme6"));
                   dispatch(changeColor("#f0ad4e"));
                   dispatch(selectedTheme(6));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme6"));
                   {
                     open && setOpen(false);
                   }
@@ -165,6 +173,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme7"));
                   dispatch(changeColor("#8b4513"));
                   dispatch(selectedTheme(7));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme7"));
                   {
                     open && setOpen(false);
                   }
@@ -180,6 +189,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme8"));
                   dispatch(changeColor("#800080"));
                   dispatch(selectedTheme(8));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme8"));
                   {
                     open && setOpen(false);
                   }
@@ -195,6 +205,7 @@ const Themes = () => {
                   dispatch(changeTextColor("text-theme9"));
                   dispatch(changeColor("#ffc0cb"));
                   dispatch(selectedTheme(9));
+                  dispatch(changeSwitchColor("peer-checked:bg-theme9"));
                   {
                     open && setOpen(false);
                   }
@@ -217,6 +228,7 @@ const Themes = () => {
                 dispatch(changeTextColor("text-primary"));
                 dispatch(changeColor("#0070BA"));
                 dispatch(selectedTheme(11));
+                dispatch(changeSwitchColor("peer-checked:bg-secondary"));
                 {
                   open && setOpen(false);
                 }
@@ -283,6 +295,7 @@ const Themes = () => {
                       dispatch(changeFillColor(`${customColor}`));
                       dispatch(changeColor(`${customColor}`));
                       dispatch(changeTextColor(`${customColor}`));
+                      dispatch(changeSwitchColor(`${customColor}`));
                     }}
                   >
                     Save changes

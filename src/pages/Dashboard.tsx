@@ -25,7 +25,7 @@ const Dashboard = () => {
   const selected = useAppSelector((state) => state.theme.selected);
   const fill = useAppSelector((state) => state.theme.fillColor);
   const textColor = useAppSelector((state) => state.theme.textColor);
-  console.log(fill);
+  const switchColor = useAppSelector((state) => state.theme.switchColor);
 
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
@@ -142,13 +142,14 @@ const Dashboard = () => {
                             <div
                               style={
                                 selected === 10
-                                  ? { backgroundColor: theme }
+                                  ? { backgroundColor: switchColor }
                                   : {}
                               }
-                              className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
-                                theme === "bg-theme0" || theme === "bg-theme1"
-                                  ? "peer-checked:bg-black bg-gray-200"
-                                  : theme
+                              className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                switchColor === "peer-checked:bg-theme0" ||
+                                theme === "peer-checked:bg-theme1"
+                                  ? "peer-checked:bg-black"
+                                  : switchColor
                               }`}
                             ></div>
                           </label>
@@ -300,14 +301,15 @@ const Dashboard = () => {
                                       <div
                                         style={
                                           selected === 10
-                                            ? { backgroundColor: theme }
+                                            ? { backgroundColor: switchColor }
                                             : {}
                                         }
-                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
-                                          theme === "bg-theme0" ||
-                                          theme === "bg-theme1"
-                                            ? "peer-checked:bg-black bg-gray-200"
-                                            : theme
+                                        className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          switchColor ===
+                                            "peer-checked:bg-theme0" ||
+                                          theme === "peer-checked:bg-theme1"
+                                            ? "peer-checked:bg-black"
+                                            : switchColor
                                         }`}
                                       ></div>
                                     </label>
@@ -506,14 +508,15 @@ const Dashboard = () => {
                                       <div
                                         style={
                                           selected === 10
-                                            ? { backgroundColor: theme }
+                                            ? { backgroundColor: switchColor }
                                             : {}
                                         }
-                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
-                                          theme === "bg-theme0" ||
-                                          theme === "bg-theme1"
-                                            ? "peer-checked:bg-black bg-gray-200"
-                                            : theme
+                                        className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          switchColor ===
+                                            "peer-checked:bg-theme0" ||
+                                          theme === "peer-checked:bg-theme1"
+                                            ? "peer-checked:bg-black"
+                                            : switchColor
                                         }`}
                                       ></div>
                                     </label>
@@ -915,13 +918,14 @@ const Dashboard = () => {
                             <div
                               style={
                                 selected === 10
-                                  ? { backgroundColor: theme }
+                                  ? { backgroundColor: switchColor }
                                   : {}
                               }
-                              className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
-                                theme === "bg-theme0" || theme === "bg-theme1"
-                                  ? "peer-checked:bg-black bg-gray-200"
-                                  : theme
+                              className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                switchColor === "peer-checked:bg-theme0" ||
+                                theme === "peer-checked:bg-theme1"
+                                  ? "peer-checked:bg-black"
+                                  : switchColor
                               }`}
                             ></div>
                           </label>
@@ -1125,14 +1129,15 @@ const Dashboard = () => {
                                       <div
                                         style={
                                           selected === 10
-                                            ? { backgroundColor: theme }
+                                            ? { backgroundColor: switchColor }
                                             : {}
                                         }
-                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
-                                          theme === "bg-theme0" ||
-                                          theme === "bg-theme1"
-                                            ? "peer-checked:bg-black bg-gray-200"
-                                            : theme
+                                        className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          switchColor ===
+                                            "peer-checked:bg-theme0" ||
+                                          theme === "peer-checked:bg-theme1"
+                                            ? "peer-checked:bg-black"
+                                            : switchColor
                                         }`}
                                       ></div>
                                     </label>
@@ -1332,14 +1337,15 @@ const Dashboard = () => {
                                       <div
                                         style={
                                           selected === 10
-                                            ? { backgroundColor: theme }
+                                            ? { backgroundColor: switchColor }
                                             : {}
                                         }
-                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
-                                          theme === "bg-theme0" ||
-                                          theme === "bg-theme1"
-                                            ? "peer-checked:bg-black bg-gray-200"
-                                            : theme
+                                        className={`w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          switchColor ===
+                                            "peer-checked:bg-theme0" ||
+                                          theme === "peer-checked:bg-theme1"
+                                            ? "peer-checked:bg-black"
+                                            : switchColor
                                         }`}
                                       ></div>
                                     </label>
