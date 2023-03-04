@@ -43,7 +43,7 @@ export const UserInfo = () => {
               <input
                 type="text"
                 className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5"
-                placeholder="Health card number..."
+                placeholder="Email..."
                 required
               />
             </div>
@@ -51,7 +51,7 @@ export const UserInfo = () => {
             <input
               type="email"
               className="bg-primary border border-gray-300 text-gray-900 text-xs rounded-full  block w-full p-2 focus-visible:outline-none focus:outline-none mb-5 lg:mr-2"
-              placeholder="Email..."
+              placeholder="Additional information..."
               required
             />
 

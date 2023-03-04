@@ -58,6 +58,7 @@ const HomePage = () => {
   const fill = useAppSelector((state) => state.theme.fillColor);
   const color = useAppSelector((state) => state.theme.color);
   const textColor = useAppSelector((state) => state.theme.textColor);
+  const theme = useAppSelector((state) => state.theme.backgroundTheme);
 
   return (
     <div className="bg-primary h-screen flex flex-col pb-[72px] overflow-y-scroll lg:pb-0">
@@ -107,7 +108,14 @@ const HomePage = () => {
                       className="sr-only peer"
                       onClick={() => setAnonymousMode(!anonymousMode)}
                     />
-                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
+                    <div
+                      style={selected === 10 ? { backgroundColor: theme } : {}}
+                      className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                        theme === "bg-theme0" || theme === "bg-theme1"
+                          ? "peer-checked:bg-black bg-gray-200"
+                          : theme
+                      }`}
+                    ></div>
                   </label>
                 </div>
                 <div className="flex justify-between mb-6">
@@ -758,7 +766,16 @@ const HomePage = () => {
                         className="sr-only peer"
                         onClick={() => setAnonymousMode(!anonymousMode)}
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4  rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
+                      <div
+                        style={
+                          selected === 10 ? { backgroundColor: theme } : {}
+                        }
+                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                          theme === "bg-theme0" || theme === "bg-theme1"
+                            ? "peer-checked:bg-black bg-gray-200"
+                            : theme
+                        }`}
+                      ></div>
                     </label>
                   </div>
                 </div>

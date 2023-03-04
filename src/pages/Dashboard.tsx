@@ -19,11 +19,14 @@ const Dashboard = () => {
   const [showLocationInfo, setShowLocationInfo] = useState(false);
   const [addStation, setAddStation] = useState(false);
   const [showQRCode, setShowQRCode] = useState(false);
+  const [acceptingCustomers, setAcceptingCustomers] = useState(false);
   const cashex = [1, 2];
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
   const fill = useAppSelector((state) => state.theme.fillColor);
   const textColor = useAppSelector((state) => state.theme.textColor);
+  console.log(fill);
+
   return (
     <div className="bg-primary flex-1 flex flex-col overflow-y-scroll h-full">
       <DashNav />
@@ -54,6 +57,7 @@ const Dashboard = () => {
               <span className="opacity-80 block mb-1 text-xs">Cashex</span>
               <span className="text-2xl block mb-4">Locations</span>
             </div>
+
             <Link to="add-location">
               <div
                 style={selected === 10 ? { backgroundColor: theme } : {}}
@@ -119,23 +123,54 @@ const Dashboard = () => {
                     <div className="flex justify-between mb-4">
                       <span>Cashex</span>
 
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        style={selected === 10 ? { fill: fill } : {}}
-                        className={`w-[25px] ${
-                          fill === "fill-theme0" || fill === "fill-theme1"
-                            ? "fill-black"
-                            : fill
-                        }`}
-                        onClick={() => setShowLocationInfo(true)}
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <div className="flex items-center">
+                        <div className="flex items-center mr-3">
+                          <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                            Accepting customers?
+                          </span>
+                          <label className="relative inline-flex items-center cursor-pointer">
+                            <input
+                              type="checkbox"
+                              value=""
+                              title=""
+                              placeholder=""
+                              className="sr-only peer"
+                              onClick={() =>
+                                setAcceptingCustomers(!acceptingCustomers)
+                              }
+                            />
+                            <div
+                              style={
+                                selected === 10
+                                  ? { backgroundColor: theme }
+                                  : {}
+                              }
+                              className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                theme === "bg-theme0" || theme === "bg-theme1"
+                                  ? "peer-checked:bg-black bg-gray-200"
+                                  : theme
+                              }`}
+                            ></div>
+                          </label>
+                        </div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          style={selected === 10 ? { fill: fill } : {}}
+                          className={`w-[25px] ${
+                            fill === "fill-theme0" || fill === "fill-theme1"
+                              ? "fill-black"
+                              : fill
+                          }`}
+                          onClick={() => setShowLocationInfo(true)}
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
                     </div>
                     <div className="text-xs mb-2 opacity-50">
                       <div className="flex">
@@ -245,6 +280,38 @@ const Dashboard = () => {
                               <div className="flex justify-between text-sm mb-4">
                                 <span>Station 1</span>
                                 <div className="flex items-center">
+                                  <div className="flex items-center mr-3">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                      Accepting customers?
+                                    </span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                      <input
+                                        type="checkbox"
+                                        value=""
+                                        title=""
+                                        placeholder=""
+                                        className="sr-only peer"
+                                        onClick={() =>
+                                          setAcceptingCustomers(
+                                            !acceptingCustomers
+                                          )
+                                        }
+                                      />
+                                      <div
+                                        style={
+                                          selected === 10
+                                            ? { backgroundColor: theme }
+                                            : {}
+                                        }
+                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          theme === "bg-theme0" ||
+                                          theme === "bg-theme1"
+                                            ? "peer-checked:bg-black bg-gray-200"
+                                            : theme
+                                        }`}
+                                      ></div>
+                                    </label>
+                                  </div>
                                   {/* edit */}
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -419,6 +486,38 @@ const Dashboard = () => {
                               <div className="flex justify-between text-sm mb-4">
                                 <span>Station 1</span>
                                 <div className="flex items-center">
+                                  <div className="flex items-center mr-3">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                      Accepting customers?
+                                    </span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                      <input
+                                        type="checkbox"
+                                        value=""
+                                        title=""
+                                        placeholder=""
+                                        className="sr-only peer"
+                                        onClick={() =>
+                                          setAcceptingCustomers(
+                                            !acceptingCustomers
+                                          )
+                                        }
+                                      />
+                                      <div
+                                        style={
+                                          selected === 10
+                                            ? { backgroundColor: theme }
+                                            : {}
+                                        }
+                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          theme === "bg-theme0" ||
+                                          theme === "bg-theme1"
+                                            ? "peer-checked:bg-black bg-gray-200"
+                                            : theme
+                                        }`}
+                                      ></div>
+                                    </label>
+                                  </div>
                                   {/* edit */}
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -798,6 +897,35 @@ const Dashboard = () => {
                         </svg>
                       </div>
                       <div className="flex justify-between text-sm">
+                        <div className="flex items-center mr-3">
+                          <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                            Accepting customers?
+                          </span>
+                          <label className="relative inline-flex items-center cursor-pointer">
+                            <input
+                              type="checkbox"
+                              value=""
+                              title=""
+                              placeholder=""
+                              className="sr-only peer"
+                              onClick={() =>
+                                setAcceptingCustomers(!acceptingCustomers)
+                              }
+                            />
+                            <div
+                              style={
+                                selected === 10
+                                  ? { backgroundColor: theme }
+                                  : {}
+                              }
+                              className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                theme === "bg-theme0" || theme === "bg-theme1"
+                                  ? "peer-checked:bg-black bg-gray-200"
+                                  : theme
+                              }`}
+                            ></div>
+                          </label>
+                        </div>
                         <div
                           className="flex items-center mr-3 cursor-pointer"
                           onClick={() => setShowQRCode(true)}
@@ -977,6 +1105,39 @@ const Dashboard = () => {
                               <div className="flex justify-between text-sm mb-4">
                                 <span>Station 1</span>
                                 <div className="flex items-center">
+                                  <div className="flex items-center mr-3">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                      Accepting customers?
+                                    </span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                      <input
+                                        type="checkbox"
+                                        value=""
+                                        title=""
+                                        placeholder=""
+                                        className="sr-only peer"
+                                        onClick={() =>
+                                          setAcceptingCustomers(
+                                            !acceptingCustomers
+                                          )
+                                        }
+                                      />
+                                      <div
+                                        style={
+                                          selected === 10
+                                            ? { backgroundColor: theme }
+                                            : {}
+                                        }
+                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          theme === "bg-theme0" ||
+                                          theme === "bg-theme1"
+                                            ? "peer-checked:bg-black bg-gray-200"
+                                            : theme
+                                        }`}
+                                      ></div>
+                                    </label>
+                                  </div>
+
                                   {/* edit */}
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -1151,6 +1312,38 @@ const Dashboard = () => {
                               <div className="flex justify-between text-sm mb-4">
                                 <span>Station 1</span>
                                 <div className="flex items-center">
+                                  <div className="flex items-center mr-3">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                      Accepting customers?
+                                    </span>
+                                    <label className="relative inline-flex items-center cursor-pointer">
+                                      <input
+                                        type="checkbox"
+                                        value=""
+                                        title=""
+                                        placeholder=""
+                                        className="sr-only peer"
+                                        onClick={() =>
+                                          setAcceptingCustomers(
+                                            !acceptingCustomers
+                                          )
+                                        }
+                                      />
+                                      <div
+                                        style={
+                                          selected === 10
+                                            ? { backgroundColor: theme }
+                                            : {}
+                                        }
+                                        className={`w-11 h-6 peer-focus:outline-none peer-focus:ring-4  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all ${
+                                          theme === "bg-theme0" ||
+                                          theme === "bg-theme1"
+                                            ? "peer-checked:bg-black bg-gray-200"
+                                            : theme
+                                        }`}
+                                      ></div>
+                                    </label>
+                                  </div>
                                   {/* edit */}
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
