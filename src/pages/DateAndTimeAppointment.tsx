@@ -10,12 +10,6 @@ import dayjs, { Dayjs } from "dayjs";
 import * as React from "react";
 import { useAppSelector } from "../redux/hooks";
 
-const isWeekend = (date: Dayjs) => {
-  const day = date.day();
-
-  return day === 0 || day === 6;
-};
-
 const date = new Date();
 
 const availableTimeSlot = [
@@ -174,7 +168,6 @@ const DateAndTimeAppointment = () => {
               openTo="day"
               value={value}
               renderDay={renderWeekPickerDay}
-              shouldDisableDate={isWeekend}
               onChange={(newValue) => {
                 setValue(newValue);
               }}
