@@ -295,7 +295,6 @@ const Themes = () => {
                       dispatch(changeFillColor(`${customColor}`));
                       dispatch(changeColor(`${customColor}`));
                       dispatch(changeTextColor(`${customColor}`));
-                      dispatch(changeSwitchColor(`${customColor}`));
                     }}
                   >
                     Save changes
