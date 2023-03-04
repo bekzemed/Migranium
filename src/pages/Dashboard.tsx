@@ -125,7 +125,7 @@ const Dashboard = () => {
 
                       <div className="flex items-center">
                         <div className="flex items-center mr-3">
-                          <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                          <span className="mr-3 text-xs font-medium text-black whitespace-nowrap opacity-50">
                             Accepting customers?
                           </span>
                           <label className="relative inline-flex items-center cursor-pointer">
@@ -282,7 +282,7 @@ const Dashboard = () => {
                                 <span>Station 1</span>
                                 <div className="flex items-center">
                                   <div className="flex items-center mr-3">
-                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap opacity-50">
                                       Accepting customers?
                                     </span>
                                     <label className="relative inline-flex items-center cursor-pointer">
@@ -489,7 +489,7 @@ const Dashboard = () => {
                                 <span>Station 1</span>
                                 <div className="flex items-center">
                                   <div className="flex items-center mr-3">
-                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap opacity-50">
                                       Accepting customers?
                                     </span>
                                     <label className="relative inline-flex items-center cursor-pointer">
@@ -901,7 +901,7 @@ const Dashboard = () => {
                       </div>
                       <div className="flex justify-between text-sm">
                         <div className="flex items-center mr-3">
-                          <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                          <span className="mr-3 text-xs font-medium text-black whitespace-nowrap opacity-50">
                             Accepting customers?
                           </span>
                           <label className="relative inline-flex items-center cursor-pointer">
@@ -1110,7 +1110,7 @@ const Dashboard = () => {
                                 <span>Station 1</span>
                                 <div className="flex items-center">
                                   <div className="flex items-center mr-3">
-                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap opacity-50">
                                       Accepting customers?
                                     </span>
                                     <label className="relative inline-flex items-center cursor-pointer">
@@ -1318,7 +1318,7 @@ const Dashboard = () => {
                                 <span>Station 1</span>
                                 <div className="flex items-center">
                                   <div className="flex items-center mr-3">
-                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap">
+                                    <span className="mr-3 text-xs font-medium text-black whitespace-nowrap opacity-50">
                                       Accepting customers?
                                     </span>
                                     <label className="relative inline-flex items-center cursor-pointer">

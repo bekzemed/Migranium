@@ -346,24 +346,18 @@ const ScheduleContent = ({ datas }) => {
                           </span>
                           <span className="text-sm block">{event.phone}</span>
                         </div>
-                        <div className="pb-4">
-                          <p className="text-black text-sm font-extrabold mb-2">
-                            Healthcare number:
-                          </p>
-                          <p className="opacity-80">{event.healthCareNumber}</p>
-                        </div>
                       </div>
 
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-black text-sm font-extrabold mb-2">
-                            Reason or visit / comment:
+                            Reason for visit / comment:
                           </p>
                           <p className="opacity-80">{event.reason}</p>
                         </div>
                         <div className="text-center">
                           <p className="text-black text-sm font-extrabold mb-2">
-                            Information:
+                            Other Information:
                           </p>
                           <p className="opacity-80">{event.information}</p>
                         </div>
@@ -620,20 +614,12 @@ const ScheduleContent = ({ datas }) => {
                             </span>
                             <span className="text-sm block">{event.phone}</span>
                           </div>
-                          <div className="pb-4">
-                            <p className="text-black text-sm font-extrabold mb-2">
-                              Healthcare number:
-                            </p>
-                            <p className="opacity-80">
-                              {event.healthCareNumber}
-                            </p>
-                          </div>
                         </div>
 
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="text-black text-sm font-extrabold mb-2">
-                              Reason or visit / comment:
+                              Reason for visit / comment:
                             </p>
                             <p className="opacity-80">{event.reason}</p>
                           </div>

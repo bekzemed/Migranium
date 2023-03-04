@@ -1,8 +1,13 @@
-import * as React from "react";
-import dayjs, { Dayjs } from "dayjs";
+import {
+  PickersDay,
+  pickersDayClasses,
+  PickersDayProps,
+} from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
+import dayjs, { Dayjs } from "dayjs";
+import * as React from "react";
 import { useAppSelector } from "../redux/hooks";
 
 const isWeekend = (date: Dayjs) => {
@@ -134,6 +139,24 @@ const DateAndTimeAppointment = () => {
   const [value, setValue] = React.useState<Dayjs | null>(dayjs(date));
   const theme = useAppSelector((state) => state.theme.backgroundTheme);
   const selected = useAppSelector((state) => state.theme.selected);
+  const color = useAppSelector((state) => state.theme.color);
+
+  const renderWeekPickerDay = (
+    day: Dayjs,
+    selectedDays: Dayjs[],
+    pickersDayProps: PickersDayProps<Dayjs>
+  ) => {
+    return (
+      <PickersDay
+        {...pickersDayProps}
+        sx={{
+          [`&&.${pickersDayClasses.selected}`]: {
+            backgroundColor: color,
+          },
+        }}
+      />
+    );
+  };
 
   return (
     <div className="flex flex-col pb-5 lg:pb-0">
@@ -150,6 +173,7 @@ const DateAndTimeAppointment = () => {
               orientation="landscape"
               openTo="day"
               value={value}
+              renderDay={renderWeekPickerDay}
               shouldDisableDate={isWeekend}
               onChange={(newValue) => {
                 setValue(newValue);

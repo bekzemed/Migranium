@@ -1,22 +1,18 @@
-import React, { useState } from "react";
-import NavBar from "./NavBar";
+import { useState } from "react";
 import { Step, Stepper } from "react-form-stepper";
-import DateAndTimeAppointment from "./DateAndTimeAppointment";
 import { useAppSelector } from "../redux/hooks";
-import { UserInfo } from "./UserInfo";
 import { AppointmentFinish } from "./AppointmentFinish";
+import DateAndTimeAppointment from "./DateAndTimeAppointment";
+import { UserInfo } from "./UserInfo";
 
 const UserAppointment = () => {
-  const [show, setShow] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const color = useAppSelector((state) => state.theme.color);
   const selected = useAppSelector((state) => state.theme.selected);
   const textColor = useAppSelector((state) => state.theme.textColor);
   return (
     <div>
-      <NavBar show={show} onDone={() => setShow(!show)} hide={true} />
-
-      <div className="bg-primary px-4 lg:px-0 text-center h-screen flex flex-col dark:text-black pt-[70px]">
+      <div className="bg-primary px-4 lg:px-0 text-center h-screen flex flex-col dark:text-black py-[10px]">
         <>
           <Stepper
             activeStep={activeStep}

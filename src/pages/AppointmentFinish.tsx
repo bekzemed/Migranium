@@ -13,7 +13,7 @@ export const AppointmentFinish = () => {
         </span>
         <span className="block pb-5 text-sm">
           <span className="block mb-3">
-            <span>Your appointment at Cashexs,</span>{" "}
+            <span>Your appointment at Cashexs,537 Westminster on</span>{" "}
             <span
               style={selected === 10 ? { color: textColor } : {}}
               className={`text-sm ${
@@ -22,7 +22,7 @@ export const AppointmentFinish = () => {
                   : textColor
               }`}
             >
-              537 Westminster on 21st Feb 2021 at 10 am
+              21st Feb 2021 at 10 am
             </span>
             <span>, has been scheduled.</span>
           </span>

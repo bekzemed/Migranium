@@ -40,6 +40,14 @@
   display: none !important;
 }
 
+.css-1esn079-MuiButtonBase-root-MuiPickersDay-root.Mui-disabled {
+  color: white !important;
+}
+
+.css-1esn079-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
+  color: black !important;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
