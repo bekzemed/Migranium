@@ -122,7 +122,7 @@ const ScheduleContent = ({ datas }) => {
             {selectedEvent === "upcoming" &&
               event.upcoming.map((event: any, index: number) => (
                 <div key={index}>
-                  <div className="grid grid-cols-3 lg:grid-cols-3 text-xs py-4 items-center">
+                  <div className="grid grid-cols-3 text-xs py-4 items-center">
                     <p className="text-sm">
                       {event.from}-{event.to}
                     </p>
@@ -353,23 +353,21 @@ const ScheduleContent = ({ datas }) => {
                           </svg>
                         </div>
                       </div>
-                      <div className="flex items-start justify-between lg:grid grid-cols-3 xl:items-start lg:mb-4">
-                        <div className="hidden lg:block">
-                          <span className="text-sm block mb-2">
-                            {event.email}
-                          </span>
+                      <div className="hidden lg:block">
+                        <div className="grid grid-cols-3 mb-5">
+                          <span className="text-sm block">{event.email}</span>
                           <span className="text-sm block">{event.phone}</span>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between">
-                        <div>
+                      <div>
+                        {/* <div>
                           <p className="text-black text-sm font-extrabold mb-2">
                             Reason for visit / comment:
                           </p>
                           <p className="opacity-80">{event.reason}</p>
-                        </div>
-                        <div className="text-center">
+                        </div> */}
+                        <div>
                           <p className="text-black text-sm font-extrabold mb-2">
                             Other Information:
                           </p>
@@ -621,25 +619,23 @@ const ScheduleContent = ({ datas }) => {
                             </svg>
                           </div>
                         </div>
-                        <div className="flex items-start justify-between lg:grid grid-cols-3 xl:items-start lg:mb-4">
-                          <div className="hidden lg:block">
-                            <span className="text-sm block mb-2">
-                              {event.email}
-                            </span>
-                            <span className="text-sm block">{event.phone}</span>
+                        <div className="hidden lg:block">
+                          <div className="grid grid-cols-3 mb-4">
+                            <p className="text-sm mb-2">{event.email}</p>
+                            <p className="text-sm">{event.phone}</p>
                           </div>
                         </div>
 
-                        <div className="flex items-center justify-between">
-                          <div>
+                        <div>
+                          {/* <div>
                             <p className="text-black text-sm font-extrabold mb-2">
                               Reason for visit / comment:
                             </p>
                             <p className="opacity-80">{event.reason}</p>
-                          </div>
-                          <div className="text-center">
+                          </div> */}
+                          <div>
                             <p className="text-black text-sm font-extrabold mb-2">
-                              Information:
+                              Other Information:
                             </p>
                             <p className="opacity-80">{event.information}</p>
                           </div>
