@@ -122,13 +122,15 @@ const ScheduleContent = ({ datas }) => {
             {selectedEvent === "upcoming" &&
               event.upcoming.map((event: any, index: number) => (
                 <div key={index}>
-                  <div className="grid grid-cols-3 text-xs py-4 items-center">
+                  <div className="grid grid-cols-4 text-xs py-4 items-center">
                     <p className="text-sm">
                       {event.from}-{event.to}
                     </p>
-                    <p className="text-black text-sm font-extrabold text-start whitespace-nowrap">
+                    <p className="text-black text-sm font-extrabold whitespace-nowrap lg:text-center xl:text-start">
                       {event.name}
                     </p>
+
+                    <p className="text-sm">{event.phone}</p>
 
                     <div className="flex justify-end">
                       <div className="items-center justify-center hidden lg:flex lg:mr-5">
@@ -354,24 +356,11 @@ const ScheduleContent = ({ datas }) => {
                         </div>
                       </div>
                       <div className="hidden lg:block">
-                        <div className="grid grid-cols-3 mb-5">
-                          <span className="text-sm block">{event.email}</span>
-                          <span className="text-sm block">{event.phone}</span>
-                        </div>
-                      </div>
-
-                      <div>
-                        {/* <div>
-                          <p className="text-black text-sm font-extrabold mb-2">
-                            Reason for visit / comment:
-                          </p>
-                          <p className="opacity-80">{event.reason}</p>
-                        </div> */}
-                        <div>
-                          <p className="text-black text-sm font-extrabold mb-2">
+                        <div className="grid grid-cols-4">
+                          <p className="text-sm mb-2">{event.email}</p>
+                          <p className="text-sm text-center xl:text-start">
                             Other Information:
                           </p>
-                          <p className="opacity-80">{event.information}</p>
                         </div>
                       </div>
                     </div>
@@ -388,13 +377,15 @@ const ScheduleContent = ({ datas }) => {
               (event.past.length ? (
                 event.past.map((event, index) => (
                   <div key={index}>
-                    <div className="grid grid-cols-3 lg:grid-cols-3 text-xs py-4 items-center">
+                    <div className="grid grid-cols-3 lg:grid-cols-4 text-xs py-4 items-center">
                       <p className="text-sm">
                         {event.from}-{event.to}
                       </p>
-                      <p className="text-black text-sm font-extrabold text-start whitespace-nowrap">
+                      <p className="text-black text-sm font-extrabold whitespace-nowrap lg:text-center xl:text-start">
                         {event.name}
                       </p>
+
+                      <p className="text-sm">{event.phone}</p>
 
                       <div className="flex justify-end">
                         <div className="items-center justify-center hidden lg:flex lg:mr-5">
@@ -620,24 +611,11 @@ const ScheduleContent = ({ datas }) => {
                           </div>
                         </div>
                         <div className="hidden lg:block">
-                          <div className="grid grid-cols-3 mb-4">
+                          <div className="grid grid-cols-4">
                             <p className="text-sm mb-2">{event.email}</p>
-                            <p className="text-sm">{event.phone}</p>
-                          </div>
-                        </div>
-
-                        <div>
-                          {/* <div>
-                            <p className="text-black text-sm font-extrabold mb-2">
-                              Reason for visit / comment:
-                            </p>
-                            <p className="opacity-80">{event.reason}</p>
-                          </div> */}
-                          <div>
-                            <p className="text-black text-sm font-extrabold mb-2">
+                            <p className="text-sm text-center xl:text-start">
                               Other Information:
                             </p>
-                            <p className="opacity-80">{event.information}</p>
                           </div>
                         </div>
                       </div>
